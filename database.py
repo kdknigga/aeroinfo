@@ -193,13 +193,10 @@ def find_airport(identifier, include=None):
     Session = sessionmaker(bind=Engine)
     session = Session()
 
-    airport = session.query(Airport).filter_by(faa_id=identifier.upper()) \
-        .options(queryoptions).first()
+    airport = session.query(Airport).filter(
+        (Airport.faa_id == identifier.upper()) | (Airport.icao_id == identifier.upper())
+    ).options(queryoptions).first()
 
-    if not airport:
-        airport = session.query(Airport).filter_by(icao_id=identifier.upper()) \
-            .options(queryoptions).first()
-    
     session.close()
 
     return airport    
