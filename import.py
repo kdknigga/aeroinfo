@@ -5,8 +5,8 @@ import sqlalchemy
 import sys
 from dateutil import parser as dateparser
 from sqlalchemy.orm import sessionmaker
-from aeroinfo.database import OwnershipTypeEnum, FacilityUseEnum, DeterminationMethodEnum
-from aeroinfo.database import Airport, Runway, Engine
+from database import OwnershipTypeEnum, FacilityUseEnum, DeterminationMethodEnum
+from database import Airport, Runway, Engine
 
 #nasr_txt_file = "/tmp/FAA_NASR/2019-01-03/APT.txt"
 nasr_txt_file = sys.argv[1]
