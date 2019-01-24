@@ -6,6 +6,7 @@ import sys
 from dateutil import parser as dateparser
 from sqlalchemy.orm import sessionmaker
 from database import OwnershipTypeEnum, FacilityUseEnum, DeterminationMethodEnum
+from database import RunwayMarkingsTypeEnum, RunwayMarkingsConditionEnum
 from database import Airport, Runway, Engine
 
 #nasr_txt_file = "/tmp/FAA_NASR/2019-01-03/APT.txt"
