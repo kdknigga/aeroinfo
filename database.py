@@ -5,7 +5,7 @@ import enum
 import os
 from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, String, Float, Date
-from sqlalchemy import Enum, ForeignKey
+from sqlalchemy import Enum, ForeignKey, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import Load, joinedload
 from sqlalchemy.orm import relationship
@@ -36,6 +36,21 @@ class FacilityUseEnum(enum.Enum):
 class DeterminationMethodEnum(enum.Enum):
     E = "ESTIMATED"
     S = "SURVEYED"
+
+class RunwayMarkingsTypeEnum(enum.Enum):
+    PIR = "PRECISION INSTRUMENT"
+    NPI = "NONPRECISION INSTRUMENT"
+    BSC = "BASIC"
+    NRS = "NUMBERS ONLY"
+    NSTD = "NONSTANDARD (OTHER THAN NUMBERS ONLY)"
+    BUOY = "BUOYS (SEAPLANE BASE)"
+    STOL = "SHORT TAKEOFF AND LANDING"
+    NONE = "NONE"
+
+class RunwayMarkingsConditionEnum(enum.Enum):
+    G = "GOOD"
+    F = "FAIR"
+    P = "POOR"
 
 class Airport(Base):
     __tablename__ = "airports"
@@ -155,6 +170,12 @@ class Runway(Base):
     pavement_classification_number = Column(String(11))
     edge_light_intensity = Column(String(5))
     # BASE END INFORMATION
+    base_end_id = Column(String(3))
+    base_end_true_alignment = Column(Integer)
+    base_end_approach_type = Column(String(10))
+    base_end_right_traffic = Column(Boolean)
+    base_end_markings_type = Column(Enum(RunwayMarkingsTypeEnum))
+    base_end_markings_condition = Column(Enum(RunwayMarkingsConditionEnum))
     # BASE END GEOGRAPHIC DATA
     # BASE END LIGHTING DATA
     # BASE END OBJECT DATA

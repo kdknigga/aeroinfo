@@ -2,12 +2,14 @@
 
 import datetime
 import sqlalchemy
+import sys
 from dateutil import parser as dateparser
 from sqlalchemy.orm import sessionmaker
-from database import OwnershipTypeEnum, FacilityUseEnum, DeterminationMethodEnum
-from database import Airport, Runway, Engine
+from aeroinfo.database import OwnershipTypeEnum, FacilityUseEnum, DeterminationMethodEnum
+from aeroinfo.database import Airport, Runway, Engine
 
-nasr_txt_file = "/tmp/FAA_NASR/2019-01-03/APT.txt"
+#nasr_txt_file = "/tmp/FAA_NASR/2019-01-03/APT.txt"
+nasr_txt_file = sys.argv[1]
 
 def get_field(record, start, length, var_type="str"):
     s = start - 1
@@ -20,6 +22,11 @@ def get_field(record, start, length, var_type="str"):
             return int(field)
         elif var_type == "float":
             return float(field)
+        elif var_type == "bool":
+            if field in ["Y", "y", "T", "t"]:
+                return True
+            else:
+                return False
         elif var_type == "date":
             return dateparser.parse(field)
         elif var_type == "OwnershipTypeEnum":
@@ -28,6 +35,10 @@ def get_field(record, start, length, var_type="str"):
             return FacilityUseEnum[field]
         elif var_type == "DeterminationMethodEnum":
             return DeterminationMethodEnum[field]
+        elif var_type == "RunwayMarkingsTypeEnum":
+            return RunwayMarkingsTypeEnum[field]
+        elif var_type == "RunwayMarkingsConditionEnum":
+            return RunwayMarkingsConditionEnum[field]
         else:
             return field
 
@@ -60,7 +71,7 @@ with open(nasr_txt_file, "r", errors='replace') as f:
             airport.owners_name = get_field(line, 188, 35)
             airport.owners_address = get_field(line, 223, 72)
             airport.owners_city_state_zip = get_field(line, 295, 45)
-            airport.owners_phone = get_field(line, 240, 16)
+            airport.owners_phone = get_field(line, 340, 16)
             airport.managers_name = get_field(line, 356, 35)
             airport.managers_address = get_field(line, 391, 72)
             airport.managers_city_state_zip = get_field(line, 463, 45)
@@ -105,6 +116,12 @@ with open(nasr_txt_file, "r", errors='replace') as f:
             runway.pavement_classification_number = get_field(line, 50, 11)
             runway.edge_light_intensity = get_field(line, 61, 5)
             # BASE END INFORMATION
+            runway.base_end_id = get_field(line, 66, 3)
+            runway.base_end_true_alignment = get_field(line, 69, 3, "int")
+            runway.base_end_approach_type = get_field(line, 72, 10)
+            runway.base_end_right_traffic = get_field(line, 82, 1, "bool")
+            runway.base_end_markings_type = get_field(line, 83, 5, "RunwayMarkingsTypeEnum")
+            runway.base_end_markings_condition = get_field(line, 88, 1, "RunwayMarkingsConditionEnum")
             # BASE END GEOGRAPHIC DATA
             # BASE END LIGHTING DATA
             # BASE END OBJECT DATA
