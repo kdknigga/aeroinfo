@@ -2,55 +2,11 @@
 
 import datetime
 import enum
-import os
-from sqlalchemy import create_engine
+from . import enums
+from .base import Base
 from sqlalchemy import Column, Integer, String, Float, Date
 from sqlalchemy import Enum, ForeignKey, Boolean
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import Load, joinedload
 from sqlalchemy.orm import relationship
-from sqlalchemy.orm import sessionmaker
-
-db_rdbm = os.getenv("DB_RDBM")
-db_user = os.getenv("DB_USER")
-db_pass = os.getenv("DB_PASS")
-db_host = os.getenv("DB_HOST")
-db_name = os.getenv("DB_NAME")
-
-Base = declarative_base()
-Engine = create_engine('%s://%s:%s@%s/%s' % (db_rdbm, db_user, db_pass, db_host, db_name), echo=False)
-#Engine = create_engine('sqlite:///:memory:', echo=True)
-
-class OwnershipTypeEnum(enum.Enum):
-    PU = "PUBLICLY OWNED"
-    PR = "PRIVATELY OWNED"
-    MA = "AIR FORCE OWNED"
-    MN = "NAVY OWNED"
-    MR = "ARMY OWNED"
-    CG = "COAST GUARD OWNED"
-
-class FacilityUseEnum(enum.Enum):
-    PU = "OPEN TO THE PUBLIC"
-    PR = "PRIVATE"
-
-class DeterminationMethodEnum(enum.Enum):
-    E = "ESTIMATED"
-    S = "SURVEYED"
-
-class RunwayMarkingsTypeEnum(enum.Enum):
-    PIR = "PRECISION INSTRUMENT"
-    NPI = "NONPRECISION INSTRUMENT"
-    BSC = "BASIC"
-    NRS = "NUMBERS ONLY"
-    NSTD = "NONSTANDARD (OTHER THAN NUMBERS ONLY)"
-    BUOY = "BUOYS (SEAPLANE BASE)"
-    STOL = "SHORT TAKEOFF AND LANDING"
-    NONE = "NONE"
-
-class RunwayMarkingsConditionEnum(enum.Enum):
-    G = "GOOD"
-    F = "FAIR"
-    P = "POOR"
 
 class Airport(Base):
     __tablename__ = "airports"
@@ -70,8 +26,8 @@ class Airport(Base):
     city = Column(String(40))
     name = Column(String(50))
     # OWNERSHIP DATA
-    ownership_type = Column(Enum(OwnershipTypeEnum))
-    facility_use = Column(Enum(FacilityUseEnum))
+    ownership_type = Column(Enum(enums.OwnershipTypeEnum))
+    facility_use = Column(Enum(enums.FacilityUseEnum))
     owners_name = Column(String(35))
     owners_address = Column(String(72))
     owners_city_state_zip = Column(String(45))
@@ -85,9 +41,9 @@ class Airport(Base):
     latitude_secs = Column(String(12))
     longitude_dms = Column(String(15))
     longitude_secs = Column(String(12))
-    coords_method = Column(Enum(DeterminationMethodEnum))
+    coords_method = Column(Enum(enums.DeterminationMethodEnum))
     elevation = Column(Float(1))
-    elevation_method = Column(Enum(DeterminationMethodEnum))
+    elevation_method = Column(Enum(enums.DeterminationMethodEnum))
     mag_variation = Column(String(3))
     mag_variation_year = Column(Integer)
     pattern_alt = Column(Integer)
@@ -174,8 +130,8 @@ class Runway(Base):
     base_end_true_alignment = Column(Integer)
     base_end_approach_type = Column(String(10))
     base_end_right_traffic = Column(Boolean)
-    base_end_markings_type = Column(Enum(RunwayMarkingsTypeEnum))
-    base_end_markings_condition = Column(Enum(RunwayMarkingsConditionEnum))
+    base_end_markings_type = Column(Enum(enums.RunwayMarkingsTypeEnum))
+    base_end_markings_condition = Column(Enum(enums.RunwayMarkingsConditionEnum))
     # BASE END GEOGRAPHIC DATA
     # BASE END LIGHTING DATA
     # BASE END OBJECT DATA
@@ -203,39 +159,3 @@ class Runway(Base):
             result[attr] = value
 
         return result
-
-def find_airport(identifier, include=None):
-    _include = include or []
-    queryoptions = []
-
-    if "runways" in _include:
-        queryoptions.append(Load(Airport).joinedload("runways"))
-    
-    Session = sessionmaker(bind=Engine)
-    session = Session()
-
-    airport = session.query(Airport).filter(
-        (Airport.faa_id == identifier.upper()) | (Airport.icao_id == identifier.upper())
-    ).options(queryoptions).first()
-
-    session.close()
-
-    return airport    
-
-def find_runway(name, airport):
-    if isinstance(airport, Airport):
-        _airport = airport
-    elif isinstance(airport, str):
-        _airport = find_airport(airport)
-    else:
-        raise(TypeError("Expecting str or Airport"))
-
-    Session = sessionmaker(bind=Engine)
-    session = Session()
-
-    runway = session.query(Runway).with_parent(airport).filter(Runway.name.like("%" + name + "%")).scalar()
-
-    return runway
-
-
-Base.metadata.create_all(Engine)

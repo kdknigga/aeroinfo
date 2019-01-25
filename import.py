@@ -3,14 +3,18 @@
 import datetime
 import sqlalchemy
 import sys
+from database import Engine
+from database import enums
+from database import init_tables
+from database.models import Airport
+from database.models import Runway
 from dateutil import parser as dateparser
 from sqlalchemy.orm import sessionmaker
-from database import OwnershipTypeEnum, FacilityUseEnum, DeterminationMethodEnum
-from database import RunwayMarkingsTypeEnum, RunwayMarkingsConditionEnum
-from database import Airport, Runway, Engine
 
 #nasr_txt_file = "/tmp/FAA_NASR/2019-01-03/APT.txt"
 nasr_txt_file = sys.argv[1]
+
+init_tables()
 
 def get_field(record, start, length, var_type="str"):
     s = start - 1
@@ -31,15 +35,15 @@ def get_field(record, start, length, var_type="str"):
         elif var_type == "date":
             return dateparser.parse(field)
         elif var_type == "OwnershipTypeEnum":
-            return OwnershipTypeEnum[field]
+            return enums.OwnershipTypeEnum[field]
         elif var_type == "FacilityUseEnum":
-            return FacilityUseEnum[field]
+            return enums.FacilityUseEnum[field]
         elif var_type == "DeterminationMethodEnum":
-            return DeterminationMethodEnum[field]
+            return enums.DeterminationMethodEnum[field]
         elif var_type == "RunwayMarkingsTypeEnum":
-            return RunwayMarkingsTypeEnum[field]
+            return enums.RunwayMarkingsTypeEnum[field]
         elif var_type == "RunwayMarkingsConditionEnum":
-            return RunwayMarkingsConditionEnum[field]
+            return enums.RunwayMarkingsConditionEnum[field]
         else:
             return field
 
