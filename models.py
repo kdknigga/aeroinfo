@@ -133,8 +133,36 @@ class Runway(Base):
     base_end_markings_type = Column(Enum(enums.RunwayMarkingsTypeEnum))
     base_end_markings_condition = Column(Enum(enums.RunwayMarkingsConditionEnum))
     # BASE END GEOGRAPHIC DATA
+    base_end_runway_end_latitude_dms = Column(String(15))
+    base_end_runway_end_latitude_secs = Column(String(12))
+    base_end_runway_end_longitude_dms = Column(String(15))
+    base_end_runway_end_longitude_secs = Column(String(12))
+    base_end_runway_end_elevation = Column(Float(1))
+    base_end_threshold_crossing_height = Column(Integer)
+    base_end_visual_glide_path_angle = Column(Float(2))
+    base_end_displaced_threshold_latitude_dms = Column(String(15))
+    base_end_displaced_threshold_latitude_secs = Column(String(12))
+    base_end_displaced_threshold_longitude_dms = Column(String(15))
+    base_end_displaced_threshold_longitude_secs = Column(String(12))
+    base_end_displaced_threshold_elevation = Column(Float(1))
+    base_end_displaced_threshold_length = Column(Integer)
+    base_end_touchdown_zone_elevation = Column(Float(1))
     # BASE END LIGHTING DATA
+    base_end_visual_glide_slope_indicators = Column(Enum(enums.VisualGlideSlopeIndicatorEnum))
+    base_end_rvr_equipment = Column(Enum(enums.RVREquipmentEnum))
+    base_end_rvv_equipment = Column(Boolean)
+    base_end_approach_light_system = Column(String(8))
+    base_end_reil_availability = Column(Boolean)
+    base_end_centerline_light_availability = Column(Boolean)
+    base_end_touchdown_lights_availability = Column(Boolean)
     # BASE END OBJECT DATA
+    base_end_controlling_object_description = Column(String(11))
+    base_end_controlling_object_marking = Column(Enum(enums.ControllingObjectMarkingEnum))
+    base_end_part77_category = Column(String(5))
+    base_end_controlling_object_clearance_slope = Column(Integer)
+    base_end_controlling_object_height_above_runway = Column(Integer)
+    base_end_controlling_object_distance_from_runway = Column(Integer)
+    base_end_controlling_object_centerline_offset = Column(String(7))
     # RECIPROCAL END INFORMATION
     # RECIPROCAL END GEOGRAPHIC DATA
     # RECIPROCAL END LIGHTING DATA
