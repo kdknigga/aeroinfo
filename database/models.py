@@ -6,6 +6,7 @@ from . import enums
 from .base import Base
 from sqlalchemy import Column, Integer, String, Float, Date
 from sqlalchemy import Enum, ForeignKey, Boolean
+from sqlalchemy.schema import ForeignKeyConstraint
 from sqlalchemy.orm import relationship
 
 class Airport(Base):
@@ -125,53 +126,16 @@ class Runway(Base):
     surface_treatment = Column(String(5))
     pavement_classification_number = Column(String(11))
     edge_light_intensity = Column(String(5))
-    # BASE END INFORMATION
-    base_end_id = Column(String(3))
-    base_end_true_alignment = Column(Integer)
-    base_end_approach_type = Column(String(10))
-    base_end_right_traffic = Column(Boolean)
-    base_end_markings_type = Column(Enum(enums.RunwayMarkingsTypeEnum))
-    base_end_markings_condition = Column(Enum(enums.RunwayMarkingsConditionEnum))
-    # BASE END GEOGRAPHIC DATA
-    base_end_runway_end_latitude_dms = Column(String(15))
-    base_end_runway_end_latitude_secs = Column(String(12))
-    base_end_runway_end_longitude_dms = Column(String(15))
-    base_end_runway_end_longitude_secs = Column(String(12))
-    base_end_runway_end_elevation = Column(Float(1))
-    base_end_threshold_crossing_height = Column(Integer)
-    base_end_visual_glide_path_angle = Column(Float(2))
-    base_end_displaced_threshold_latitude_dms = Column(String(15))
-    base_end_displaced_threshold_latitude_secs = Column(String(12))
-    base_end_displaced_threshold_longitude_dms = Column(String(15))
-    base_end_displaced_threshold_longitude_secs = Column(String(12))
-    base_end_displaced_threshold_elevation = Column(Float(1))
-    base_end_displaced_threshold_length = Column(Integer)
-    base_end_touchdown_zone_elevation = Column(Float(1))
-    # BASE END LIGHTING DATA
-    base_end_visual_glide_slope_indicators = Column(Enum(enums.VisualGlideSlopeIndicatorEnum))
-    base_end_rvr_equipment = Column(Enum(enums.RVREquipmentEnum))
-    base_end_rvv_equipment = Column(Boolean)
-    base_end_approach_light_system = Column(String(8))
-    base_end_reil_availability = Column(Boolean)
-    base_end_centerline_light_availability = Column(Boolean)
-    base_end_touchdown_lights_availability = Column(Boolean)
-    # BASE END OBJECT DATA
-    base_end_controlling_object_description = Column(String(11))
-    base_end_controlling_object_marking = Column(Enum(enums.ControllingObjectMarkingEnum))
-    base_end_part77_category = Column(String(5))
-    base_end_controlling_object_clearance_slope = Column(Integer)
-    base_end_controlling_object_height_above_runway = Column(Integer)
-    base_end_controlling_object_distance_from_runway = Column(Integer)
-    base_end_controlling_object_centerline_offset = Column(String(7))
-    # RECIPROCAL END INFORMATION
-    # RECIPROCAL END GEOGRAPHIC DATA
-    # RECIPROCAL END LIGHTING DATA
-    # RECIPROCAL END OBJECT DATA
     # ADDITIONAL COMMON RUNWAY DATA
-    # ADDITIONAL BASE END DATA
-    # ADDITIONAL RECIPROCAL END DATA
+    length_source = Column(String(16))
+    length_source_date = Column(Date)
+    weight_bearing_capacity_single_wheel = Column(String(6))
+    weight_bearing_capacity_dual_wheels = Column(String(6))
+    weight_bearing_capacity_two_dual_wheels_tandem = Column(String(6))
+    weight_bearing_capacity_two_dual_wheels_double_tandem = Column(String(6))
 
     airport = relationship("Airport", back_populates="runways")
+    runway_ends = relationship("RunwayEnd", back_populates="runway")
 
     def __repr__(self):
         return "<Runway(name='%s', airport='%s')>" % (self.name, self.airport)
@@ -187,3 +151,84 @@ class Runway(Base):
             result[attr] = value
 
         return result
+
+class RunwayEnd(Base):
+    __tablename__ = "runway_ends"
+
+    facility_site_number = Column(String(11), primary_key=True)
+    runway_name = Column(String(7), primary_key=True)
+
+    __table_args__ = (ForeignKeyConstraint([facility_site_number, runway_name],
+                                           [Runway.facility_site_number, Runway.name]),
+                      {})
+
+    # RUNWAY END INFORMATION
+    id = Column(String(3), primary_key=True)
+    true_alignment = Column(Integer)
+    approach_type = Column(String(10))
+    right_traffic = Column(Boolean)
+    markings_type = Column(Enum(enums.RunwayMarkingsTypeEnum))
+    markings_condition = Column(Enum(enums.RunwayMarkingsConditionEnum))
+    # RUNWAY END GEOGRAPHIC DATA
+    latitude_dms = Column(String(15))
+    latitude_secs = Column(String(12))
+    longitude_dms = Column(String(15))
+    longitude_secs = Column(String(12))
+    elevation = Column(Float(1))
+    threshold_crossing_height = Column(Integer)
+    visual_glide_path_angle = Column(Float(2))
+    displaced_threshold_latitude_dms = Column(String(15))
+    displaced_threshold_latitude_secs = Column(String(12))
+    displaced_threshold_longitude_dms = Column(String(15))
+    displaced_threshold_longitude_secs = Column(String(12))
+    displaced_threshold_elevation = Column(Float(1))
+    displaced_threshold_length = Column(Integer)
+    touchdown_zone_elevation = Column(Float(1))
+    # RUNWAY END LIGHTING DATA
+    visual_glide_slope_indicators = Column(Enum(enums.VisualGlideSlopeIndicatorEnum))
+    rvr_equipment = Column(Enum(enums.RVREquipmentEnum))
+    rvv_equipment = Column(Boolean)
+    approach_light_system = Column(String(8))
+    reil_availability = Column(Boolean)
+    centerline_light_availability = Column(Boolean)
+    touchdown_lights_availability = Column(Boolean)
+    # RUNWAY END OBJECT DATA
+    controlling_object_description = Column(String(11))
+    controlling_object_marking = Column(Enum(enums.ControllingObjectMarkingEnum))
+    part77_category = Column(String(5))
+    controlling_object_clearance_slope = Column(Integer)
+    controlling_object_height_above_runway = Column(Integer)
+    controlling_object_distance_from_runway = Column(Integer)
+    controlling_object_centerline_offset = Column(String(7))
+    # ADDITIONAL RUNWAY END DATA
+    gradient = Column(String(5))
+    gradient_direction = Column(String(4))
+    position_source = Column(String(16))
+    position_date = Column(Date)
+    elevation_source = Column(String(16))
+    elevation_date = Column(Date)
+    displaced_threshold_position_source = Column(String(16))
+    displaced_threshold_position_date = Column(Date)
+    displaced_threshold_elevation_source = Column(String(16))
+    displaced_threshold_elevation_date = Column(Date)
+    touchdown_zone_elevation_source = Column(String(16))
+    touchdown_zone_elevation_date = Column(Date)
+    takeoff_run_available = Column(Integer)
+    takeoff_distance_available = Column(Integer)
+    accelerate_stop_distance_available = Column(Integer)
+    landing_distance_available = Column(Integer)
+    lahso_distance_available = Column(Integer)
+    id_of_lahso_intersecting_runway = Column(String(7))
+    description_of_lahso_entity = Column(String(40))
+    lahso_latitude_dms = Column(String(15))
+    lahso_latitude_secs = Column(String(12))
+    lahso_longitude_dms = Column(String(15))
+    lahso_longitude_secs = Column(String(12))
+    lahso_coords_source = Column(String(16))
+    lahso_coords_date = Column(Date)
+
+    runway = relationship("Runway", back_populates="runway_ends")
+
+    def __repr__(self):
+        return "<Runway End(id='%s', runway='%s')>" % (self.id, self.runway)
+

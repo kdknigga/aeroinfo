@@ -74,3 +74,4 @@ class ControllingObjectMarkingEnum(enum.Enum):
     M = "MARKED"
     L = "LIGHTED"
     ML = "MARKED AND LIGHTED"
+    LM = "MARKED AND LIGHTED"

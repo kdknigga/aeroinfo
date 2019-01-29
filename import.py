@@ -8,6 +8,7 @@ from database import enums
 from database import init_tables
 from database.models import Airport
 from database.models import Runway
+from database.models import RunwayEnd
 from dateutil import parser as dateparser
 from sqlalchemy.orm import sessionmaker
 
@@ -120,25 +121,159 @@ with open(nasr_txt_file, "r", errors='replace') as f:
             runway.surface_treatment = get_field(line, 45, 5)
             runway.pavement_classification_number = get_field(line, 50, 11)
             runway.edge_light_intensity = get_field(line, 61, 5)
-            # BASE END INFORMATION
-            runway.base_end_id = get_field(line, 66, 3)
-            runway.base_end_true_alignment = get_field(line, 69, 3, "int")
-            runway.base_end_approach_type = get_field(line, 72, 10)
-            runway.base_end_right_traffic = get_field(line, 82, 1, "bool")
-            runway.base_end_markings_type = get_field(line, 83, 5, "RunwayMarkingsTypeEnum")
-            runway.base_end_markings_condition = get_field(line, 88, 1, "RunwayMarkingsConditionEnum")
-            # BASE END GEOGRAPHIC DATA
-            # BASE END LIGHTING DATA
-            # BASE END OBJECT DATA
-            # RECIPROCAL END INFORMATION
-            # RECIPROCAL END GEOGRAPHIC DATA
-            # RECIPROCAL END LIGHTING DATA
-            # RECIPROCAL END OBJECT DATA
             # ADDITIONAL COMMON RUNWAY DATA
-            # ADDITIONAL BASE END DATA
-            # ADDITIONAL RECIPROCAL END DATA
+            runway.length_source = get_field(line, 510, 16)
+            runway.length_source_date = get_field(line, 526, 10, "date")
+            runway.weight_bearing_capacity_single_wheel = get_field(line, 536, 6)
+            runway.weight_bearing_capacity_dual_wheels = get_field(line, 542, 6)
+            runway.weight_bearing_capacity_two_dual_wheels_tandem = get_field(line, 548, 6)
+            runway.weight_bearing_capacity_two_dual_wheels_double_tandem = get_field(line, 554, 6)
+            # BASE END INFORMATION
+            base_end = None
+            base_end_id = get_field(line, 66, 3)
+            if base_end_id:
+                base_end = RunwayEnd()
+                base_end.facility_site_number = runway.facility_site_number
+                base_end.runway_name = runway.name
+                base_end.id = base_end_id
+                base_end.true_alignment = get_field(line, 69, 3, "int")
+                base_end.approach_type = get_field(line, 72, 10)
+                base_end.right_traffic = get_field(line, 82, 1, "bool")
+                base_end.markings_type = get_field(line, 83, 5, "RunwayMarkingsTypeEnum")
+                base_end.markings_condition = get_field(line, 88, 1, "RunwayMarkingsConditionEnum")
+                # BASE END GEOGRAPHIC DATA
+                base_end.latitude_dms = get_field(line, 89, 15)
+                base_end.latitude_secs = get_field(line, 104, 12)
+                base_end.longitude_dms = get_field(line, 116, 15)
+                base_end.longitude_secs = get_field(line, 131, 12)
+                base_end.elevation = get_field(line, 143, 7, "float")
+                base_end.threshold_crossing_height = get_field(line, 150, 3, "int")
+                base_end.visual_glide_path_angle = get_field(line, 153, 4, "float")
+                base_end.displaced_threshold_latitude_dms = get_field(line, 157, 15)
+                base_end.displaced_threshold_latitude_secs = get_field(line, 172, 12)
+                base_end.displaced_threshold_longitude_dms = get_field(line, 184, 15)
+                base_end.displaced_threshold_longitude_secs = get_field(line, 199, 12)
+                base_end.displaced_threshold_elevation = get_field(line, 211, 7, "float")
+                base_end.displaced_threshold_length = get_field(line, 218, 4, "int")
+                base_end.touchdown_zone_elevation = get_field(line, 222, 7, "float")
+                # BASE END LIGHTING DATA
+                base_end.visual_glide_slope_indicators = get_field(line, 229, 5, "VisualGlideSlopeIndicatorEnum")
+                base_end.rvr_equipment = get_field(line, 234, 3, "RVREquipmentEnum")
+                base_end.rvv_equipment = get_field(line, 237, 1, "bool")
+                base_end.approach_light_system = get_field(line, 238, 8)
+                base_end.reil_availability = get_field(line, 246, 1, "bool")
+                base_end.centerline_light_availability = get_field(line, 247, 1, "bool")
+                base_end.touchdown_lights_availability = get_field(line, 248, 1, "bool")
+                # BASE END OBJECT DATA
+                base_end.controlling_object_description = get_field(line, 249, 11)
+                base_end.controlling_object_marking = get_field(line, 260, 4, "ControllingObjectMarkingEnum")
+                base_end.part77_category = get_field(line, 264, 5)
+                base_end.controlling_object_clearance_slope = get_field(line, 269, 2, "int")
+                base_end.controlling_object_height_above_runway = get_field(line, 271, 5, "int")
+                base_end.controlling_object_distance_from_runway = get_field(line, 276, 5, "int")
+                base_end.controlling_object_centerline_offset = get_field(line, 281, 7)
+                # ADDITIONAL BASE END DATA
+                base_end.gradient = get_field(line, 560, 5)
+                base_end.gradient_direction = get_field(line, 565, 4)
+                base_end.position_source = get_field(line, 569, 16)
+                base_end.position_date = get_field(line, 585, 10, "date")
+                base_end.elevation_source = get_field(line, 595, 16)
+                base_end.elevation_date = get_field(line, 611, 10, "date")
+                base_end.displaced_threshold_position_source = get_field(line, 621, 16)
+                base_end.displaced_threshold_position_date = get_field(line, 637, 10, "date")
+                base_end.displaced_threshold_elevation_source = get_field(line, 647, 16)
+                base_end.displaced_threshold_elevation_date = get_field(line, 663, 10, "date")
+                base_end.touchdown_zone_elevation_source = get_field(line, 673, 16)
+                base_end.touchdown_zone_elevation_date = get_field(line, 689, 10, "date")
+                base_end.takeoff_run_available = get_field(line, 699, 5, "int")
+                base_end.takeoff_distance_available = get_field(line, 704, 5, "int")
+                base_end.accelerate_stop_distance_available = get_field(line, 709, 5, "int")
+                base_end.landing_distance_available = get_field(line, 714, 5, "int")
+                base_end.lahso_distance_available = get_field(line, 719, 5, "int")
+                base_end.id_of_lahso_intersecting_runway = get_field(line, 724, 7)
+                base_end.description_of_lahso_entity = get_field(line, 731, 40)
+                base_end.lahso_latitude_dms = get_field(line, 771, 15)
+                base_end.lahso_latitude_secs = get_field(line, 786, 12)
+                base_end.lahso_longitude_dms = get_field(line, 798, 15)
+                base_end.lahso_longitude_secs = get_field(line, 813, 12)
+                base_end.lahso_coords_source = get_field(line, 825, 16)
+                base_end.lahso_coords_date = get_field(line, 841, 10, "date")
+            # RECIPROCAL END INFORMATION
+            recip_end = None
+            recip_end_id = get_field(line, 288, 3)
+            if recip_end_id:
+                recip_end = RunwayEnd()
+                recip_end.facility_site_number = runway.facility_site_number
+                recip_end.runway_name = runway.name
+                recip_end.id = recip_end_id
+                recip_end.true_alignment = get_field(line, 291, 3, "int")
+                recip_end.approach_type = get_field(line, 294, 10)
+                recip_end.right_traffic = get_field(line, 304, 1, "bool")
+                recip_end.markings_type = get_field(line, 305, 5, "RunwayMarkingsTypeEnum")
+                recip_end.markings_condition = get_field(line, 310, 1, "RunwayMarkingsConditionEnum")
+                # RECIPROCAL END GEOGRAPHIC DATA
+                recip_end.latitude_dms = get_field(line, 311, 15)
+                recip_end.latitude_secs = get_field(line, 326, 12)
+                recip_end.longitude_dms = get_field(line, 338, 15)
+                recip_end.longitude_secs = get_field(line, 353, 12)
+                recip_end.elevation = get_field(line, 365, 7, "float")
+                recip_end.threshold_crossing_height = get_field(line, 372, 3, "int")
+                recip_end.visual_glide_path_angle = get_field(line, 375, 4, "float")
+                recip_end.displaced_threshold_latitude_dms = get_field(line, 379, 15)
+                recip_end.displaced_threshold_latitude_secs = get_field(line, 394, 12)
+                recip_end.displaced_threshold_longitude_dms = get_field(line, 406, 15)
+                recip_end.displaced_threshold_longitude_secs = get_field(line, 421, 12)
+                recip_end.displaced_threshold_elevation = get_field(line, 433, 7, "float")
+                recip_end.displaced_threshold_length = get_field(line, 440, 4, "int")
+                recip_end.touchdown_zone_elevation = get_field(line, 444, 7, "float")
+                # RECIPROCAL END LIGHTING DATA
+                recip_end.visual_glide_slope_indicators = get_field(line, 451, 5, "VisualGlideSlopeIndicatorEnum")
+                recip_end.rvr_equipment = get_field(line, 456, 3, "RVREquipmentEnum")
+                recip_end.rvv_equipment = get_field(line, 459, 1, "bool")
+                recip_end.approach_light_system = get_field(line, 460, 8)
+                recip_end.reil_availability = get_field(line, 468, 1, "bool")
+                recip_end.centerline_light_availability = get_field(line, 469, 1, "bool")
+                recip_end.touchdown_lights_availability = get_field(line, 470, 1, "bool")
+                # RECIPROCAL END OBJECT DATA
+                recip_end.controlling_object_description = get_field(line, 471, 11)
+                recip_end.controlling_object_marking = get_field(line, 482, 4, "ControllingObjectMarkingEnum")
+                recip_end.part77_category = get_field(line, 486, 5)
+                recip_end.controlling_object_clearance_slope = get_field(line, 491, 2, "int")
+                recip_end.controlling_object_height_above_runway = get_field(line, 493, 5, "int")
+                recip_end.controlling_object_distance_from_runway = get_field(line, 498, 5, "int")
+                recip_end.controlling_object_centerline_offset = get_field(line, 503, 7)
+                # ADDITIONAL RECIPROCAL END DATA
+                recip_end.gradient = get_field(line, 851, 5)
+                recip_end.gradient_direction = get_field(line, 856, 4)
+                recip_end.position_source = get_field(line, 860, 16)
+                recip_end.position_date = get_field(line, 876, 10, "date")
+                recip_end.elevation_source = get_field(line, 886, 16)
+                recip_end.elevation_date = get_field(line, 902, 10, "date")
+                recip_end.displaced_threshold_position_source = get_field(line, 912, 16)
+                recip_end.displaced_threshold_position_date = get_field(line, 928, 10, "date")
+                recip_end.displaced_threshold_elevation_source = get_field(line, 938, 16)
+                recip_end.displaced_threshold_elevation_date = get_field(line, 954, 10, "date")
+                recip_end.touchdown_zone_elevation_source = get_field(line, 964, 16)
+                recip_end.touchdown_zone_elevation_date = get_field(line, 980, 10, "date")
+                recip_end.takeoff_run_available = get_field(line, 990, 5, "int")
+                recip_end.takeoff_distance_available = get_field(line, 995, 5, "int")
+                recip_end.accelerate_stop_distance_available = get_field(line, 1000, 5, "int")
+                recip_end.landing_distance_available = get_field(line, 1005, 5, "int")
+                recip_end.lahso_distance_available = get_field(line, 1010, 5, "int")
+                recip_end.id_of_lahso_intersecting_runway = get_field(line, 1015, 7)
+                recip_end.description_of_lahso_entity = get_field(line, 1022, 40)
+                recip_end.lahso_latitude_dms = get_field(line, 1062, 15)
+                recip_end.lahso_latitude_secs = get_field(line, 1077, 12)
+                recip_end.lahso_longitude_dms = get_field(line, 1089, 15)
+                recip_end.lahso_longitude_secs = get_field(line, 1104, 12)
+                recip_end.lahso_coords_source = get_field(line, 1116, 16)
+                recip_end.lahso_coords_date = get_field(line, 1132, 10, "date")
 
             session.merge(runway)
+            if base_end:
+                session.merge(base_end)
+            if recip_end:
+                session.merge(recip_end)
 
 
 session.commit()
