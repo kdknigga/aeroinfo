@@ -77,7 +77,7 @@ def find_runway_end(name, runway, include=None):
         else:
             raise(TypeError("Expecting str or Airport in runway tuple"))
 
-        _runway = find_runway(_runway, _airport)
+        _runway = find_runway(__runway, _airport)
 
     Session = sessionmaker(bind=Engine)
     session = Session()
