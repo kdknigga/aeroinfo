@@ -53,6 +53,22 @@ class Airport(Base):
     direction_from_city = Column(String(3))
     land_area = Column(Integer)
     # FAA SERVICES
+    boundary_artcc_id = Column(String(4))
+    boundary_artcc_computer_id = Column(String(3))
+    boundary_artcc_name = Column(String(30))
+    responsible_artcc_id = Column(String(4))
+    responsible_artcc_computer_id = Column(String(3))
+    responsible_artcc_name = Column(String(30))
+    tie_in_fss_local = Column(Boolean)
+    tie_in_fss_id = Column(String(4))
+    tie_in_fss_name = Column(String(30))
+    fss_local_phone = Column(String(16))
+    fss_toll_free_phone = Column(String(16))
+    alternate_fss_id = Column(String(4))
+    alternate_fss_name = Column(String(30))
+    alternate_fss_toll_free_phone = Column(String(16))
+    notam_facility = Column(String(4))
+    notam_d_available = Column(Boolean)
     # FEDERAL STATUS
     # AIRPORT INSPECTION DATA
     # AIRPORT SERVICES
@@ -87,6 +103,14 @@ class Airport(Base):
         geo_attrs += ["pattern_alt", "sectional", "distance_from_city"]
         geo_attrs += ["direction_from_city", "land_area"]
 
+        faasrv_attrs = ["boundary_artcc_id", "boundary_artcc_computer_id"]
+        faasrv_attrs += ["boundary_artcc_name", "responsible_artcc_id"]
+        faasrv_attrs += ["responsible_artcc_computer_id", "responsible_artcc_name"]
+        faasrv_attrs += ["tie_in_fss_local", "tie_in_fss_id", "tie_in_fss_name"]
+        faasrv_attrs += ["fss_local_phone", "fss_toll_free_phone", "alternate_fss_id"]
+        faasrv_attrs += ["alternate_fss_name", "alternate_fss_toll_free_phone"]
+        faasrv_attrs += ["notam_facility", "notam_d_available"]
+
         if "demographic" in _include:
             base_attrs += demo_attrs
 
@@ -95,6 +119,9 @@ class Airport(Base):
 
         if "geographic" in _include:
             base_attrs += geo_attrs
+
+        if "faaservices" in _include:
+            base_attrs += faasrv_attrs
 
         result = dict()
 

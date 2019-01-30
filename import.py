@@ -98,6 +98,22 @@ with open(nasr_txt_file, "r", errors='replace') as f:
             airport.direction_from_city = get_field(line, 630, 3)
             airport.land_area = get_field(line, 633, 5, "int")
             # FAA SERVICES
+            airport.boundary_artcc_id = get_field(line, 638, 4)
+            airport.boundary_artcc_computer_id = get_field(line, 642, 3)
+            airport.boundary_artcc_name = get_field(line, 645, 30)
+            airport.responsible_artcc_id = get_field(line, 675, 4)
+            airport.responsible_artcc_computer_id = get_field(line, 679, 3)
+            airport.responsible_artcc_name = get_field(line, 682, 30)
+            airport.tie_in_fss_local = get_field(line, 712, 1, "bool")
+            airport.tie_in_fss_id = get_field(line, 713, 4)
+            airport.tie_in_fss_name = get_field(line, 717, 30)
+            airport.fss_local_phone = get_field(line, 747, 16)
+            airport.fss_toll_free_phone = get_field(line, 763, 16)
+            airport.alternate_fss_id = get_field(line, 779, 4)
+            airport.alternate_fss_name = get_field(line, 783, 30)
+            airport.alternate_fss_toll_free_phone = get_field(line, 813, 16)
+            airport.notam_facility = get_field(line, 829, 4)
+            airport.notam_d_available = get_field(line, 833, 1, "bool")
             # FEDERAL STATUS
             # AIRPORT INSPECTION DATA
             # AIRPORT SERVICES
