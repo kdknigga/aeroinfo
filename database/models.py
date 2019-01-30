@@ -280,8 +280,8 @@ class RunwayEnd(Base):
     def to_dict(self, include=None):
         _include = include or []
 
-        base_attrs = ["id", "approach_type", "right_traffic", "markings_type"]
-        base_attrs += ["markings_condition"]
+        base_attrs = ["id", "true_alignment", "approach_type", "right_traffic"]
+        base_attrs += ["markings_type", "markings_condition"]
 
         geo_attrs = ["latitude_dms", "latitude_secs", "longitude_dms", "longitude_secs"]
         geo_attrs += ["elevation", "threshold_crossing_height", "visual_glide_path_angle"]
