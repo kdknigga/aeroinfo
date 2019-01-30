@@ -52,7 +52,7 @@ def find_runway(name, airport, include=None):
     Session = sessionmaker(bind=Engine)
     session = Session()
 
-    runway = session.query(Runway).with_parent(airport).filter(
+    runway = session.query(Runway).with_parent(_airport).filter(
         Runway.name.like("%" + name + "%")
         ).options(queryoptions).scalar()
 
