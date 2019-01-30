@@ -142,13 +142,31 @@ class Runway(Base):
 
     def to_dict(self, include=None):
         _include = include or []
-        base_attrs = ["name", "length", "width"]
+
+        base_attrs = ["name", "length", "width", "surface_type_condition"]
+        base_attrs += ["surface_treatment", "pavement_classification_number", "edge_light_intensity"]
+
+        addl_attrs = ["length_source", "length_source_date", "weight_bearing_capacity_single_wheel"]
+        addl_attrs += ["weight_bearing_capacity_dual_wheels", "weight_bearing_capacity_two_dual_wheels_tandem"]
+        addl_attrs += ["weight_bearing_capacity_two_dual_wheels_double_tandem"]
+
+        if "additional" in _include:
+            base_attrs += addl_attrs
 
         result = dict()
 
         for attr in base_attrs:
             value = getattr(self, attr)
-            result[attr] = value
+
+            if isinstance(value, enum.Enum):
+                result[attr] = value.value
+            elif isinstance(value, (datetime.date, datetime.datetime)):
+                result[attr] = value.isoformat()
+            else:
+                result[attr] = value
+
+        if "runway_ends" in _include:
+            result["runway_ends"] = [end.to_dict() for end in self.runway_ends]
 
         return result
 
@@ -232,3 +250,62 @@ class RunwayEnd(Base):
     def __repr__(self):
         return "<Runway End(id='%s', runway='%s')>" % (self.id, self.runway)
 
+    def to_dict(self, include=None):
+        _include = include or []
+
+        base_attrs = ["id", "approach_type", "right_traffic", "markings_type"]
+        base_attrs += ["markings_condition"]
+
+        geo_attrs = ["latitude_dms", "latitude_secs", "longitude_dms", "longitude_secs"]
+        geo_attrs += ["elevation", "threshold_crossing_height", "visual_glide_path_angle"]
+        geo_attrs += ["displaced_threshold_latitude_dms", "displaced_threshold_latitude_secs"]
+        geo_attrs += ["displaced_threshold_longitude_dms", "displaced_threshold_longitude_secs"]
+        geo_attrs += ["displaced_threshold_elevation", "displaced_threshold_length"]
+        geo_attrs += ["touchdown_zone_elevation"]
+
+        lighting_attrs = ["visual_glide_slope_indicators", "rvr_equipment", "rvv_equipment"]
+        lighting_attrs += ["approach_light_system", "reil_availability"]
+        lighting_attrs += ["centerline_light_availability", "touchdown_lights_availability"]
+
+        obj_attrs = ["controlling_object_description", "controlling_object_marking"]
+        obj_attrs += ["part77_category", "controlling_object_clearance_slope"]
+        obj_attrs += ["controlling_object_height_above_runway", "controlling_object_distance_from_runway"]
+        obj_attrs += ["controlling_object_centerline_offset"]
+
+        addl_attrs = ["gradient", "gradient_direction", "position_source", "position_date"]
+        addl_attrs += ["elevation_source", "elevation_date", "displaced_threshold_position_source"]
+        addl_attrs += ["displaced_threshold_position_date", "displaced_threshold_elevation_source"]
+        addl_attrs += ["displaced_threshold_elevation_date", "touchdown_zone_elevation_source"]
+        addl_attrs += ["touchdown_zone_elevation_date", "takeoff_run_available"]
+        addl_attrs += ["takeoff_distance_available", "accelerate_stop_distance_available"]
+        addl_attrs += ["landing_distance_available", "lahso_distance_available"]
+        addl_attrs += ["id_of_lahso_intersecting_runway", "description_of_lahso_entity"]
+        addl_attrs += ["lahso_latitude_dms", "lahso_latitude_secs"]
+        addl_attrs += ["lahso_longitude_dms", "lahso_longitude_secs"]
+        addl_attrs += ["lahso_coords_source", "lahso_coords_date"]
+
+        if "geographic" in _include:
+            base_attrs += geo_attrs
+
+        if "lighting" in _include:
+            base_attrs += lighting_attrs
+
+        if "object" in _include:
+            base_attrs += obj_attrs
+
+        if "additional" in _include:
+            base_attrs += addl_attrs
+
+        result = dict()
+
+        for attr in base_attrs:
+            value = getattr(self, attr)
+
+            if isinstance(value, enum.Enum):
+                result[attr] = value.value
+            elif isinstance(value, (datetime.date, datetime.datetime)):
+                result[attr] = value.isoformat()
+            else:
+                result[attr] = value
+
+        return result
