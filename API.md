@@ -4,9 +4,9 @@ Currently you can query for airport, runway, and runway end information.
 
 What's a runway end?  Well, the FAA breaks a normal runway into two parts: base end and reciprocal end.  For an example, runway "18/36" has a base end of "18" and a reciprocal end of "36".  In the FAA's data set, some attributes belong to a runway as a whole and some attributes belong to runway ends.
 
-All querys are done with HTTP GETs and query strings.  I don't do anything with POSTs or any other methods at the moment.
+All queries are done with HTTP GETs and query strings.  I don't do anything with POSTs or any other methods at the moment.
 
-Query strings can be broken down into two parts: identifying what you want to search for, and specifing what information you want to see.  I'll show examples below.
+Query strings can be broken down into two parts: identifying what you want to search for, and specifying what information you want to see.  I'll show examples below.
 
 ## How to query airport information
 The required query string parameter to search for an airport is `airport`.  It accepts either FAA or ICAO airport identifers and returns basic airport information.
@@ -48,7 +48,7 @@ You may notice that runway names usually have a forward-slash in them.  This nee
 * additional
 * runway_ends
 
-Yeah, runways don't have all that much interesting information.  Most of the iteresting stuff is in runway_ends.
+Yeah, runways don't have all that much interesting information.  Most of the interesting stuff is in runway_ends.
 
 ## How to query runway end information
 Now we have three required query string parameters: `airport`, `runway`, and `runway_end`.
