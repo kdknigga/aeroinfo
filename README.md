@@ -14,7 +14,7 @@ https://api.aeronautical.info/dev/?airport=ORD&include=demographic&include=geogr
 * Now you just have to create environment variables with your database information.  See the top of database/\_\_init\_\_.py for details.
 * Finally, use download_nasr.py to download the current FAA NASR subscription data to a local directory and then use import.py to create the database tables and populate the database.
 
-**CAVEAT** import.py will create tables from scratch, but will not alter existing tables.  When I update the database schema, I've been dropping tables and rerunning import.py.  I do plan on implementing [a database migration system](https://github.com/kdknigga/aeroinfo/issues/6) at some point to manage schema changes.
+**CAVEAT** import.py will create tables from scratch and will update table contents (like, when an updated dataset is released), but will not alter existing tables.  When I update the database schema, I've been dropping tables and rerunning import.py.  I do plan on implementing [a database migration system](https://github.com/kdknigga/aeroinfo/issues/6) at some point to manage schema changes.
 
 ## api.aeronautical.info information
 I've set up a web-based API to query an instance of aeroinfo I have running.
