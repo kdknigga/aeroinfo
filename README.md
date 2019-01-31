@@ -17,6 +17,6 @@ https://api.aeronautical.info/dev/?airport=ORD&include=demographic&include=geogr
 **CAVEAT** import.py will create tables from scratch, but will not alter existing tables.  When I update the database schema, I've been dropping tables and rerunning import.py.  I do plan on implementing [a database migration system](https://github.com/kdknigga/aeroinfo/issues/6) at some point to manage schema changes.
 
 ## api.aeronautical.info information
-I've set up a web-based API to query a copy of this I have running.
+I've set up a web-based API to query an instance of aeroinfo I have running.
 
-See detail on how to use [here](API.md).
+See details on how to use [here](API.md).
