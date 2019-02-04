@@ -1,0 +1,1501 @@
+                             LANDING FACILITY
+                         DATA BASE RECORD LAYOUT
+                               (APT-FILE)
+
+
+
+INFORMATION EFFECTIVE DATE: 07/19/2018 CHARTING CYCLE
+
+    RECORD FORMAT: FIXED
+    LOGICAL RECORD LENGTH: 1529
+
+
+
+FILE STRUCTURE DESCRIPTION:
+---------------------------
+
+    THERE ARE A VARIABLE NUMBER OF FIXED-LENGTH RECORDS FOR
+    EACH LANDING FACILITY.  THE NUMBER OF RECORDS IS DETERMINED
+    BY THE NUMBER OF RUNWAYS AND REMARKS ASSOCIATED WITH THE FACILITY.
+    THE RECORDS ARE IDENTIFIABLE BY A RECORD TYPE INDICATOR
+    (APT, ATT, RWY, ARS, OR RMK), AND LANDING FACILITY SITE NUMBER.
+
+    THE FILE IS SORTED BY STATE, SITE NUMBER (IMPLIES CITY AND
+    STATE), AND RECORD TYPE (APT THEN ATT THEN RWY THEN ARS THEN RMK).
+    RUNWAY RECORDS ARE FURTHER SORTED BY THE RUNWAY DESIGNATION.
+    ARRESTING SYSTEM RECORDS ARE FURTHER SORTED BY THE RUNWAY
+    DESIGNATION AND THE RUNWAY END DESIGNATION.
+    REMARK RECORDS ARE FURTHER SORTED BY REMARK ELEMENT NAME.
+
+    EACH RECORD ENDS WITH A CARRIAGE RETURN CHARACTER AND LINE FEED
+    CHARACTER (CR/LF). THIS LINE TERMINATOR IS NOT INCLUDED IN THE
+    LOGICAL RECORD LENGTH.
+
+DESCRIPTION OF THE RECORD TYPES:
+--------------------------------
+
+    'APT' RECORDS CONTAIN THE BASIC LANDING FACILITY INFORMATION.
+    IT DESCRIBES LOCATION, OWNERSHIP, FACILITIES, SERVICES, AND
+    ACTIVITIES INFORMATION RELATED TO THE LANDING FACILITY. THERE
+    IS ALWAYS ONE 'APT' RECORD FOR A LANDING FACILITY.
+
+    'ATT' RECORDS CONTAIN TEXT DESCRIBING THE AIRPORT ATTENDANCE SCHEDULE
+    WHEN MINIMUM SERVICES ARE AVAILABLE.  EACH 'ATT' RECORD CONTAINS ONE
+    SET OF MONTHS, DAYS, AND HOURS WHEN THE AIRPORT IS ATTENDED.
+    THERE MAY BE NONE, ONE, OR MANY ATTENDANCE SCHEDULE RECORDS FOR
+    A LANDING FACILITY.
+
+    'RWY' RECORDS CONTAIN INFORMATION RELATED TO ONE RUNWAY AT THE
+    LANDING FACILITY (AIRPORT SITE) IDENTIFIED IN THE PREVIOUS 'APT'
+    RECORD.  ALL INFORMATION FOR A RUNWAY IS IN ONE 'RWY' RECORD.
+    INFORMATION IS CATEGORIZED BY THAT WHICH APPLIES TO THE ENTIRE
+    RUNWAY AND THAT WHICH APPLIES TO THE BASE AND RECIPROCAL ENDS
+    OF THE RUNWAY. THERE IS ONE 'RWY' RECORD FOR EACH RUNWAY AT
+    THE LANDING FACILITY. THERE WILL ALWAYS BE AT LEAST ONE 'RWY'
+    RECORD FOR A LANDING FACILITY.
+
+    'ARS' RECORDS CONTAIN INFORMATION RELATED TO ONE ARRESTING SYSTEM
+    LOCATED AT A PARTICULAR RUNWAY END AT THE LANDING FACILITY IDENTIFIED
+    IN THE PREVIOUS 'APT' RECORD.  THERE MAY BE NONE, ONE, OR MANY
+    ARRESTING SYSTEM RECORDS FOR A LANDING FACILITY AND ANY OF ITS
+    RUNWAYS.
+
+    'RMK' RECORDS CONTAIN TEXTUAL REMARKS PERTAINING TO THE LANDING
+    FACILITY OR ITS RUNWAYS. REMARKS CAN BE GENERAL IN NATURE OR
+    RELATE TO SPECIFIC AIRPORT OR RUNWAY DATA ITEMS. EACH 'RMK'
+    RECORD CONTAINS ONE TEXTUAL REMARK. THERE MAY BE NONE, ONE,
+    OR MANY REMARK RECORDS FOR A LANDING FACILITY.
+
+
+GENERAL INFORMATION:
+--------------------
+
+    1.  LEFT JUSTIFIED FIELDS HAVE TRAILING BLANKS
+
+    2.  RIGHT JUSTIFIED (R AN) FIELDS HAVE LEADING BLANKS
+
+    3.  RIGHT JUSTIFIED NUMERIC (R N) FIELDS HAVE LEADING ZEROS
+        WHEN DATA IS AVAILABLE. OTHERWISE, THE FIELD IS BLANK.
+
+    4.  ELEMENT NUMBER IS FOR INTERNAL REFERENCE ONLY AND IS NOT
+        IN THE RECORD.
+
+    5.  THE TERMS 'AIRPORT' AND 'LANDING FACILITY' ARE USED
+        SYNONYMOUSLY IN THIS DOCUMENT.
+
+    6.  LATITUDE AND LONGITUDE INFORMATION IS REPRESENTED IN
+         TWO WAYS:
+         A. A19,A20,E68,E69,E161,E162,E164,E165 ARE FORMATTED
+            LAT/LONG VALUES AND ARE REPRESENTED AS FOLLOWS:
+
+            LATITUDE    DD-MM-SS.SSSSH
+            LONGITUDE   DDD-MM-SS.SSSSH
+
+            WHERE :     DD IS DEGREES
+                        MM IS MINUTES
+                        SS.SSSS IS SECONDS, AND TEN THOUSANDTHS OF SECONDS-
+                        H IS DECLINATION
+
+            EXAMPLE :   LAT-   39-06-51.0701N
+                        LONG-  075-27-54.6601W
+
+          B. A19S,A20S,E68S,E69S,E161S,E162S,E164S,E165S
+             ARE LAT/LONG VALUES CONVERTED TO ALL SECONDS AS FOLLOWS:
+
+             LATITUDE AND LONGITUDE     SSSSSS.SSSSH
+             WHERE :    SSSSSS.SSSS IS THE DEG/MIN/SEC CONVERTED
+                                   TO ALL SECONDS
+                        H IS THE DECLINATION
+
+      EXAMPLE:  LAT-   140811.0701N
+                LONG-  271674.6601W
+
+    7.  A LIMITED NUMBER OF NON-US LANDING FACILITIES ARE INCLUDED IN THIS
+        FILE. SOME OF THESE, IN PARTICULAR THE CANADIAN FACILITIES, ARE
+        INCLUDED TO FACILITATE CARTOGRAPHIC REQUIREMENTS IN BORDER REGIONS.
+        THESE RECORDS ARE NOT GUARANTEED TO BE COMPLETE AND ARE NOT INCLUSIVE
+        OF ALL CANADIAN FACILITIES. THIS FILE SHOULD NOT BE CONSIDERED OFFICIAL
+        SOURCE FOR NON-US FACILITIES.
+
+
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+************************************************************************
+*          L A N D I N G   F A C I L I T Y   D A T A                   *
+************************************************************************
+
+L AN 0003 00001  N/A     RECORD TYPE INDICATOR.
+                            APT: BASIC LANDING FACILITY DATA
+
+L AN 0011 00004  DLID    LANDING FACILITY SITE NUMBER
+                            A UNIQUE IDENTIFYING NUMBER WHICH,
+                            TOGETHER WITH THE LANDING FACILITY TYPE CODE,
+                            FORMS THE KEY TO THE AIRPORT RECORD.
+                            FILE.  EXAMPLE: 04508.*A
+
+
+
+L AN 0013 00015  DLID    LANDING FACILITY TYPE
+
+                            AIRPORT
+                            BALLOONPORT
+                            SEAPLANE BASE
+                            GLIDERPORT
+                            HELIPORT
+                            ULTRALIGHT
+
+L AN 0004 00028  E7      LOCATION IDENTIFIER
+                            UNIQUE 3-4 CHARACTER ALPHANUMERIC IDENTIFIER
+                            ASSIGNED TO THE LANDING FACILITY.
+                            (EX. 'ORD' FOR CHICAGO O'HARE)
+L AN 0010 00032  N/A     INFORMATION EFFECTIVE DATE (MM/DD/YYYY)
+                            THIS DATE COINCIDES WITH THE 56-DAY
+                            CHARTING AND PUBLICATION CYCLE DATE.
+
+                         -----------------------------------------------
+                                    DEMOGRAPHIC DATA
+                         -----------------------------------------------
+
+L AN 0003 00042  A6      FAA REGION CODE
+                            CODE           REGION NAME
+                            ----           -----------
+                            AAL            ALASKA
+                            ACE            CENTRAL
+                            AEA            EASTERN
+                            AGL            GREAT LAKES
+                            AIN            INTERNATIONAL
+                            ANE            NEW ENGLAND
+                            ANM            NORTHWEST MOUNTAIN
+                            ASO            SOUTHERN
+                            ASW            SOUTHWEST
+                            AWP            WESTERN-PACIFIC
+
+L AN 0004 00045  A6A     FAA DISTRICT OR FIELD OFFICE CODE
+                            (EX. CHI)
+L AN 0002 00049  A4      ASSOCIATED STATE POST OFFICE CODE
+                            STANDARD TWO LETTER ABBREVIATION
+                            FOR U.S. STATES AND TERRITORIES
+                            (EX. IL,PR,CQ)
+L AN 0020 00051  A4      ASSOCIATED STATE NAME
+                            (EX. ILLINOIS)
+L AN 0021 00071  A5      ASSOCIATED COUNTY (OR PARISH) NAME
+                            (EX. COOK)
+                            (FOR NON-US AREODROMES THIS MAY BE
+                            TERRITORY OR PROVINCE NAME)
+L AN 0002 00092  A5      ASSOCIATED COUNTY'S STATE (POST OFFICE CODE)
+                            STATE WHERE THE ASSOCIATED COUNTY IS
+                            LOCATED; MAY NOT BE THE SAME AS THE
+                            ASSOCIATED CITY'S STATE CODE.
+                            (EX. IL)
+
+                            FOR NON-US AERODROME FACILITIES, THESE
+                            "STATE" CODES ARE INTERNAL TO THIS SYSTEM AND MAY
+                            NOT CORRESPOND TO STANDARD STATE OR COUNTRY CODES
+                            IN USE ELSEWHERE. NONSTANDARD
+                            "COUNTY_ASSOCIATED_STATE" AND "COUNTY" NAMES
+                            CURRENTLY IN USE INCLUDE:
+
+                               COUNTY_ASSOC_STATE  COUNTY NAME
+                               ------------------  ---------------------
+                               AI                  ANGUILLA
+                               AN                  NETHERLANDS ANTILLES
+                               AS                  AMERICAN SAMOA
+                               BL                  SAINT BARTHELEMY     
+                               BM                  BERMUDA
+                               BS                  BAHAMAS
+                               CN                  B.C., CANADA
+                               CN                  QUEBEC, CANADA
+                               CN                  P.E.I., CANADA
+                               CN                  ALBERTA, CANADA
+                               CN                  ONTARIO, CANADA
+                               CN                  NUNAVUT, CANADA
+                               CN                  MANITOBA, CANADA
+                               CN                  YUKON TERR, CANADA
+                               CN                  NOVA SCOTIA, CANADA
+                               CN                  SASKATCHEWAN, CANADA
+                               CN                  NEWFOUNDLAND, CANADA
+                               CN                  NORTHWEST TERR,CANADA
+                               CN                  NEW BRUNSWICK, CANADA
+                               FM                  FED STS MICRONESIA
+                               GL                  GREENLAND
+                               GP                  GUADELOUPE
+                               GU                  GUAM
+                               IO                  BRITISH INDIAN OCEAN
+                               IQ                  US MISC PACIFIC IS
+                               MF                  SAINT MARTIN
+                               MH                  MARSHALL ISLANDS
+                               MP                  N MARIANA ISLANDS
+                               MQ                  MIDWAY ISLANDS
+                               PW                  PALAU
+                               SH                  SAINT HELENA
+                               TC                  TURKS AND CAICOS
+                               TQ                  -TRUST TERR. OF PAC-
+                               VG                  VIRGIN ISLANDS, BRIT
+                               VI                  VIRGIN ISLANDS
+                               WQ                  WAKE ISLAND
+
+
+L AN 0040 00094  A1      ASSOCIATED CITY NAME
+                            (EX. CHICAGO)
+L AN 0050 00134  A2      OFFICIAL FACILITY NAME
+                            (EX. CHICAGO O'HARE INTL)
+
+                         -----------------------------------------------
+                                    OWNERSHIP DATA
+                         -----------------------------------------------
+
+L AN 0002 00184  A10     AIRPORT OWNERSHIP TYPE
+                            PU - PUBLICLY OWNED
+                            PR - PRIVATELY OWNED
+                            MA - AIR FORCE OWNED
+                            MN - NAVY OWNED
+                            MR - ARMY OWNED
+                            CG - COAST GUARD OWNED
+L AN 0002 00186  A18     FACILITY USE
+                            PU - OPEN TO THE PUBLIC
+                            PR - PRIVATE
+L AN 0035 00188  A11     FACILITY OWNER'S NAME
+L AN 0072 00223  A12     OWNER'S ADDRESS
+L AN 0045 00295  A12A    OWNER'S CITY, STATE AND ZIP CODE
+R AN 0016 00340  A13     OWNER'S PHONE NUMBER
+                           DATA FORMATS:
+                             NNN-NNN-NNNN  (AREA CODE + PHONE NUMBER)
+                             1-NNN-NNNN    (DIAL 1-800 THEN NUMBER)
+                             8-NNN-NNNN    (DIAL 800 THEN NUMBER)
+
+L AN 0035 00356  A14     FACILITY MANAGER'S NAME
+L AN 0072 00391  A15     MANAGER'S ADDRESS
+L AN 0045 00463  A15A    MANAGER'S CITY, STATE AND ZIP CODE
+R AN 0016 00508  A16     MANAGER'S PHONE NUMBER
+                           DATA FORMATS:
+                             NNN-NNN-NNNN  (AREA CODE + PHONE NUMBER)
+                             1-NNN-NNNN    (DIAL 1-800 THEN NUMBER)
+                             8-NNN-NNNN    (DIAL 800 THEN NUMBER)
+
+                         -----------------------------------------------
+
+                                         GEOGRAPHIC DATA
+                         -----------------------------------------------
+
+L AN 0015 00524  A19     AIRPORT REFERENCE POINT LATITUDE (FORMATTED)
+L AN 0012 00539  A19S    AIRPORT REFERENCE POINT LATITUDE (SECONDS)
+L AN 0015 00551  A20     AIRPORT REFERENCE POINT LONGITUDE (FORMATTED)
+L AN 0012 00566  A20S    AIRPORT REFERENCE POINT LONGITUDE (SECONDS)
+L AN 0001 00578  A19A    AIRPORT REFERENCE POINT DETERMINATION METHOD
+                            E - ESTIMATED
+                            S - SURVEYED
+R AN 0007 00579  A21     AIRPORT ELEVATION  (NEAREST TENTH OF A FOOT MSL)
+                            ELEVATION IS MEASURED AT THE HIGHEST POINT
+                            ON THE CENTERLINE OF THE USABLE LANDING
+                            SURFACE
+                            (EX. 1200.5; -10.0 FOR 10 FEET BELOW SEA LEVEL)
+L AN 0001 00586  A21     AIRPORT ELEVATION DETERMINATION METHOD
+                            E - ESTIMATED
+                            S - SURVEYED
+L AN 0003 00587  E28     MAGNETIC VARIATION AND DIRECTION
+                            MAGNETIC VARIATION TO NEAREST DEGREE
+                            (EX. 03W)
+L AN 0004 00590  E28     MAGNETIC VARIATION EPOCH YEAR
+                            (EX. 1985)
+R AN 0004 00594  E147    TRAFFIC PATTERN ALTITUDE  (WHOLE FEET AGL)
+                            (EX. 1000)
+L AN 0030 00598  A7      AERONAUTICAL SECTIONAL CHART ON WHICH FACILITY
+                         APPEARS. (EX. WASHINGTON)
+L AN 0002 00628  A3      DISTANCE FROM CENTRAL BUSINESS DISTRICT OF
+                         THE ASSOCIATED CITY TO THE AIRPORT
+                            (NEAREST NAUTICAL MILE - EX. 08)
+L AN 0003 00630  A3      DIRECTION OF AIRPORT FROM CENTRAL BUSINESS
+                         DISTRICT OF ASSOCIATED CITY
+                            (NEAREST 1/8 COMPASS POINT - EX. NE)
+R AN 0005 00633  A22     LAND AREA COVERED BY AIRPORT (ACRES)
+
+                         -----------------------------------------------
+                                   FAA SERVICES
+                         -----------------------------------------------
+
+L AN 0004 00638  E146A   BOUNDARY ARTCC IDENTIFIER
+                            THE BOUNDARY ARTCC IS THE FAA AIR ROUTE
+                            TRAFFIC CONTROL CENTER WITHIN WHOSE
+                            PUBLISHED BOUNDARIES THE AIRPORT LIES.
+                            IT MAY NOT BE THE CONTROLLING ARTCC
+                            FOR THE AIRPORT IF A LETTER OF AGREEMENT
+                            EXISTS BETWEEN THE BOUNDARY ARTCC AND
+                            ANOTHER ARTCC.
+                            (EX. ZDC FOR WASHINGTON ARTCC)
+L AN 0003 00642  E146B   BOUNDARY ARTCC (FAA) COMPUTER IDENTIFIER
+                            (EX. ZCW FOR WASHINGTON ARTCC)
+L AN 0030 00645  E146C   BOUNDARY ARTCC NAME
+                            (EX. WASHINGTON)
+L AN 0004 00675  E156A   RESPONSIBLE ARTCC IDENTIFIER
+                            THE RESPONSIBLE ARTCC IS THE FAA AIR ROUTE
+                            TRAFFIC CONTROL CENTER WHO HAS ASSUMED
+                            CONTROL
+                            OVER THE AIRPORT THROUGH A LETTER OF
+                            AGREEMENT WITH THE BOUNDARY ARTCC.
+                            (EX. ZDC FOR WASHINGTON ARTCC)
+L AN 0003 00679  E156B   RESPONSIBLE ARTCC (FAA) COMPUTER IDENTIFIER
+                            (EX. ZCW FOR WASHINGTON ARTCC)
+L AN 0030 00682  E156C   RESPONSIBLE ARTCC NAME
+                            (EX. WASHINGTON)
+L AN 0001 00712  A87     TIE-IN FSS PHYSICALLY LOCATED ON FACILITY
+                            Y - TIE-IN FSS IS ON THE AIRPORT
+                            N - TIE-IN FSS IS NOT ON AIRPORT
+L AN 0004 00713  A86     TIE-IN FLIGHT SERVICE STATION (FSS) IDENTIFIER
+                            (EX. DCA FOR WASHINGTON FSS)
+L AN 0030 00717  A86     TIE-IN FSS NAME
+                            (EX. WASHINGTON)
+L AN 0016 00747  A88     LOCAL PHONE NUMBER FROM AIRPORT TO FSS
+                         FOR ADMINISTRATIVE SERVICES
+L AN 0016 00763  A89     TOLL FREE PHONE NUMBER FROM AIRPORT TO FSS
+                         FOR PILOT BRIEFING SERVICES
+L AN 0004 00779  A86A    ALTERNATE FSS IDENTIFIER
+                            PROVIDES THE IDENTIFIER OF A FULL-TIME
+                            FLIGHT SERVICE STATION THAT ASSUMES
+                            RESPONSIBILITY FOR THE AIRPORT DURING THE OFF
+                            HOURS OF A PART-TIME PRIMARY FSS.
+                            (EX. 'DCA' FOR WASHINGTON FSS)
+L AN 0030 00783  A86A    ALTERNATE FSS NAME
+                            (EX. 'WASHINGTON' FOR WASHINGTON FSS)
+L AN 0016 00813  E3A     TOLL FREE PHONE NUMBER FROM AIRPORT TO
+                         ALTERNATE FSS FOR PILOT BRIEFING SERVICES
+L AN 0004 00829  E2B     IDENTIFIER OF THE FACILITY RESPONSIBLE FOR
+                         ISSUING NOTICES TO AIRMEN (NOTAMS) AND
+                         WEATHER INFORMATION FOR THE AIRPORT
+                            (EX. ORD)
+L AN 0001 00833  E139    AVAILABILITY OF NOTAM 'D' SERVICE AT AIRPORT
+                            Y - YES
+                            N - NO
+
+                         -----------------------------------------------
+                                 FEDERAL STATUS
+                         -----------------------------------------------
+
+L AN 0007 00834  E157    AIRPORT ACTIVATION DATE (MM/YYYY)
+                            PROVIDES THE MONTH AND YEAR THAT THE
+                            FACILITY WAS ADDED TO THE NFDC AIRPORT
+                            DATABASE.   NOTE: THIS INFORMATION
+                            IS ONLY AVAILABLE FOR THOSE
+                            FACILITIES OPENED SINCE 1981.
+                            (EX. 06/1981)
+
+L AN 0002 00841  N/A     AIRPORT STATUS CODE
+                            CI - CLOSED INDEFINITELY
+                            CP - CLOSED PERMANENTLY
+                            O  - OPERATIONAL
+
+L AN 0015 00843  A26     AIRPORT ARFF CERTIFICATION TYPE AND DATE
+                            FORMAT IS THE CLASS CODE ('I', 'II', 'III',
+                            OR 'IV') FOLLOWED BY A ONE CHARACTER CODE
+                            A, B, C, D, E, OR L, FOLLOWED BY A
+                            ONE CHARACTER CODE S OR U, FOLLOWED
+                            BY THE MONTH/YEAR OF CERTIFICATION.
+                            (EX. 'I A S 07/1980'   'I C S 01/1983'
+                            'II A U 09/1983')
+
+                            CODES A,B,C,D,E ARE FOR AIRPORTS
+                            HAVING A FULL CERTIFICATE UNDER CFR PART
+                            139, AND IDENTIFIES THE AIRCRAFT RESCUE
+                            AND FIREFIGHTING INDEX FOR THE AIRPORT.
+                            CODE L IS FOR AIRPORTS HAVING LIMITED
+                            CERTIFICATION UNDER CFR PART 139.
+
+                            CODE S IS FOR AIRPORTS RECEIVING SCHEDULED
+                            AIR CARRIER SERVICE FROM CARRIERS
+                            CERTIFICATED BY THE CIVIL AERONAUTICS BOARD.
+                            CODE U IS FOR AIRPORTS NOT RECEIVING THIS
+                            SCHEDULED SERVICE.
+
+                            BLANK INDICATES THE FACILITY IS NOT CERTIFICATED.
+
+L AN 0007 00858  A25     NPIAS/FEDERAL AGREEMENTS CODE
+                            A COMBINATION OF 1 TO 7 CODES THAT
+                            INDICATE THE TYPE OF FEDERAL AGREEMENTS
+                            EXISTING AT THE AIRPORT (EX. NGH)
+
+                            N - NATIONAL PLAN OF INTEGRATED AIRPORT
+                                SYSTEMS (NPIAS)
+                            B - INSTALLATION OF NAVIGATIONAL FACILITIES
+                                ON PRIVATELY OWNED AIRPORTS UNDER F&E PROGRAM
+                            G - GRANT AGREEMENTS UNDER FAAP/ADAP/AIP
+                            H - COMPLIANCE WITH ACCESSIBILITY TO THE
+                                HANDICAPPED
+                            P - SURPLUS PROPERTY AGREEMENT UNDER
+                                PUBLIC LAW 289
+                            R - SURPLUS PROPERTY AGREEMENT UNDER
+                                REGULATION 16-WAA
+                            S - CONVEYANCE UNDER SECTION 16, FEDERAL
+                                AIRPORT ACT OF 1946 OR SECTION 23,
+                                AIRPORT AND AIRWAY DEVELOPMENT ACT OF 1970
+                            V - ADVANCE PLANNING AGREEMENT UNDER FAAP
+                            X - OBLIGATIONS ASSUMED BY TRANSFER
+                            Y - ASSURANCES PURSUANT TO TITLE VI,
+                                CIVIL RIGHTS ACT OF 1964
+                            Z - CONVEYANCE UNDER SECTION 303(C),
+                                FEDERAL AVIATION ACT OF 1958
+                            1 - GRANT AGREEMENT HAS EXPIRED; HOWEVER,
+                                AGREEMENT REMAINS IN EFFECT FOR THIS
+                                FACILITY AS LONG AS IT IS PUBLIC USE.
+                            2 - SECTION 303(C) AUTHORITY FROM FAA ACT
+                                OF 1958 HAS EXPIRED; HOWEVER, AGREE-
+                                MENT REMAINS IN EFFECT FOR THIS
+                                FACILITY AS LONG AS IT IS PUBLIC USE.
+                            3 - AP-4 AGREEMENT UNDER DLAND OR DCLA
+                                HAS EXPIRED
+                         NONE - NO GRANT AGREEMENT EXISTS
+                         BLANK- NO GRANT AGREEMENT EXISTS
+
+L AN 0013 00865  E111    AIRPORT AIRSPACE ANALYSIS DETERMINATION
+                            CONDL  (CONDITIONAL)
+                            NOT ANALYZED
+                            NO OBJECTION
+                            OBJECTIONABLE
+
+L AN 0001 00878  E79     FACILITY HAS BEEN DESIGNATED BY THE U.S. TREASURY
+                         AS AN INTERNATIONAL AIRPORT OF ENTRY FOR CUSTOMS
+                           Y - YES
+                           N - NO
+L AN 0001 00879  E80     FACILITY HAS BEEN DESIGNATED BY THE U.S. TREASURY
+                         AS A CUSTOMS LANDING RIGHTS AIRPORT
+                           Y - YES
+                           N - NO
+L AN 0001 00880  E115    FACILITY HAS MILITARY/CIVIL JOINT USE AGREEMENT
+                         THAT ALLOWS CIVIL OPERATIONS AT A MILITARY AIRPORT
+                           Y - YES
+                           N - NO
+L AN 0001 00881  E116    AIRPORT HAS ENTERED INTO AN AGREEMENT THAT
+                         GRANTS LANDING RIGHTS TO THE MILITARY
+                           Y - YES
+                           N - NO
+
+                         -----------------------------------------------
+                                 AIRPORT INSPECTION DATA
+                         -----------------------------------------------
+
+L AN 0002 00882  E155    AIRPORT INSPECTION METHOD
+                            F - FEDERAL
+                            S - STATE
+                            C - CONTRACTOR
+                            1 - 5010-1 PUBLIC USE MAILOUT PROGRAM
+                            2 - 5010-2 PRIVATE USE MAILOUT PROGRAM
+L AN 0001 00884  A111    AGENCY/GROUP PERFORMING PHYSICAL INSPECTION
+                            F - FAA AIRPORTS FIELD PERSONNEL
+                            S - STATE AERONAUTICAL PERSONNEL
+                            C - PRIVATE CONTRACT PERSONNEL
+                            N - OWNER
+L AN 0008 00885  A112    LAST PHYSICAL INSPECTION DATE (MMDDYYYY)
+L AN 0008 00893  A113    LAST DATE INFORMATION REQUEST WAS COMPLETED
+                         BY FACILITY OWNER OR MANAGER  (MMDDYYYY)
+
+                         -----------------------------------------------
+                                 AIRPORT SERVICES
+                         -----------------------------------------------
+
+L AN 0040 00901  A70     FUEL TYPES AVAILABLE FOR PUBLIC USE AT THE
+                         AIRPORT. THERE CAN BE UP TO 8 OCCURENCES
+                         OF A FIXED 5 CHARACTER FIELD.
+                         (EX. 80___100__100LL115__)
+
+                         80        Grade 80 gasoline (Red)         
+                         100       Grade 100 gasoline (Green)               
+                         100LL     100LL gasoline (low lead) (Blue)                           
+                         115       Grade 115 gasoline (115/145 military 
+                                       specification) (Purple)            
+                         A         Jet A, Kerosene, without FS–II*, 
+                                       FP** minus 40º C.          
+                         A+        Jet A, Kerosene, with FS–II*, 
+                                       FP** minus 40ºC.                     
+                         A++       Jet A, Kerosene, with FS–II*, CI/LI#, 
+                                       SDA##, FP** minus 40ºC.            
+                         A++10     (A++100) Jet A, Kerosene, with FS–II*, 
+                                       CI/LI#, SDA##, FP** minus 40ºC, with 
+                                       +100 fuel additive that improves 
+                                       thermal stability characteristics of 
+                                       kerosene jet fuels.            
+                         A1        Jet A–1, Kerosene, without FS–II*, 
+                                       FP** minus 47ºC.                
+                         A1+       Jet A–1, Kerosene with FS–II*, 
+                                       FP** minus 47º C.
+                         B         Jet B, Wide–cut, turbine fuel 
+                                       without FS–II*, FP** minus 50º C.
+                         B+        Jet B, Wide–cut, turbine fuel 
+                                       with FS–II*, FP** minus 50º C.
+                         J4        (JP4)(JP–4 military specification) 
+                                       FP** minus 58º C.
+                         J5        (JP5)(JP–5 military specification) Kerosene 
+                                       with FS–II, FP** minus 46ºC.
+                         J8        (JP8)(JP–8 military specification) Jet A–1, 
+                                       Kerosene with FS–II*, CI/LI#, SDA##, 
+                                       FP** minus 47ºC.
+                         J8+10     (J8+100) (JP–8 military specification) Jet 
+                                       A–1, Kerosene with FS–II*, CI/LI#, 
+                                       SDA##, FP** minus 47ºC, with +100 fuel 
+                                       additive that improves thermal 
+                                       stability characteristics of kerosene 
+                                       jet fuels. 
+                         J         (Jet Fuel Type Unknown) 
+                         MOGAS     Automobile gasoline which is to be used 
+                                       as aircraft fuel. 
+                         UL91      Unleaded Grade 91 gasoline 
+                         UL94      Unleaded Grade 94 gasoline
+
+                         *(Fuel System Icing Inhibitor) 
+                         **(Freeze Point) 
+                         # (Corrosion Inhibitors/Lubricity Improvers) 
+                         ## (Static Dissipator Additive)
+                            
+
+L AN 0005 00941  A71     AIRFRAME REPAIR SERVICE AVAILABILITY/TYPE
+                            MAJOR
+                            MINOR
+                            NONE
+L AN 0005 00946  A72     POWER PLANT (ENGINE) REPAIR AVAILABILITY/TYPE
+                            MAJOR
+                            MINOR
+                            NONE
+L AN 0008 00951  A73     TYPE OF BOTTLED OXYGEN AVAILABLE (VALUE REPRESENTS
+                         HIGH AND/OR LOW PRESSURE REPLACEMENT BOTTLE)
+                            HIGH
+                            LOW
+                            HIGH/LOW
+                            NONE
+L AN 0008 00959  A74     TYPE OF BULK OXYGEN AVAILABLE (VALUE REPRESENTS
+                         HIGH AND/OR LOW PRESSURE CYLINDERS)
+                            HIGH
+                            LOW
+                            HIGH/LOW
+                            NONE
+
+                         -----------------------------------------------
+                                 AIRPORT FACILITIES
+                         -----------------------------------------------
+
+L AN 0007 00967  A81     AIRPORT LIGHTING SCHEDULE
+                            VALUE IS THE BEGINNING-ENDING TIMES (LOCAL TIME)
+                            THAT THE STANDARD AIRPORT LIGHTS ARE OPERATED.
+                            VALUE CAN BE "SS-SR" (INDICATING SUNSET-SUNRISE),
+                            BLANK, OR "SEE RMK", INDICATING THAT THE DETAILS
+                            ARE IN A FACILITY REMARK DATA ENTRY.
+L AN 0007 00974  A81     BEACON LIGHTING SCHEDULE
+                            VALUE IS THE BEGINNING-ENDING TIMES (LOCAL TIME)
+                            THAT THE ROTATING AIRPORT BEACON LIGHT IS OPERATED.
+                            VALUE CAN BE "SS-SR" (INDICATING SUNSET-SUNRISE),
+                            BLANK, OR "SEE RMK", INDICATING THAT THE DETAILS
+                            ARE IN A FACILITY REMARK DATA ENTRY.
+L AN 0001 00981  A85     AIR TRAFFIC CONTROL TOWER LOCATED ON AIRPORT
+                            Y - YES
+                            N - NO
+L AN 0007 00982  A82     UNICOM FREQUENCY AVAILABLE AT THE AIRPORT
+L AN 0007 00989  E100    COMMON TRAFFIC ADVISORY FREQUENCY (CTAF)
+                            (EX. 122.800)
+L AN 0004 00996  A84     SEGMENTED CIRCLE AIRPORT MARKER SYSTEM ON THE AIRPORT
+                            Y - YES
+                            N - NO
+                            NONE
+                            Y-L - YES, LIGHTED
+L AN 0003 01000  A80     LENS COLOR OF OPERABLE BEACON LOCATED ON THE AIRPORT
+                            CG    CLEAR-GREEN (LIGHTED LAND AIRPORT)
+                            CY    CLEAR-YELLOW (LIGHTED SEAPLANE BASE)
+                            CGY   CLEAR-GREEN-YELLOW (HELIPORT)
+                            SCG   SPLIT-CLEAR-GREEN (LIGHTED MILITARY AIRPORT)
+                            C     CLEAR (UNLIGHTED LAND AIRPORT)
+                            Y     YELLOW (UNLIGHTED SEAPLANE BASE)
+                            G     GREEN  (LIGHTED LAND AIRPORT)
+                            N     NONE
+L AN 0001 01003  A24     LANDING FEE CHARGED TO NON-COMMERCIAL USERS OF
+                         AIRPORT
+                            Y - YES
+                            N - NO
+L AN 0001 01004  NONE    A "Y" IN THIS FIELD INDICATES THAT THE LANDING
+                         FACILITY IS USED FOR MEDICAL PURPOSES
+
+                         -----------------------------------------------
+                                  BASED AIRCRAFT
+                         -----------------------------------------------
+
+R  N 0003 01005  A90     SINGLE ENGINE GENERAL AVIATION AIRCRAFT
+R  N 0003 01008  A91     MULTI ENGINE GENERAL AVIATION AIRCRAFT
+R  N 0003 01011  A92     JET ENGINE GENERAL AVIATION AIRCRAFT
+R  N 0003 01014  A93     GENERAL AVIATION HELICOPTER
+R  N 0003 01017  A94     OPERATIONAL GLIDERS
+R  N 0003 01020  A95     OPERATIONAL MILITARY AIRCRAFT (INCLUDING HELICOPTERS)
+R  N 0003 01023  A96     ULTRALIGHT AIRCRAFT
+
+                         -----------------------------------------------
+                                 ANNUAL OPERATIONS
+                         -----------------------------------------------
+
+R  N 0006 01026  A100    COMMERCIAL SERVICES
+                            SCHEDULED OPERATIONS BY CAB-CERTIFICATED CARRIERS
+                            OR INTRASTATE CARRIERS
+R  N 0006 01032  A101    COMMUTER SERVICES
+                            SCHEDULED COMMUTER/CARGO CARRIERS
+R  N 0006 01038  A102    AIR TAXI
+                            AIR TAXI OPERATORS CARRYING PASSENGERS, MAIL, OR
+                            MAIL FOR REVENUE
+R  N 0006 01044  A103    GENERAL AVIATION LOCAL OPERATIONS
+                            THOSE OPERATING IN THE LOCAL TRAFFIC PATTERN OR
+                            WITHIN A 20-MILE RADIUS OF THE AIRPORT
+R  N 0006 01050  A104    GENERAL AVIATION ITINERANT OPERATIONS
+                            THOSE GENERAL AVIATION OPERATIONS (EXCLUDING
+                            COMMUTER OR AIR TAXI) NOT QUALIFYING AS LOCAL
+R  N 0006 01056  A105    MILITARY AIRCRAFT OPERATIONS
+L AN 0010 01062  NONE    12-MONTH ENDING DATE ON WHICH ANNUAL OPERATIONS DATA
+                         IN ABOVE SIX FIELDS IS BASED (MM/DD/YYYY)
+
+                         -----------------------------------------------
+                                 ADDITIONAL AIRPORT DATA
+                         -----------------------------------------------
+
+L AN 0016 01072  NONE    AIRPORT POSITION SOURCE
+L AN 0010 01088  NONE    AIRPORT POSITION SOURCE DATE (MM/DD/YYYY)
+L AN 0016 01098  NONE    AIRPORT ELEVATION SOURCE
+L AN 0010 01114  NONE    AIRPORT ELEVATION SOURCE DATE (MM/DD/YYYY)
+L AN 0001 01124  NONE    CONTRACT FUEL AVAILABLE
+                            Y - YES
+                            N - NO
+L AN 0012 01125  A75     TRANSIENT STORAGE FACILITIES
+                         A COMMA-SEPARATED LIST OF TRANSIENT STORAGE
+                         FACILITY TYPES AVAILABLE AT THE AIRPORT.  THERE
+                         ARE THREE POSSIBLE SUCH FACILITIES:
+                            BUOY - INDICATES BUOY STORAGE FACILITIES
+                            HGR  - INDICATES HANGAR STORAGE FACILITIES
+                            TIE  - INDICATES TIE-DOWN STORAGE FACILITIES
+L AN 0071 01137  A76     OTHER AIRPORT SERVICES AVAILABLE
+                         A COMMA-SEPARATED LIST OF OTHER AIRPORT SERVICES
+                         AVAILABLE AT THE AIRPORT, WHICH INCLUDE:
+                            AFRT  - AIR FREIGHT SERVICES
+                            AGRI  - CROP DUSTING SERVICES
+                            AMB   - AIR AMBULANCE SERVICES
+                            AVNCS - AVIONICS
+                            BCHGR - BEACHING GEAR
+                            CARGO - CARGO HANDLING SERVICES
+                            CHTR  - CHARTER SERVICE
+                            GLD   - GLIDER SERVICE
+                            INSTR - PILOT INSTRUCTION
+                            PAJA  - PARACHUTE JUMP ACTIVITY
+                            RNTL  - AIRCRAFT RENTAL
+                            SALES - AIRCRAFT SALES
+                            SURV  - ANNUAL SURVEYING
+                            TOW   - GLIDER TOWING SERVICES
+L AN 0003 01208  A83     WIND INDICATOR
+                         SHOWS WHETHER A WIND INDICATOR EXISTS AT THE
+                         AIRPORT
+                           N   - NO WIND INDICATOR
+                           Y   - UNLIGHTED WIND INDICATOR EXISTS
+                           Y-L - LIGHTED WIND INDICATOR EXISTS
+L AN 0007 01211  NONE    ICAO IDENTIFIER
+                         INTERNATIONAL CODING FOR AIRPORT 
+L AN 0001 01218  NONE    MINIMUM OPERATIONAL NETWORK(MON)
+L AN 0311 01219  NONE    AIRPORT RECORD FILLER (BLANK)
+
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+************************************************************************
+*  F A C I L I T Y   A T T E N D A N C E   S C H E D U L E   D A T A   *
+************************************************************************
+
+L AN 0003 00001  N/A     RECORD TYPE INDICATOR.
+                           ATT:  ATTENDANCE SCHEDULE RECORD FOR THE
+                           LANDING FACILITY.
+L AN 0011 00004  N/A     LANDING FACILITY SITE NUMBER
+                            THE UNIQUE IDENTIFYING NUMBER OF THE
+                            AIRPORT WHOSE ATTENDANCE SCHEDULE IS
+                            BEING DESCRIBED.
+L AN 0002 00015  N/A     LANDING FACILITY STATE POST OFFICE CODE
+                            THE STATE WHERE THE LANDING FACILITY IS
+                            LOCATED. THIS IS USED IN SORTING THE
+                            ENTIRE FILE BY STATE AND SITE NUMBER.
+R AN 0002 00017  N/A     ATTENDANCE SCHEDULE SEQUENCE NUMBER
+                           A NUMBER WHICH, TOGETHER WITH THE
+                           SITE NUMBER, UNIQUELY IDENTIFIES THE
+                           ATTENDANCE SCHEDULE COMPONENT.
+L AN 0108 00019  A17     AIRPORT ATTENDANCE SCHEDULE (WHEN MINIMUM
+                         SERVICES ARE AVAILABLE)
+                            FORMAT IS  MONTHS/DAYS/HOURS WHERE
+                            THE FIRST PART DESCRIBES THE MONTHS THAT
+                            THE FACILITY IS ATTENDED, THEN THE DAYS
+                            OF THE WEEK THAT THE FACILITY IS OPEN, AND
+                            FINALLY THE HOURS WITHIN THE DAY THAT IT
+                            IS ATTENDED. THIS FIELD MAY ALSO CONTAIN
+                            'UNATNDD' FOR UNATTENDED FACILITIES. IF
+                            THERE ARE DIFFERENT SCHEDULES FOR DIFFERENT
+                            TIMES OF THE YEAR OR DIFFERENT DAYS OF THE WEEK
+                            THERE WILL BE SEPARATE "ATT" RECORDS FOR EACH
+                            SET OF MONTHS, DAYS, AND HOURS OF ATTENDANCE.
+                            (EX. 'ALL/MON-FRI/SR-SS' MEANS THE FACILITY
+                            IS OPEN YEAR-ROUND, MONDAY THRU FRIDAY,
+                            FROM SUNRISE TO SUNSET).
+L AN 1403 00127  NONE    ATTENDANCE SCHEDULE RECORD FILLER (BLANK)
+
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+************************************************************************
+*          F A C I L I T Y   R U N W A Y   D A T A                     *
+************************************************************************
+
+L AN    3 00001  N/A     RECORD TYPE INDICATOR.
+                            RWY: RUNWAY DATA FOR RESPECTIVE FACILITY
+                                 RUNWAYS.
+L AN 0011 00004  DLID    LANDING FACILITY SITE NUMBER
+                            THE UNIQUE IDENTIFYING NUMBER OF THE
+                            AIRPORT WHOSE RUNWAY IS BEING DESCRIBED.
+                            TOGETHER WITH THE RUNWAY ID FIELD, THIS
+                            PROVIDES THE UNIQUE KEY TO A RUNWAY RECORD.
+L AN 0002 00015  DLID    RUNWAY STATE POST OFFICE CODE
+                            THE STATE WHERE THE LANDING FACILITY IS
+                            LOCATED. THIS WAS USED IN SORTING THE
+                            ENTIRE FILE BY STATE AND SITE NUMBER.
+L AN 0007 00017  A30     RUNWAY IDENTIFICATION
+                            EX. 01/19; 18L/36R (PARALLEL RUNWAYS);
+                                H1 (HELIPAD); N/S (NORTH/SOUTH);
+                                ALL/WAY (SEALANE); B1 (BALLOONPORT)
+
+                         -----------------------------------------------
+                                 COMMON RUNWAY DATA
+                         -----------------------------------------------
+
+R AN 0005 00024  A31     PHYSICAL RUNWAY LENGTH (NEAREST FOOT)
+                           (EX. 3500)
+R AN 0004 00029  A32     PHYSICAL RUNWAY WIDTH (NEAREST FOOT)
+                           (EX. 100)
+L AN 0012 00033  A33     RUNWAY SURFACE TYPE AND CONDITION
+                           CONC    - PORTLAND CEMENT CONCRETE
+                           ASPH    - ASPHALT OR BITUMINOUS CONCRETE
+                           SNOW    - SNOW
+                           ICE     - ICE
+                           MATS    - PIERCED STEEL PLANKING; LANDING
+                                     MATS; MEMBRANES
+                           TREATED - OILED; SOIL CEMENT OR LIME
+                                     STABILIZED
+                           GRAVEL  - GRAVEL; CINDERS; CRUSHED ROCK;
+                                     CORAL OR SHELLS; SLAG
+                           TURF    - GRASS; SOD
+                           DIRT    - NATURAL SOIL
+                           WATER   - WATER
+                           E       - EXCELLENT CONDITION
+                           G       - GOOD CONDITION
+                           F       - FAIR CONDITION
+                           P       - POOR CONDITION
+                           L       - FAILED CONDITION
+
+                         THE VALUE CAN BE ANY ONE OF THOSE DESCRIBED
+                         ABOVE OR A COMBINATION OF TWO TYPES WHEN
+                         THE RUNWAY IS COMPOSED OF DISTINCT SECTIONS.
+
+                         THE SURFACE TYPE IS OPTIONALLY FOLLOWED BY
+                         A CONDITION INDICATOR.
+                         (EX. ASPH-CONC TURF-GRVL ASPH-F ASPH-CONC-G)
+L AN 0005 00045  A34     RUNWAY SURFACE TREATMENT
+                           GRVD - SAW-CUT OR PLASTIC GROOVED
+                           PFC  - POROUS FRICTION COURSE
+                           AFSC - AGGREGATE FRICTION SEAL COAT
+                           RFSC - RUBBERIZED FRICTION SEAL COAT
+                           WC   - WIRE COMB OR WIRE TINE
+                           NONE - NO SPECIAL SURFACE TREATMENT
+L AN 0011 00050  A39     PAVEMENT CLASSIFICATION NUMBER (PCN)
+                           A RATING SYSTEM THAT EXPRESSES THE RELATIVE
+                           LOAD CARRYING CAPACITY OF A PAVEMENT IN TERMS
+                           OF A STANDARD SINGLE WHEEL LOAD. THE RATING
+                           IS STRUCTURED SO THAT A PAVEMENT WITH A
+                           PARTICULAR PCN VALUE CAN SUPPORT, WITHOUT
+                           WEIGHT RESTRICTIONS, AN AIRCRAFT WHICH HAS
+                           AN AIRCRAFT CLASSIFICATION NUMBER (ACN) EQUAL
+                           TO OR LESS THAN THE PAVEMENT'S PCN VALUE.
+                           (EX. 61/F/B/X/T)
+                           THE DATA FORMAT IS PCN/PAVEMENT TYPE/SUBGRADE
+                           STRENGTH/TIRE PRESSURE/DETERMINATION METHOD
+                           WHERE:
+                             PCN: A NUMERICAL VALUE
+                             PAVEMENT TYPE:  R - RIGID   F - FLEXIBLE
+                             SUBGRADE STRENGTH: LETTERS A-F
+                             TIRE PRESSURE CODE: LETTERS W-Z
+                             DETERMINATION METHOD: T - TECHNICAL
+                               U - USING AIRCRAFT
+                           SEE FAA ADVISORY CIRCULAR 150/5335-5 FOR
+                           CODE DEFINITIONS AND PCN DETERMINATION FORMULA.
+
+L AN 0005 00061  A40     RUNWAY LIGHTS EDGE INTENSITY
+                           HIGH - HIGH
+                           MED  - MEDIUM
+                           LOW  - LOW
+                           NSTD - NON-STANDARD LIGHTING SYSTEM
+                           NONE - NO EDGE LIGHTING SYSTEM
+
+                         -----------------------------------------------
+                                 BASE END INFORMATION
+                         -----------------------------------------------
+
+L AN 0003 00066  A30A    BASE END IDENTIFIER
+                           THE RUNWAY END DESCRIBED BY THE FOLLOWING
+                           INFORMATION. RELATES TO THE FIRST
+                           PART OF THE RUNWAY IDENTIFICATION.
+                           (EX. FOR RUNWAY 18/36 THE BASE END IS 18)
+L AN 0003 00069  E46     RUNWAY END TRUE ALIGNMENT
+                           TRUE HEADING OF THE RUNWAY - TO
+                           THE NEAREST DEGREE.
+                           (EX. FOR RUNWAY END 18, COULD BE 184)
+L AN 0010 00072  I22     INSTRUMENT LANDING SYSTEM (ILS) TYPE
+                           ILS       - INSTRUMENT LANDING SYSTEM
+                           MLS       - MICROWAVE LANDING SYSTEM
+                           SDF       - SIMPLIFIED DIRECTIONAL FACILITY
+                           LOCALIZER - LOCALIZER
+                           LDA       - LOCALIZER-TYPE DIRECTIONAL AID
+                           ISMLS     - INTERIM STANDARD MICROWAVE
+                                       LANDING SYSTEM
+                           ILS/DME   - INSTRUMENT LANDING SYSTEM/
+                                       DISTANCE MEASURING EQUIPMENT
+                           SDF/DME   - SIMPLIFIED DIRECTIONAL FACILITY
+                                       DISTANCE MEASURING EQUIPMENT
+                           LOC/DME   - LOCALIZER/
+                                       DISTANCE MEASURING EQUIPMENT
+                           LOC/GS    - LOCALIZER/GLIDE SLOPE
+                           LDA/DME   - LOCALIZER-TYPE DIRECTIONAL AID
+                                       DISTANCE MEASURING EQUIPMENT
+
+L AN 0001 00082  A23     RIGHT HAND TRAFFIC PATTERN FOR LANDING AIRCRAFT
+                           Y - YES
+                           N - NO
+L AN 0005 00083  A42     RUNWAY MARKINGS  (TYPE)
+                           PIR  - PRECISION INSTRUMENT
+                           NPI  - NONPRECISION INSTRUMENT
+                           BSC  - BASIC
+                           NRS  - NUMBERS ONLY
+                           NSTD - NONSTANDARD (OTHER THAN NUMBERS ONLY)
+                           BUOY - BUOYS (SEAPLANE BASE)
+                           STOL - SHORT TAKEOFF AND LANDING
+                           NONE - NONE
+
+L AN 0001 00088  A42     RUNWAY MARKINGS  (CONDITION)
+                           G - GOOD
+                           F - FAIR
+                           P - POOR
+                         -----------------------------------------------
+                                 BASE END GEOGRAPHIC DATA
+                         -----------------------------------------------
+
+L AN 0015 00089  E68     LATITUDE OF PHYSICAL RUNWAY END (FORMATTED)
+L AN 0012 00104  E68S    LATITUDE OF PHYSICAL RUNWAY END (SECONDS)
+L AN 0015 00116  E69     LONGITUDE OF PHYSICAL RUNWAY END (FORMATTED)
+L AN 0012 00131  E69S    LONGITUDE OF PHYSICAL RUNWAY END (SECONDS)
+R AN 0007 00143  E70     ELEVATION (FEET MSL) AT PHYSICAL RUNWAY END
+                           (EX. 58  120.5  13.0)
+R AN 0003 00150  A44     THRESHOLD CROSSING HEIGHT (FEET AGL)
+                           HEIGHT THAT THE EFFECTIVE VISUAL
+                           GLIDE PATH CROSSES ABOVE THE RUNWAY THRESHOLD
+                           (EX. 32)
+L AN 0004 00153  A45     VISUAL GLIDE PATH ANGLE (HUNDREDTHS OF DEGREES)
+                           (EX. 3.00)
+L AN 0015 00157  E161    LATITUDE  AT DISPLACED THRESHOLD (FORMATTED)
+L AN 0012 00172  E161S   LATITUDE  AT DISPLACED THRESHOLD (SECONDS)
+L AN 0015 00184  E162    LONGITUDE AT DISPLACED THRESHOLD (FORMATTED)
+L AN 0012 00199  E162S   LONGITUDE AT DISPLACED THRESHOLD (SECONDS)
+R AN 0007 00211  E160    ELEVATION AT DISPLACED THRESHOLD (FEET MSL)
+                           (EX. 1200.1  187.1  200)
+R AN 0004 00218  A51     DISPLACED THRESHOLD - LENGTH IN FEET FROM
+                           RUNWAY END  (EX. 120 OR NONE)
+R AN 0007 00222  E163    ELEVATION AT TOUCHDOWN ZONE (FEET MSL)
+                           (EX. 1200  187.5)
+
+                         -----------------------------------------------
+                               BASE END LIGHTING DATA
+                         -----------------------------------------------
+
+L AN 0005 00229  A43     VISUAL GLIDE SLOPE INDICATORS
+                           ACRONYMS: SAVASI - SIMPLIFIED ABBREVIATED
+                                              VISUAL APPROACH SLOPE
+                                              INDICATOR
+                                     VASI   - VISUAL APPROACH SLOPE
+                                              INDICATOR
+                                     PAPI   - PRECISION APPROACH PATH
+                                              INDICATOR
+                                     TRI    - TRI-COLOR VISUAL APPROACH
+                                              SLOPE INDICATOR
+                                     PSI    - PULSATING/STEADY BURNING
+                                              VISUAL APPROACH SLOPE
+                                              INDICATOR
+                                     PNI    - A SYSTEM OF PANELS USED
+                                              FOR ALIGNMENT OF APPROACH
+                                              SLOPE INDICATOR
+                           S2L   2-BOX SAVASI ON LEFT SIDE OF RUNWAY
+                           S2R   2-BOX SAVASI ON RIGHT SIDE OF RUNWAY
+                           V2L   2-BOX VASI ON LEFT SIDE OF RUNWAY
+                           V2R   2-BOX VASI ON RIGHT SIDE OF RUNWAY
+                           V4L   4-BOX VASI ON LEFT SIDE OF RUNWAY
+                           V4R   4-BOX VASI ON RIGHT SIDE OF RUNWAY
+                           V6L   6-BOX VASI ON LEFT SIDE OF RUNWAY
+                           V6R   6-BOX VASI ON RIGHT SIDE OF RUNWAY
+                           V12   12-BOX VASI ON BOTH SIDES OF RUNWAY
+                           V16   16-BOX VASI ON BOTH SIDES OF RUNWAY
+                           P2L   2-LGT PAPI ON LEFT SIDE OF RUNWAY
+                           P2R   2-LGT PAPI ON RIGHT SIDE OF RUNWAY
+                           P4L   4-LGT PAPI ON LEFT SIDE OF RUNWAY
+                           P4R   4-LGT PAPI ON RIGHT SIDE OF RUNWAY
+                           NSTD  NONSTANDARD VASI SYSTEM
+                           PVT   PRIVATELY OWNED APPROACH SLOPE
+                                 INDICATOR LIGHT SYSTEM ON A PUBLIC
+                                 USE AIRPORT THAT IS INTENDED FOR
+                                 PRIVATE USE ONLY
+                           VAS   NON-SPECIFIC VASI SYSTEM
+                           NONE  NO APPROACH SLOPE LIGHT SYSTEM
+                           N     NO APPROACH SLOPE LIGHT SYSTEM
+                           TRIL  TRI-COLOR VASI ON LEFT SIDE OF RUNWAY
+                           TRIR  TRI-COLOR VASI ON RIGHT SIDE OF RUNWAY
+                           PSIL  PULSATING/STEADY BURNING VASI ON LEFT SIDE
+                                 OF RUNWAY
+                           PSIR  PULSATING/STEADY BURNING VASI ON RIGHT SIDE
+                                 OF RUNWAY
+                           PNIL  SYSTEM OF PANELS ON LEFT SIDE OF RUNWAY THAT
+                                 MAY OR MAY NOT BE LIGHTED
+                           PNIR  SYSTEM OF PANELS ON RIGHT SIDE OF RUNWAY
+                                 THAT MAY OR MAY NOT BE LIGHTED
+
+L AN 0003 00234  A47     RUNWAY VISUAL RANGE EQUIPMENT (RVR)
+                           INDICATES LOCATION(S) AT WHICH RVR
+                           EQUIPMENT IS INSTALLED. CAN BE ANY ONE
+                           OR A COMBINATION OF THE FOLLOWING THREE
+                           ONE LETTER CODES:
+                             T - TOUCHDOWN
+                             M - MIDFIELD
+                             R - ROLLOUT
+                             N - NO RVR AVAILABLE
+                           POSSIBLE VALUES: T,M,R,N,TM,TR,MR,TMR
+
+L AN 0001 00237  A47A    RUNWAY VISIBILITY VALUE EQUIPMENT (RVV)
+                           INDICATES PRESENCE OF RVV EQUIPMENT
+                             Y - YES
+                             N - NO
+L AN 0008 00238  A49     APPROACH LIGHT SYSTEM
+
+                         ALSAF - 3,000 FOOT HIGH INTENSITY APPROACH
+                                 LIGHTING SYSTEM WITH CENTERLINE
+                                 SEQUENCE FLASHERS.
+                         ALSF1 - STANDARD 2,400 FOOT HIGH INTENSITY
+                                 APPROACH LIGHTING SYSTEM WITH
+                                 SEQUENCED FLASHERS, CATEGORY I CONFIG.
+                         ALSF2 - STANDARD 2,400 FOOT HIGH INTENSITY
+                                 APPROACH LIGHTING SYSTEM WITH
+                                 SEQUENCED FLASHERS, CATEGORY II OR III
+                                 CONFIGURATION
+                         MALS  - 1,400 FOOT MEDIUM INTENSITY APPROACH
+                                 LIGHTING SYSTEM
+                         MALSF - 1,400 FOOT MEDIUM INTENSITY APPROACH
+                                 LIGHTING SYSTEM WITH SEQUENCED FLASHERS
+                         MALSR - 1,400 FOOT MEDIUM INTENSITY APPROACH
+                                 LIGHTING SYSTEM WITH RUNWAY ALIGNMENT
+                                 INDICATOR LIGHTS
+                         SSALS - SIMPLIFIED SHORT APPROACH LIGHTING SYSTEM
+                         SSALF - SIMPLIFIED SHORT APPROACH LIGHTING SYSTEM
+                                 WITH SEQUENCED FLASHERS
+                         SSALR - SIMPLIFIED SHORT APPROACH LIGHTING SYSTEM
+                                 WITH RUWNAY ALIGNMENT INDICATOR LIGHTS
+                         NEON  - NEON LADDER SYSTEM
+                         ODALS - OMNIDIRECTIONAL APPROACH LIGHTING SYSTEM
+                         RLLS  - RUNWAY LEAD-IN LIGHT SYSTEM
+                         MIL OVRN - MILITARY OVERRUN
+                         NSTD  - ALL OTHERS
+                         NONE  - NO APPROACH LIGHTING IS AVAILABLE
+
+L AN 0001 00246  A48     RUNWAY END IDENTIFIER LIGHTS (REIL) AVAILABILITY
+                           Y - YES
+                           N - NO
+L AN 0001 00247  A46     RUNWAY CENTERLINE LIGHTS AVAILABILITY
+                           Y - YES
+                           N - NO
+L AN 0001 00248  A46A    RUNWAY END TOUCHDOWN LIGHTS AVAILABILITY
+                           Y - YES
+                           N - NO
+
+                         -----------------------------------------------
+                               BASE END OBJECT DATA
+                         -----------------------------------------------
+
+L AN 0011 00249  A52     CONTROLLING OBJECT DESCRIPTION
+                           (EX. TREES,BLDG,PLINE,FENCE,NONE)
+L AN 0004 00260  A53     CONTROLLING OBJECT MARKED/LIGHTED
+                           M  - MARKED
+                           L  - LIGHTED
+                           ML - MARKED AND LIGHTED
+                           NONE
+L AN 0005 00264  A50     FAA CFR PART 77 (OBJECTS AFFECTING NAVIGABLE AIRSPACE)
+                         RUNWAY CATEGORY
+                           A(V)  - UTILITY RUNWAY WITH A VISUAL APPROACH
+                           B(V)  - OTHER THAN UTILITY RUNWAY WITH A VISUAL
+                                   APPROACH
+                           A(NP) - UTILITY RUNWAY WITH A NONPRECISION APPROACH
+                           C     - OTHER THAN UTILITY RUNWAY WITH A
+                                   NONPRECISION APPROACH HAVING VISIBILITY
+                                   MINIMUMS GREATER THAN 3/4 MILE
+                           PIR   - PRECISION INSTRUMENT RUNWAY
+
+R AN 0002 00269  A57     CONTROLLING OBJECT CLEARANCE SLOPE
+                           VALUE, EXPRESSED AS A RATIO OF N:1, OF THE
+                           CLEARANCE THAT IS AVAILABLE TO APPROACHING
+                           AIRCRAFT. IF THE CLEARANCE SLOPE IS GREATER THAN
+                           50:1,THEN 50 OR 50+ WILL BE ENTERED.
+                           (EX.  8,22,50)
+R AN 0005 00271  A54     CONTROLLING OBJECT HEIGHT ABOVE RUNWAY
+                           HEIGHT, IN FEET AGL, THE OBJECT IS ABOVE
+                           THE PHYSICAL RUNWAY END.
+                           (EX. 100)
+R AN 0005 00276  A55     CONTROLLING OBJECT DISTANCE FROM RUNWAY END
+                           DISTANCE, IN FEET, FROM THE PHYSICAL RUNWAY END
+                           TO THE CONTROLLING OBJECT. THIS IS MEASURED
+                           USING THE EXTENDED RUNWAY CENTERLINE TO A POINT
+                           ABEAM THE OBJECT.
+                           (EX. 800  0  NONE)
+L AN 0007 00281  A56     CONTROLLING OBJECT CENTERLINE OFFSET
+                           DISTANCE, IN FEET, THAT THE CONTROLLING OBJECT
+                           IS LOCATED AWAY FROM THE EXTENDED RUNWAY CENTERLINE
+                           AS MEASURED HORIZONTALLY ON A LINE PERPENDICULAR
+
+
+
+
+                           TO THE EXTENDED RUNWAY CENTERLINE. ALSO, INDICATES
+                           THE DIRECTION (LEFT OR RIGHT) TO THE OBJECT
+                           FROM THE CENTERLINE AS SEEN BY AN APPROACHING
+                           PILOT.
+                           (EX. 50R, 75L, NONE)
+
+                         -----------------------------------------------
+                                 RECIPROCAL END INFORMATION
+                         -----------------------------------------------
+
+L AN 0003 00288  A30A    RECIPROCAL END IDENTIFIER
+                           THE RUNWAY END DESCRIBED BY THE FOLLOWING
+                           INFORMATION. RELATES TO THE SECOND
+                           PART OF THE RUNWAY IDENTIFICATION.
+                           (EX. FOR RUNWAY 18/36 THE RECIPROCAL END IS 36;
+                                FOR HELIPADS, E.G. RUNWAY H1, THIS
+                                INFORMATION IS BLANK)
+L AN 0003 00291  E46     RUNWAY END TRUE ALIGNMENT
+                           TRUE HEADING OF THE RUNWAY - TO
+                           THE NEAREST DEGREE.
+                           (EX. FOR RUNWAY END 18, COULD BE 184)
+L AN 0010 00294  I22     INSTRUMENT LANDING SYSTEM (ILS) TYPE
+                           ILS       - INSTRUMENT LANDING SYSTEM
+                           MLS       - MICROWAVE LANDING SYSTEM
+                           SDF       - SIMPLIFIED DIRECTIONAL FACILITY
+                           LOCALIZER - LOCALIZER
+                           LDA       - LOCALIZER-TYPE DIRECTIONAL AID
+                           ISMLS     - INTERIM STANDARD MICROWAVE
+                                       LANDING SYSTEM
+                           ILS/DME   - INSTRUMENT LANDING SYSTEM/
+                                       DISTANCE MEASURING EQUIPMENT
+                           SDF/DME   - SIMPLIFIED DIRECTIONAL FACILITY
+                                       DISTANCE MEASURING EQUIPMENT
+                           LOC/DME   - LOCALIZER/
+                                       DISTANCE MEASURING EQUIPMENT
+                           LOC/GS    - LOCALIZER/GLIDE SLOPE
+                           LDA/DME   - LOCALIZER-TYPE DIRECTIONAL AID
+                                       DISTANCE MEASURING EQUIPMENT
+
+L AN 0001 00304  A23     RIGHT HAND TRAFFIC PATTERN FOR LANDING AIRCRAFT
+                           Y - YES
+                           N - NO
+L AN 0005 00305  A42     RUNWAY MARKINGS  (TYPE)
+                           PIR  - PRECISION INSTRUMENT
+                           NPI  - NONPRECISION INSTRUMENT
+                           BSC  - BASIC
+                           NRS  - NUMBERS ONLY
+                           NSTD - NONSTANDARD (OTHER THAN NUMBERS ONLY)
+                           BUOY - BUOYS (SEAPLANE BASE)
+                           STOL - SHORT TAKEOFF AND LANDING
+                           NONE - NONE
+
+L AN 0001 00310  A42     RUNWAY MARKINGS  (CONDITION)
+                           G - GOOD
+                           F - FAIR
+                           P - POOR
+
+                         -----------------------------------------------
+                                 RECIPROCAL END GEOGRAPHIC DATA
+                         -----------------------------------------------
+
+L AN 0015 00311  E68     LATITUDE OF PHYSICAL RUNWAY END (FORMATTED)
+L AN 0012 00326  E68S    LATITUDE OF PHYSICAL RUNWAY END (SECONDS)
+L AN 0015 00338  E69     LONGITUDE OF PHYSICAL RUNWAY END (FORMATTED)
+L AN 0012 00353  E69S    LONGITUDE OF PHYSICAL RUNWAY END (SECONDS)
+R AN 0007 00365  E70     ELEVATION (FEET MSL) AT PHYSICAL RUNWAY END
+                           (EX. 58  120.5  13.0)
+R AN 0003 00372  A44     THRESHOLD CROSSING HEIGHT (FEET AGL)
+                           HEIGHT THAT THE EFFECTIVE VISUAL
+                           GLIDE PATH CROSSES ABOVE THE RUNWAY THRESHOLD
+                           (EX. 32)
+L AN 0004 00375  A45     VISUAL GLIDE PATH ANGLE (HUNDREDTHS OF DEGREES)
+                           (EX. 3.00)
+L AN 0015 00379  E161    LATITUDE  AT DISPLACED THRESHOLD (FORMATTED)
+L AN 0012 00394  E161S   LATITUDE  AT DISPLACED THRESHOLD (SECONDS)
+L AN 0015 00406  E162    LONGITUDE AT DISPLACED THRESHOLD (FORMATTED)
+L AN 0012 00421  E162S   LONGITUDE AT DISPLACED THRESHOLD (SECONDS)
+R AN 0007 00433  E160    ELEVATION AT DISPLACED THRESHOLD (FEET MSL)
+                           (EX. 1200.1  187.1  200)
+R AN 0004 00440  A51     DISPLACED THRESHOLD - LENGTH IN FEET FROM
+                           RUNWAY END  (EX. 120 OR NONE)
+R AN 0007 00444  E163    ELEVATION AT TOUCHDOWN ZONE (FEET MSL)
+                           (EX. 1200  187.5)
+
+                         -----------------------------------------------
+                               RECIPROCAL END LIGHTING DATA
+                         -----------------------------------------------
+
+L AN 0005 00451  A43     APPROACH SLOPE INDICATOR EQUIPMENT
+                           ACRONYMS: SAVASI - SIMPLIFIED ABBREVIATED
+                                              VISUAL APPROACH SLOPE
+                                              INDICATOR
+                                     VASI   - VISUAL APPROACH SLOPE
+                                              INDICATOR
+                                     PAPI   - PRECISION APPROACH SLOPE
+                                              INDICATOR
+                                     TRI    - TRI-COLOR VISUAL APPROACH
+                                              SLOPE INDICATOR
+                                     PSI    - PULSATING/STEADY BURNING
+                                              VISUAL APPROACH SLOPE
+                                              INDICATOR
+                                     PNI    - A SYSTEM OF PANELS USED
+                                              FOR ALIGNMENT OF APPROACH
+                                              SLOPE INDICATOR
+                           S2L   2-BOX SAVASI ON LEFT SIDE OF RUNWAY
+                           S2R   2-BOX SAVASI ON RIGHT SIDE OF RUNWAY
+                           V2L   2-BOX VASI ON LEFT SIDE OF RUNWAY
+                           V2R   2-BOX VASI ON RIGHT SIDE OF RUNWAY
+                           V4L   4-BOX VASI ON LEFT SIDE OF RUNWAY
+                           V4R   4-BOX VASI ON RIGHT SIDE OF RUNWAY
+                           V6L   6-BOX VASI ON LEFT SIDE OF RUNWAY
+                           V6R   6-BOX VASI ON RIGHT SIDE OF RUNWAY
+                           V12   12-BOX VASI ON BOTH SIDES OF RUNWAY
+                           V16   16-BOX VASI ON BOTH SIDES OF RUNWAY
+                           P2L   2-LGT PAPI ON LEFT SIDE OF RUNWAY
+                           P2R   2-LGT PAPI ON RIGHT SIDE OF RUNWAY
+                           P4L   4-LGT PAPI ON LEFT SIDE OF RUNWAY
+                           P4R   4-LGT PAPI ON RIGHT SIDE OF RUNWAY
+                           NSTD  NONSTANDARD VASI SYSTEM
+                           PVT   PRIVATELY OWNED APPROACH SLOPE
+                                 INDICATOR LIGHT SYSTEM ON A PUBLIC
+                                 USE AIRPORT THAT IS INTENDED FOR
+                                 PRIVATE USE ONLY
+                           VAS   NON-SPECIFIC VASI SYSTEM
+                           NONE  NO APPROACH SLOPE LIGHT SYSTEM
+                           N     NO APPROACH SLOPE LIGHT SYSTEM
+                           TRIL  TRI-COLOR VASI ON LEFT SIDE OF RUNWAY
+                           TRIR  TRI-COLOR VASI ON RIGHT SIDE OF RUNWAY
+                           PSIL  PULSATING/STEADY BURNING VASI ON LEFT SIDE
+                                 OF RUNWAY
+                           PSIR  PULSATING/STEADY BURNING VASI ON RIGHT SIDE
+                                 OF RUNWAY
+                           PNIL  SYSTEM OF PANELS ON LEFT SIDE OF RUNWAY THAT
+                                 MAY OR MAY NOT BE LIGHTED
+                           PNIR  SYSTEM OF PANELS ON RIGHT SIDE OF RUNWAY
+                                 THAT MAY OR MAY NOT BE LIGHTED
+
+L AN 0003 00456  A47     RUNWAY VISUAL RANGE EQUIPMENT (RVR)
+                           INDICATES LOCATION(S) AT WHICH RVR
+                           EQUIPMENT IS INSTALLED. CAN BE ANY ONE
+                           OR A COMBINATION OF THE FOLLOWING THREE
+                           ONE LETTER CODES:
+                             T - TOUCHDOWN
+                             M - MIDFIELD
+                             R - ROLLOUT
+                             N - NO RVR AVAILABLE
+                           POSSIBLE VALUES: T,M,R,N,TM,TR,MR,TMR
+
+L AN 0001 00459  A47A    RUNWAY VISIBILITY VALUE EQUIPMENT (RVV)
+                           INDICATES PRESENCE OF RVV EQUIPMENT
+                             Y - YES
+                             N - NO
+L AN 0008 00460  A49     APPROACH LIGHT SYSTEM
+
+                         ALSAF - 3,000 FOOT HIGH INTENSITY APPROACH
+                                 LIGHTING SYSTEM WITH CENTERLINE
+                                 SEQUENCE FLASHERS.
+                         ALSF1 - STANDARD 2,400 FOOT HIGH INTENSITY
+                                 APPROACH LIGHTING SYSTEM WITH
+                                 SEQUENCED FLASHERS, CATEGORY I CONFIG.
+                         ALSF2 - STANDARD 2,400 FOOT HIGH INTENSITY
+                                 APPROACH LIGHTING SYSTEM WITH
+                                 SEQUENCED FLASHERS, CATEGORY II OR III
+                                 CONFIGURATION
+                         MALS  - 1,400 FOOT MEDIUM INTENSITY APPROACH
+                                 LIGHTING SYSTEM
+                         MALSF - 1,400 FOOT MEDIUM INTENSITY APPROACH
+                                 LIGHTING SYSTEM WITH SEQUENCED FLASHERS
+                         MALSR - 1,400 FOOT MEDIUM INTENSITY APPROACH
+                                 LIGHTING SYSTEM WITH RUNWAY ALIGNMENT
+                                 INDICATOR LIGHTS
+                         SSALS - SIMPLIFIED SHORT APPROACH LIGHTING SYSTEM
+                         SSALF - SIMPLIFIED SHORT APPROACH LIGHTING SYSTEM
+                                 WITH SEQUENCED FLASHERS
+                         SSALR - SIMPLIFIED SHORT APPROACH LIGHTING SYSTEM
+                                 WITH RUWNAY ALIGNMENT INDICATOR LIGHTS
+                         NEON  - NEON LADDER SYSTEM
+                         ODALS - OMNIDIRECTIONAL APPROACH LIGHTING SYSTEM
+                         RLLS  - RUNWAY LEAD-IN LIGHT SYSTEM
+                         MIL OVRN - MILITARY OVERRUN
+                         NSTD  - ALL OTHERS
+                         NONE  - NO APPROACH LIGHTING IS AVAILABLE
+
+L AN 0001 00468  A48     RUNWAY END IDENTIFIER LIGHTS (REIL) AVAILABILITY
+                           Y - YES
+                           N - NO
+L AN 0001 00469  A46     RUNWAY CENTERLINE LIGHTS AVAILABILITY
+                           Y - YES
+                           N - NO
+L AN 0001 00470  A46A    RUNWAY END TOUCHDOWN LIGHTS AVAILABILITY
+                           Y - YES
+                           N - NO
+
+                         -----------------------------------------------
+                               RECIPROCAL END OBJECT DATA
+                         -----------------------------------------------
+
+L AN 0011 00471  A52     CONTROLLING OBJECT DESCRIPTION
+                           (EX. TREES,BLDG,PLINE,FENCE,NONE)
+L AN 0004 00482  A53     CONTROLLING OBJECT MARKED/LIGHTED
+                           M  - MARKED
+                           L  - LIGHTED
+                           ML - MARKED AND LIGHTED
+                           NONE
+L AN 0005 00486  A50     FAA CFR PART 77 (OBJECTS AFFECTING NAVIGABLE AIRSPACE)
+                         RUNWAY CATEGORY
+                           A(V)  - UTILITY RUNWAY WITH A VISUAL APPROACH
+                           B(V)  - OTHER THAN UTILITY RUNWAY WITH A VISUAL
+                                   APPROACH
+                           A(NP) - UTILITY RUNWAY WITH A NONPRECISION APPROACH
+                           C     - OTHER THAN UTILITY RUNWAY WITH A
+                                   NONPRECISION APPROACH HAVING VISIBILITY
+                                   MINIMUMS GREATER THAN 3/4 MILE
+                           PIR   - PRECISION INSTRUMENT RUNWAY
+
+R AN 0002 00491  A57     CONTROLLING OBJECT CLEARANCE SLOPE
+                           VALUE, EXPRESSED AS A RATIO OF N:1, OF THE
+                           CLEARANCE THAT IS AVAILABLE TO APPROACHING
+                           AIRCRAFT. IF THE CLEARANCE SLOPE IS GREATER THAN
+                           50:1,THEN 50 OR 50+ WILL BE ENTERED.
+                           (EX.  8,22,50)
+R AN 0005 00493  A54     CONTROLLING OBJECT HEIGHT ABOVE RUNWAY
+                           HEIGHT, IN FEET AGL, THE OBJECT IS ABOVE
+                           THE PHYSICAL RUNWAY END.
+                           (EX. 100)
+R AN 0005 00498  A55     CONTROLLING OBJECT DISTANCE FROM RUNWAY END
+                           DISTANCE, IN FEET, FROM THE PHYSICAL RUNWAY END
+                           TO THE CONTROLLING OBJECT. THIS IS MEASURED
+                           USING THE EXTENDED RUNWAY CENTERLINE TO A POINT
+                           ABEAM THE OBJECT.
+                           (EX. 800  0  NONE)
+L AN 0007 00503  A56     CONTROLLING OBJECT CENTERLINE OFFSET
+                           DISTANCE, IN FEET, THAT THE CONTROLLING OBJECT
+                           IS LOCATED AWAY FROM THE EXTENDED RUNWAY CENTERLINE
+                           AS MEASURED HORIZONTALLY ON A LINE PERPENDICULAR
+                           TO THE EXTENDED RUNWAY CENTERLINE. ALSO, INDICATES
+                           THE DIRECTION (LEFT OR RIGHT) TO THE OBJECT
+                           FROM THE CENTERLINE AS SEEN BY AN APPROACHING
+                           PILOT.
+                           (EX. 50R, 75L, NONE)
+
+                         -----------------------------------------------
+                               ADDITIONAL COMMON RUNWAY DATA
+                         -----------------------------------------------
+L AN 0016 00510  NONE    RUNWAY LENGTH SOURCE
+L AN 0010 00526  NONE    RUNWAY LENGTH SOURCE DATE (MM/DD/YYYY)
+R AN 0006 00536  A35     RUNWAY WEIGHT-BEARING CAPACITY FOR Single wheel
+                         type landing gear (DC3), (C47), (F15), etc.
+R AN 0006 00542  A36     RUNWAY WEIGHT-BEARING CAPACITY FOR Dual wheel
+                         type landing gear (BE1900), (B737), (A319), etc.
+R AN 0006 00548  A37     RUNWAY WEIGHT-BEARING CAPACITY FOR Two dual wheels
+                         in tandem type landing gear (B707), etc.
+R AN 0006 00554  A38     RUNWAY WEIGHT-BEARING CAPACITY FOR Two dual wheels
+                         in tandem/two dual wheels in double tandem body gear
+                         type landing gear (B747, E4).
+
+                         -----------------------------------------------
+                               ADDITIONAL BASE END DATA
+                         -----------------------------------------------
+
+R AN 0005 00560  E40     RUNWAY END GRADIENT
+L AN 0004 00565  E40     RUNWAY END GRADIENT DIRECTION (UP OR DOWN)
+L AN 0016 00569  NONE    RUNWAY END POSITION SOURCE
+L AN 0010 00585  NONE    RUNWAY END POSITION SOURCE DATE (MM/DD/YYYY)
+L AN 0016 00595  NONE    RUNWAY END ELEVATION SOURCE
+L AN 0010 00611  NONE    RUNWAY END ELEVATION SOURCE DATE (MM/DD/YYYY)
+L AN 0016 00621  NONE    DISPLACED THESHOLD POSITION SOURCE
+L AN 0010 00637  NONE    DISPLACED THESHOLD POSITION SOURCE DATE (MM/DD/YYYY)
+L AN 0016 00647  NONE    DISPLACED THESHOLD ELEVATION SOURCE
+L AN 0010 00663  NONE    DISPLACED THESHOLD ELEVATION SOURCE DATE (MM/DD/YYYY)
+L AN 0016 00673  NONE    TOUCHDOWN ZONE ELEVATION SOURCE
+L AN 0010 00689  NONE    TOUCHDOWN ZONE ELEVATION SOURCE DATE (MM/DD/YYYY)
+R AN 0005 00699  A60     TAKEOFF RUN AVAILABLE (TORA), IN FEET
+R AN 0005 00704  A61     TAKEOFF DISTANCE AVAILABLE (TODA), IN FEET
+R AN 0005 00709  A62     ACLT STOP DISTANCE AVAILABLE (ASDA), IN FEET
+R AN 0005 00714  A63     LANDING DISTANCE AVAILABLE (LDA), IN FEET
+R AN 0005 00719  NONE    AVAILABLE LANDING DISTANCE FOR LAND AND HOLD SHORT
+                         OPERATIONS (LAHSO)
+L AN 0007 00724  NONE    ID OF INTERSECTING RUNWAY DEFINING HOLD SHORT POINT
+L AN 0040 00731  NONE    DESCRIPTION OF ENTITY DEFINING HOLD SHORT POINT IF
+                         NOT AN INTERSECTING RUNWAY (E.G., AN INTERSECTING
+                         TAXIWAY).
+L AN 0015 00771  NONE    LATITUDE OF LAHSO HOLD SHORT POINT (FORMATTED)
+L AN 0012 00786  NONE    LATITUDE OF LAHSO HOLD SHORT POINT (SECONDS)
+L AN 0015 00798  NONE    LONGITUDE OF LAHSO HOLD SHORT POINT (FORMATTED)
+L AN 0012 00813  NONE    LONGITUDE OF LAHSO HOLD SHORT POINT (SECONDS)
+L AN 0016 00825  NONE    LAHSO HOLD SHORT POINT LAT/LONG SOURCE
+L AN 0010 00841  NONE    HOLD SHORT POINT LAT/LONG SOURCE DATE (MM/DD/YYYY)
+
+                         -----------------------------------------------
+                               ADDITIONAL RECIPROCAL END DATA
+                         -----------------------------------------------
+
+R AN 0005 00851  E40     RUNWAY END GRADIENT
+L AN 0004 00856  E40     RUNWAY END GRADIENT DIRECTION (UP OR DOWN)
+L AN 0016 00860  NONE    RUNWAY END POSITION SOURCE
+L AN 0010 00876  NONE    RUNWAY END POSITION SOURCE DATE (MM/DD/YYYY)
+L AN 0016 00886  NONE    RUNWAY END ELEVATION SOURCE
+L AN 0010 00902  NONE    RUNWAY END ELEVATION SOURCE DATE (MM/DD/YYYY)
+L AN 0016 00912  NONE    DISPLACED THESHOLD POSITION SOURCE
+L AN 0010 00928  NONE    DISPLACED THESHOLD POSITION SOURCE DATE (MM/DD/YYYY)
+L AN 0016 00938  NONE    DISPLACED THESHOLD ELEVATION SOURCE
+L AN 0010 00954  NONE    DISPLACED THESHOLD ELEVATION SOURCE DATE (MM/DD/YYYY)
+L AN 0016 00964  NONE    TOUCHDOWN ZONE ELEVATION SOURCE
+L AN 0010 00980  NONE    TOUCHDOWN ZONE ELEVATION SOURCE DATE (MM/DD/YYYY)
+R AN 0005 00990  A60     TAKEOFF RUN AVAILABLE (TORA), IN FEET
+R AN 0005 00995  A61     TAKEOFF DISTANCE AVAILABLE (TODA), IN FEET
+R AN 0005 01000  A62     ACLT STOP DISTANCE AVAILABLE (ASDA), IN FEET
+R AN 0005 01005  A63     LANDING DISTANCE AVAILABLE (LDA), IN FEET
+R AN 0005 01010  NONE    AVAILABLE LANDING DISTANCE FOR LAND AND HOLD SHORT
+                         OPERATIONS (LAHSO)
+L AN 0007 01015  NONE    ID OF INTERSECTING RUNWAY DEFINING HOLD SHORT POINT
+L AN 0040 01022  NONE    DESCRIPTION OF ENTITY DEFINING HOLD SHORT POINT IF
+                         NOT AN INTERSECTING RUNWAY (E.G., AN INTERSECTING
+                         TAXIWAY).
+L AN 0015 01062  NONE    LATITUDE OF LAHSO HOLD SHORT POINT (FORMATTED)
+L AN 0012 01077  NONE    LATITUDE OF LAHSO HOLD SHORT POINT (SECONDS)
+L AN 0015 01089  NONE    LONGITUDE OF LAHSO HOLD SHORT POINT (FORMATTED)
+L AN 0012 01104  NONE    LONGITUDE OF LAHSO HOLD SHORT POINT (SECONDS)
+L AN 0016 01116  NONE    LAHSO HOLD SHORT POINT LAT/LONG SOURCE
+L AN 0010 01132  NONE    HOLD SHORT POINT LAT/LONG SOURCE DATE (MM/DD/YYYY)
+L AN 0388 01142  NONE    RUNWAY RECORD FILLER (BLANK)
+
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+************************************************************************
+*       R U N W A Y   A R R E S T I N G   S Y S T E M   D A T A        *
+************************************************************************
+
+L AN 0003 00001  N/A     RECORD TYPE INDICATOR.
+                            ARS:  ARRESTING SYSTEM RECORD FOR A RUNWAY
+                            END AT THE LANDING FACILITY.
+L AN 0011 00004  N/A     LANDING FACILITY SITE NUMBER
+                            THE UNIQUE IDENTIFYING NUMBER OF THE
+                            AIRPORT WHOSE ARRESTING SYSTEM IS
+                            BEING DESCRIBED.
+L AN 0002 00015  N/A     LANDING FACILITY STATE POST OFFICE CODE
+                            THE STATE WHERE THE LANDING FACILITY IS
+                            LOCATED. THIS IS USED IN SORTING THE
+                            ENTIRE FILE BY STATE AND SITE NUMBER.
+L AN 0007 00017  A30     RUNWAY IDENTIFICATION
+                            EX. 01/19; 18L/36R (PARALLEL RUNWAYS);
+                                N/S (NORTH/SOUTH); ALL/WAY (SEALANE)
+L AN 0003 00024  A30A    RUNWAY END IDENTIFIER
+                           THE RUNWAY END DESCRIBED BY THE ARRESTING
+                           SYSTEM INFORMATION.
+L AN 0009 00027  E60     TYPE OF AIRCRAFT ARRESTING DEVICE
+                           INDICATES TYPE OF JET ARRESTING BARRIER
+                           INSTALLED AT THE FAR END.  POSSIBLE VALUES:
+                           BAK-6
+                           BAK-9
+                           BAK-12
+                           BAK-12B
+                           BAK-13
+                           BAK-14
+                           E5
+                           E5-1
+                           E27
+                           E27B
+                           E28
+                           E28B
+                           EMAS
+                           M21
+                           MA-1
+                           MA-1A
+                           MA-1A MOD
+L AN 1494 00036  NONE    ARRESTING SYSTEM RECORD FILLER (BLANK)
+
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+************************************************************************
+*          F A C I L I T Y   R E M A R K   D A T A                     *
+************************************************************************
+
+L AN 0003 00001  N/A     RECORD TYPE INDICATOR.
+                            RMK: REMARK TEXT FOR THE LANDING FACILITY
+L AN 0011 00004  N/A     LANDING FACILITY SITE NUMBER
+                            THE UNIQUE IDENTIFYING NUMBER OF THE
+                            AIRPORT WHOSE ASSOCIATED REMARKS ARE
+                            BEING DESCRIBED. TOGETHER WITH THE
+                            REMARK ELEMENT NAME FIELD, THIS PROVIDES
+                            THE UNIQUE KEY TO A REMARK RECORD.
+L AN 0002 00015  N/A     LANDING FACILITY STATE POST OFFICE CODE
+                            THE STATE WHERE THE LANDING FACILITY IS
+                            LOCATED. THIS IS USED IN SORTING THE
+                            ENTIRE FILE BY STATE AND SITE NUMBER.
+L AN 0013 00017  N/A     REMARK ELEMENT NAME
+                            THIS INFORMATION RELATES A REMARK TO ONE
+                            OF THE PREVIOUSLY DESCRIBED DATA ELEMENTS.
+                            FOR SPECIFIC REMARKS RELATED TO AN AIRPORT OR
+                            COMMON RUNWAY DATA, THE VALUE WILL BE JUST
+                            THE DATA ELEMENT NAME.  FOR DATA ELEMENT A81
+                            (LIGHTING SCHEDULE), THE NAME WILL BE FOLLOWED
+                            BY "-APT" OR "-BCN" TO DISTINGUISH BETWEEN
+                            AIRPORT LIGHTING SCHEDULE AND BEACON LIGHTING
+                            SCHEDULE.
+                            FOR SPECIFIC REMARKS PERTAINING TO A RUNWAY
+                            END THE FORMAT WILL BE THE DATA ELEMENT NAME
+                            FOLLOWED BY THE RUNWAY END.
+                            FOR SPECIFIC REMARKS PERTAINING TO A RUNWAY
+                            THE FORMAT WILL BE THE DATA ELEMENT NAME
+                            FOLLOWED BY THE RUNWAY ID.
+                            FOR NON-SPECIFIC OR GENERAL REMARKS, THIS
+                            FIELD WILL BE A110-N WHERE N IS A SEQUENTIAL
+                            NUMBER.
+                            (EX. E111  A81-APT  A110-3  A42-18  A55-H1)
+
+L AN 1500 00030  N/A     REMARK TEXT
+                            FREE FORM TEXT THAT FURTHER DESCRIBES A
+                            SPECIFIC INFORMATION ITEM OR MAY BE GENERAL
+                            IN NATURE.
+
+
