@@ -70,6 +70,15 @@ class Airport(Base):
     notam_facility = Column(String(4))
     notam_d_available = Column(Boolean)
     # FEDERAL STATUS
+    activation_date = Column(Date)
+    status = Column(Enum(enums.AirportStatusEnum))
+    arff_certification = Column(String(15)) # Candidate for parsing and breaking into multiple columns
+    npias_federal_agreements = Column(String(7)) # Candidate for parsing and breaking into multiple columns
+    airspace_analysis = Column(String(13))
+    airport_of_entry = Column(Boolean)
+    customs_landing_rights = Column(Boolean)
+    military_civil_join_use = Column(Boolean)
+    military_landing_rights = Column(Boolean)
     # AIRPORT INSPECTION DATA
     # AIRPORT SERVICES
     # AIRPORT FACILITIES
@@ -111,6 +120,11 @@ class Airport(Base):
         faasrv_attrs += ["alternate_fss_name", "alternate_fss_toll_free_phone"]
         faasrv_attrs += ["notam_facility", "notam_d_available"]
 
+        fedstatus_attrs = ["activation_date", "status", "arff_certification"]
+        fedstatus_attrs += ["npias_federal_agreements", "airspace_analysis"]
+        fedstatus_attrs += ["airport_of_entry", "customs_landing_rights"]
+        fedstatus_attrs += ["military_civil_join_use", "military_landing_rights"]
+
         if "demographic" in _include:
             base_attrs += demo_attrs
 
@@ -122,6 +136,9 @@ class Airport(Base):
 
         if "faaservices" in _include:
             base_attrs += faasrv_attrs
+
+        if "fedstatus" in _include:
+            base_attrs += fedstatus_attrs
 
         result = dict()
 

@@ -25,10 +25,10 @@ Currently available attribute groups:
 * ownership
 * geographic
 * faaservices
+* fedstatus
 * runways
 
 Attributes that will be coming in the future:
-* fedstatus
 * inspection
 * aptservices
 * basedaircraft

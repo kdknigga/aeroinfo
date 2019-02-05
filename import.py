@@ -115,6 +115,15 @@ with open(nasr_txt_file, "r", errors='replace') as f:
             airport.notam_facility = get_field(line, 829, 4)
             airport.notam_d_available = get_field(line, 833, 1, "bool")
             # FEDERAL STATUS
+            airport.activation_date = get_field(line, 834, 7, "date")
+            airport.status = get_field(line, 841, 2, "AirportStatusEnum")
+            airport.arff_certification = get_field(line, 843, 15)
+            airport.npias_federal_agreements = get_field(line, 858, 7)
+            airport.airspace_analysis = get_field(line, 865, 13)
+            airport.airport_of_entry = get_field(line, 878, 1, "bool")
+            airport.customs_landing_rights = get_field(line, 879, 1, "bool")
+            airport.military_civil_join_use = get_field(line, 880, 1, "bool")
+            airport.military_landing_rights = get_field(line, 881, 1, "bool")
             # AIRPORT INSPECTION DATA
             # AIRPORT SERVICES
             # AIRPORT FACILITIES

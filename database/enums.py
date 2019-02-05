@@ -75,3 +75,8 @@ class ControllingObjectMarkingEnum(enum.Enum):
     L = "LIGHTED"
     ML = "MARKED AND LIGHTED"
     LM = "MARKED AND LIGHTED"
+
+class AirportStatusEnum(enum.Enum):
+    CI = "CLOSED INDEFINITELY"
+    CP = "CLOSED PERMANENTLY"
+    O = "OPERATIONAL"
