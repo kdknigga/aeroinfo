@@ -35,6 +35,8 @@ def get_field(record, start, length, var_type="str"):
                 return False
         elif var_type == "date":
             return dateparser.parse(field)
+        elif var_type == "mdydate":
+            return datetime.datetime.strptime(field, "%m%d%Y").date()
         elif var_type == "AirportInspectionMethodEnum":
             # Literals like 1 or 2 can't be members of an enum, so translate them
             if field == "1":
@@ -131,8 +133,8 @@ with open(nasr_txt_file, "r", errors='replace') as f:
             # AIRPORT INSPECTION DATA
             airport.inspection_method = get_field(line, 882, 2, "AirportInspectionMethodEnum")
             airport.agency_performing_inspection = get_field(line, 884, 1)
-            airport.last_inspection_date = get_field(line, 885, 8, "date")
-            airport.last_information_request_complete_date = get_field(line, 893, 8, "date")
+            airport.last_inspection_date = get_field(line, 885, 8, "mdydate")
+            airport.last_information_request_complete_date = get_field(line, 893, 8, "mdydate")
             # AIRPORT SERVICES
             airport.fuel_available = get_field(line, 901, 40)
             airport.airframe_repair_service = get_field(line, 941, 5)
