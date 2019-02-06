@@ -35,16 +35,6 @@ def get_field(record, start, length, var_type="str"):
                 return False
         elif var_type == "date":
             return dateparser.parse(field)
-        elif var_type == "OwnershipTypeEnum":
-            return enums.OwnershipTypeEnum[field]
-        elif var_type == "FacilityUseEnum":
-            return enums.FacilityUseEnum[field]
-        elif var_type == "DeterminationMethodEnum":
-            return enums.DeterminationMethodEnum[field]
-        elif var_type == "RunwayMarkingsTypeEnum":
-            return enums.RunwayMarkingsTypeEnum[field]
-        elif var_type == "RunwayMarkingsConditionEnum":
-            return enums.RunwayMarkingsConditionEnum[field]
         elif var_type == "AirportInspectionMethodEnum":
             # Literals like 1 or 2 can't be members of an enum, so translate them
             if field == "1":
@@ -86,8 +76,8 @@ with open(nasr_txt_file, "r", errors='replace') as f:
             airport.city = get_field(line, 94, 40)
             airport.name = get_field(line, 134, 50)
             # OWNERSHIP DATA
-            airport.ownership_type = get_field(line, 184, 2, "OwnershipTypeEnum")
-            airport.facility_use = get_field(line, 186, 2, "FacilityUseEnum")
+            airport.ownership_type = get_field(line, 184, 2)
+            airport.facility_use = get_field(line, 186, 2)
             airport.owners_name = get_field(line, 188, 35)
             airport.owners_address = get_field(line, 223, 72)
             airport.owners_city_state_zip = get_field(line, 295, 45)
@@ -101,9 +91,9 @@ with open(nasr_txt_file, "r", errors='replace') as f:
             airport.latitude_secs = get_field(line, 539, 12)
             airport.longitude_dms = get_field(line, 551, 15)
             airport.longitude_secs = get_field(line, 566, 12)
-            airport.coords_method = get_field(line, 578, 1, "DeterminationMethodEnum")
+            airport.coords_method = get_field(line, 578, 1)
             airport.elevation = get_field(line, 579, 7, "float")
-            airport.elevation_method = get_field(line, 586, 1, "DeterminationMethodEnum")
+            airport.elevation_method = get_field(line, 586, 1)
             airport.mag_variation = get_field(line, 587, 3)
             airport.mag_variation_year = get_field(line, 590, 4, "int")
             airport.pattern_alt = get_field(line, 594, 4, "int")
@@ -130,7 +120,7 @@ with open(nasr_txt_file, "r", errors='replace') as f:
             airport.notam_d_available = get_field(line, 833, 1, "bool")
             # FEDERAL STATUS
             airport.activation_date = get_field(line, 834, 7, "date")
-            airport.status = get_field(line, 841, 2, "AirportStatusEnum")
+            airport.status = get_field(line, 841, 2)
             airport.arff_certification = get_field(line, 843, 15)
             airport.npias_federal_agreements = get_field(line, 858, 7)
             airport.airspace_analysis = get_field(line, 865, 13)
@@ -196,8 +186,8 @@ with open(nasr_txt_file, "r", errors='replace') as f:
                 base_end.true_alignment = get_field(line, 69, 3, "int")
                 base_end.approach_type = get_field(line, 72, 10)
                 base_end.right_traffic = get_field(line, 82, 1, "bool")
-                base_end.markings_type = get_field(line, 83, 5, "RunwayMarkingsTypeEnum")
-                base_end.markings_condition = get_field(line, 88, 1, "RunwayMarkingsConditionEnum")
+                base_end.markings_type = get_field(line, 83, 5)
+                base_end.markings_condition = get_field(line, 88, 1)
                 # BASE END GEOGRAPHIC DATA
                 base_end.latitude_dms = get_field(line, 89, 15)
                 base_end.latitude_secs = get_field(line, 104, 12)
@@ -214,8 +204,8 @@ with open(nasr_txt_file, "r", errors='replace') as f:
                 base_end.displaced_threshold_length = get_field(line, 218, 4, "int")
                 base_end.touchdown_zone_elevation = get_field(line, 222, 7, "float")
                 # BASE END LIGHTING DATA
-                base_end.visual_glide_slope_indicators = get_field(line, 229, 5, "VisualGlideSlopeIndicatorEnum")
-                base_end.rvr_equipment = get_field(line, 234, 3, "RVREquipmentEnum")
+                base_end.visual_glide_slope_indicators = get_field(line, 229, 5)
+                base_end.rvr_equipment = get_field(line, 234, 3)
                 base_end.rvv_equipment = get_field(line, 237, 1, "bool")
                 base_end.approach_light_system = get_field(line, 238, 8)
                 base_end.reil_availability = get_field(line, 246, 1, "bool")
@@ -223,7 +213,7 @@ with open(nasr_txt_file, "r", errors='replace') as f:
                 base_end.touchdown_lights_availability = get_field(line, 248, 1, "bool")
                 # BASE END OBJECT DATA
                 base_end.controlling_object_description = get_field(line, 249, 11)
-                base_end.controlling_object_marking = get_field(line, 260, 4, "ControllingObjectMarkingEnum")
+                base_end.controlling_object_marking = get_field(line, 260, 4)
                 base_end.part77_category = get_field(line, 264, 5)
                 base_end.controlling_object_clearance_slope = get_field(line, 269, 2, "int")
                 base_end.controlling_object_height_above_runway = get_field(line, 271, 5, "int")
@@ -266,8 +256,8 @@ with open(nasr_txt_file, "r", errors='replace') as f:
                 recip_end.true_alignment = get_field(line, 291, 3, "int")
                 recip_end.approach_type = get_field(line, 294, 10)
                 recip_end.right_traffic = get_field(line, 304, 1, "bool")
-                recip_end.markings_type = get_field(line, 305, 5, "RunwayMarkingsTypeEnum")
-                recip_end.markings_condition = get_field(line, 310, 1, "RunwayMarkingsConditionEnum")
+                recip_end.markings_type = get_field(line, 305, 5)
+                recip_end.markings_condition = get_field(line, 310, 1)
                 # RECIPROCAL END GEOGRAPHIC DATA
                 recip_end.latitude_dms = get_field(line, 311, 15)
                 recip_end.latitude_secs = get_field(line, 326, 12)
@@ -284,8 +274,8 @@ with open(nasr_txt_file, "r", errors='replace') as f:
                 recip_end.displaced_threshold_length = get_field(line, 440, 4, "int")
                 recip_end.touchdown_zone_elevation = get_field(line, 444, 7, "float")
                 # RECIPROCAL END LIGHTING DATA
-                recip_end.visual_glide_slope_indicators = get_field(line, 451, 5, "VisualGlideSlopeIndicatorEnum")
-                recip_end.rvr_equipment = get_field(line, 456, 3, "RVREquipmentEnum")
+                recip_end.visual_glide_slope_indicators = get_field(line, 451, 5)
+                recip_end.rvr_equipment = get_field(line, 456, 3)
                 recip_end.rvv_equipment = get_field(line, 459, 1, "bool")
                 recip_end.approach_light_system = get_field(line, 460, 8)
                 recip_end.reil_availability = get_field(line, 468, 1, "bool")
@@ -293,7 +283,7 @@ with open(nasr_txt_file, "r", errors='replace') as f:
                 recip_end.touchdown_lights_availability = get_field(line, 470, 1, "bool")
                 # RECIPROCAL END OBJECT DATA
                 recip_end.controlling_object_description = get_field(line, 471, 11)
-                recip_end.controlling_object_marking = get_field(line, 482, 4, "ControllingObjectMarkingEnum")
+                recip_end.controlling_object_marking = get_field(line, 482, 4)
                 recip_end.part77_category = get_field(line, 486, 5)
                 recip_end.controlling_object_clearance_slope = get_field(line, 491, 2, "int")
                 recip_end.controlling_object_height_above_runway = get_field(line, 493, 5, "int")
