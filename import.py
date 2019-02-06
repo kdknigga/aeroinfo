@@ -21,7 +21,7 @@ def get_field(record, start, length, var_type="str"):
     s = start - 1
     e = start + length - 1
     field = record[s:e].strip()
-    if field == "" or field == "NONE":
+    if field == "":
         return None
     else:
         if var_type == "int":
