@@ -26,11 +26,12 @@ Currently available attribute groups:
 * geographic
 * faaservices
 * fedstatus
+* inspection
+* aptservices
+* facilities
 * runways
 
 Attributes that will be coming in the future:
-* inspection
-* aptservices
 * basedaircraft
 * annualops
 * additional

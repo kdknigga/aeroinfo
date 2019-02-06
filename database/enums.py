@@ -80,3 +80,32 @@ class AirportStatusEnum(enum.Enum):
     CI = "CLOSED INDEFINITELY"
     CP = "CLOSED PERMANENTLY"
     O = "OPERATIONAL"
+
+class AirportInspectionMethodEnum(enum.Enum):
+    F = "FEDERAL"
+    S = "STATE"
+    C = "CONTRACTOR"
+    O = "5010-1 PUBLIC USE MAILOUT PROGRAM" # Actual value in source data is 1
+    T = "5010-2 PRIVATE USE MAILOUT PROGRAM" # Actual value in source data is 2
+
+class AgencyPerformingInspectionEnum(enum.Enum):
+    F = "FAA AIRPORTS FIELD PERSONNEL"
+    S = "STATE AERONAUTICAL PERSONNEL"
+    C = "PRIVATE CONTRACT PERSONNEL"
+    N = "OWNER"
+
+class SegmentedCircleEnum(enum.Enum):
+    Y = "YES"
+    N = "NO"
+    NONE = "NONE"
+    YL = "YES, LIGHTED" # Actual value in source data is Y-L
+
+class BeaconColorEnum(enum.Enum):
+    CG = "CLEAR-GREEN (LIGHTED LAND AIRPORT)"
+    CY = "CLEAR-YELLOW (LIGHTED SEAPLANE BASE)"
+    CGY = "CLEAR-GREEN-YELLOW (HELIPORT)"
+    SCG = "SPLIT-CLEAR-GREEN (LIGHTED MILITARY AIRPORT)"
+    C = "CLEAR (UNLIGHTED LAND AIRPORT)"
+    Y = "YELLOW (UNLIGHTED SEAPLANE BASE)"
+    G = "GREEN  (LIGHTED LAND AIRPORT)"
+    N = "NONE"

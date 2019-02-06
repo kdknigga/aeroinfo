@@ -80,8 +80,26 @@ class Airport(Base):
     military_civil_join_use = Column(Boolean)
     military_landing_rights = Column(Boolean)
     # AIRPORT INSPECTION DATA
+    inspection_method = Column(Enum(enums.AirportInspectionMethodEnum))
+    agency_performing_inspection = Column(Enum(enums.AgencyPerformingInspectionEnum))
+    last_inspection_date = Column(Date)
+    last_information_request_complete_date = Column(Date)
     # AIRPORT SERVICES
+    fuel_available = Column(String(40)) # Candidate for parsing and breaking into multiple columns
+    airframe_repair_service = Column(String(5)) # Could be an enum?
+    power_plant_repair_service = Column(String(5)) # Could be an enum?
+    bottled_oxygen = Column(String(8)) # Could be an enum?
+    bulk_oxygen = Column(String(8)) # Could be an enum?
     # AIRPORT FACILITIES
+    lighting_schedule = Column(String(7))
+    beacon_schedule = Column(String(7))
+    towered_airport = Column(Boolean)
+    unicom = Column(String(7))
+    ctaf = Column(String(7))
+    segmented_circle_available = Column(Enum(enums.SegmentedCircleEnum))
+    beacon_color = Column(Enum(enums.BeaconColorEnum))
+    noncommerical_landing_fee = Column(Boolean)
+    landing_facility_used_for_medical_purposes = Column(Boolean)
     # BASED AIRCRAFT
     # ANNUAL OPERATIONS
     # ADDITIONAL AIRPORT DATA
@@ -125,6 +143,17 @@ class Airport(Base):
         fedstatus_attrs += ["airport_of_entry", "customs_landing_rights"]
         fedstatus_attrs += ["military_civil_join_use", "military_landing_rights"]
 
+        inspect_attrs = ["inspection_method", "agency_performing_inspection"]
+        inspect_attrs += ["last_inspection_date", "last_information_request_complete_date"]
+
+        aptsrv_attrs = ["fuel_available", "airframe_repair_service"]
+        aptsrv_attrs += ["power_plant_repair_service", "bottled_oxygen", "bulk_oxygen"]
+
+        facilities_attrs = ["lighting_schedule", "beacon_schedule", "towered_airport"]
+        facilities_attrs += ["unicom", "ctaf", "segmented_circle_available"]
+        facilities_attrs += ["beacon_color", "noncommerical_landing_fee"]
+        facilities_attrs += ["landing_facility_used_for_medical_purposes"]
+
         if "demographic" in _include:
             base_attrs += demo_attrs
 
@@ -139,6 +168,15 @@ class Airport(Base):
 
         if "fedstatus" in _include:
             base_attrs += fedstatus_attrs
+
+        if "inspection" in _include:
+            base_attrs += inspect_attrs
+
+        if "aptservices" in _include:
+            base_attrs += aptsrv_attrs
+
+        if "facilites" in _include:
+            base_attrs += facilities_attrs
 
         result = dict()
 
@@ -257,7 +295,7 @@ class RunwayEnd(Base):
     # RUNWAY END OBJECT DATA
     controlling_object_description = Column(String(11))
     controlling_object_marking = Column(Enum(enums.ControllingObjectMarkingEnum))
-    part77_category = Column(String(5))
+    part77_category = Column(String(5)) # Might be able to turn into an enum
     controlling_object_clearance_slope = Column(Integer)
     controlling_object_height_above_runway = Column(Integer)
     controlling_object_distance_from_runway = Column(Integer)

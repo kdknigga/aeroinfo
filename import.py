@@ -45,6 +45,20 @@ def get_field(record, start, length, var_type="str"):
             return enums.RunwayMarkingsTypeEnum[field]
         elif var_type == "RunwayMarkingsConditionEnum":
             return enums.RunwayMarkingsConditionEnum[field]
+        elif var_type == "AirportInspectionMethodEnum":
+            # Literals like 1 or 2 can't be members of an enum, so translate them
+            if field == "1":
+                return "O"
+            elif field == "2":
+                return "T"
+            else:
+                return field
+        elif var_type == "SegmentedCircleEnum":
+            # Y-L is an invalid member of an enum, so translate to YL
+            if field == "Y-L":
+                return "YL"
+            else:
+                return field
         else:
             return field
 
@@ -125,8 +139,26 @@ with open(nasr_txt_file, "r", errors='replace') as f:
             airport.military_civil_join_use = get_field(line, 880, 1, "bool")
             airport.military_landing_rights = get_field(line, 881, 1, "bool")
             # AIRPORT INSPECTION DATA
+            airport.inspection_method = get_field(line, 882, 2, "AirportInspectionMethodEnum")
+            airport.agency_performing_inspection = get_field(line, 884, 1)
+            airport.last_inspection_date = get_field(line, 885, 8, "date")
+            airport.last_information_request_complete_date = get_field(line, 893, 8, "date")
             # AIRPORT SERVICES
+            airport.fuel_available = get_field(line, 901, 40)
+            airport.airframe_repair_service = get_field(line, 941, 5)
+            airport.power_plant_repair_service = get_field(line, 946, 5)
+            airport.bottled_oxygen = get_field(line, 951, 8)
+            airport.bulk_oxygen = get_field(line, 959, 8)
             # AIRPORT FACILITIES
+            airport.lighting_schedule = get_field(line, 967, 7)
+            airport.beacon_schedule = get_field(line, 974, 7)
+            airport.towered_airport = get_field(line, 981, 1, "bool")
+            airport.unicom = get_field(line, 982, 7)
+            airport.ctaf = get_field(line, 989, 7)
+            airport.segmented_circle_available = get_field(line, 996, 4, "SegmentedCircleEnum")
+            airport.beacon_color = get_field(line, 1000, 3)
+            airport.noncommerical_landing_fee = get_field(line, 1003, 1, "bool")
+            airport.landing_facility_used_for_medical_purposes = get_field(line, 1004, 1, "bool")
             # BASED AIRCRAFT
             # ANNUAL OPERATIONS
             # ADDITIONAL AIRPORT DATA
