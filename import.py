@@ -152,9 +152,32 @@ with open(nasr_txt_file, "r", errors='replace') as f:
             airport.noncommerical_landing_fee = get_field(line, 1003, 1, "bool")
             airport.landing_facility_used_for_medical_purposes = get_field(line, 1004, 1, "bool")
             # BASED AIRCRAFT
+            airport.based_general_aviation_single_engine_airplanes = get_field(line, 1005, 3, "int")
+            airport.based_general_aviation_multi_engine_airplanes = get_field(line, 1008, 3, "int")
+            airport.based_general_aviation_jet_engine_airplanes = get_field(line, 1011, 3, "int")
+            airport.based_general_aviation_helicopters = get_field(line, 1014, 3, "int")
+            airport.based_gliders = get_field(line, 1017, 3, "int")
+            airport.based_military_aircraft = get_field(line, 1020, 3, "int")
+            airport.based_ultralight_aircraft = get_field(line, 1023, 3, "int")
             # ANNUAL OPERATIONS
+            airport.annual_ops_commercial = get_field(line, 1026, 6, "int")
+            airport.annual_ops_commuter = get_field(line, 1032, 6, "int")
+            airport.annual_ops_air_taxi = get_field(line, 1038, 6, "int")
+            airport.annual_ops_general_aviation_local = get_field(line, 1044, 6, "int")
+            airport.annual_ops_general_aviation_itinerant = get_field(line, 1050, 6, "int")
+            airport.annual_ops_military = get_field(line, 1056, 6, "int")
+            airport.annual_ops_end_of_measurement_period = get_field(line, 1062, 10, "date")
             # ADDITIONAL AIRPORT DATA
+            airport.position_source = get_field(line, 1072, 16)
+            airport.position_date = get_field(line, 1088, 10, "date")
+            airport.elevation_source = get_field(line, 1098, 16)
+            airport.elevation_date = get_field(line, 1114, 10, "date")
+            airport.contract_fuel_available = get_field(line, 1124, 1, "bool")
+            airport.transient_storage_facilities = get_field(line, 1125, 12)
+            airport.other_services_available = get_field(line, 1137, 71)
+            airport.wind_indicator = get_field(line, 1208, 3, "SegmentedCircleEnum")
             airport.icao_id = get_field(line, 1211, 7)
+            airport.minimum_operational_network = get_field(line, 1218, 1)
 
             session.merge(airport)
 

@@ -101,9 +101,32 @@ class Airport(Base):
     noncommerical_landing_fee = Column(Boolean)
     landing_facility_used_for_medical_purposes = Column(Boolean)
     # BASED AIRCRAFT
+    based_general_aviation_single_engine_airplanes = Column(Integer)
+    based_general_aviation_multi_engine_airplanes = Column(Integer)
+    based_general_aviation_jet_engine_airplanes = Column(Integer)
+    based_general_aviation_helicopters = Column(Integer)
+    based_gliders = Column(Integer)
+    based_military_aircraft = Column(Integer)
+    based_ultralight_aircraft = Column(Integer)
     # ANNUAL OPERATIONS
+    annual_ops_commercial = Column(Integer)
+    annual_ops_commuter = Column(Integer)
+    annual_ops_air_taxi = Column(Integer)
+    annual_ops_general_aviation_local = Column(Integer)
+    annual_ops_general_aviation_itinerant = Column(Integer)
+    annual_ops_military = Column(Integer)
+    annual_ops_end_of_measurement_period = Column(Date)
     # ADDITIONAL AIRPORT DATA
+    position_source = Column(String(16))
+    position_date = Column(Date)
+    elevation_source = Column(String(16))
+    elevation_date = Column(Date)
+    contract_fuel_available = Column(Boolean)
+    transient_storage_facilities = Column(String(12)) # Candidate for further parsing
+    other_services_available = Column(String(71)) # Candidate for further parsing
+    wind_indicator = Column(Enum(enums.SegmentedCircleEnum))
     icao_id = Column(String(7), index=True)
+    minimum_operational_network = Column(String(1))
 
     runways = relationship("Runway", back_populates="airport")
 
@@ -154,29 +177,55 @@ class Airport(Base):
         facilities_attrs += ["beacon_color", "noncommerical_landing_fee"]
         facilities_attrs += ["landing_facility_used_for_medical_purposes"]
 
-        if "demographic" in _include:
+        basedacft_attrs = ["based_general_aviation_single_engine_airplanes"]
+        basedacft_attrs += ["based_general_aviation_multi_engine_airplanes"]
+        basedacft_attrs += ["based_general_aviation_jet_engine_airplanes"]
+        basedacft_attrs += ["based_general_aviation_helicopters"]
+        basedacft_attrs += ["based_gliders", "based_military_aircraft"]
+        basedacft_attrs += ["based_ultralight_aircraft"]
+
+        annops_attrs = ["annual_ops_commercial", "annual_ops_commuter"]
+        annops_attrs += ["annual_ops_air_taxi", "annual_ops_general_aviation_local"]
+        annops_attrs += ["annual_ops_general_aviation_itinerant", "annual_ops_military"]
+        annops_attrs += ["annual_ops_end_of_measurement_period"]
+
+        addl_attrs = ["position_source", "position_date", "elevation_source"]
+        addl_attrs += ["elevation_date", "contract_fuel_available"]
+        addl_attrs += ["transient_storage_facilities", "other_services_available"]
+        addl_attrs += ["wind_indicator", "minimum_operational_network"]
+
+        if "demographic" in _include or "all" in _include:
             base_attrs += demo_attrs
 
-        if "ownership" in _include:
+        if "ownership" in _include or "all" in _include:
             base_attrs += ownership_attrs
 
-        if "geographic" in _include:
+        if "geographic" in _include or "all" in _include:
             base_attrs += geo_attrs
 
-        if "faaservices" in _include:
+        if "faaservices" in _include or "all" in _include:
             base_attrs += faasrv_attrs
 
-        if "fedstatus" in _include:
+        if "fedstatus" in _include or "all" in _include:
             base_attrs += fedstatus_attrs
 
-        if "inspection" in _include:
+        if "inspection" in _include or "all" in _include:
             base_attrs += inspect_attrs
 
-        if "aptservices" in _include:
+        if "aptservices" in _include or "all" in _include:
             base_attrs += aptsrv_attrs
 
-        if "facilites" in _include:
+        if "facilities" in _include or "all" in _include:
             base_attrs += facilities_attrs
+
+        if "basedaircraft" in _include or "all" in _include:
+            base_attrs += basedacft_attrs
+
+        if "annualops" in _include or "all" in _include:
+            base_attrs += annops_attrs
+
+        if "additional" in _include or "all" in _include:
+            base_attrs += addl_attrs
 
         result = dict()
 
@@ -232,7 +281,7 @@ class Runway(Base):
         addl_attrs += ["weight_bearing_capacity_dual_wheels", "weight_bearing_capacity_two_dual_wheels_tandem"]
         addl_attrs += ["weight_bearing_capacity_two_dual_wheels_double_tandem"]
 
-        if "additional" in _include:
+        if "additional" in _include or "all" in _include:
             base_attrs += addl_attrs
 
         result = dict()
@@ -366,16 +415,16 @@ class RunwayEnd(Base):
         addl_attrs += ["lahso_longitude_dms", "lahso_longitude_secs"]
         addl_attrs += ["lahso_coords_source", "lahso_coords_date"]
 
-        if "geographic" in _include:
+        if "geographic" in _include or "all" in _include:
             base_attrs += geo_attrs
 
-        if "lighting" in _include:
+        if "lighting" in _include or "all" in _include:
             base_attrs += lighting_attrs
 
-        if "object" in _include:
+        if "object" in _include or "all" in _include:
             base_attrs += obj_attrs
 
-        if "additional" in _include:
+        if "additional" in _include or "all" in _include:
             base_attrs += addl_attrs
 
         result = dict()

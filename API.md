@@ -29,12 +29,10 @@ Currently available attribute groups:
 * inspection
 * aptservices
 * facilities
-* runways
-
-Attributes that will be coming in the future:
 * basedaircraft
 * annualops
 * additional
+* runways
 
 ## How to query runway information
 To get information for a specific runway, you just need to add one more parameter to the query string in addition to `airport`: `runway`.
