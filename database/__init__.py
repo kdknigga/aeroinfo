@@ -24,6 +24,9 @@ def find_airport(identifier, include=None):
     if "runways" in _include:
         queryoptions.append(Load(Airport).joinedload("runways"))
 
+    if "remarks" in _include:
+        queryoptions.append(Load(Airport).joinedload("remarks"))
+
     Session = sessionmaker(bind=Engine)
     session = Session()
 

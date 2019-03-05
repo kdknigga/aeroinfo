@@ -9,6 +9,7 @@ from database import init_tables
 from database.models import Airport
 from database.models import Runway
 from database.models import RunwayEnd
+from database.models import AirportRemark
 from dateutil import parser as dateparser
 from sqlalchemy.orm import sessionmaker
 
@@ -53,6 +54,21 @@ def get_field(record, start, length, var_type="str"):
                 return field
         else:
             return field
+
+def set_airport_attr(session, facility_site_number, attr, value):
+    airport = session.query(Airport).filter_by(facility_site_number=facility_site_number).scalar()
+    setattr(airport, attr, value)
+    session.merge(airport)
+
+def set_runway_attr(session, facility_site_number, runway, attr, value):
+    runway = session.query(Runway).filter_by(facility_site_number=facility_site_number, name=runway).scalar()
+    setattr(runway, attr, value)
+    session.merge(runway)
+
+def set_rw_end_attr(session, facility_site_number, rw_end, attr, value):
+    runway_end = session.query(RunwayEnd).filter_by(facility_site_number=facility_site_number, id=rw_end).scalar()
+    setattr(runway_end, attr, value)
+    session.merge(runway_end)
 
 Session = sessionmaker(bind=Engine)
 session = Session()
@@ -347,5 +363,273 @@ with open(nasr_txt_file, "r", errors='replace') as f:
             if recip_end:
                 session.merge(recip_end)
 
+        if record_type == "RMK":
+            facility_site_number = get_field(line, 4, 11)
+            remark_element_name = get_field(line, 17, 13)
+            remark_text = get_field(line, 30, 1500)
+
+            try:
+                if remark_element_name == "E7":
+                    set_airport_attr(session, facility_site_number, "faa_id_remark", remark_text)
+                elif remark_element_name == "A5":
+                    set_airport_attr(session, facility_site_number, "county_remark", remark_text)
+                elif remark_element_name == "A1":
+                    set_airport_attr(session, facility_site_number, "city_remark", remark_text)
+                elif remark_element_name == "A2":
+                    set_airport_attr(session, facility_site_number, "name_remark", remark_text)
+                elif remark_element_name == "A10":
+                    set_airport_attr(session, facility_site_number, "ownership_type_remark", remark_text)
+                elif remark_element_name == "A18":
+                    set_airport_attr(session, facility_site_number, "facility_use_remark", remark_text)
+                elif remark_element_name == "A11":
+                    set_airport_attr(session, facility_site_number, "owners_name_remark", remark_text)
+                elif remark_element_name == "A12":
+                    set_airport_attr(session, facility_site_number, "owners_address_remark", remark_text)
+                elif remark_element_name == "A12A":
+                    set_airport_attr(session, facility_site_number, "owners_city_state_zip_remark", remark_text)
+                elif remark_element_name == "A13":
+                    set_airport_attr(session, facility_site_number, "owners_phone_remark", remark_text)
+                elif remark_element_name == "A14":
+                    set_airport_attr(session, facility_site_number, "managers_name_remark", remark_text)
+                elif remark_element_name == "A15":
+                    set_airport_attr(session, facility_site_number, "managers_address_remark", remark_text)
+                elif remark_element_name == "A15A":
+                    set_airport_attr(session, facility_site_number, "managers_city_state_zip_remark", remark_text)
+                elif remark_element_name == "A16":
+                    set_airport_attr(session, facility_site_number, "managers_phone_remark", remark_text)
+                elif remark_element_name == "A19":
+                    set_airport_attr(session, facility_site_number, "latitude_dms_remark", remark_text)
+                elif remark_element_name == "A20":
+                    set_airport_attr(session, facility_site_number, "longitude_dms_remark", remark_text)
+                elif remark_element_name == "A19A":
+                    set_airport_attr(session, facility_site_number, "coords_method_remark", remark_text)
+                elif remark_element_name == "A21":
+                    set_airport_attr(session, facility_site_number, "elevation_remark", remark_text)
+                elif remark_element_name == "E28":
+                    set_airport_attr(session, facility_site_number, "mag_variation_remark", remark_text)
+                elif remark_element_name == "E147":
+                    set_airport_attr(session, facility_site_number, "pattern_alt_remark", remark_text)
+                elif remark_element_name == "A7":
+                    set_airport_attr(session, facility_site_number, "sectional_remark", remark_text)
+                elif remark_element_name == "A3":
+                    set_airport_attr(session, facility_site_number, "distance_from_city_remark", remark_text)
+                elif remark_element_name == "A22":
+                    set_airport_attr(session, facility_site_number, "land_area_remark", remark_text)
+                elif remark_element_name == "E156A":
+                    set_airport_attr(session, facility_site_number, "responsible_artcc_id_remark", remark_text)
+                elif remark_element_name == "A87":
+                    set_airport_attr(session, facility_site_number, "tie_in_fss_local_remark", remark_text)
+                elif remark_element_name == "A86":
+                    set_airport_attr(session, facility_site_number, "tie_in_fss_remark", remark_text)
+                elif remark_element_name == "A26":
+                    set_airport_attr(session, facility_site_number, "arff_certification_remark", remark_text)
+                elif remark_element_name == "A25":
+                    set_airport_attr(session, facility_site_number, "npias_federal_agreements_remarks", remark_text)
+                elif remark_element_name == "E111":
+                    set_airport_attr(session, facility_site_number, "airspace_analysis_remark", remark_text)
+                elif remark_element_name == "E79":
+                    set_airport_attr(session, facility_site_number, "airport_of_entry_remark", remark_text)
+                elif remark_element_name == "E80":
+                    set_airport_attr(session, facility_site_number, "customs_landing_rights_remark", remark_text)
+                elif remark_element_name == "E115":
+                    set_airport_attr(session, facility_site_number, "military_civil_join_use_remark", remark_text)
+                elif remark_element_name == "E116":
+                    set_airport_attr(session, facility_site_number, "military_landing_rights_remark", remark_text)
+                elif remark_element_name == "A111":
+                    set_airport_attr(session, facility_site_number, "agency_performing_inspection_remark", remark_text)
+                elif remark_element_name == "A112":
+                    set_airport_attr(session, facility_site_number, "last_inspection_date_remark", remark_text)
+                elif remark_element_name == "A113":
+                    set_airport_attr(session, facility_site_number, "last_information_request_complete_date_remark", remark_text)
+                elif remark_element_name == "A70":
+                    set_airport_attr(session, facility_site_number, "fuel_available_remark", remark_text)
+                elif remark_element_name == "A71":
+                    set_airport_attr(session, facility_site_number, "airframe_repair_service_remark", remark_text)
+                elif remark_element_name == "A72":
+                    set_airport_attr(session, facility_site_number, "power_plant_repair_service_remark", remark_text)
+                elif remark_element_name == "A73":
+                    set_airport_attr(session, facility_site_number, "bottled_oxygen_remark", remark_text)
+                elif remark_element_name == "A74":
+                    set_airport_attr(session, facility_site_number, "bulk_oxygen_remark", remark_text)
+                elif remark_element_name == "A81-APT":
+                    set_airport_attr(session, facility_site_number, "lighting_schedule_remark", remark_text)
+                elif remark_element_name == "A81-BCN":
+                    set_airport_attr(session, facility_site_number, "beacon_schedule_remark", remark_text)
+                elif remark_element_name == "A82":
+                    set_airport_attr(session, facility_site_number, "unicom_remark", remark_text)
+                elif remark_element_name == "E100":
+                    set_airport_attr(session, facility_site_number, "ctaf_remark", remark_text)
+                elif remark_element_name == "A84":
+                    set_airport_attr(session, facility_site_number, "segmented_circle_available_remark", remark_text)
+                elif remark_element_name == "A80":
+                    set_airport_attr(session, facility_site_number, "beacon_color_remark", remark_text)
+                elif remark_element_name == "A24":
+                    set_airport_attr(session, facility_site_number, "noncommerical_landing_fee_remark", remark_text)
+                elif remark_element_name == "A90":
+                    set_airport_attr(session, facility_site_number, "based_general_aviation_single_engine_airplanes_remark", remark_text)
+                elif remark_element_name == "A91":
+                    set_airport_attr(session, facility_site_number, "based_general_aviation_multi_engine_airplanes_remark", remark_text)
+                elif remark_element_name == "A92":
+                    set_airport_attr(session, facility_site_number, "based_general_aviation_jet_engine_airplanes_remark", remark_text)
+                elif remark_element_name == "A93":
+                    set_airport_attr(session, facility_site_number, "based_general_aviation_helicopters_remark", remark_text)
+                elif remark_element_name == "A94":
+                    set_airport_attr(session, facility_site_number, "based_gliders_remark", remark_text)
+                elif remark_element_name == "A95":
+                    set_airport_attr(session, facility_site_number, "based_military_aircraft_remark", remark_text)
+                elif remark_element_name == "A96":
+                    set_airport_attr(session, facility_site_number, "based_ultralight_aircraft_remark", remark_text)
+                elif remark_element_name == "A100":
+                    set_airport_attr(session, facility_site_number, "annual_ops_commercial_remark", remark_text)
+                elif remark_element_name == "A101":
+                    set_airport_attr(session, facility_site_number, "annual_ops_commuter_remark", remark_text)
+                elif remark_element_name == "A102":
+                    set_airport_attr(session, facility_site_number, "annual_ops_air_taxi_remark", remark_text)
+                elif remark_element_name == "A103":
+                    set_airport_attr(session, facility_site_number, "annual_ops_general_aviation_local_remark", remark_text)
+                elif remark_element_name == "A104":
+                    set_airport_attr(session, facility_site_number, "annual_ops_general_aviation_itinerant_remark", remark_text)
+                elif remark_element_name == "A105":
+                    set_airport_attr(session, facility_site_number, "annual_ops_military_remark", remark_text)
+                elif remark_element_name == "A75":
+                    set_airport_attr(session, facility_site_number, "transient_storage_facilities_remark", remark_text)
+                elif remark_element_name == "A76":
+                    set_airport_attr(session, facility_site_number, "other_services_available_remark", remark_text)
+                elif remark_element_name == "A83":
+                    set_airport_attr(session, facility_site_number, "wind_indicator_remark", remark_text)
+                elif remark_element_name.startswith("A30-"):
+                    en, rw = tuple(remark_element_name.split("-"))
+                    set_runway_attr(session, facility_site_number, rw, "name_remark", remark_text)
+                elif remark_element_name.startswith("A31-"):
+                    en, rw = tuple(remark_element_name.split("-"))
+                    set_runway_attr(session, facility_site_number, rw, "length_remark", remark_text)
+                elif remark_element_name.startswith("A32-"):
+                    en, rw = tuple(remark_element_name.split("-"))
+                    set_runway_attr(session, facility_site_number, rw, "width_remark", remark_text)
+                elif remark_element_name.startswith("A33-"):
+                    en, rw = tuple(remark_element_name.split("-"))
+                    set_runway_attr(session, facility_site_number, rw, "surface_type_condition_remark", remark_text)
+                elif remark_element_name.startswith("A34-"):
+                    en, rw = tuple(remark_element_name.split("-"))
+                    set_runway_attr(session, facility_site_number, rw, "surface_treatment_remark", remark_text)
+                elif remark_element_name.startswith("A39-"):
+                    en, rw = tuple(remark_element_name.split("-"))
+                    set_runway_attr(session, facility_site_number, rw, "pavement_classification_number_remark", remark_text)
+                elif remark_element_name.startswith("A40-"):
+                    en, rw = tuple(remark_element_name.split("-"))
+                    set_runway_attr(session, facility_site_number, rw, "edge_light_intensity_remark", remark_text)
+                elif remark_element_name.startswith("A35-"):
+                    en, rw = tuple(remark_element_name.split("-"))
+                    set_runway_attr(session, facility_site_number, rw, "weight_bearing_capacity_single_wheel_remark", remark_text)
+                elif remark_element_name.startswith("A36-"):
+                    en, rw = tuple(remark_element_name.split("-"))
+                    set_runway_attr(session, facility_site_number, rw, "weight_bearing_capacity_dual_wheels_remark", remark_text)
+                elif remark_element_name.startswith("A37-"):
+                    en, rw = tuple(remark_element_name.split("-"))
+                    set_runway_attr(session, facility_site_number, rw, "weight_bearing_capacity_two_dual_wheels_tandem_remark", remark_text)
+                elif remark_element_name.startswith("A38-"):
+                    en, rw = tuple(remark_element_name.split("-"))
+                    set_runway_attr(session, facility_site_number, rw, "weight_bearing_capacity_two_dual_wheels_double_tandem_remark", remark_text)
+                elif remark_element_name.startswith("A30A-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "id_remark", remark_text)
+                elif remark_element_name.startswith("E46-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "true_alignment_remark", remark_text)
+                elif remark_element_name.startswith("A23-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "right_traffic_remark", remark_text)
+                elif remark_element_name.startswith("A42-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "markings_remark", remark_text)
+                elif remark_element_name.startswith("E68-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "latitude_dms_remark", remark_text)
+                elif remark_element_name.startswith("E69-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "longitude_dms_remark", remark_text)
+                elif remark_element_name.startswith("E70-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "elevation_remark", remark_text)
+                elif remark_element_name.startswith("A44-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "threshold_crossing_height_remark", remark_text)
+                elif remark_element_name.startswith("A45-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "visual_glide_path_angle_remark", remark_text)
+                elif remark_element_name.startswith("E161-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "displaced_threshold_latitude_dms_remark", remark_text)
+                elif remark_element_name.startswith("E162-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "displaced_threshold_longitude_dms_remark", remark_text)
+                elif remark_element_name.startswith("A51-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "displaced_threshold_length_remark", remark_text)
+                elif remark_element_name.startswith("A43-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "visual_glide_slope_indicators_remark", remark_text)
+                elif remark_element_name.startswith("A47-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "rvr_equipment_remark", remark_text)
+                elif remark_element_name.startswith("A47A-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "rvv_equipment_remark", remark_text)
+                elif remark_element_name.startswith("A49-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "approach_light_system_remark", remark_text)
+                elif remark_element_name.startswith("A48-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "reil_availability_remark", remark_text)
+                elif remark_element_name.startswith("A46-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "centerline_light_availability_remark", remark_text)
+                elif remark_element_name.startswith("A46A-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "touchdown_lights_availability_remark", remark_text)
+                elif remark_element_name.startswith("A52-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "controlling_object_description_remark", remark_text)
+                elif remark_element_name.startswith("A53-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "controlling_object_marking_remark", remark_text)
+                elif remark_element_name.startswith("A50-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "part77_category_remark", remark_text)
+                elif remark_element_name.startswith("A57-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "controlling_object_clearance_slope_remark", remark_text)
+                elif remark_element_name.startswith("A54-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "controlling_object_height_above_runway_remark", remark_text)
+                elif remark_element_name.startswith("A55-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "controlling_object_distance_from_runway_remark", remark_text)
+                elif remark_element_name.startswith("A56-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "controlling_object_centerline_offset_remark", remark_text)
+                elif remark_element_name.startswith("E40-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "gradient_remark", remark_text)
+                elif remark_element_name.startswith("A60-"):
+                    en, rw_end = tuple(remark_element_name.split("-"))
+                    set_rw_end_attr(session, facility_site_number, rw_end, "takeoff_run_available_remark", remark_text)
+                #elif remark_element_name == "":
+                #    set_airport_attr(session, facility_site_number, "", remark_text)
+                #elif remark_element_name.startswith(""):
+                #    en, rw = tuple(remark_element_name.split("-"))
+                #    set_runway_attr(session, facility_site_number, rw, "", remark_text)
+                #elif remark_element_name.startswith(""):
+                #    en, rw_end = tuple(remark_element_name.split("-"))
+                #    set_rw_end_attr(session, facility_site_number, rw_end, "", remark_text)
+                else:
+                    raise Exception("No rule to parse remark")
+
+            except:
+                remark = AirportRemark()
+                remark.facility_site_number = facility_site_number
+                remark.remark_element_name = remark_element_name
+                remark.remark = remark_text
+                session.merge(remark)
 
 session.commit()
