@@ -129,7 +129,6 @@ class Airport(Base):
     responsible_artcc_name = Column(String(30))
     #L AN 0001 00712  A87     TIE-IN FSS PHYSICALLY LOCATED ON FACILITY
     tie_in_fss_local = Column(Boolean)
-    tie_in_fss_local_remark = Column(String(1500))
     #L AN 0004 00713  A86     TIE-IN FLIGHT SERVICE STATION (FSS) IDENTIFIER
     tie_in_fss_id = Column(String(4))
     tie_in_fss_remark = Column(String(1500))
@@ -343,11 +342,10 @@ class Airport(Base):
             "boundary_artcc_name", "responsible_artcc_id",
             "responsible_artcc_id_remark", "responsible_artcc_computer_id",
             "responsible_artcc_name", "tie_in_fss_local",
-            "tie_in_fss_local_remark", "tie_in_fss_id", "tie_in_fss_remark",
-            "tie_in_fss_name", "fss_local_phone", "fss_toll_free_phone",
-            "alternate_fss_id", "alternate_fss_name",
-            "alternate_fss_toll_free_phone", "notam_facility",
-            "notam_d_available"]
+            "tie_in_fss_id", "tie_in_fss_remark", "tie_in_fss_name",
+            "fss_local_phone", "fss_toll_free_phone", "alternate_fss_id",
+            "alternate_fss_name", "alternate_fss_toll_free_phone",
+            "notam_facility", "notam_d_available"]
 
         fedstatus_attrs = ["activation_date", "status", "arff_certification",
             "arff_certification_remark", "npias_federal_agreements",

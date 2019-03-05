@@ -413,8 +413,6 @@ with open(nasr_txt_file, "r", errors='replace') as f:
                     set_airport_attr(session, facility_site_number, "land_area_remark", remark_text)
                 elif remark_element_name == "E156A":
                     set_airport_attr(session, facility_site_number, "responsible_artcc_id_remark", remark_text)
-                elif remark_element_name == "A87":
-                    set_airport_attr(session, facility_site_number, "tie_in_fss_local_remark", remark_text)
                 elif remark_element_name == "A86":
                     set_airport_attr(session, facility_site_number, "tie_in_fss_remark", remark_text)
                 elif remark_element_name == "A26":
