@@ -159,7 +159,7 @@ class Airport(Base):
     arff_certification_remark = Column(String(1500)) # Candidate for parsing and breaking into multiple columns
     #L AN 0007 00858  A25     NPIAS/FEDERAL AGREEMENTS CODE
     npias_federal_agreements = Column(String(7)) # Candidate for parsing and breaking into multiple columns
-    npias_federal_agreements_remarks = Column(String(1500)) # Candidate for parsing and breaking into multiple columns
+    npias_federal_agreements_remark = Column(String(1500))
     #L AN 0013 00865  E111    AIRPORT AIRSPACE ANALYSIS DETERMINATION
     airspace_analysis = Column(String(13))
     airspace_analysis_remark = Column(String(1500))
@@ -349,7 +349,7 @@ class Airport(Base):
 
         fedstatus_attrs = ["activation_date", "status", "arff_certification",
             "arff_certification_remark", "npias_federal_agreements",
-            "npias_federal_agreements_remarks", "airspace_analysis",
+            "npias_federal_agreements_remark", "airspace_analysis",
             "airspace_analysis_remark", "airport_of_entry",
             "airport_of_entry_remark", "customs_landing_rights",
             "customs_landing_rights_remark", "military_civil_join_use",
