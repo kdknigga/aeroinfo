@@ -187,7 +187,6 @@ class Airport(Base):
     last_inspection_date_remark = Column(String(1500))
     #L AN 0008 00893  A113    LAST DATE INFORMATION REQUEST WAS COMPLETED
     last_information_request_complete_date = Column(Date)
-    last_information_request_complete_date_remark = Column(String(1500))
 
     # AIRPORT SERVICES
     #L AN 0040 00901  A70     FUEL TYPES AVAILABLE FOR PUBLIC USE
@@ -359,8 +358,7 @@ class Airport(Base):
         inspect_attrs = ["inspection_method", "agency_performing_inspection",
             "agency_performing_inspection_remark", "last_inspection_date",
             "last_inspection_date_remark",
-            "last_information_request_complete_date",
-            "last_information_request_complete_date_remark"]
+            "last_information_request_complete_date"]
 
         aptsrv_attrs = ["fuel_available", "fuel_available_remark",
             "airframe_repair_service", "airframe_repair_service_remark",
