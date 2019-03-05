@@ -96,7 +96,6 @@ class Airport(Base):
     elevation_method = Column(Enum(enums.DeterminationMethodEnum))
     #L AN 0003 00587  E28     MAGNETIC VARIATION AND DIRECTION
     mag_variation = Column(String(3))
-    mag_variation_remark = Column(String(1500))
     #L AN 0004 00590  E28     MAGNETIC VARIATION EPOCH YEAR
     mag_variation_year = Column(Integer)
     #R AN 0004 00594  E147    TRAFFIC PATTERN ALTITUDE  (WHOLE FEET AGL)
@@ -335,10 +334,10 @@ class Airport(Base):
             "longitude_dms", "longitude_dms_remark", "longitude_secs",
             "coords_method", "coords_method_remark", "elevation",
             "elevation_remark", "elevation_method", "mag_variation",
-            "mag_variation_remark", "mag_variation_year", "pattern_alt",
-            "pattern_alt_remark", "sectional", "sectional_remark",
-            "distance_from_city", "distance_from_city_remark",
-            "direction_from_city", "land_area", "land_area_remark"]
+            "mag_variation_year", "pattern_alt", "pattern_alt_remark",
+            "sectional", "sectional_remark", "distance_from_city",
+            "distance_from_city_remark", "direction_from_city", "land_area",
+            "land_area_remark"]
 
         faasrv_attrs = ["boundary_artcc_id", "boundary_artcc_computer_id",
             "boundary_artcc_name", "responsible_artcc_id",

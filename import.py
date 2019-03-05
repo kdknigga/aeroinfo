@@ -403,8 +403,6 @@ with open(nasr_txt_file, "r", errors='replace') as f:
                     set_airport_attr(session, facility_site_number, "coords_method_remark", remark_text)
                 elif remark_element_name == "A21":
                     set_airport_attr(session, facility_site_number, "elevation_remark", remark_text)
-                elif remark_element_name == "E28":
-                    set_airport_attr(session, facility_site_number, "mag_variation_remark", remark_text)
                 elif remark_element_name == "E147":
                     set_airport_attr(session, facility_site_number, "pattern_alt_remark", remark_text)
                 elif remark_element_name == "A7":
