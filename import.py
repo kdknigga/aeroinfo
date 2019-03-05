@@ -369,9 +369,7 @@ with open(nasr_txt_file, "r", errors='replace') as f:
             remark_text = get_field(line, 30, 1500)
 
             try:
-                if remark_element_name == "E7":
-                    set_airport_attr(session, facility_site_number, "faa_id_remark", remark_text)
-                elif remark_element_name == "A5":
+                if remark_element_name == "A5":
                     set_airport_attr(session, facility_site_number, "county_remark", remark_text)
                 elif remark_element_name == "A1":
                     set_airport_attr(session, facility_site_number, "city_remark", remark_text)

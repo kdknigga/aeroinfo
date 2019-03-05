@@ -19,7 +19,6 @@ class Airport(Base):
     facility_type = Column(String(13))
     #L AN 0004 00028  E7      LOCATION IDENTIFIER
     faa_id = Column(String(4), index=True)
-    faa_id_remark = Column(String(1500))
     #L AN 0010 00032  N/A     INFORMATION EFFECTIVE DATE (MM/DD/YYYY)
     effective_date = Column(Date)
 
@@ -316,8 +315,8 @@ class Airport(Base):
     def to_dict(self, include=None):
         _include = include or []
 
-        base_attrs = ["facility_type", "faa_id", "faa_id_remark", "icao_id",
-            "name", "name_remark", "effective_date"]
+        base_attrs = ["facility_type", "faa_id", "icao_id", "name",
+            "name_remark", "effective_date"]
 
         demo_attrs = ["region", "field_office", "state_code", "state_name",
             "county", "county_remark", "countys_state", "city", "city_remark"]
