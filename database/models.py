@@ -648,7 +648,6 @@ class RunwayEnd(Base):
     #L AN 0001 00237  A47A    RUNWAY VISIBILITY VALUE EQUIPMENT (RVV)
     #L AN 0001 00459  A47A    RUNWAY VISIBILITY VALUE EQUIPMENT (RVV)
     rvv_equipment = Column(Boolean)
-    rvv_equipment_remark = Column(String(1500))
     #L AN 0008 00238  A49     APPROACH LIGHT SYSTEM
     #L AN 0008 00460  A49     APPROACH LIGHT SYSTEM
     approach_light_system = Column(String(8))
@@ -807,10 +806,9 @@ class RunwayEnd(Base):
 
         lighting_attrs = ["visual_glide_slope_indicators",
             "visual_glide_slope_indicators_remark", "rvr_equipment",
-            "rvr_equipment_remark", "rvv_equipment", "rvv_equipment_remark",
-            "approach_light_system", "approach_light_system_remark",
-            "reil_availability", "reil_availability_remark",
-            "centerline_light_availability",
+            "rvr_equipment_remark", "rvv_equipment", "approach_light_system",
+            "approach_light_system_remark", "reil_availability",
+            "reil_availability_remark", "centerline_light_availability",
             "centerline_light_availability_remark",
             "touchdown_lights_availability",
             "touchdown_lights_availability_remark"]

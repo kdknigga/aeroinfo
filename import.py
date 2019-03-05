@@ -564,9 +564,6 @@ with open(nasr_txt_file, "r", errors='replace') as f:
                 elif remark_element_name.startswith("A47-"):
                     en, rw_end = tuple(remark_element_name.split("-"))
                     set_rw_end_attr(session, facility_site_number, rw_end, "rvr_equipment_remark", remark_text)
-                elif remark_element_name.startswith("A47A-"):
-                    en, rw_end = tuple(remark_element_name.split("-"))
-                    set_rw_end_attr(session, facility_site_number, rw_end, "rvv_equipment_remark", remark_text)
                 elif remark_element_name.startswith("A49-"):
                     en, rw_end = tuple(remark_element_name.split("-"))
                     set_rw_end_attr(session, facility_site_number, rw_end, "approach_light_system_remark", remark_text)
