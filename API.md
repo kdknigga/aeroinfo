@@ -32,6 +32,7 @@ Currently available attribute groups:
 * basedaircraft
 * annualops
 * additional
+* remarks
 * runways
 
 ## How to query runway information
