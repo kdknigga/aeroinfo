@@ -5,7 +5,7 @@ RDBMS settings are set via environment variables.  Tested with Postgresql 10 and
 
 Tested with Python 3.6 and 3.7.
 
-See the following for an example implementation:
+See the following for an example application:
 https://api.aeronautical.info/dev/?airport=ORD&include=demographic&include=geographic&include=ownership&include=runways
 
 ## Getting Started notes
