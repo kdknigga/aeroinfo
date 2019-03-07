@@ -305,6 +305,7 @@ class Airport(Base):
 
     runways = relationship("Runway", back_populates="airport")
     remarks = relationship("AirportRemark", back_populates="airport")
+    attendance_schedules = relationship("AttendanceSchedule", back_populates="airport")
 
     def __repr__(self):
         return "<Airport(name='%s', faa='%s', icao='%s')>" % (self.name, self.faa_id, self.icao_id)
@@ -452,6 +453,9 @@ class Airport(Base):
 
         if "remarks" in _include:
             result["remarks"] = [remark.remark for remark in self.remarks]
+
+        if "attendance" in _include:
+            result["attendance"] = [attsched.attendance_schedule for attsched in self.attendance_schedules]
 
         return result
 
@@ -917,3 +921,20 @@ class RunwayEndRemark(Base):
 
     def __repr__(self):
         return "<RunwayEnd Remark(runway_end='%s', element_name='%s', remark='%s...')>" % (self.runway_end, self.remark_element_name, self.remark[:13])
+
+class AttendanceSchedule(Base):
+    __tablename__ = "attendance_schedules"
+
+    # F A C I L I T Y   A T T E N D A N C E   S C H E D U L E   D A T A
+    #L AN 0011 00004  N/A     LANDING FACILITY SITE NUMBER
+    facility_site_number = Column(String(11), ForeignKey("airports.facility_site_number"), primary_key=True)
+    #R AN 0002 00017  N/A     ATTENDANCE SCHEDULE SEQUENCE NUMBER
+    sequence_number = Column(Integer, primary_key=True)
+    #L AN 0108 00019  A17     AIRPORT ATTENDANCE SCHEDULE
+    attendance_schedule = Column(String(108))
+    #L AN 1403 00127  NONE    ATTENDANCE SCHEDULE RECORD FILLER (BLANK)
+
+    airport = relationship("Airport", back_populates="attendance_schedules")
+
+    def __repr__(self):
+        return "<Attendance Schedule(airport='%s', sequence_number='%d', attendance_schedule='%s')>" % (self.airport, self.sequence_number, self.attendance_schedule[:13])

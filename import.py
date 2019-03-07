@@ -9,6 +9,7 @@ from database import init_tables
 from database.models import Airport
 from database.models import Runway
 from database.models import RunwayEnd
+from database.models import AttendanceSchedule
 from database.models import AirportRemark
 from dateutil import parser as dateparser
 from sqlalchemy.orm import sessionmaker
@@ -362,6 +363,16 @@ with open(nasr_txt_file, "r", errors='replace') as f:
                 session.merge(base_end)
             if recip_end:
                 session.merge(recip_end)
+
+        if record_type == "ATT":
+            attsched = AttendanceSchedule()
+
+            # F A C I L I T Y   A T T E N D A N C E   S C H E D U L E   D A T A
+            attsched.facility_site_number = get_field(line, 4, 11)
+            attsched.sequence_number = get_field(line, 17, 2, "int")
+            attsched.attendance_schedule = get_field(line, 19, 108)
+
+            session.merge(attsched)
 
         if record_type == "RMK":
             facility_site_number = get_field(line, 4, 11)
