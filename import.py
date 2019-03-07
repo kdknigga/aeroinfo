@@ -374,6 +374,12 @@ with open(nasr_txt_file, "r", errors='replace') as f:
 
             session.merge(attsched)
 
+        if record_type == "ARS":
+            facility_site_number = get_field(line, 4, 11)
+            runway_end = get_field(line, 24, 3)
+            arresting_gear = get_field(line, 27, 9)
+            set_rw_end_attr(session, facility_site_number, runway_end, "arresting_gear", arresting_gear)
+
         if record_type == "RMK":
             facility_site_number = get_field(line, 4, 11)
             remark_element_name = get_field(line, 17, 13)

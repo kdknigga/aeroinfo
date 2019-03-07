@@ -777,8 +777,11 @@ class RunwayEnd(Base):
     #L AN 0010 00841  NONE    HOLD SHORT POINT LAT/LONG SOURCE DATE (MM/DD/YYYY)
     #L AN 0010 01132  NONE    HOLD SHORT POINT LAT/LONG SOURCE DATE (MM/DD/YYYY)
     lahso_coords_date = Column(Date)
-
     #L AN 0388 01142  NONE    RUNWAY RECORD FILLER (BLANK)
+
+    # R U N W A Y   A R R E S T I N G   S Y S T E M   D A T A
+    #L AN 0009 00027  E60     TYPE OF AIRCRAFT ARRESTING DEVICE
+    arresting_gear = Column(String(9))
 
     runway = relationship("Runway", back_populates="runway_ends")
     remarks = relationship("RunwayEndRemark", back_populates="runway_end")
@@ -842,7 +845,8 @@ class RunwayEnd(Base):
             "landing_distance_available", "lahso_distance_available",
             "id_of_lahso_intersecting_runway", "description_of_lahso_entity",
             "lahso_latitude_dms", "lahso_latitude_secs", "lahso_longitude_dms",
-            "lahso_longitude_secs", "lahso_coords_source", "lahso_coords_date"]
+            "lahso_longitude_secs", "lahso_coords_source", "lahso_coords_date",
+            "arresting_gear"]
 
         if "geographic" in _include or "all" in _include:
             base_attrs += geo_attrs
