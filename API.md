@@ -1,5 +1,9 @@
 # api.aeronautical.info
 
+## General Notes on Usage
+
+**If you plan on building something that uses this API please note the "dev" in the URL.**  This is not a "production-grade" service and is run on a shoestring budget.  On the other hand, though, it's had pretty darned good uptime and it's offered completely free of charge to you.  If you are interested in using the API I provide for anything important, please [let me know](mailto:kris+aeroinfo@knigga.com) and maybe we can work out some arrangement for a paid, "production-grade" service.  Further, if you would be so kind, please include the parameter `appid` in your query string with a value that uniquely identifies your application.  For example, for my app [loggingnight](https://loggingnight.org/) I pass `appid=loggingnight` in the query string.  Knowing what applications use my service is both interesting to me and also helps me justify the expense to myself.  :)
+
 Currently you can query for airport, runway, and runway end information.
 
 What's a runway end?  Well, the FAA breaks a normal runway into two parts: base end and reciprocal end.  For an example, runway "18/36" has a base end of "18" and a reciprocal end of "36".  In the FAA's data set, some attributes belong to a runway as a whole and some attributes belong to runway ends.
