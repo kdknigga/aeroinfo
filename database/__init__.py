@@ -35,7 +35,9 @@ def find_airport(identifier, include=None):
 
     airport = session.query(Airport).filter(
         (Airport.faa_id == identifier.upper()) | (Airport.icao_id == identifier.upper())
-    ).options(queryoptions).scalar()
+    ).order_by(
+        Airport.effective_date.desc()
+    ).options(queryoptions).first()
 
     session.close()
 

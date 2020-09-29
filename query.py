@@ -25,6 +25,10 @@ print("#  3CK ###############################")
 airport = find_airport("3CK", include=include)
 pp.pprint(airport.to_dict(include=include))
 
+print("#  SSI ###############################")
+airport = find_airport("SSI")
+pp.pprint(airport.to_dict())
+
 include = ["demographic", "runways"]
 print("# LL10 ###############################")
 airport = find_airport("LL10", include=include)
