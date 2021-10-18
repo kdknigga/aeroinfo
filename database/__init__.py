@@ -15,7 +15,10 @@ db_pass = os.getenv("DB_PASS")
 db_host = os.getenv("DB_HOST")
 db_name = os.getenv("DB_NAME")
 
-Engine = create_engine('%s://%s:%s@%s/%s' % (db_rdbm, db_user, db_pass, db_host, db_name), echo=False)
+if db_rdbm == "sqlite":
+    Engine = create_engine('%s://%s' % (db_rdbm, db_host), echo=False)
+else:
+    Engine = create_engine('%s://%s:%s@%s/%s' % (db_rdbm, db_user, db_pass, db_host, db_name), echo=False)
 
 def find_airport(identifier, include=None):
     _include = include or []
