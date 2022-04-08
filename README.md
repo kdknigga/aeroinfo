@@ -10,7 +10,7 @@ https://api.aeronautical.info/dev/?airport=ORD&include=demographic&include=geogr
 
 ## Getting Started notes
 * Start with setting up your python environment.  I'd suggest installing the requirements in a virtualenv.
-* Next set up your database.  I'm using postgresql, but I've tried sqlite3 (with tweaks to database/\_\_init\_\_.py), too.  Assuming postgresql, just create the database and a user with permissions to create/alter tables.  No need to actually create tables (See caveat below)
+* Next set up your database.  I'm using postgresql, but I've tried sqlite3, too.  Assuming postgresql, just create the database and a user with permissions to create/alter tables.  No need to actually create tables (See caveat below)
 * Now you just have to create environment variables with your database information.  See the top of database/\_\_init\_\_.py for details.
 * Finally, use download_nasr.py to download the current FAA NASR subscription data to a local directory and then use import.py to create the database tables and populate the database.
 
