@@ -38,6 +38,23 @@ def get_field(record, start, length, var_type="str"):
                 return "YL"
             else:
                 return field
+        elif var_type == "NavaidPositionSurveyAccuracyEnum" or var_type == "NavaidMonitoringCategoryEnum":
+            if field == "1":
+                return "ONE"
+            if field == "2":
+                return "TWO"
+            if field == "3":
+                return "THREE"
+            if field == "4":
+                return "FOUR"
+            if field == "5":
+                return "FIVE"
+            if field == "6":
+                return "SIX"
+            if field == "7":
+                return "SEVEN"
+            else:
+                return field
         else:
             return field
 

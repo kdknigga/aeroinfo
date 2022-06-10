@@ -160,7 +160,7 @@ class Navaid(Base):
     vor_receiver_checkpoints = relationship("VORReceiverCheckpoint", back_populates="navaid")
     
     def __repr__(self):
-        return f"<Navaid(name={self.name}, id={self.facility_id}, type={self.facility_type}>"
+        return f"<Navaid(name={self.name}, id={self.facility_id}, type={self.facility_type})>"
 
 
 class Remark(Base):
@@ -183,7 +183,7 @@ class Remark(Base):
     navaid = relationship("Navaid", back_populates="remarks")
     
     def __repr__(self):
-        return f"<Remark(id={self.facility_id}, type={self.facility_type}, remark=\"{self.remark[:16]}\">"
+        return f"<Remark(id={self.facility_id}, type={self.facility_type}, remark=\"{self.remark[:16]}\")>"
 
 
 class AirspaceFix(Base):
@@ -209,7 +209,7 @@ class AirspaceFix(Base):
     navaid = relationship("Navaid", back_populates="airspace_fixes")
 
     def __repr__(self):
-        return f"<AirspaceFix(id={self.facility_id}, type={self.facility_type}, fix=\"{self.fix[:16]}\">"
+        return f"<AirspaceFix(id={self.facility_id}, type={self.facility_type}, fix=\"{self.fix[:16]}\")>"
 
 
 class HoldingPattern(Base):
@@ -237,7 +237,7 @@ class HoldingPattern(Base):
     navaid = relationship("Navaid", back_populates="holding_patterns")
 
     def __repr__(self):
-        return f"<HoldingPattern(id={self.facility_id}, type={self.facility_type}, holding_pattern=\"{self.holding_pattern[:16]}\">"
+        return f"<HoldingPattern(id={self.facility_id}, type={self.facility_type}, holding_pattern=\"{self.holding_pattern[:16]}\")>"
 
 
 class FanMarker(Base):
@@ -253,7 +253,7 @@ class FanMarker(Base):
     facility_type = Column(String(20), primary_key=True)
     #L AN 0030 00029  N81     NAME(S) OF FAN MARKER(S)
     fan_marker = Column(String(30), primary_key=True)
-    # TODO?: Break this into multiple rows?
+    # Break this into multiple rows?  Nope!  There are only 6 (currently) and none use more_fan_markers at all.
     #L AN 0690 00059  N/A     SPACE ALLOCATED FOR 23 MORE FAN MARKERS (NOTE:  THIS RECORD MAY CONTAIN UP TO 24 FAN MARKERS)
     more_fan_markers = Column(String(690))
     #L AN 0057 00749  N/A     BLANKS
@@ -263,7 +263,7 @@ class FanMarker(Base):
     navaid = relationship("Navaid", back_populates="fan_markers")
 
     def __repr__(self):
-        return f"<FanMarker(id={self.facility_id}, type={self.facility_type}, fan_marker=\"{self.fan_marker[:16]}\">"
+        return f"<FanMarker(id={self.facility_id}, type={self.facility_type}, fan_marker=\"{self.fan_marker[:16]}\")>"
 
 
 class VORReceiverCheckpoint(Base):
@@ -298,4 +298,4 @@ class VORReceiverCheckpoint(Base):
     navaid = relationship("Navaid", back_populates="vor_receiver_checkpoints")
 
     def __repr__(self):
-        return f"<VORReceiverCheckpoint(id={self.facility_id}, type={self.facility_type}, air_ground={self.air_ground}, bearing={self.bearing}>"
+        return f"<VORReceiverCheckpoint(id={self.facility_id}, type={self.facility_type}, air_ground={self.air_ground}, bearing={self.bearing})>"

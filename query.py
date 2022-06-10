@@ -4,6 +4,7 @@ import pprint
 from database import find_airport
 from database import find_runway
 from database import find_runway_end
+from database import find_navaid
 
 pp = pprint.PrettyPrinter()
 
@@ -44,3 +45,6 @@ print("# LL10 runway 36 #####################")
 rwend = find_runway_end("36", runway, include=include)
 pp.pprint(rwend.to_dict(include=include))
 
+print("#  JOT VOR ###########################")
+navaid = find_navaid("JOT", "VOR/DME")
+pp.pprint(navaid)
