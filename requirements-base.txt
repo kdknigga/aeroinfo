@@ -1,0 +1,9 @@
+certifi
+chardet
+idna
+psycopg2
+python-dateutil
+requests
+six
+SQLAlchemy
+urllib3

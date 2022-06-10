@@ -2,8 +2,8 @@
 
 import datetime
 import enum
-from . import enums
-from .base import Base
+from .. import enums
+from ..base import Base
 from sqlalchemy import Column, Integer, String, Float, Date
 from sqlalchemy import Enum, ForeignKey, Boolean
 from sqlalchemy.schema import ForeignKeyConstraint
@@ -942,3 +942,4 @@ class AttendanceSchedule(Base):
 
     def __repr__(self):
         return "<Attendance Schedule(airport='%s', sequence_number='%d', attendance_schedule='%s')>" % (self.airport, self.sequence_number, self.attendance_schedule[:13])
+

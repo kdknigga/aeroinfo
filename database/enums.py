@@ -2,6 +2,7 @@
 
 import enum
 
+
 class OwnershipTypeEnum(enum.Enum):
     PU = "PUBLICLY OWNED"
     PR = "PRIVATELY OWNED"
@@ -10,13 +11,16 @@ class OwnershipTypeEnum(enum.Enum):
     MR = "ARMY OWNED"
     CG = "COAST GUARD OWNED"
 
+
 class FacilityUseEnum(enum.Enum):
     PU = "OPEN TO THE PUBLIC"
     PR = "PRIVATE"
 
+
 class DeterminationMethodEnum(enum.Enum):
     E = "ESTIMATED"
     S = "SURVEYED"
+
 
 class RunwayMarkingsTypeEnum(enum.Enum):
     PIR = "PRECISION INSTRUMENT"
@@ -28,10 +32,12 @@ class RunwayMarkingsTypeEnum(enum.Enum):
     STOL = "SHORT TAKEOFF AND LANDING"
     NONE = "NONE"
 
+
 class RunwayMarkingsConditionEnum(enum.Enum):
     G = "GOOD"
     F = "FAIR"
     P = "POOR"
+
 
 class VisualGlideSlopeIndicatorEnum(enum.Enum):
     S2L = "2-BOX SAVASI ON LEFT SIDE OF RUNWAY"
@@ -60,6 +66,7 @@ class VisualGlideSlopeIndicatorEnum(enum.Enum):
     PNIL = "SYSTEM OF PANELS ON LEFT SIDE OF RUNWAY THAT MAY OR MAY NOT BE LIGHTED"
     PNIR = "SYSTEM OF PANELS ON RIGHT SIDE OF RUNWAY THAT MAY OR MAY NOT BE LIGHTED"
 
+
 class RVREquipmentEnum(enum.Enum):
     T = "TOUCHDOWN"
     M = "MIDFIELD"
@@ -70,23 +77,27 @@ class RVREquipmentEnum(enum.Enum):
     MR = "MIDFIELD AND ROLLOUT"
     TMR = "TOUCHDOWN, MIDFIELD, AND ROLLOUT"
 
+
 class ControllingObjectMarkingEnum(enum.Enum):
     M = "MARKED"
     L = "LIGHTED"
     ML = "MARKED AND LIGHTED"
     LM = "MARKED AND LIGHTED"
 
+
 class AirportStatusEnum(enum.Enum):
     CI = "CLOSED INDEFINITELY"
     CP = "CLOSED PERMANENTLY"
     O = "OPERATIONAL"
 
+
 class AirportInspectionMethodEnum(enum.Enum):
     F = "FEDERAL"
     S = "STATE"
     C = "CONTRACTOR"
-    O = "5010-1 PUBLIC USE MAILOUT PROGRAM" # Actual value in source data is 1
-    T = "5010-2 PRIVATE USE MAILOUT PROGRAM" # Actual value in source data is 2
+    O = "5010-1 PUBLIC USE MAILOUT PROGRAM"  # Actual value in source data is 1
+    T = "5010-2 PRIVATE USE MAILOUT PROGRAM"  # Actual value in source data is 2
+
 
 class AgencyPerformingInspectionEnum(enum.Enum):
     F = "FAA AIRPORTS FIELD PERSONNEL"
@@ -94,11 +105,13 @@ class AgencyPerformingInspectionEnum(enum.Enum):
     C = "PRIVATE CONTRACT PERSONNEL"
     N = "OWNER"
 
+
 class SegmentedCircleEnum(enum.Enum):
     Y = "YES"
     N = "NO"
     NONE = "NONE"
-    YL = "YES, LIGHTED" # Actual value in source data is Y-L
+    YL = "YES, LIGHTED"  # Actual value in source data is Y-L
+
 
 class BeaconColorEnum(enum.Enum):
     CG = "CLEAR-GREEN (LIGHTED LAND AIRPORT)"
@@ -109,3 +122,63 @@ class BeaconColorEnum(enum.Enum):
     Y = "YELLOW (UNLIGHTED SEAPLANE BASE)"
     G = "GREEN  (LIGHTED LAND AIRPORT)"
     N = "NONE"
+
+
+class FAARegionEnum(enum.Enum):
+    AAL = "ALASKA"
+    ACE = "CENTRAL"
+    AEA = "EASTERN"
+    AGL = "GREAT LAKES"
+    AIN = "INTERNATIONAL"
+    ANE = "NEW ENGLAND"
+    ANM = "NORTHWEST MOUNTAIN"
+    ASO = "SOUTHERN"
+    ASW = "SOUTHWEST"
+    AWP = "WESTERN-PACIFIC"
+
+
+class NavaidPositionSurveyAccuracyEnum(enum.Enum):
+    ZERO = "UNKNOWN"
+    ONE = "DEGREE"
+    TWO = "10 MINUTES"
+    THREE = "1 MINUTE"
+    FOUR = "10 SECONDS"
+    FIVE = "1 SECOND OR BETTER"
+    SIX = "NOS"
+    SEVEN = "3RD ORDER TRIANGULATION"
+
+
+class NavaidMonitoringCategoryEnum(enum.Enum):
+    ONE = "1 - INTERNAL MONITORING PLUS A STATUS INDICATOR INSTALLED AT CONTROL POINT. (REVERTS TO A TEMPORARY CATEGORY 3 STATUS WHEN THE CONTROL POINT IS NOT MANNED.)"
+    TWO = "2 - INTERNAL MONITORING WITH STATUS INDICATOR AT CONTROL POINT INOPERATIVE BUT PILOT REPORTS INDICATE FACILITY IS OPERATING NORMALLY.  (THIS IS A TEMPORARY SITUATION THAT REQUIRES NO PROCEDURAL ACTION.)"
+    THREE = "3 - INTERNAL MONITORING ONLY. STATUS INDICATOR NON INSTALLED AT CONTROL POINT."
+    FOUR = "4 - INTERNAL MONITOR NOT INSTALLED. REMOTE STATUS INDICATOR PROVIDED AT CONTROL POINT.  THIS CATEGORY IS APPLICABLE ONLY TO NON-DIRECTIONAL BEACONS."
+
+
+class StandardServiceVolumeEnum(enum.Enum):
+    T = "TERMINAL"
+    L = "LOW ALTITUDE"
+    H = "HIGH ALTITUDE"
+    VH = "VOR HIGH"
+    VL = "VOR LOW"
+    DH = "DME HIGH"
+    DL = "DME LOW"
+
+
+class YesNoNullEnum(enum.Enum):
+    Y = "YES"
+    N = "NO"
+    NULL = "NULL"
+
+
+class FanMarkerTypeEnum(enum.Enum):
+    BONE = "BONE"
+    ELLIPTICAL = "ELLIPTICAL"
+
+
+class VORReceiverCheckpointAirGroundCodeEnum(enum.Enum):
+    A = "AIR"
+    G = "GROUND"
+    G1 = "GROUND ONE"
+
+

@@ -8,7 +8,7 @@ import requests
 import tempfile
 import zipfile
 from requests.adapters import HTTPAdapter
-from requests.packages.urllib3.util.retry import Retry
+from urllib3.util import Retry
 
 
 zip_file_finder = "https://soa.smext.faa.gov/apra/nfdc/nasr/chart"
