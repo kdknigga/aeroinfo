@@ -7,7 +7,7 @@ from parsers import nav
 
 
 def main(nasrdir):
-    #apt.parse(os.path.join(nasrdir, "APT.txt"))
+    apt.parse(os.path.join(nasrdir, "APT.txt"))
     nav.parse(os.path.join(nasrdir, "NAV.txt"))
 
 

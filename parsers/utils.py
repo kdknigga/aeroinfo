@@ -3,11 +3,12 @@
 import datetime
 from dateutil import parser as dateparser
 
+
 def get_field(record, start, length, var_type="str"):
     s = start - 1
     e = start + length - 1
     field = record[s:e].strip()
-    #print(f"line: {record}\nstart: {start}, length: {length}\nfield: {field}\n\n")
+    # print(f"line: {record}\nstart: {start}, length: {length}\nfield: {field}\n\n")
     if field == "":
         return None
     else:
@@ -38,7 +39,12 @@ def get_field(record, start, length, var_type="str"):
                 return "YL"
             else:
                 return field
-        elif var_type == "NavaidPositionSurveyAccuracyEnum" or var_type == "NavaidMonitoringCategoryEnum":
+        elif (
+            var_type == "NavaidPositionSurveyAccuracyEnum"
+            or var_type == "NavaidMonitoringCategoryEnum"
+        ):
+            if field == "0":
+                return "ZERO"
             if field == "1":
                 return "ONE"
             if field == "2":
@@ -57,4 +63,3 @@ def get_field(record, start, length, var_type="str"):
                 return field
         else:
             return field
-
