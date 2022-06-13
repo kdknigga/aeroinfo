@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 from database import Engine
-from database import init_tables
 from database.models.apt import Airport
 from database.models.apt import Runway
 from database.models.apt import RunwayEnd
@@ -42,8 +41,6 @@ def set_rw_end_attr(session, facility_site_number, rw_end, attr, value):
 
 
 def parse(txtfile):
-    init_tables()
-
     Session = sessionmaker(bind=Engine)
     session = Session()
 
@@ -159,7 +156,9 @@ def parse(txtfile):
                 airport.based_general_aviation_jet_engine_airplanes = get_field(
                     line, 1011, 3, "int"
                 )
-                airport.based_general_aviation_helicopters = get_field(line, 1014, 3, "int")
+                airport.based_general_aviation_helicopters = get_field(
+                    line, 1014, 3, "int"
+                )
                 airport.based_gliders = get_field(line, 1017, 3, "int")
                 airport.based_military_aircraft = get_field(line, 1020, 3, "int")
                 airport.based_ultralight_aircraft = get_field(line, 1023, 3, "int")
@@ -167,7 +166,9 @@ def parse(txtfile):
                 airport.annual_ops_commercial = get_field(line, 1026, 6, "int")
                 airport.annual_ops_commuter = get_field(line, 1032, 6, "int")
                 airport.annual_ops_air_taxi = get_field(line, 1038, 6, "int")
-                airport.annual_ops_general_aviation_local = get_field(line, 1044, 6, "int")
+                airport.annual_ops_general_aviation_local = get_field(
+                    line, 1044, 6, "int"
+                )
                 airport.annual_ops_general_aviation_itinerant = get_field(
                     line, 1050, 6, "int"
                 )
@@ -209,8 +210,8 @@ def parse(txtfile):
                 runway.weight_bearing_capacity_two_dual_wheels_tandem = get_field(
                     line, 548, 6
                 )
-                runway.weight_bearing_capacity_two_dual_wheels_double_tandem = get_field(
-                    line, 554, 6
+                runway.weight_bearing_capacity_two_dual_wheels_double_tandem = (
+                    get_field(line, 554, 6)
                 )
                 # BASE END INFORMATION
                 base_end = None
@@ -234,9 +235,15 @@ def parse(txtfile):
                     base_end.threshold_crossing_height = get_field(line, 150, 3, "int")
                     base_end.visual_glide_path_angle = get_field(line, 153, 4, "float")
                     base_end.displaced_threshold_latitude_dms = get_field(line, 157, 15)
-                    base_end.displaced_threshold_latitude_secs = get_field(line, 172, 12)
-                    base_end.displaced_threshold_longitude_dms = get_field(line, 184, 15)
-                    base_end.displaced_threshold_longitude_secs = get_field(line, 199, 12)
+                    base_end.displaced_threshold_latitude_secs = get_field(
+                        line, 172, 12
+                    )
+                    base_end.displaced_threshold_longitude_dms = get_field(
+                        line, 184, 15
+                    )
+                    base_end.displaced_threshold_longitude_secs = get_field(
+                        line, 199, 12
+                    )
                     base_end.displaced_threshold_elevation = get_field(
                         line, 211, 7, "float"
                     )
@@ -248,8 +255,12 @@ def parse(txtfile):
                     base_end.rvv_equipment = get_field(line, 237, 1, "bool")
                     base_end.approach_light_system = get_field(line, 238, 8)
                     base_end.reil_availability = get_field(line, 246, 1, "bool")
-                    base_end.centerline_light_availability = get_field(line, 247, 1, "bool")
-                    base_end.touchdown_lights_availability = get_field(line, 248, 1, "bool")
+                    base_end.centerline_light_availability = get_field(
+                        line, 247, 1, "bool"
+                    )
+                    base_end.touchdown_lights_availability = get_field(
+                        line, 248, 1, "bool"
+                    )
                     # BASE END OBJECT DATA
                     base_end.controlling_object_description = get_field(line, 249, 11)
                     base_end.controlling_object_marking = get_field(line, 260, 4)
@@ -263,7 +274,9 @@ def parse(txtfile):
                     base_end.controlling_object_distance_from_runway = get_field(
                         line, 276, 5, "int"
                     )
-                    base_end.controlling_object_centerline_offset = get_field(line, 281, 7)
+                    base_end.controlling_object_centerline_offset = get_field(
+                        line, 281, 7
+                    )
                     # ADDITIONAL BASE END DATA
                     base_end.gradient = get_field(line, 560, 5)
                     base_end.gradient_direction = get_field(line, 565, 4)
@@ -271,11 +284,15 @@ def parse(txtfile):
                     base_end.position_date = get_field(line, 585, 10, "date")
                     base_end.elevation_source = get_field(line, 595, 16)
                     base_end.elevation_date = get_field(line, 611, 10, "date")
-                    base_end.displaced_threshold_position_source = get_field(line, 621, 16)
+                    base_end.displaced_threshold_position_source = get_field(
+                        line, 621, 16
+                    )
                     base_end.displaced_threshold_position_date = get_field(
                         line, 637, 10, "date"
                     )
-                    base_end.displaced_threshold_elevation_source = get_field(line, 647, 16)
+                    base_end.displaced_threshold_elevation_source = get_field(
+                        line, 647, 16
+                    )
                     base_end.displaced_threshold_elevation_date = get_field(
                         line, 663, 10, "date"
                     )
@@ -319,15 +336,27 @@ def parse(txtfile):
                     recip_end.elevation = get_field(line, 365, 7, "float")
                     recip_end.threshold_crossing_height = get_field(line, 372, 3, "int")
                     recip_end.visual_glide_path_angle = get_field(line, 375, 4, "float")
-                    recip_end.displaced_threshold_latitude_dms = get_field(line, 379, 15)
-                    recip_end.displaced_threshold_latitude_secs = get_field(line, 394, 12)
-                    recip_end.displaced_threshold_longitude_dms = get_field(line, 406, 15)
-                    recip_end.displaced_threshold_longitude_secs = get_field(line, 421, 12)
+                    recip_end.displaced_threshold_latitude_dms = get_field(
+                        line, 379, 15
+                    )
+                    recip_end.displaced_threshold_latitude_secs = get_field(
+                        line, 394, 12
+                    )
+                    recip_end.displaced_threshold_longitude_dms = get_field(
+                        line, 406, 15
+                    )
+                    recip_end.displaced_threshold_longitude_secs = get_field(
+                        line, 421, 12
+                    )
                     recip_end.displaced_threshold_elevation = get_field(
                         line, 433, 7, "float"
                     )
-                    recip_end.displaced_threshold_length = get_field(line, 440, 4, "int")
-                    recip_end.touchdown_zone_elevation = get_field(line, 444, 7, "float")
+                    recip_end.displaced_threshold_length = get_field(
+                        line, 440, 4, "int"
+                    )
+                    recip_end.touchdown_zone_elevation = get_field(
+                        line, 444, 7, "float"
+                    )
                     # RECIPROCAL END LIGHTING DATA
                     recip_end.visual_glide_slope_indicators = get_field(line, 451, 5)
                     recip_end.rvr_equipment = get_field(line, 456, 3)
@@ -353,7 +382,9 @@ def parse(txtfile):
                     recip_end.controlling_object_distance_from_runway = get_field(
                         line, 498, 5, "int"
                     )
-                    recip_end.controlling_object_centerline_offset = get_field(line, 503, 7)
+                    recip_end.controlling_object_centerline_offset = get_field(
+                        line, 503, 7
+                    )
                     # ADDITIONAL RECIPROCAL END DATA
                     recip_end.gradient = get_field(line, 851, 5)
                     recip_end.gradient_direction = get_field(line, 856, 4)
@@ -361,7 +392,9 @@ def parse(txtfile):
                     recip_end.position_date = get_field(line, 876, 10, "date")
                     recip_end.elevation_source = get_field(line, 886, 16)
                     recip_end.elevation_date = get_field(line, 902, 10, "date")
-                    recip_end.displaced_threshold_position_source = get_field(line, 912, 16)
+                    recip_end.displaced_threshold_position_source = get_field(
+                        line, 912, 16
+                    )
                     recip_end.displaced_threshold_position_date = get_field(
                         line, 928, 10, "date"
                     )
@@ -376,11 +409,15 @@ def parse(txtfile):
                         line, 980, 10, "date"
                     )
                     recip_end.takeoff_run_available = get_field(line, 990, 5, "int")
-                    recip_end.takeoff_distance_available = get_field(line, 995, 5, "int")
+                    recip_end.takeoff_distance_available = get_field(
+                        line, 995, 5, "int"
+                    )
                     recip_end.accelerate_stop_distance_available = get_field(
                         line, 1000, 5, "int"
                     )
-                    recip_end.landing_distance_available = get_field(line, 1005, 5, "int")
+                    recip_end.landing_distance_available = get_field(
+                        line, 1005, 5, "int"
+                    )
                     recip_end.lahso_distance_available = get_field(line, 1010, 5, "int")
                     recip_end.id_of_lahso_intersecting_runway = get_field(line, 1015, 7)
                     recip_end.description_of_lahso_entity = get_field(line, 1022, 40)
@@ -453,7 +490,10 @@ def parse(txtfile):
                         )
                     elif remark_element_name == "A11":
                         set_airport_attr(
-                            session, facility_site_number, "owners_name_remark", remark_text
+                            session,
+                            facility_site_number,
+                            "owners_name_remark",
+                            remark_text,
                         )
                     elif remark_element_name == "A12":
                         set_airport_attr(
@@ -527,15 +567,24 @@ def parse(txtfile):
                         )
                     elif remark_element_name == "A21":
                         set_airport_attr(
-                            session, facility_site_number, "elevation_remark", remark_text
+                            session,
+                            facility_site_number,
+                            "elevation_remark",
+                            remark_text,
                         )
                     elif remark_element_name == "E147":
                         set_airport_attr(
-                            session, facility_site_number, "pattern_alt_remark", remark_text
+                            session,
+                            facility_site_number,
+                            "pattern_alt_remark",
+                            remark_text,
                         )
                     elif remark_element_name == "A7":
                         set_airport_attr(
-                            session, facility_site_number, "sectional_remark", remark_text
+                            session,
+                            facility_site_number,
+                            "sectional_remark",
+                            remark_text,
                         )
                     elif remark_element_name == "A3":
                         set_airport_attr(
@@ -546,7 +595,10 @@ def parse(txtfile):
                         )
                     elif remark_element_name == "A22":
                         set_airport_attr(
-                            session, facility_site_number, "land_area_remark", remark_text
+                            session,
+                            facility_site_number,
+                            "land_area_remark",
+                            remark_text,
                         )
                     elif remark_element_name == "E156A":
                         set_airport_attr(
@@ -557,7 +609,10 @@ def parse(txtfile):
                         )
                     elif remark_element_name == "A86":
                         set_airport_attr(
-                            session, facility_site_number, "tie_in_fss_remark", remark_text
+                            session,
+                            facility_site_number,
+                            "tie_in_fss_remark",
+                            remark_text,
                         )
                     elif remark_element_name == "A26":
                         set_airport_attr(
@@ -652,7 +707,10 @@ def parse(txtfile):
                         )
                     elif remark_element_name == "A74":
                         set_airport_attr(
-                            session, facility_site_number, "bulk_oxygen_remark", remark_text
+                            session,
+                            facility_site_number,
+                            "bulk_oxygen_remark",
+                            remark_text,
                         )
                     elif remark_element_name == "A81-APT":
                         set_airport_attr(
@@ -812,17 +870,29 @@ def parse(txtfile):
                     elif remark_element_name.startswith("A30-"):
                         en, rw = tuple(remark_element_name.split("-"))
                         set_runway_attr(
-                            session, facility_site_number, rw, "name_remark", remark_text
+                            session,
+                            facility_site_number,
+                            rw,
+                            "name_remark",
+                            remark_text,
                         )
                     elif remark_element_name.startswith("A31-"):
                         en, rw = tuple(remark_element_name.split("-"))
                         set_runway_attr(
-                            session, facility_site_number, rw, "length_remark", remark_text
+                            session,
+                            facility_site_number,
+                            rw,
+                            "length_remark",
+                            remark_text,
                         )
                     elif remark_element_name.startswith("A32-"):
                         en, rw = tuple(remark_element_name.split("-"))
                         set_runway_attr(
-                            session, facility_site_number, rw, "width_remark", remark_text
+                            session,
+                            facility_site_number,
+                            rw,
+                            "width_remark",
+                            remark_text,
                         )
                     elif remark_element_name.startswith("A33-"):
                         en, rw = tuple(remark_element_name.split("-"))
@@ -899,7 +969,11 @@ def parse(txtfile):
                     elif remark_element_name.startswith("A30A-"):
                         en, rw_end = tuple(remark_element_name.split("-"))
                         set_rw_end_attr(
-                            session, facility_site_number, rw_end, "id_remark", remark_text
+                            session,
+                            facility_site_number,
+                            rw_end,
+                            "id_remark",
+                            remark_text,
                         )
                     elif remark_element_name.startswith("E46-"):
                         en, rw_end = tuple(remark_element_name.split("-"))

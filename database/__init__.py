@@ -12,20 +12,21 @@ from .models.nav import Navaid
 
 
 def get_db_url():
-    
+
     db_rdbm = os.getenv("DB_RDBM")
     db_user = os.getenv("DB_USER")
     db_pass = os.getenv("DB_PASS")
     db_host = os.getenv("DB_HOST")
     db_name = os.getenv("DB_NAME")
-    
+
     if db_rdbm == "sqlite":
-        return '%s://%s' % (db_rdbm, db_host)
+        return "%s://%s" % (db_rdbm, db_host)
     else:
-        return '%s://%s:%s@%s/%s' % (db_rdbm, db_user, db_pass, db_host, db_name)
+        return "%s://%s:%s@%s/%s" % (db_rdbm, db_user, db_pass, db_host, db_name)
 
 
 Engine = create_engine(get_db_url(), echo=False)
+
 
 def find_airport(identifier, include=None):
     _include = include or []
@@ -43,15 +44,21 @@ def find_airport(identifier, include=None):
     Session = sessionmaker(bind=Engine)
     session = Session()
 
-    airport = session.query(Airport).filter(
-        (Airport.faa_id == identifier.upper()) | (Airport.icao_id == identifier.upper())
-    ).order_by(
-        Airport.effective_date.desc()
-    ).options(queryoptions).first()
+    airport = (
+        session.query(Airport)
+        .filter(
+            (Airport.faa_id == identifier.upper())
+            | (Airport.icao_id == identifier.upper())
+        )
+        .order_by(Airport.effective_date.desc())
+        .options(queryoptions)
+        .first()
+    )
 
     session.close()
 
     return airport
+
 
 def find_runway(name, airport, include=None):
     _include = include or []
@@ -65,18 +72,23 @@ def find_runway(name, airport, include=None):
     elif isinstance(airport, str):
         _airport = find_airport(airport)
     else:
-        raise(TypeError("Expecting str or Airport"))
+        raise (TypeError("Expecting str or Airport"))
 
     Session = sessionmaker(bind=Engine)
     session = Session()
 
-    runway = session.query(Runway).with_parent(_airport).filter(
-        Runway.name.like("%" + name + "%")
-        ).options(queryoptions).scalar()
+    runway = (
+        session.query(Runway)
+        .with_parent(_airport)
+        .filter(Runway.name.like("%" + name + "%"))
+        .options(queryoptions)
+        .scalar()
+    )
 
     session.close()
 
     return runway
+
 
 def find_runway_end(name, runway, include=None):
     _include = include or []
@@ -93,20 +105,24 @@ def find_runway_end(name, runway, include=None):
         elif isinstance(airport, str):
             _airport = find_airport(airport)
         else:
-            raise(TypeError("Expecting str or Airport in runway tuple"))
+            raise (TypeError("Expecting str or Airport in runway tuple"))
 
         _runway = find_runway(__runway, _airport)
 
     Session = sessionmaker(bind=Engine)
     session = Session()
 
-    rwend = session.query(RunwayEnd).with_parent(_runway).filter(
-        RunwayEnd.id == name.upper()
-        ).scalar()
+    rwend = (
+        session.query(RunwayEnd)
+        .with_parent(_runway)
+        .filter(RunwayEnd.id == name.upper())
+        .scalar()
+    )
 
     session.close()
 
     return rwend
+
 
 def find_navaid(identifier, type, include=None):
     _include = include or []
@@ -114,18 +130,16 @@ def find_navaid(identifier, type, include=None):
     Session = sessionmaker(bind=Engine)
     session = Session()
 
-    navaid = session.query(Navaid).filter(
-        (Navaid.facility_id == identifier.upper()) & (Navaid.facility_type == type.upper())
-    ).order_by(
-        Navaid.effective_date.desc()
-    ).first()
+    navaid = (
+        session.query(Navaid)
+        .filter(
+            (Navaid.facility_id == identifier.upper())
+            & (Navaid.facility_type == type.upper())
+        )
+        .order_by(Navaid.effective_date.desc())
+        .first()
+    )
 
     session.close()
 
     return navaid
-
-
-
-def init_tables():
-    Base.metadata.create_all(Engine)
-

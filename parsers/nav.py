@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 from database import Engine
-from database import init_tables
 from database.models.nav import Navaid
 from database.models.nav import Remark
 from database.models.nav import AirspaceFix
@@ -13,15 +12,13 @@ from sqlalchemy.orm import sessionmaker
 
 
 def parse(txtfile):
-    init_tables()
-    
     Session = sessionmaker(bind=Engine)
     session = Session()
-    
+
     with open(txtfile, "r", errors="replace") as f:
         for line in f:
             record_type = get_field(line, 1, 4)
-    
+
             if record_type == "NAV1":
                 n = Navaid()
                 n.facility_id = get_field(line, 5, 4)
@@ -49,7 +46,9 @@ def parse(txtfile):
                 n.latitude_secs = get_field(line, 386, 11)
                 n.longitude_dms = get_field(line, 397, 14)
                 n.longitude_secs = get_field(line, 411, 11)
-                n.coords_survey_accuracy = get_field(line, 422, 1, "NavaidPositionSurveyAccuracyEnum")
+                n.coords_survey_accuracy = get_field(
+                    line, 422, 1, "NavaidPositionSurveyAccuracyEnum"
+                )
                 n.tacan_only_latitude_dms = get_field(line, 423, 14)
                 n.tacan_only_latitude_secs = get_field(line, 437, 11)
                 n.tacan_only_longitude_dms = get_field(line, 448, 14)
@@ -60,7 +59,9 @@ def parse(txtfile):
                 n.simultaneous_voice = get_field(line, 489, 3)
                 n.power_output_watts = get_field(line, 492, 4, "int")
                 n.automatic_voice_id = get_field(line, 496, 3)
-                n.monitoring_category = get_field(line, 499, 1, "NavaidMonitoringCategoryEnum")
+                n.monitoring_category = get_field(
+                    line, 499, 1, "NavaidMonitoringCategoryEnum"
+                )
                 n.radio_voice_call_name = get_field(line, 500, 30)
                 n.tacan_channel = get_field(line, 530, 4)
                 n.frequency = get_field(line, 534, 6)
@@ -85,26 +86,26 @@ def parse(txtfile):
                 n.navaid_restriction = get_field(line, 803, 1)
                 n.hiwas = get_field(line, 804, 1)
                 n.tweb = get_field(line, 805, 1)
-    
+
                 session.merge(n)
-    
+
             if record_type == "NAV2":
                 r = Remark()
                 r.facility_id = get_field(line, 5, 4)
                 r.facility_type = get_field(line, 9, 20)
                 r.remark = get_field(line, 29, 600)
-    
+
                 session.merge(r)
-    
+
             if record_type == "NAV3":
                 f = AirspaceFix()
                 f.facility_id = get_field(line, 5, 4)
                 f.facility_type = get_field(line, 9, 20)
                 f.fix = get_field(line, 29, 36)
                 f.more_fixes = get_field(line, 65, 720)
-    
+
                 session.merge(f)
-    
+
             if record_type == "NAV4":
                 h = HoldingPattern()
                 h.facility_id = get_field(line, 5, 4)
@@ -112,18 +113,18 @@ def parse(txtfile):
                 h.holding_pattern = get_field(line, 29, 80)
                 h.holding_pattern_pattern = get_field(line, 109, 3)
                 h.more_holding_patterns = get_field(line, 112, 664)
-    
+
                 session.merge(h)
-    
+
             if record_type == "NAV5":
                 f = FanMarker()
                 f.facility_id = get_field(line, 5, 4)
                 f.facility_type = get_field(line, 9, 20)
                 f.fan_marker = get_field(line, 29, 30)
                 f.more_fan_markers = get_field(line, 59, 690)
-    
+
                 session.merge(f)
-    
+
             if record_type == "NAV6":
                 v = VORReceiverCheckpoint()
                 v.facility_id = get_field(line, 5, 4)
@@ -135,9 +136,7 @@ def parse(txtfile):
                 v.state = get_field(line, 43, 2)
                 v.air_narrative = get_field(line, 45, 75)
                 v.ground_narrative = get_field(line, 120, 75)
-    
+
                 session.merge(v)
-    
-    
+
     session.commit()
-    
