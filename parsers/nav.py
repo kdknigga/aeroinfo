@@ -34,7 +34,7 @@ def parse(txtfile):
                 n.city = get_field(line, 73, 40)
                 n.state_name = get_field(line, 113, 30)
                 n.state_code = get_field(line, 143, 2)
-                n.faa_region = get_field(line, 145, 3)
+                n.region = get_field(line, 145, 3)
                 n.country = get_field(line, 148, 30)
                 n.country_code = get_field(line, 178, 2)
                 n.owners_name = get_field(line, 180, 50)
