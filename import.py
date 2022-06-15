@@ -1,14 +1,21 @@
 #!/usr/bin/env python
 
+import logging
 import os
 import sys
 from parsers import apt
 from parsers import nav
 
+# logging.basicConfig(level=logging.DEBUG)
+
 
 def main(nasrdir):
-    apt.parse(os.path.join(nasrdir, "APT.txt"))
-    nav.parse(os.path.join(nasrdir, "NAV.txt"))
+    aptpath = os.path.join(nasrdir, "APT.txt")
+    logging.info(f"Starting import of {aptpath}")
+    apt.parse(aptpath)
+    navpath = os.path.join(nasrdir, "NAV.txt")
+    logging.info(f"Starting import of {navpath}")
+    nav.parse(navpath)
 
 
 if __name__ == "__main__":

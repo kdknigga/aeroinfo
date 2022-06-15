@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import logging
 import os
 from .base import Base
 from sqlalchemy import create_engine
@@ -11,6 +12,9 @@ from .models.apt import RunwayEnd
 from .models.nav import Navaid
 
 
+logger = logging.getLogger(__name__)
+
+
 def get_db_url():
 
     db_rdbm = os.getenv("DB_RDBM")
@@ -20,9 +24,12 @@ def get_db_url():
     db_name = os.getenv("DB_NAME")
 
     if db_rdbm == "sqlite":
-        return "%s://%s" % (db_rdbm, db_host)
+        url = "%s://%s" % (db_rdbm, db_host)
     else:
-        return "%s://%s:%s@%s/%s" % (db_rdbm, db_user, db_pass, db_host, db_name)
+        url = "%s://%s:%s@%s/%s" % (db_rdbm, db_user, db_pass, db_host, db_name)
+
+    logger.debug(f"Database URL: {url}")
+    return url
 
 
 Engine = create_engine(get_db_url(), echo=False)

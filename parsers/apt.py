@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import logging
 from database import Engine
 from database.models.apt import Airport
 from database.models.apt import Runway
@@ -8,6 +9,9 @@ from database.models.apt import AttendanceSchedule
 from database.models.apt import AirportRemark
 from .utils import get_field
 from sqlalchemy.orm import sessionmaker
+
+
+logger = logging.getLogger(__name__)
 
 
 def set_airport_attr(session, facility_site_number, attr, value):
@@ -46,6 +50,7 @@ def parse(txtfile):
 
     with open(txtfile, "r", errors="replace") as f:
         for line in f:
+            logger.debug(f"line: {line}")
             record_type = get_field(line, 1, 3)
 
             if record_type == "APT":

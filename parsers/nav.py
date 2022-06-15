@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import logging
 from database import Engine
 from database.models.nav import Navaid
 from database.models.nav import Remark
@@ -11,12 +12,16 @@ from .utils import get_field
 from sqlalchemy.orm import sessionmaker
 
 
+logger = logging.getLogger(__name__)
+
+
 def parse(txtfile):
     Session = sessionmaker(bind=Engine)
     session = Session()
 
     with open(txtfile, "r", errors="replace") as f:
         for line in f:
+            logger.debug(f"line: {line}")
             record_type = get_field(line, 1, 4)
 
             if record_type == "NAV1":

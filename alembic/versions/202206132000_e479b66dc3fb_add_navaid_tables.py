@@ -52,16 +52,10 @@ def upgrade():
         sa.Column("public_use", sa.String(length=1), nullable=True),
         sa.Column("navaid_class", sa.String(length=11), nullable=True),
         sa.Column("hours_of_operation", sa.String(length=11), nullable=True),
-        sa.Column(
-            "high_altitude_artcc_id", sa.String(length=4), nullable=True
-        ),
-        sa.Column(
-            "high_altitude_artcc_name", sa.String(length=30), nullable=True
-        ),
+        sa.Column("high_altitude_artcc_id", sa.String(length=4), nullable=True),
+        sa.Column("high_altitude_artcc_name", sa.String(length=30), nullable=True),
         sa.Column("low_altitude_artcc_id", sa.String(length=4), nullable=True),
-        sa.Column(
-            "low_altitude_artcc_name", sa.String(length=30), nullable=True
-        ),
+        sa.Column("low_altitude_artcc_name", sa.String(length=30), nullable=True),
         sa.Column("latitude_dms", sa.String(length=14), nullable=True),
         sa.Column("latitude_secs", sa.String(length=11), nullable=True),
         sa.Column("longitude_dms", sa.String(length=14), nullable=True),
@@ -81,18 +75,10 @@ def upgrade():
             ),
             nullable=True,
         ),
-        sa.Column(
-            "tacan_only_latitude_dms", sa.String(length=14), nullable=True
-        ),
-        sa.Column(
-            "tacan_only_latitude_secs", sa.String(length=11), nullable=True
-        ),
-        sa.Column(
-            "tacan_only_longitude_dms", sa.String(length=14), nullable=True
-        ),
-        sa.Column(
-            "tacan_only_longitude_secs", sa.String(length=11), nullable=True
-        ),
+        sa.Column("tacan_only_latitude_dms", sa.String(length=14), nullable=True),
+        sa.Column("tacan_only_latitude_secs", sa.String(length=11), nullable=True),
+        sa.Column("tacan_only_longitude_dms", sa.String(length=14), nullable=True),
+        sa.Column("tacan_only_longitude_secs", sa.String(length=11), nullable=True),
         sa.Column("elevation", sa.Float(precision=1), nullable=True),
         sa.Column("mag_variation", sa.String(length=5), nullable=True),
         sa.Column("mag_variation_year", sa.Integer(), nullable=True),
@@ -118,9 +104,7 @@ def upgrade():
             ),
             nullable=True,
         ),
-        sa.Column(
-            "radio_voice_call_name", sa.String(length=30), nullable=True
-        ),
+        sa.Column("radio_voice_call_name", sa.String(length=30), nullable=True),
         sa.Column("tacan_channel", sa.String(length=4), nullable=True),
         sa.Column("frequency", sa.String(length=6), nullable=True),
         sa.Column("transmitted_id", sa.String(length=24), nullable=True),
@@ -172,12 +156,8 @@ def upgrade():
         sa.Column("tweb_phone_number", sa.String(length=20), nullable=True),
         sa.Column("fss_id", sa.String(length=4), nullable=True),
         sa.Column("fss_name", sa.String(length=30), nullable=True),
-        sa.Column(
-            "fss_hours_of_operation", sa.String(length=100), nullable=True
-        ),
-        sa.Column(
-            "notam_accountability_code", sa.String(length=4), nullable=True
-        ),
+        sa.Column("fss_hours_of_operation", sa.String(length=100), nullable=True),
+        sa.Column("notam_accountability_code", sa.String(length=4), nullable=True),
         sa.Column(
             "quadrant_id_and_range_leg_bearing",
             sa.String(length=16),
@@ -214,7 +194,7 @@ def upgrade():
             sa.Enum("Y", "N", "NULL", name="yesnonullenum"),
             nullable=True,
         ),
-        sa.PrimaryKeyConstraint("facility_id", "facility_type", "city"),
+        sa.PrimaryKeyConstraint("facility_id", "facility_type"),
     )
     op.create_table(
         "navaid_airspace_fixes",
@@ -245,19 +225,13 @@ def upgrade():
         sa.Column("facility_id", sa.String(length=4), nullable=False),
         sa.Column("facility_type", sa.String(length=20), nullable=False),
         sa.Column("holding_pattern", sa.String(length=80), nullable=False),
-        sa.Column(
-            "holding_pattern_pattern", sa.String(length=3), nullable=True
-        ),
-        sa.Column(
-            "more_holding_patterns", sa.String(length=664), nullable=True
-        ),
+        sa.Column("holding_pattern_pattern", sa.String(length=3), nullable=True),
+        sa.Column("more_holding_patterns", sa.String(length=664), nullable=True),
         sa.ForeignKeyConstraint(
             ["facility_id", "facility_type"],
             ["navaids.facility_id", "navaids.facility_type"],
         ),
-        sa.PrimaryKeyConstraint(
-            "facility_id", "facility_type", "holding_pattern"
-        ),
+        sa.PrimaryKeyConstraint("facility_id", "facility_type", "holding_pattern"),
     )
     op.create_table(
         "navaid_remarks",
@@ -276,9 +250,7 @@ def upgrade():
         sa.Column("facility_type", sa.String(length=20), nullable=False),
         sa.Column(
             "air_ground",
-            sa.Enum(
-                "A", "G", "G1", name="vorreceivercheckpointairgroundcodeenum"
-            ),
+            sa.Enum("A", "G", "G1", name="vorreceivercheckpointairgroundcodeenum"),
             nullable=False,
         ),
         sa.Column("bearing", sa.Integer(), nullable=False),

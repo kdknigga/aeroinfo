@@ -1,14 +1,18 @@
 #!/usr/bin/env python
 
 import datetime
+import logging
 from dateutil import parser as dateparser
+
+
+logger = logging.getLogger(__name__)
 
 
 def get_field(record, start, length, var_type="str"):
     s = start - 1
     e = start + length - 1
     field = record[s:e].strip()
-    # print(f"line: {record}\nstart: {start}, length: {length}\nfield: {field}\n\n")
+    logger.debug(f"start: {start}, length: {length}, field: {field}")
     if field == "":
         return None
     else:
