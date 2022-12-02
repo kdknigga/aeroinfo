@@ -29,7 +29,7 @@ class Airport(Base):
 
     # DEMOGRAPHIC DATA
     # L AN 0003 00042  A6      FAA REGION CODE
-    region = Column(String(3))
+    region = Column(Enum(enums.FAARegionEnum))
     # L AN 0004 00045  A6A     FAA DISTRICT OR FIELD OFFICE CODE
     field_office = Column(String(4))
     # L AN 0002 00049  A4      ASSOCIATED STATE POST OFFICE CODE

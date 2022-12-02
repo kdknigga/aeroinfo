@@ -7,7 +7,7 @@ from alembic import context
 
 import sys
 
-sys.path.append('../database')
+sys.path.append("../database")
 from database import get_db_url
 
 # this is the Alembic Config object, which provides
@@ -24,6 +24,7 @@ if config.config_file_name is not None:
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
 from database import base
+
 target_metadata = base.Base.metadata
 
 # other values from the config, defined by the needs of env.py,
@@ -49,6 +50,7 @@ def run_migrations_offline():
         url=url,
         target_metadata=target_metadata,
         literal_binds=True,
+        compare_type=True,
         dialect_opts={"paramstyle": "named"},
     )
 
@@ -67,7 +69,7 @@ def run_migrations_online():
 
     with connectable.connect() as connection:
         context.configure(
-            connection=connection, target_metadata=target_metadata
+            connection=connection, target_metadata=target_metadata, compare_type=True
         )
 
         with context.begin_transaction():

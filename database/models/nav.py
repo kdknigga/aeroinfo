@@ -44,7 +44,7 @@ class Navaid(Base):
     # L AN 0002 00143  N2S     STATE POST OFFICE CODE WHERE ASSOCIATED CITY IS LOCATED.
     state_code = Column(String(2))
     # L AN 0003 00145  N20     FAA REGION RESPONSIBLE FOR NAVAID
-    faa_region = Column(Enum(enums.FAARegionEnum))
+    region = Column(Enum(enums.FAARegionEnum))
     # L AN 0030 00148  N3      COUNTRY NAVAID LOCATED IF OTHER THAN U.S
     country = Column(String(30))
     # L AN 0002 00178  N3S     COUNTRY POST OFFICE CODE NAVAID LOCATED IF OTHER THAN U.S.
