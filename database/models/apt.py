@@ -3,13 +3,13 @@
 import datetime
 import enum
 import logging
+
+from sqlalchemy import Boolean, Column, Date, Enum, Float, ForeignKey, Integer, String
+from sqlalchemy.orm import relationship
+from sqlalchemy.schema import ForeignKeyConstraint
+
 from .. import enums
 from ..base import Base
-from sqlalchemy import Column, Integer, String, Float, Date
-from sqlalchemy import Enum, ForeignKey, Boolean
-from sqlalchemy.schema import ForeignKeyConstraint
-from sqlalchemy.orm import relationship
-
 
 logger = logging.getLogger(__name__)
 

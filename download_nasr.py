@@ -4,12 +4,12 @@ import argparse
 import datetime
 import logging
 import os
-import requests
 import tempfile
 import zipfile
+
+import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util import Retry
-
 
 zip_file_finder = "https://soa.smext.faa.gov/apra/nfdc/nasr/chart"
 edition_date = None

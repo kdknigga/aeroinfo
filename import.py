@@ -3,8 +3,8 @@
 import logging
 import os
 import sys
-from parsers import apt
-from parsers import nav
+
+from parsers import apt, nav
 
 # logging.basicConfig(level=logging.DEBUG)
 
@@ -19,6 +19,4 @@ def main(nasrdir):
 
 
 if __name__ == "__main__":
-    import sys
-
     main(sys.argv[1])

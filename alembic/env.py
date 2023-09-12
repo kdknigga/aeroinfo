@@ -1,11 +1,9 @@
+import sys
 from logging.config import fileConfig
 
 from sqlalchemy import create_engine
-from sqlalchemy import pool
 
 from alembic import context
-
-import sys
 
 sys.path.append("../database")
 from database import get_db_url

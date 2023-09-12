@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "aeroinfo"
+version = "0.1.0"
+description = ""
+authors = ["Kris Knigga <kris@knigga.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+alembic = "1.8.0"
+certifi = "^2023.7.22"
+chardet = "4.0.0"
+idna = "3.3"
+psycopg2-binary = "2.9.3"
+python-dateutil = "2.8.2"
+requests = "2.31.0"
+six = "1.16.0"
+SQLAlchemy = {version = "1.4.37", extras = ["mypy"]}
+urllib3 = "1.26.9"
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.4.0"
+prospector = {extras = ["with-bandit", "with-mypy"], version = "^1.10.2"}
+isort = "^5.12.0"
+black = "^23.9.1"
+types-requests = "^2.31.0.2"
+types-python-dateutil = "^2.8.19.14"
+
+[tool.mypy]
+follow_imports = "silent"
+warn_redundant_casts = true
+warn_unused_ignores = true
+disallow_any_generics = true
+check_untyped_defs = true
+no_implicit_reexport = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

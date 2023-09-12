@@ -2,21 +2,17 @@
 
 import logging
 import os
-from .base import Base
-from sqlalchemy import create_engine
-from sqlalchemy.orm import Load, joinedload
-from sqlalchemy.orm import sessionmaker
-from .models.apt import Airport
-from .models.apt import Runway
-from .models.apt import RunwayEnd
-from .models.nav import Navaid
 
+from sqlalchemy import create_engine
+from sqlalchemy.orm import Load, sessionmaker
+
+from .models.apt import Airport, Runway, RunwayEnd
+from .models.nav import Navaid
 
 logger = logging.getLogger(__name__)
 
 
 def get_db_url():
-
     db_rdbm = os.getenv("DB_RDBM")
     db_user = os.getenv("DB_USER")
     db_pass = os.getenv("DB_PASS")

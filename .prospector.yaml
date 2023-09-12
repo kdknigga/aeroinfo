@@ -1,0 +1,25 @@
+strictness: medium
+
+bandit:
+  run: true
+
+dodgy:
+  run: true
+
+mccabe:
+  run: true
+
+mypy:
+  run: true
+
+profile-validator:
+  run: true
+
+pycodestyle:
+  run: true
+
+pyflakes:
+  run: true
+
+pylint:
+  run: true
