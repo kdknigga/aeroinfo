@@ -207,7 +207,7 @@ L AN 0002 00092  A5      ASSOCIATED COUNTY'S STATE (POST OFFICE CODE)
                                AI                  ANGUILLA
                                AN                  NETHERLANDS ANTILLES
                                AS                  AMERICAN SAMOA
-                               BL                  SAINT BARTHELEMY     
+                               BL                  SAINT BARTHELEMY
                                BM                  BERMUDA
                                BS                  BAHAMAS
                                CN                  B.C., CANADA
@@ -502,54 +502,54 @@ L AN 0040 00901  A70     FUEL TYPES AVAILABLE FOR PUBLIC USE AT THE
                          OF A FIXED 5 CHARACTER FIELD.
                          (EX. 80___100__100LL115__)
 
-                         80        Grade 80 gasoline (Red)         
-                         100       Grade 100 gasoline (Green)               
-                         100LL     100LL gasoline (low lead) (Blue)                           
-                         115       Grade 115 gasoline (115/145 military 
-                                       specification) (Purple)            
-                         A         Jet A, Kerosene, without FS–II*, 
-                                       FP** minus 40º C.          
-                         A+        Jet A, Kerosene, with FS–II*, 
-                                       FP** minus 40ºC.                     
-                         A++       Jet A, Kerosene, with FS–II*, CI/LI#, 
-                                       SDA##, FP** minus 40ºC.            
-                         A++10     (A++100) Jet A, Kerosene, with FS–II*, 
-                                       CI/LI#, SDA##, FP** minus 40ºC, with 
-                                       +100 fuel additive that improves 
-                                       thermal stability characteristics of 
-                                       kerosene jet fuels.            
-                         A1        Jet A–1, Kerosene, without FS–II*, 
-                                       FP** minus 47ºC.                
-                         A1+       Jet A–1, Kerosene with FS–II*, 
-                                       FP** minus 47º C.
-                         B         Jet B, Wide–cut, turbine fuel 
-                                       without FS–II*, FP** minus 50º C.
-                         B+        Jet B, Wide–cut, turbine fuel 
-                                       with FS–II*, FP** minus 50º C.
-                         J4        (JP4)(JP–4 military specification) 
-                                       FP** minus 58º C.
-                         J5        (JP5)(JP–5 military specification) Kerosene 
-                                       with FS–II, FP** minus 46ºC.
-                         J8        (JP8)(JP–8 military specification) Jet A–1, 
-                                       Kerosene with FS–II*, CI/LI#, SDA##, 
+                         80        Grade 80 gasoline (Red)
+                         100       Grade 100 gasoline (Green)
+                         100LL     100LL gasoline (low lead) (Blue)
+                         115       Grade 115 gasoline (115/145 military
+                                       specification) (Purple)
+                         A         Jet A, Kerosene, without FS–II*,
+                                       FP** minus 40º C.
+                         A+        Jet A, Kerosene, with FS–II*,
+                                       FP** minus 40ºC.
+                         A++       Jet A, Kerosene, with FS–II*, CI/LI#,
+                                       SDA##, FP** minus 40ºC.
+                         A++10     (A++100) Jet A, Kerosene, with FS–II*,
+                                       CI/LI#, SDA##, FP** minus 40ºC, with
+                                       +100 fuel additive that improves
+                                       thermal stability characteristics of
+                                       kerosene jet fuels.
+                         A1        Jet A–1, Kerosene, without FS–II*,
                                        FP** minus 47ºC.
-                         J8+10     (J8+100) (JP–8 military specification) Jet 
-                                       A–1, Kerosene with FS–II*, CI/LI#, 
-                                       SDA##, FP** minus 47ºC, with +100 fuel 
-                                       additive that improves thermal 
-                                       stability characteristics of kerosene 
-                                       jet fuels. 
-                         J         (Jet Fuel Type Unknown) 
-                         MOGAS     Automobile gasoline which is to be used 
-                                       as aircraft fuel. 
-                         UL91      Unleaded Grade 91 gasoline 
+                         A1+       Jet A–1, Kerosene with FS–II*,
+                                       FP** minus 47º C.
+                         B         Jet B, Wide–cut, turbine fuel
+                                       without FS–II*, FP** minus 50º C.
+                         B+        Jet B, Wide–cut, turbine fuel
+                                       with FS–II*, FP** minus 50º C.
+                         J4        (JP4)(JP–4 military specification)
+                                       FP** minus 58º C.
+                         J5        (JP5)(JP–5 military specification) Kerosene
+                                       with FS–II, FP** minus 46ºC.
+                         J8        (JP8)(JP–8 military specification) Jet A–1,
+                                       Kerosene with FS–II*, CI/LI#, SDA##,
+                                       FP** minus 47ºC.
+                         J8+10     (J8+100) (JP–8 military specification) Jet
+                                       A–1, Kerosene with FS–II*, CI/LI#,
+                                       SDA##, FP** minus 47ºC, with +100 fuel
+                                       additive that improves thermal
+                                       stability characteristics of kerosene
+                                       jet fuels.
+                         J         (Jet Fuel Type Unknown)
+                         MOGAS     Automobile gasoline which is to be used
+                                       as aircraft fuel.
+                         UL91      Unleaded Grade 91 gasoline
                          UL94      Unleaded Grade 94 gasoline
 
-                         *(Fuel System Icing Inhibitor) 
-                         **(Freeze Point) 
-                         # (Corrosion Inhibitors/Lubricity Improvers) 
+                         *(Fuel System Icing Inhibitor)
+                         **(Freeze Point)
+                         # (Corrosion Inhibitors/Lubricity Improvers)
                          ## (Static Dissipator Additive)
-                            
+
 
 L AN 0005 00941  A71     AIRFRAME REPAIR SERVICE AVAILABILITY/TYPE
                             MAJOR
@@ -691,7 +691,7 @@ L AN 0003 01208  A83     WIND INDICATOR
                            Y   - UNLIGHTED WIND INDICATOR EXISTS
                            Y-L - LIGHTED WIND INDICATOR EXISTS
 L AN 0007 01211  NONE    ICAO IDENTIFIER
-                         INTERNATIONAL CODING FOR AIRPORT 
+                         INTERNATIONAL CODING FOR AIRPORT
 L AN 0001 01218  NONE    MINIMUM OPERATIONAL NETWORK(MON)
 L AN 0311 01219  NONE    AIRPORT RECORD FILLER (BLANK)
 
@@ -1497,5 +1497,3 @@ L AN 1500 00030  N/A     REMARK TEXT
                             FREE FORM TEXT THAT FURTHER DESCRIBES A
                             SPECIFIC INFORMATION ITEM OR MAY BE GENERAL
                             IN NATURE.
-
-

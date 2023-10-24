@@ -1,16 +1,20 @@
 #!/usr/bin/env python
 
 import logging
-from database import Engine
-from database.models.nav import Navaid
-from database.models.nav import Remark
-from database.models.nav import AirspaceFix
-from database.models.nav import HoldingPattern
-from database.models.nav import FanMarker
-from database.models.nav import VORReceiverCheckpoint
-from .utils import get_field
+
 from sqlalchemy.orm import sessionmaker
 
+from database import Engine
+from database.models.nav import (
+    AirspaceFix,
+    FanMarker,
+    HoldingPattern,
+    Navaid,
+    Remark,
+    VORReceiverCheckpoint,
+)
+
+from .utils import get_field
 
 logger = logging.getLogger(__name__)
 

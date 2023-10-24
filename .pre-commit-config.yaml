@@ -14,6 +14,11 @@ repos:
       - id: mixed-line-ending
         args: ["--fix=lf"]
 
+  - repo: https://github.com/floatingpurr/sync_with_poetry
+    rev: 1.1.0
+    hooks:
+      - id: sync_with_poetry
+
   - repo: https://gitlab.com/bmares/check-json5
     rev: v1.0.0
     hooks:
@@ -26,7 +31,7 @@ repos:
         args: ["--profile", "black", "--filter-files"]
 
   - repo: https://github.com/psf/black
-    rev: 23.7.0
+    rev: 23.10.1
     hooks:
       - id: black
         language_version: python3

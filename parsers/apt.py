@@ -1,15 +1,19 @@
 #!/usr/bin/env python
 
 import logging
-from database import Engine
-from database.models.apt import Airport
-from database.models.apt import Runway
-from database.models.apt import RunwayEnd
-from database.models.apt import AttendanceSchedule
-from database.models.apt import AirportRemark
-from .utils import get_field
+
 from sqlalchemy.orm import sessionmaker
 
+from database import Engine
+from database.models.apt import (
+    Airport,
+    AirportRemark,
+    AttendanceSchedule,
+    Runway,
+    RunwayEnd,
+)
+
+from .utils import get_field
 
 logger = logging.getLogger(__name__)
 

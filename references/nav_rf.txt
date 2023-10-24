@@ -436,17 +436,17 @@ R  N 0024 00540 N75     TRANSMITTED FAN MARKER/MARINE RADIO BEACON
 L AN 0010 00564 N76     FAN MARKER TYPE (BONE OR ELLIPTICAL)
 L AN 0003 00574 N77     TRUE BEARING OF MAJOR AXIS OF FAN MARKER
                            EX: IN WHOLE DEGREES (001-360)
-L AN 0002 00577 N29     VOR STANDARD SERVICE VOLUME 
-                          H=HIGH ALTITUDE, 
-                          L=LOW ALTITUDE, 
-                          T=TERMINAL, 
-                          VH=VOR HIGH, 
+L AN 0002 00577 N29     VOR STANDARD SERVICE VOLUME
+                          H=HIGH ALTITUDE,
+                          L=LOW ALTITUDE,
+                          T=TERMINAL,
+                          VH=VOR HIGH,
                           VL=VOR LOW
 
                           CLASS     ALTITIUDE            MILES
                           -----     ---------            -----
                           T         BETWEEN 1000' AND       25
-                                    12,000' 
+                                    12,000'
 
                           L         BETWEEN 1000' AND       40
                                     18,000'
@@ -475,16 +475,16 @@ L AN 0002 00577 N29     VOR STANDARD SERVICE VOLUME
                           VH        ABOVE FL 450           100
 
 L AN 0002 00579 NA      DME STANDARD SERVICE VOLUME
-                          H=HIGH ALTITUDE, 
-                          L=LOW ALTITUDE, 
-                          T=TERMINAL, 
+                          H=HIGH ALTITUDE,
+                          L=LOW ALTITUDE,
+                          T=TERMINAL,
                           DH=DME HIGH,
                           DL=DME LOW
 
                           CLASS     ALTITIUDE            MILES
                           -----     ---------            -----
                           T         BETWEEN 1000' AND       25
-                                    12,000' 
+                                    12,000'
 
                           L         BETWEEN 1000' AND       40
                                     18,000'
@@ -497,10 +497,10 @@ L AN 0002 00579 NA      DME STANDARD SERVICE VOLUME
                                     AND FL 450
                           H         ABOVE FL 450           100
 
-                          DL        BETWEEN 12,900' AND    130 
+                          DL        BETWEEN 12,900' AND    130
                                     18,000'
 
-                          DH        BETWEEN 12,900' AND    130 
+                          DH        BETWEEN 12,900' AND    130
                                     FL 450
                           DH        ABOVE FL 450           100
 
@@ -694,4 +694,3 @@ L AN 0075 00045  N/A     NARRATIVE DESCRIPTION ASSOCIATED WITH
 L AN 0075 00120  N/A     NARRATIVE DESCRIPTION ASSOCIATED WITH
                          THE CHECKPOINT ON GROUND
 L AN 0611 00195  N/A     BLANKS
-

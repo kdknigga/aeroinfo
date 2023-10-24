@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 
 import pprint
-from database import find_airport
-from database import find_runway
-from database import find_runway_end
-from database import find_navaid
+
+from database import find_airport, find_navaid, find_runway, find_runway_end
 
 pp = pprint.PrettyPrinter()
 
