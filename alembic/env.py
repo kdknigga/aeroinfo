@@ -6,7 +6,7 @@ from sqlalchemy import create_engine
 from alembic import context
 
 sys.path.append("../database")
-from database import get_db_url
+from database import get_db_url  # noqa: E402
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -21,7 +21,7 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-from database import base
+from database import base  # noqa: E402
 
 target_metadata = base.Base.metadata
 

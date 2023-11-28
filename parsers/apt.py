@@ -1229,7 +1229,7 @@ def parse(txtfile):
                     else:
                         raise Exception("No rule to parse remark")
 
-                except:
+                except:  # noqa: E722
                     remark = AirportRemark()
                     remark.facility_site_number = facility_site_number
                     remark.remark_element_name = remark_element_name

@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+# ruff: noqa: E741
+
 import enum
 import logging
 
@@ -91,7 +93,7 @@ class ControllingObjectMarkingEnum(enum.Enum):
 class AirportStatusEnum(enum.Enum):
     CI = "CLOSED INDEFINITELY"
     CP = "CLOSED PERMANENTLY"
-    O = "OPERATIONAL"
+    O = "OPERATIONAL"  # noqa: E741
 
 
 class AirportInspectionMethodEnum(enum.Enum):
