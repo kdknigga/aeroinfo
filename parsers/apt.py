@@ -1,7 +1,17 @@
 #!/usr/bin/env python
 
-import logging
+"""
+Parser for NASR APT fixed-width records.
 
+This module reads the APT.TXT NASR file and merges records into the
+database models. The FAA-format comment blocks are intentionally left
+unchanged.
+"""
+
+import logging
+from pathlib import Path
+
+from sqlalchemy.orm import Session as SASession
 from sqlalchemy.orm import sessionmaker
 
 from database import Engine
@@ -18,7 +28,10 @@ from .utils import get_field
 logger = logging.getLogger(__name__)
 
 
-def set_airport_attr(session, facility_site_number, attr, value):
+def set_airport_attr(
+    session: SASession, facility_site_number: str, attr: str, value: object
+) -> None:
+    """Set an attribute on an existing Airport and merge into the session."""
     airport = (
         session.query(Airport)
         .filter_by(facility_site_number=facility_site_number)
@@ -28,17 +41,23 @@ def set_airport_attr(session, facility_site_number, attr, value):
     session.merge(airport)
 
 
-def set_runway_attr(session, facility_site_number, runway, attr, value):
-    runway = (
+def set_runway_attr(
+    session: SASession, facility_site_number: str, runway: str, attr: str, value: object
+) -> None:
+    """Set an attribute on an existing Runway and merge into the session."""
+    runway_obj = (
         session.query(Runway)
         .filter_by(facility_site_number=facility_site_number, name=runway)
         .scalar()
     )
-    setattr(runway, attr, value)
-    session.merge(runway)
+    setattr(runway_obj, attr, value)
+    session.merge(runway_obj)
 
 
-def set_rw_end_attr(session, facility_site_number, rw_end, attr, value):
+def set_rw_end_attr(
+    session: SASession, facility_site_number: str, rw_end: str, attr: str, value: object
+) -> None:
+    """Set an attribute on an existing RunwayEnd and merge into the session."""
     runway_end = (
         session.query(RunwayEnd)
         .filter_by(facility_site_number=facility_site_number, id=rw_end)
@@ -48,13 +67,19 @@ def set_rw_end_attr(session, facility_site_number, rw_end, attr, value):
     session.merge(runway_end)
 
 
-def parse(txtfile):
+def parse(txtfile: str) -> None:
+    """
+    Parse the given APT TXT file and merge records into the DB.
+
+    The ``txtfile`` parameter may be a path string.
+    """
     Session = sessionmaker(bind=Engine)
     session = Session()
 
-    with open(txtfile, "r", errors="replace") as f:
+    path = Path(txtfile)
+    with path.open(errors="replace") as f:
         for line in f:
-            logger.debug(f"line: {line}")
+            logger.debug("line: %s", line)
             record_type = get_field(line, 1, 3)
 
             if record_type == "APT":
@@ -454,8 +479,8 @@ def parse(txtfile):
                 session.merge(attsched)
 
             if record_type == "ARS":
-                facility_site_number = get_field(line, 4, 11)
-                runway_end = get_field(line, 24, 3)
+                facility_site_number = str(get_field(line, 4, 11) or "")
+                runway_end = str(get_field(line, 24, 3) or "")
                 arresting_gear = get_field(line, 27, 9)
                 set_rw_end_attr(
                     session,
@@ -466,8 +491,8 @@ def parse(txtfile):
                 )
 
             if record_type == "RMK":
-                facility_site_number = get_field(line, 4, 11)
-                remark_element_name = get_field(line, 17, 13)
+                facility_site_number = str(get_field(line, 4, 11) or "")
+                remark_element_name = str(get_field(line, 17, 13) or "")
                 remark_text = get_field(line, 30, 1500)
 
                 try:
@@ -877,7 +902,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A30-"):
-                        en, rw = tuple(remark_element_name.split("-"))
+                        _, rw = remark_element_name.split("-")
                         set_runway_attr(
                             session,
                             facility_site_number,
@@ -886,7 +911,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A31-"):
-                        en, rw = tuple(remark_element_name.split("-"))
+                        _, rw = remark_element_name.split("-")
                         set_runway_attr(
                             session,
                             facility_site_number,
@@ -895,7 +920,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A32-"):
-                        en, rw = tuple(remark_element_name.split("-"))
+                        _, rw = remark_element_name.split("-")
                         set_runway_attr(
                             session,
                             facility_site_number,
@@ -904,7 +929,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A33-"):
-                        en, rw = tuple(remark_element_name.split("-"))
+                        _, rw = remark_element_name.split("-")
                         set_runway_attr(
                             session,
                             facility_site_number,
@@ -913,7 +938,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A34-"):
-                        en, rw = tuple(remark_element_name.split("-"))
+                        _, rw = remark_element_name.split("-")
                         set_runway_attr(
                             session,
                             facility_site_number,
@@ -922,7 +947,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A39-"):
-                        en, rw = tuple(remark_element_name.split("-"))
+                        _, rw = remark_element_name.split("-")
                         set_runway_attr(
                             session,
                             facility_site_number,
@@ -931,7 +956,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A40-"):
-                        en, rw = tuple(remark_element_name.split("-"))
+                        _, rw = remark_element_name.split("-")
                         set_runway_attr(
                             session,
                             facility_site_number,
@@ -940,7 +965,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A35-"):
-                        en, rw = tuple(remark_element_name.split("-"))
+                        _, rw = remark_element_name.split("-")
                         set_runway_attr(
                             session,
                             facility_site_number,
@@ -949,7 +974,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A36-"):
-                        en, rw = tuple(remark_element_name.split("-"))
+                        _, rw = remark_element_name.split("-")
                         set_runway_attr(
                             session,
                             facility_site_number,
@@ -958,7 +983,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A37-"):
-                        en, rw = tuple(remark_element_name.split("-"))
+                        _, rw = remark_element_name.split("-")
                         set_runway_attr(
                             session,
                             facility_site_number,
@@ -967,7 +992,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A38-"):
-                        en, rw = tuple(remark_element_name.split("-"))
+                        _, rw = remark_element_name.split("-")
                         set_runway_attr(
                             session,
                             facility_site_number,
@@ -976,7 +1001,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A30A-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -985,7 +1010,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("E46-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -994,7 +1019,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A23-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1003,7 +1028,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A42-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1012,7 +1037,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("E68-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1021,7 +1046,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("E69-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1030,7 +1055,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("E70-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1039,7 +1064,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A44-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1048,7 +1073,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A45-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1057,7 +1082,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("E161-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1066,7 +1091,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("E162-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1075,7 +1100,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A51-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1084,7 +1109,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A43-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1093,7 +1118,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A47-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1102,7 +1127,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A49-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1111,7 +1136,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A48-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1120,7 +1145,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A46-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1129,7 +1154,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A46A-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1138,7 +1163,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A52-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1147,7 +1172,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A53-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1156,7 +1181,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A50-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1165,7 +1190,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A57-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1174,7 +1199,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A54-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1183,7 +1208,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A55-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1192,7 +1217,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A56-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1201,7 +1226,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("E40-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1210,7 +1235,7 @@ def parse(txtfile):
                             remark_text,
                         )
                     elif remark_element_name.startswith("A60-"):
-                        en, rw_end = tuple(remark_element_name.split("-"))
+                        _, rw_end = remark_element_name.split("-")
                         set_rw_end_attr(
                             session,
                             facility_site_number,
@@ -1227,7 +1252,8 @@ def parse(txtfile):
                     #    en, rw_end = tuple(remark_element_name.split("-"))
                     #    set_rw_end_attr(session, facility_site_number, rw_end, "", remark_text)
                     else:
-                        raise Exception("No rule to parse remark")
+                        msg = f"No rule to parse remark with element name: {remark_element_name}"
+                        raise RuntimeError(msg)
 
                 except:  # noqa: E722
                     remark = AirportRemark()

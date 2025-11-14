@@ -1,12 +1,16 @@
-import sys
+"""
+Alembic environment configuration for migrations.
+
+This module configures Alembic's environment and provides helpers to run
+offline and online migrations.
+"""
+
 from logging.config import fileConfig
 
 from sqlalchemy import create_engine
 
 from alembic import context
-
-sys.path.append("../database")
-from database import get_db_url  # noqa: E402
+from database import get_db_url
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -31,8 +35,9 @@ target_metadata = base.Base.metadata
 # ... etc.
 
 
-def run_migrations_offline():
-    """Run migrations in 'offline' mode.
+def run_migrations_offline() -> None:
+    """
+    Run migrations in 'offline' mode.
 
     This configures the context with just a URL
     and not an Engine, though an Engine is acceptable
@@ -56,8 +61,9 @@ def run_migrations_offline():
         context.run_migrations()
 
 
-def run_migrations_online():
-    """Run migrations in 'online' mode.
+def run_migrations_online() -> None:
+    """
+    Run migrations in 'online' mode.
 
     In this scenario we need to create an Engine
     and associate a connection with the context.

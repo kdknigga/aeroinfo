@@ -1,21 +1,24 @@
 #!/usr/bin/env python
+"""Small command-line helper to import parsed NASR files into the DB."""
 
 import logging
-import os
 import sys
+from pathlib import Path
 
 from parsers import apt, nav
 
-# logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 
-def main(nasrdir):
-    aptpath = os.path.join(nasrdir, "APT.txt")
-    logging.info(f"Starting import of {aptpath}")
-    apt.parse(aptpath)
-    navpath = os.path.join(nasrdir, "NAV.txt")
-    logging.info(f"Starting import of {navpath}")
-    nav.parse(navpath)
+def main(nasrdir: str) -> None:
+    """Import APT.txt and NAV.txt from the given NASR directory."""
+    nasrdir_path = Path(nasrdir)
+    aptpath = nasrdir_path / "APT.txt"
+    logger.info("Starting import of %s", str(aptpath))
+    apt.parse(str(aptpath))
+    navpath = nasrdir_path / "NAV.txt"
+    logger.info("Starting import of %s", str(navpath))
+    nav.parse(str(navpath))
 
 
 if __name__ == "__main__":

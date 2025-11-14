@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 
+"""
+Parser for NASR NAV fixed-width records.
+
+This module parses NAV.TXT and merges records into the database.
+"""
+
 import logging
+from pathlib import Path
 
 from sqlalchemy.orm import sessionmaker
 
@@ -19,13 +26,15 @@ from .utils import get_field
 logger = logging.getLogger(__name__)
 
 
-def parse(txtfile):
+def parse(txtfile: str) -> None:
+    """Parse NAV.TXT and merge records into the DB."""
     Session = sessionmaker(bind=Engine)
     session = Session()
 
-    with open(txtfile, "r", errors="replace") as f:
+    path = Path(txtfile)
+    with path.open(errors="replace") as f:
         for line in f:
-            logger.debug(f"line: {line}")
+            logger.debug("line: %s", line)
             record_type = get_field(line, 1, 4)
 
             if record_type == "NAV1":

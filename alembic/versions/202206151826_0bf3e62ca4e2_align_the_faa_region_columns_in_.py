@@ -1,10 +1,12 @@
-"""Align the FAA region columns in airports and navaids so they match
+"""
+Align the FAA region columns in airports and navaids so they match.
 
 Revision ID: 0bf3e62ca4e2
 Revises: e479b66dc3fb
 Create Date: 2022-06-15 18:26:48.328814+00:00
 
 """
+
 import sqlalchemy as sa
 
 from alembic import op
@@ -16,7 +18,8 @@ branch_labels = None
 depends_on = None
 
 
-def upgrade():
+def upgrade() -> None:
+    """Align FAA region columns for airports and navaids."""
     bind = op.get_bind()
     if bind.engine.name == "postgresql":
         op.alter_column(
@@ -42,7 +45,8 @@ def upgrade():
     op.alter_column("navaids", "faa_region", new_column_name="region")
 
 
-def downgrade():
+def downgrade() -> None:
+    """Revert FAA region column alignment changes."""
     bind = op.get_bind()
     op.alter_column("navaids", "region", new_column_name="faa_region")
     if bind.engine.name == "postgresql":

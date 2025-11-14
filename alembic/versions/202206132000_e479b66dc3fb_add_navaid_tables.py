@@ -1,10 +1,12 @@
-"""Add navaid tables
+"""
+Add navaid tables.
 
 Revision ID: e479b66dc3fb
 Revises: 88479bf118a1
 Create Date: 2022-06-13 20:00:17.546076+00:00
 
 """
+
 import sqlalchemy as sa
 
 from alembic import op
@@ -16,7 +18,8 @@ branch_labels = None
 depends_on = None
 
 
-def upgrade():
+def upgrade() -> None:
+    """Apply schema changes that add navaid tables."""
     op.create_table(
         "navaids",
         sa.Column("facility_id", sa.String(length=4), nullable=False),
@@ -269,7 +272,8 @@ def upgrade():
     )
 
 
-def downgrade():
+def downgrade() -> None:
+    """Revert schema changes that added navaid tables."""
     op.drop_table("navaid_vor_receiver_checkpoints")
     op.drop_table("navaid_remarks")
     op.drop_table("navaid_holding_patterns")

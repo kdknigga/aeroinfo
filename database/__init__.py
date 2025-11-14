@@ -1,7 +1,14 @@
 #!/usr/bin/env python
+"""
+Database engine and convenience helpers.
+
+This module exposes an Engine and a few helper functions to look up
+airports, runways, runway ends and navaids.
+"""
 
 import logging
 import os
+from collections.abc import Iterable
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Load, sessionmaker
@@ -12,7 +19,8 @@ from .models.nav import Navaid
 logger = logging.getLogger(__name__)
 
 
-def get_db_url():
+def get_db_url() -> str:
+    """Build the database URL from environment variables and return it."""
     db_rdbm = os.getenv("DB_RDBM")
     db_user = os.getenv("DB_USER")
     db_pass = os.getenv("DB_PASS")
@@ -20,19 +28,27 @@ def get_db_url():
     db_name = os.getenv("DB_NAME")
 
     if db_rdbm == "sqlite":
-        url = "%s://%s" % (db_rdbm, db_host)
+        url = f"{db_rdbm}://{db_host}"
     else:
-        url = "%s://%s:%s@%s/%s" % (db_rdbm, db_user, db_pass, db_host, db_name)
+        url = f"{db_rdbm}://{db_user}:{db_pass}@{db_host}/{db_name}"
 
-    logger.debug(f"Database URL: {url}")
+    logger.debug("Database URL: %s", url)
     return url
 
 
 Engine = create_engine(get_db_url(), echo=False)
 
 
-def find_airport(identifier, include=None):
-    _include = include or []
+def find_airport(
+    identifier: str, include: Iterable[str] | None = None
+) -> Airport | None:
+    """
+    Return the most recent Airport matching FAA or ICAO identifier.
+
+    The optional "include" iterable can request joined collections like
+    "runways" or "remarks".
+    """
+    _include: list[str] = list(include or [])
     queryoptions = []
 
     if "runways" in _include:
@@ -63,8 +79,11 @@ def find_airport(identifier, include=None):
     return airport
 
 
-def find_runway(name, airport, include=None):
-    _include = include or []
+def find_runway(
+    name: str, airport: Airport | str, include: Iterable[str] | None = None
+) -> Runway | None:
+    """Return a Runway by name for a given airport (object or identifier)."""
+    _include: list[str] = list(include or [])
     queryoptions = []
 
     if "runway_ends" in _include:
@@ -75,7 +94,8 @@ def find_runway(name, airport, include=None):
     elif isinstance(airport, str):
         _airport = find_airport(airport)
     else:
-        raise (TypeError("Expecting str or Airport"))
+        msg = "Expecting str or Airport"
+        raise TypeError(msg)
 
     Session = sessionmaker(bind=Engine)
     session = Session()
@@ -93,22 +113,33 @@ def find_runway(name, airport, include=None):
     return runway
 
 
-def find_runway_end(name, runway, include=None):
-    _include = include or []
+def find_runway_end(
+    name: str,
+    runway: Runway | tuple[str, str] | tuple[str, Airport],
+    include: Iterable[str] | None = None,
+) -> RunwayEnd | None:
+    """Return a RunwayEnd by id for a given runway or (runway_name, airport)."""
+    _include: list[str] = list(include or [])
 
     if isinstance(runway, Runway):
         _runway = runway
     elif isinstance(runway, tuple):
         __runway, airport = runway
 
-        assert isinstance(__runway, str)
+        if not isinstance(__runway, str):
+            msg = "Expecting runway name as str in runway tuple"
+            raise TypeError(msg)
 
         if isinstance(airport, Airport):
             _airport = airport
         elif isinstance(airport, str):
             _airport = find_airport(airport)
+            if _airport is None:
+                # Couldn't resolve the airport identifier; no runway can be found.
+                return None
         else:
-            raise (TypeError("Expecting str or Airport in runway tuple"))
+            msg = "Expecting str or Airport in runway tuple"
+            raise TypeError(msg)
 
         _runway = find_runway(__runway, _airport)
 
@@ -127,8 +158,11 @@ def find_runway_end(name, runway, include=None):
     return rwend
 
 
-def find_navaid(identifier, type, include=None):
-    _include = include or []
+def find_navaid(
+    identifier: str, facility_type: str, include: Iterable[str] | None = None
+) -> Navaid | None:
+    """Return the most recent Navaid matching an identifier and facility type."""
+    _include: list[str] = list(include or [])
 
     Session = sessionmaker(bind=Engine)
     session = Session()
@@ -137,7 +171,7 @@ def find_navaid(identifier, type, include=None):
         session.query(Navaid)
         .filter(
             (Navaid.facility_id == identifier.upper())
-            & (Navaid.facility_type == type.upper())
+            & (Navaid.facility_type == facility_type.upper())
         )
         .order_by(Navaid.effective_date.desc())
         .first()
