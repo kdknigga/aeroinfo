@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-# ruff: noqa: E741
-
 """
 Enumerations used by the database models.
 
@@ -18,17 +16,22 @@ logger = logging.getLogger(__name__)
 class NASREnum(str, enum.Enum):
     """Enum that stores the FAA code as the value with a human description."""
 
+    # Declare for static type checkers; each enum member sets this in __new__.
+    _description: str
+
     def __new__(cls, code: str, description: str) -> "NASREnum":  # type: ignore[override]
         """Create the enum member storing the code as the value and description."""
         obj = str.__new__(cls, code)
         obj._value_ = code  # type: ignore[attr-defined]
-        obj._description_: str = description
+        # Use a plain attribute name so static checkers can infer it exists.
+        obj._description = description
         return obj
 
     @property
     def description(self) -> str:
         """Return the FAA description for this enum entry."""
-        return self._description_
+        # `self._description` is set in __new__ for each enum member.
+        return self._description
 
     def __str__(self) -> str:
         """Return the stored FAA code when coerced to a string."""
@@ -144,7 +147,7 @@ class AirportStatusEnum(NASREnum):
 
     CI = ("CI", "CLOSED INDEFINITELY")
     CP = ("CP", "CLOSED PERMANENTLY")
-    O = ("O", "OPERATIONAL")
+    O = ("O", "OPERATIONAL")  # noqa: E741
 
 
 class AirportInspectionMethodEnum(NASREnum):
@@ -153,7 +156,7 @@ class AirportInspectionMethodEnum(NASREnum):
     F = ("F", "FEDERAL")
     S = ("S", "STATE")
     C = ("C", "CONTRACTOR")
-    O = ("O", "5010-1 PUBLIC USE MAILOUT PROGRAM")  # Source data uses 1
+    O = ("O", "5010-1 PUBLIC USE MAILOUT PROGRAM")  # Source data uses 1 # noqa: E741
     T = ("T", "5010-2 PRIVATE USE MAILOUT PROGRAM")  # Source data uses 2
 
 

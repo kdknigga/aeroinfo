@@ -13,8 +13,8 @@ from collections.abc import Iterable
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Load, sessionmaker
 
-from .models.apt import Airport, Runway, RunwayEnd
-from .models.nav import Navaid
+from aeroinfo.database.models.apt import Airport, Runway, RunwayEnd
+from aeroinfo.database.models.nav import Navaid
 
 logger = logging.getLogger(__name__)
 
@@ -52,13 +52,13 @@ def find_airport(
     queryoptions = []
 
     if "runways" in _include:
-        queryoptions.append(Load(Airport).joinedload("runways"))
+        queryoptions.append(Load(Airport).joinedload(Airport.runways))
 
     if "remarks" in _include:
-        queryoptions.append(Load(Airport).joinedload("remarks"))
+        queryoptions.append(Load(Airport).joinedload(Airport.remarks))
 
     if "attendance" in _include:
-        queryoptions.append(Load(Airport).joinedload("attendance_schedules"))
+        queryoptions.append(Load(Airport).joinedload(Airport.attendance_schedules))
 
     Session = sessionmaker(bind=Engine)
     session = Session()
@@ -87,7 +87,7 @@ def find_runway(
     queryoptions = []
 
     if "runway_ends" in _include:
-        queryoptions.append(Load(Runway).joinedload("runway_ends"))
+        queryoptions.append(Load(Runway).joinedload(Runway.runway_ends))
 
     if isinstance(airport, Airport):
         _airport = airport

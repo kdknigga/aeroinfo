@@ -12,8 +12,8 @@ from sqlalchemy.orm import (
 )
 from sqlalchemy.schema import ForeignKeyConstraint
 
-from database import enums
-from database.base import Base
+from aeroinfo.database import enums
+from aeroinfo.database.base import Base
 
 logger = logging.getLogger(__name__)
 

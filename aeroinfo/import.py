@@ -5,7 +5,7 @@ import logging
 import sys
 from pathlib import Path
 
-from parsers import apt, nav
+from aeroinfo.parsers import apt, nav
 
 logger = logging.getLogger(__name__)
 

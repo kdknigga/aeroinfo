@@ -14,16 +14,15 @@ from pathlib import Path
 from sqlalchemy.orm import Session as SASession
 from sqlalchemy.orm import sessionmaker
 
-from database import Engine
-from database.models.apt import (
+from aeroinfo.database import Engine
+from aeroinfo.database.models.apt import (
     Airport,
     AirportRemark,
     AttendanceSchedule,
     Runway,
     RunwayEnd,
 )
-
-from .utils import get_field
+from aeroinfo.parsers.utils import get_field
 
 logger = logging.getLogger(__name__)
 

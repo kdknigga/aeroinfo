@@ -210,3 +210,6 @@ tags
 
 .dccache
 .ruff_cache/
+.github/copilot-instructions.md
+references/APT.txt
+references/NAV.txt

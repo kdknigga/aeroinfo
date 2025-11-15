@@ -11,8 +11,8 @@ from pathlib import Path
 
 from sqlalchemy.orm import sessionmaker
 
-from database import Engine
-from database.models.nav import (
+from aeroinfo.database import Engine
+from aeroinfo.database.models.nav import (
     AirspaceFix,
     FanMarker,
     HoldingPattern,
@@ -20,8 +20,7 @@ from database.models.nav import (
     Remark,
     VORReceiverCheckpoint,
 )
-
-from .utils import get_field
+from aeroinfo.parsers.utils import get_field
 
 logger = logging.getLogger(__name__)
 

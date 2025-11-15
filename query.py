@@ -4,7 +4,7 @@
 import logging
 import pprint
 
-from database import find_airport, find_navaid, find_runway, find_runway_end
+from aeroinfo.database import find_airport, find_navaid, find_runway, find_runway_end
 
 logger = logging.getLogger(__name__)
 pp = pprint.PrettyPrinter()
