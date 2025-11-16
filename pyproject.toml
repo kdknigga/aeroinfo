@@ -121,3 +121,8 @@ docstring-code-format = false
 # This only has an effect when the `docstring-code-format` setting is
 # enabled.
 docstring-code-line-length = "dynamic"
+
+[tool.pytest.ini_options]
+markers = [
+    "fast: quick tests that use minimal fixtures and run in-memory",
+]
