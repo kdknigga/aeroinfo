@@ -10,7 +10,7 @@ database models.
 import logging
 from typing import Any
 
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 
 logger = logging.getLogger(__name__)
 Base: Any = declarative_base()

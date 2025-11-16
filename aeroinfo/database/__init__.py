@@ -10,8 +10,8 @@ import logging
 import os
 from collections.abc import Iterable
 
-from sqlalchemy import create_engine
-from sqlalchemy.orm import Load, sessionmaker
+from sqlalchemy import create_engine, select
+from sqlalchemy.orm import Load, sessionmaker, with_parent
 
 from aeroinfo.database.models.apt import Airport, Runway, RunwayEnd
 from aeroinfo.database.models.nav import Navaid
@@ -100,13 +100,14 @@ def find_runway(
     Session = sessionmaker(bind=Engine)
     session = Session()
 
-    runway = (
-        session.query(Runway)
-        .with_parent(_airport)
+    stmt = (
+        select(Runway)
+        .where(with_parent(instance=_airport, prop=Airport.runways))
         .filter(Runway.name.like("%" + name + "%"))
-        .options(queryoptions)
-        .scalar()
+        .options(*queryoptions)
     )
+
+    runway = session.execute(stmt).scalars().first()
 
     session.close()
 
@@ -146,12 +147,13 @@ def find_runway_end(
     Session = sessionmaker(bind=Engine)
     session = Session()
 
-    rwend = (
-        session.query(RunwayEnd)
-        .with_parent(_runway)
+    stmt = (
+        select(RunwayEnd)
+        .where(with_parent(instance=_runway, prop=Runway.runway_ends))
         .filter(RunwayEnd.id == name.upper())
-        .scalar()
     )
+
+    rwend = session.execute(stmt).scalars().first()
 
     session.close()
 
