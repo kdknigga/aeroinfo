@@ -11,6 +11,8 @@ import os
 from collections.abc import Iterable
 
 from sqlalchemy import create_engine, select
+from sqlalchemy.engine import Engine as SAEngine
+from sqlalchemy.exc import NoSuchModuleError
 from sqlalchemy.orm import Load, sessionmaker, with_parent
 
 from aeroinfo.database.models.apt import Airport, Runway, RunwayEnd
@@ -26,17 +28,93 @@ def get_db_url() -> str:
     db_pass = os.getenv("DB_PASS")
     db_host = os.getenv("DB_HOST")
     db_name = os.getenv("DB_NAME")
+    # Basic validation with helpful errors to avoid cryptic SQLAlchemy failures
+    if not db_rdbm:
+        msg = (
+            "Database configuration missing: DB_RDBM is not set.\n"
+            "Set DB_RDBM to 'sqlite' or a supported dialect (e.g. 'postgresql').\n"
+            "Example (sqlite file): export DB_RDBM=sqlite; export DB_HOST=/path/to/dbfile.db\n"
+            "Example (postgres): export DB_RDBM=postgresql; export DB_USER=me; "
+            "export DB_PASS=secret; export DB_HOST=localhost; export DB_NAME=mydb"
+        )
+        raise RuntimeError(msg)
 
     if db_rdbm == "sqlite":
+        if not db_host:
+            msg = (
+                "DB_RDBM=sqlite requires DB_HOST to be set to the sqlite filename or ':memory:'. "
+                "For an in-memory database set DB_HOST=':memory:'."
+            )
+            raise RuntimeError(msg)
         url = f"{db_rdbm}://{db_host}"
     else:
+        missing = [
+            name
+            for name, val in (
+                ("DB_USER", db_user),
+                ("DB_PASS", db_pass),
+                ("DB_HOST", db_host),
+                ("DB_NAME", db_name),
+            )
+            if not val
+        ]
+        if missing:
+            raise RuntimeError(
+                "Database configuration incomplete; missing: " + ", ".join(missing)
+            )
         url = f"{db_rdbm}://{db_user}:{db_pass}@{db_host}/{db_name}"
 
     logger.debug("Database URL: %s", url)
     return url
 
 
-Engine = create_engine(get_db_url(), echo=False)
+def _create_engine_safely() -> SAEngine:
+    """
+    Create and return a SQLAlchemy Engine, rewrapping dialect errors.
+
+    This helper is called lazily by the Engine proxy so importing the package
+    doesn't attempt to create the Engine at import time.
+    """
+    try:
+        return create_engine(get_db_url(), echo=False)
+    except NoSuchModuleError as exc:  # pragma: no cover - defensive error rewrap
+        db_rdbm = os.getenv("DB_RDBM")
+        raise RuntimeError(
+            f"Unable to initialize database engine: unsupported DB_RDBM='{db_rdbm}'. "
+            "Set DB_RDBM to a supported SQLAlchemy dialect (for example 'sqlite' or 'postgresql'). "
+            "See project README for examples. Original error: " + str(exc)
+        ) from exc
+
+
+class _LazyEngine:
+    """
+    Proxy object that lazily constructs a SQLAlchemy Engine on first use.
+
+    It forwards attribute access to the real Engine instance, creating it
+    with _create_engine_safely() when needed. This allows modules to import
+    `Engine` without triggering engine creation until the code actually uses
+    the Engine (for example inside parser.parse or when running queries).
+    """
+
+    def __init__(self) -> None:
+        self._engine = None
+
+    def _ensure(self) -> SAEngine:
+        if self._engine is None:
+            self._engine = _create_engine_safely()
+        return self._engine
+
+    def __getattr__(self, name: str) -> object:
+        return getattr(self._ensure(), name)
+
+    def __repr__(self) -> str:  # pragma: no cover - trivial
+        if self._engine is None:
+            return "<LazyEngine (not initialized)>"
+        return repr(self._engine)
+
+
+# Public Engine symbol remains available but is lazy.
+Engine = _LazyEngine()
 
 
 def find_airport(
