@@ -633,7 +633,7 @@ class Airport(Base):
             value = getattr(self, attr)
 
             if isinstance(value, enum.Enum):
-                result[attr] = value.value
+                result[attr] = getattr(value, "description", value.value)
             elif isinstance(value, (datetime.date, datetime.datetime)):
                 result[attr] = value.isoformat()
             else:
@@ -777,7 +777,7 @@ class Runway(Base):
             value = getattr(self, attr)
 
             if isinstance(value, enum.Enum):
-                result[attr] = value.value
+                result[attr] = getattr(value, "description", value.value)
             elif isinstance(value, (datetime.date, datetime.datetime)):
                 result[attr] = value.isoformat()
             else:
@@ -1190,7 +1190,7 @@ class RunwayEnd(Base):
             value = getattr(self, attr)
 
             if isinstance(value, enum.Enum):
-                result[attr] = value.value
+                result[attr] = getattr(value, "description", value.value)
             elif isinstance(value, (datetime.date, datetime.datetime)):
                 result[attr] = value.isoformat()
             else:
