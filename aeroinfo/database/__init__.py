@@ -8,17 +8,75 @@ airports, runways, runway ends and navaids.
 
 import logging
 import os
-from collections.abc import Iterable
+from collections.abc import Iterable, Iterator
+from contextlib import contextmanager
+from functools import lru_cache
+from typing import Any
 
 from sqlalchemy import create_engine, select
 from sqlalchemy.engine import Engine as SAEngine
 from sqlalchemy.exc import NoSuchModuleError
-from sqlalchemy.orm import Load, sessionmaker, with_parent
+from sqlalchemy.orm import Load, Session, sessionmaker, with_parent
+from sqlalchemy.util import LRUCache
 
 from aeroinfo.database.models.apt import Airport, Runway, RunwayEnd
 from aeroinfo.database.models.nav import Navaid
 
 logger = logging.getLogger(__name__)
+
+
+def _parse_bool(value: str | None, *, default: bool) -> bool:
+    if value is None:
+        return default
+    return value.strip().lower() not in {"0", "false", "no", "off"}
+
+
+def _env_int(name: str, default: int) -> int:
+    raw = os.getenv(name)
+    if raw is None:
+        return default
+    try:
+        return int(raw)
+    except ValueError:
+        return default
+
+
+ENGINE_PROFILES: dict[str, dict[str, Any]] = {
+    "lambda": {
+        "pool_pre_ping": True,
+        "pool_size": 1,
+        "max_overflow": 2,
+        "pool_timeout": 5,
+        "pool_recycle": 300,
+        "pool_use_lifo": True,
+        "compiled_cache_size": 512,
+    },
+    "import": {
+        "pool_pre_ping": True,
+        "pool_size": 10,
+        "max_overflow": 20,
+        "pool_timeout": 30,
+        "pool_recycle": 7200,
+        "compiled_cache_size": 512,
+    },
+}
+
+DEFAULT_ENGINE_PROFILE = os.getenv("AEROINFO_ENGINE_PROFILE", "lambda")
+if DEFAULT_ENGINE_PROFILE not in ENGINE_PROFILES:
+    DEFAULT_ENGINE_PROFILE = "lambda"
+
+_POOL_ONLY_OPTIONS = {
+    "pool_size",
+    "max_overflow",
+    "pool_timeout",
+    "pool_recycle",
+    "pool_use_lifo",
+}
+
+_CACHE_ENABLED = _parse_bool(os.getenv("AEROINFO_CACHE_ENABLED"), default=True)
+_AIRPORT_CACHE_SIZE = _env_int("AEROINFO_CACHE_AIRPORT_SIZE", 512)
+_NAVAID_CACHE_SIZE = _env_int("AEROINFO_CACHE_NAVAID_SIZE", 512)
+_CACHE_GENERATION = 0
 
 
 def get_db_url() -> str:
@@ -68,15 +126,26 @@ def get_db_url() -> str:
     return url
 
 
-def _create_engine_safely() -> SAEngine:
-    """
-    Create and return a SQLAlchemy Engine, rewrapping dialect errors.
-
-    This helper is called lazily by the Engine proxy so importing the package
-    doesn't attempt to create the Engine at import time.
-    """
+def _create_engine_safely(profile: str, overrides: dict[str, Any]) -> SAEngine:
+    """Create and return a SQLAlchemy Engine, applying profile-specific tuning."""
     try:
-        return create_engine(get_db_url(), echo=False)
+        url = get_db_url()
+        base_kwargs = ENGINE_PROFILES[profile].copy()
+        user_overrides = overrides.copy()
+        engine_kwargs = base_kwargs | user_overrides
+
+        compiled_cache_size = engine_kwargs.pop("compiled_cache_size", 0)
+
+        if url.startswith("sqlite"):
+            for opt in _POOL_ONLY_OPTIONS:
+                engine_kwargs.pop(opt, None)
+
+        engine = create_engine(url, echo=False, future=True, **engine_kwargs)
+        if compiled_cache_size:
+            engine = engine.execution_options(
+                compiled_cache=LRUCache(compiled_cache_size)
+            )
+        return engine
     except NoSuchModuleError as exc:  # pragma: no cover - defensive error rewrap
         db_rdbm = os.getenv("DB_RDBM")
         raise RuntimeError(
@@ -97,15 +166,43 @@ class _LazyEngine:
     """
 
     def __init__(self) -> None:
-        self._engine = None
+        self._engine: SAEngine | None = None
+        self._profile = DEFAULT_ENGINE_PROFILE
+        self._overrides: dict[str, Any] = {}
 
     def _ensure(self) -> SAEngine:
         if self._engine is None:
-            self._engine = _create_engine_safely()
+            self._engine = _create_engine_safely(self._profile, self._overrides)
         return self._engine
 
     def __getattr__(self, name: str) -> object:
         return getattr(self._ensure(), name)
+
+    @property
+    def profile(self) -> str:
+        return self._profile
+
+    def configure(self, profile: str | None = None, **overrides: object) -> None:
+        if profile is not None:
+            if profile not in ENGINE_PROFILES:
+                msg = (
+                    "Unknown engine profile '"
+                    + str(profile)
+                    + "'. "
+                    + "Known profiles: "
+                    + str(sorted(ENGINE_PROFILES))
+                )
+                raise ValueError(msg)
+            self._profile = profile
+        if overrides:
+            # Coerce overrides to a dict[str, object] and merge into stored overrides.
+            self._overrides |= dict(overrides)
+        self.dispose()
+
+    def dispose(self) -> None:
+        if self._engine is not None:
+            self._engine.dispose()
+            self._engine = None
 
     def __repr__(self) -> str:  # pragma: no cover - trivial
         if self._engine is None:
@@ -116,9 +213,162 @@ class _LazyEngine:
 # Public Engine symbol remains available but is lazy.
 Engine = _LazyEngine()
 
+# Session factory reused by the query helpers and callers that want manual control.
+SessionLocal = sessionmaker(bind=Engine, expire_on_commit=False, future=True)
+
+
+def configure_engine(profile: str | None = None, **overrides: object) -> None:
+    """Reconfigure (or swap) the lazily created Engine profile."""
+    Engine.configure(profile=profile, **overrides)
+
+
+def get_engine_profile() -> str:
+    """Return the currently selected engine profile."""
+    return Engine.profile
+
+
+def get_session() -> Session:
+    """Return a new Session bound to the shared Engine."""
+    return SessionLocal()
+
+
+@contextmanager
+def session_scope(session: Session | None = None) -> Iterator[Session]:
+    """Provide a context manager that shares or creates Sessions."""
+    if session is not None:
+        yield session
+        return
+
+    created = SessionLocal()
+    try:
+        yield created
+    finally:
+        created.close()
+
+
+def _normalize_identifier(identifier: str) -> str:
+    return identifier.strip().upper()
+
+
+def _normalize_facility_type(facility_type: str) -> str:
+    return facility_type.strip().upper()
+
+
+def _prepare_include(
+    include: Iterable[str] | None,
+) -> tuple[frozenset[str], tuple[str, ...]]:
+    values: list[str] = []
+    if include:
+        for entry in include:
+            if entry not in values:
+                values.append(entry)
+    include_flags = frozenset(values)
+    include_key = tuple(sorted(include_flags))
+    return include_flags, include_key
+
+
+def _fetch_airport(
+    session: Session, identifier: str, include_flags: frozenset[str]
+) -> Airport | None:
+    queryoptions = []
+
+    if "runways" in include_flags:
+        queryoptions.append(Load(Airport).joinedload(Airport.runways))
+
+    if "remarks" in include_flags:
+        queryoptions.append(Load(Airport).joinedload(Airport.remarks))
+
+    if "attendance" in include_flags:
+        queryoptions.append(Load(Airport).joinedload(Airport.attendance_schedules))
+
+    return (
+        session.query(Airport)
+        .filter((Airport.faa_id == identifier) | (Airport.icao_id == identifier))
+        .order_by(Airport.effective_date.desc())
+        .options(*queryoptions)
+        .first()
+    )
+
+
+def _fetch_navaid(
+    session: Session, identifier: str, facility_type: str
+) -> Navaid | None:
+    return (
+        session.query(Navaid)
+        .filter(
+            (Navaid.facility_id == identifier) & (Navaid.facility_type == facility_type)
+        )
+        .order_by(Navaid.effective_date.desc())
+        .first()
+    )
+
+
+if _CACHE_ENABLED and _AIRPORT_CACHE_SIZE > 0:
+
+    @lru_cache(maxsize=_AIRPORT_CACHE_SIZE)
+    def _airport_cache_lookup(
+        identifier: str, include_key: tuple[str, ...], generation: int
+    ) -> Airport | None:
+        # `generation` is part of the cache key so callers can invalidate by
+        # bumping it; reference it here to satisfy linters.
+        _ = generation
+        include_flags = frozenset(include_key)
+        with session_scope() as session:
+            return _fetch_airport(session, identifier, include_flags)
+
+
+else:  # pragma: no cover - exercised when caching disabled via env
+
+    def _airport_cache_lookup(
+        identifier: str, include_key: tuple[str, ...], generation: int
+    ) -> Airport | None:
+        _ = generation
+        include_flags = frozenset(include_key)
+        with session_scope() as session:
+            return _fetch_airport(session, identifier, include_flags)
+
+
+if _CACHE_ENABLED and _NAVAID_CACHE_SIZE > 0:
+
+    @lru_cache(maxsize=_NAVAID_CACHE_SIZE)
+    def _navaid_cache_lookup(
+        identifier: str, facility_type: str, generation: int
+    ) -> Navaid | None:
+        _ = generation
+        with session_scope() as session:
+            return _fetch_navaid(session, identifier, facility_type)
+
+
+else:  # pragma: no cover - exercised when caching disabled via env
+
+    def _navaid_cache_lookup(
+        identifier: str, facility_type: str, generation: int
+    ) -> Navaid | None:
+        _ = generation
+        with session_scope() as session:
+            return _fetch_navaid(session, identifier, facility_type)
+
+
+def invalidate_caches() -> None:
+    """Clear local LRU caches, typically after running an import."""
+    global _CACHE_GENERATION
+    _CACHE_GENERATION += 1
+
+    cache_clear = getattr(_airport_cache_lookup, "cache_clear", None)
+    if callable(cache_clear):
+        cache_clear()
+
+    cache_clear = getattr(_navaid_cache_lookup, "cache_clear", None)
+    if callable(cache_clear):
+        cache_clear()
+
 
 def find_airport(
-    identifier: str, include: Iterable[str] | None = None
+    identifier: str,
+    include: Iterable[str] | None = None,
+    *,
+    session: Session | None = None,
+    use_cache: bool | None = None,
 ) -> Airport | None:
     """
     Return the most recent Airport matching FAA or ICAO identifier.
@@ -126,137 +376,122 @@ def find_airport(
     The optional "include" iterable can request joined collections like
     "runways" or "remarks".
     """
-    _include: list[str] = list(include or [])
-    queryoptions = []
-
-    if "runways" in _include:
-        queryoptions.append(Load(Airport).joinedload(Airport.runways))
-
-    if "remarks" in _include:
-        queryoptions.append(Load(Airport).joinedload(Airport.remarks))
-
-    if "attendance" in _include:
-        queryoptions.append(Load(Airport).joinedload(Airport.attendance_schedules))
-
-    Session = sessionmaker(bind=Engine)
-    session = Session()
-
-    airport = (
-        session.query(Airport)
-        .filter(
-            (Airport.faa_id == identifier.upper())
-            | (Airport.icao_id == identifier.upper())
-        )
-        .order_by(Airport.effective_date.desc())
-        .options(queryoptions)
-        .first()
+    include_flags, include_key = _prepare_include(include)
+    identifier_key = _normalize_identifier(identifier)
+    should_cache = (
+        use_cache if use_cache is not None else (_CACHE_ENABLED and session is None)
     )
 
-    session.close()
+    if should_cache:
+        return _airport_cache_lookup(identifier_key, include_key, _CACHE_GENERATION)
 
-    return airport
+    with session_scope(session) as active_session:
+        return _fetch_airport(active_session, identifier_key, include_flags)
 
 
 def find_runway(
-    name: str, airport: Airport | str, include: Iterable[str] | None = None
+    name: str,
+    airport: Airport | str,
+    include: Iterable[str] | None = None,
+    *,
+    session: Session | None = None,
 ) -> Runway | None:
     """Return a Runway by name for a given airport (object or identifier)."""
-    _include: list[str] = list(include or [])
+    include_flags, _ = _prepare_include(include)
     queryoptions = []
 
-    if "runway_ends" in _include:
+    if "runway_ends" in include_flags:
         queryoptions.append(Load(Runway).joinedload(Runway.runway_ends))
 
-    if isinstance(airport, Airport):
-        _airport = airport
-    elif isinstance(airport, str):
-        _airport = find_airport(airport)
-    else:
-        msg = "Expecting str or Airport"
-        raise TypeError(msg)
+    with session_scope(session) as active_session:
+        if isinstance(airport, Airport):
+            _airport = airport
+        elif isinstance(airport, str):
+            _airport = find_airport(airport, session=active_session, use_cache=False)
+            if _airport is None:
+                return None
+        else:
+            msg = "Expecting str or Airport"
+            raise TypeError(msg)
 
-    Session = sessionmaker(bind=Engine)
-    session = Session()
+        stmt = (
+            select(Runway)
+            .where(with_parent(instance=_airport, prop=Airport.runways))
+            .filter(Runway.name.like("%" + name + "%"))
+            .options(*queryoptions)
+        )
 
-    stmt = (
-        select(Runway)
-        .where(with_parent(instance=_airport, prop=Airport.runways))
-        .filter(Runway.name.like("%" + name + "%"))
-        .options(*queryoptions)
-    )
-
-    runway = session.execute(stmt).scalars().first()
-
-    session.close()
-
-    return runway
+        return active_session.execute(stmt).scalars().first()
 
 
 def find_runway_end(
     name: str,
     runway: Runway | tuple[str, str] | tuple[str, Airport],
     include: Iterable[str] | None = None,
+    *,
+    session: Session | None = None,
 ) -> RunwayEnd | None:
     """Return a RunwayEnd by id for a given runway or (runway_name, airport)."""
-    _include: list[str] = list(include or [])
+    _ = include
+    with session_scope(session) as active_session:
+        if isinstance(runway, Runway):
+            _runway = runway
+        elif isinstance(runway, tuple):
+            __runway, airport = runway
 
-    if isinstance(runway, Runway):
-        _runway = runway
-    elif isinstance(runway, tuple):
-        __runway, airport = runway
+            if not isinstance(__runway, str):
+                msg = "Expecting runway name as str in runway tuple"
+                raise TypeError(msg)
 
-        if not isinstance(__runway, str):
-            msg = "Expecting runway name as str in runway tuple"
-            raise TypeError(msg)
+            if isinstance(airport, Airport):
+                _airport = airport
+            elif isinstance(airport, str):
+                _airport = find_airport(
+                    airport, session=active_session, use_cache=False
+                )
+                if _airport is None:
+                    return None
+            else:
+                msg = "Expecting str or Airport in runway tuple"
+                raise TypeError(msg)
 
-        if isinstance(airport, Airport):
-            _airport = airport
-        elif isinstance(airport, str):
-            _airport = find_airport(airport)
-            if _airport is None:
-                # Couldn't resolve the airport identifier; no runway can be found.
+            _runway = find_runway(__runway, _airport, session=active_session)
+            if _runway is None:
                 return None
         else:
-            msg = "Expecting str or Airport in runway tuple"
+            msg = "Expecting Runway or tuple"
             raise TypeError(msg)
 
-        _runway = find_runway(__runway, _airport)
+        stmt = (
+            select(RunwayEnd)
+            .where(with_parent(instance=_runway, prop=Runway.runway_ends))
+            .filter(RunwayEnd.id == name.upper())
+        )
 
-    Session = sessionmaker(bind=Engine)
-    session = Session()
-
-    stmt = (
-        select(RunwayEnd)
-        .where(with_parent(instance=_runway, prop=Runway.runway_ends))
-        .filter(RunwayEnd.id == name.upper())
-    )
-
-    rwend = session.execute(stmt).scalars().first()
-
-    session.close()
-
-    return rwend
+        return active_session.execute(stmt).scalars().first()
 
 
 def find_navaid(
-    identifier: str, facility_type: str, include: Iterable[str] | None = None
+    identifier: str,
+    facility_type: str,
+    include: Iterable[str] | None = None,
+    *,
+    session: Session | None = None,
+    use_cache: bool | None = None,
 ) -> Navaid | None:
     """Return the most recent Navaid matching an identifier and facility type."""
-    _include: list[str] = list(include or [])
+    _prepare_include(include)
 
-    Session = sessionmaker(bind=Engine)
-    session = Session()
-
-    navaid = (
-        session.query(Navaid)
-        .filter(
-            (Navaid.facility_id == identifier.upper())
-            & (Navaid.facility_type == facility_type.upper())
-        )
-        .order_by(Navaid.effective_date.desc())
-        .first()
+    identifier_key = _normalize_identifier(identifier)
+    facility_type_key = _normalize_facility_type(facility_type)
+    should_cache = (
+        use_cache if use_cache is not None else (_CACHE_ENABLED and session is None)
     )
 
-    session.close()
+    if should_cache:
+        return _navaid_cache_lookup(
+            identifier_key, facility_type_key, _CACHE_GENERATION
+        )
 
-    return navaid
+    with session_scope(session) as active_session:
+        return _fetch_navaid(active_session, identifier_key, facility_type_key)

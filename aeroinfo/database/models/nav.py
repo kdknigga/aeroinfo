@@ -4,7 +4,7 @@
 import datetime
 import logging
 
-from sqlalchemy import Date, Enum, Float, Integer, String
+from sqlalchemy import Date, Enum, Float, Index, Integer, String
 from sqlalchemy.orm import (
     Mapped,
     mapped_column,
@@ -381,3 +381,11 @@ class VORReceiverCheckpoint(Base):
     def __repr__(self) -> str:
         """Return a short representation of the VORReceiverCheckpoint."""
         return f"<VORReceiverCheckpoint(id={self.facility_id}, type={self.facility_type}, air_ground={self.air_ground}, bearing={self.bearing})>"
+
+
+Index(
+    "ix_navaids_ident_type_effective",
+    Navaid.facility_id,
+    Navaid.facility_type,
+    Navaid.effective_date.desc(),
+)

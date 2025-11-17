@@ -11,7 +11,7 @@ import datetime
 import enum
 import logging
 
-from sqlalchemy import Boolean, Date, Enum, Float, ForeignKey, Integer, String
+from sqlalchemy import Boolean, Date, Enum, Float, ForeignKey, Index, Integer, String
 from sqlalchemy.orm import (
     Mapped,
     mapped_column,
@@ -1197,6 +1197,24 @@ class RunwayEnd(Base):
                 result[attr] = value
 
         return result
+
+
+Index(
+    "ix_airports_faa_effective",
+    Airport.faa_id,
+    Airport.effective_date.desc(),
+)
+Index(
+    "ix_airports_icao_effective",
+    Airport.icao_id,
+    Airport.effective_date.desc(),
+)
+Index(
+    "ix_runway_ends_facility_name_id",
+    RunwayEnd.facility_site_number,
+    RunwayEnd.runway_name,
+    RunwayEnd.id,
+)
 
 
 class AirportRemark(Base):

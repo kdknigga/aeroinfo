@@ -18,6 +18,7 @@ from aeroinfo.database import (
     find_navaid,
     find_runway,
     find_runway_end,
+    get_session,
 )
 
 DUPAGE_ID = "DPA"
@@ -111,3 +112,22 @@ def test_find_navaid_returns_latest_effective_record() -> None:
     assert navaid.facility_id == facility_id
     assert navaid.facility_type == facility_type
     assert navaid.name == "JOLIET"
+
+
+def test_lookup_helpers_can_share_sessions() -> None:
+    """Sharing a single Session should work for chained lookups."""
+    session = get_session()
+    try:
+        airport = _call_or_skip(
+            "airport session share", find_airport, NAPER_AERO_ID, session=session
+        )
+        runway = _call_or_skip(
+            "runway session share",
+            find_runway,
+            "18",
+            airport,
+            session=session,
+        )
+        assert runway is not None
+    finally:
+        session.close()
