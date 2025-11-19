@@ -1255,6 +1255,8 @@ def parse(txtfile: str) -> None:
                         raise RuntimeError(msg)
 
                 except:  # noqa: E722
+                    # If we didn't handle this remark, store it in the generic table
+                    # This is probably a remark element A110-*
                     remark = AirportRemark()
                     remark.facility_site_number = facility_site_number
                     remark.remark_element_name = remark_element_name
