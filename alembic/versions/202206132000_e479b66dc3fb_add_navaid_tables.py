@@ -280,3 +280,12 @@ def downgrade() -> None:
     op.drop_table("navaid_fan_markers")
     op.drop_table("navaid_airspace_fixes")
     op.drop_table("navaids")
+
+    # Drop custom enum types
+    op.execute("DROP TYPE IF EXISTS faaregionenum")
+    op.execute("DROP TYPE IF EXISTS navaidpositionsurveyaccuracyenum")
+    op.execute("DROP TYPE IF EXISTS yesnonullenum")
+    op.execute("DROP TYPE IF EXISTS navaidmonitoringcategoryenum")
+    op.execute("DROP TYPE IF EXISTS fanmarkertypeenum")
+    op.execute("DROP TYPE IF EXISTS standardservicevolumeenum")
+    op.execute("DROP TYPE IF EXISTS vorreceivercheckpointairgroundcodeenum")

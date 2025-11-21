@@ -791,4 +791,19 @@ def downgrade() -> None:
     op.drop_index(op.f("ix_airports_icao_id"), table_name="airports")
     op.drop_index(op.f("ix_airports_faa_id"), table_name="airports")
     op.drop_table("airports")
+
+    # Drop custom enum types
+    op.execute("DROP TYPE IF EXISTS ownershiptypeenum")
+    op.execute("DROP TYPE IF EXISTS facilityuseenum")
+    op.execute("DROP TYPE IF EXISTS determinationmethodenum")
+    op.execute("DROP TYPE IF EXISTS airportstatusenum")
+    op.execute("DROP TYPE IF EXISTS airportinspectionmethodenum")
+    op.execute("DROP TYPE IF EXISTS agencyperforminginspectionenum")
+    op.execute("DROP TYPE IF EXISTS segmentedcircleenum")
+    op.execute("DROP TYPE IF EXISTS beaconcolorenum")
+    op.execute("DROP TYPE IF EXISTS runwaymarkingstypeenum")
+    op.execute("DROP TYPE IF EXISTS runwaymarkingsconditionenum")
+    op.execute("DROP TYPE IF EXISTS visualglideslopeindicatorenum")
+    op.execute("DROP TYPE IF EXISTS rvrequipmentenum")
+    op.execute("DROP TYPE IF EXISTS controllingobjectmarkingenum")
     # ### end Alembic commands ###
