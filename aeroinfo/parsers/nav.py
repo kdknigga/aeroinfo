@@ -23,15 +23,19 @@ from aeroinfo.database.models.nav import (
 from aeroinfo.parsers.utils import get_field
 
 logger = logging.getLogger(__name__)
+Session = sessionmaker()
 
 
 def parse(txtfile: str) -> None:
     """Parse NAV.TXT and merge records into the DB."""
-    Session = sessionmaker(bind=Engine)
-    session = Session()
-
     path = Path(txtfile)
-    with path.open(errors="replace") as f:
+
+    with (
+        path.open(errors="replace") as f,
+        Engine.connect() as connection,
+        connection.begin(),
+        Session(bind=connection) as session,
+    ):
         for line in f:
             logger.debug("line: %s", line)
             record_type = get_field(line, 1, 4)
@@ -155,5 +159,3 @@ def parse(txtfile: str) -> None:
                 v.ground_narrative = get_field(line, 120, 75)
 
                 session.merge(v)
-
-    session.commit()

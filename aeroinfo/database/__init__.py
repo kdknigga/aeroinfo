@@ -14,6 +14,7 @@ from functools import lru_cache
 from typing import Any
 
 from sqlalchemy import create_engine, select
+from sqlalchemy.engine import Connection
 from sqlalchemy.engine import Engine as SAEngine
 from sqlalchemy.exc import NoSuchModuleError
 from sqlalchemy.orm import Load, Session, sessionmaker, with_parent
@@ -40,38 +41,6 @@ def _env_int(name: str, default: int) -> int:
     except ValueError:
         return default
 
-
-ENGINE_PROFILES: dict[str, dict[str, Any]] = {
-    "lambda": {
-        "pool_pre_ping": True,
-        "pool_size": 1,
-        "max_overflow": 2,
-        "pool_timeout": 5,
-        "pool_recycle": 300,
-        "pool_use_lifo": True,
-        "compiled_cache_size": 512,
-    },
-    "import": {
-        "pool_pre_ping": True,
-        "pool_size": 10,
-        "max_overflow": 20,
-        "pool_timeout": 30,
-        "pool_recycle": 7200,
-        "compiled_cache_size": 512,
-    },
-}
-
-DEFAULT_ENGINE_PROFILE = os.getenv("AEROINFO_ENGINE_PROFILE", "lambda")
-if DEFAULT_ENGINE_PROFILE not in ENGINE_PROFILES:
-    DEFAULT_ENGINE_PROFILE = "lambda"
-
-_POOL_ONLY_OPTIONS = {
-    "pool_size",
-    "max_overflow",
-    "pool_timeout",
-    "pool_recycle",
-    "pool_use_lifo",
-}
 
 _CACHE_ENABLED = _parse_bool(os.getenv("AEROINFO_CACHE_ENABLED"), default=True)
 _AIRPORT_CACHE_SIZE = _env_int("AEROINFO_CACHE_AIRPORT_SIZE", 512)
@@ -126,21 +95,15 @@ def get_db_url() -> str:
     return url
 
 
-def _create_engine_safely(profile: str, overrides: dict[str, Any]) -> SAEngine:
-    """Create and return a SQLAlchemy Engine, applying profile-specific tuning."""
+def _create_engine_safely(overrides: dict[str, Any]) -> SAEngine:
+    """Create and return a SQLAlchemy Engine."""
     try:
         url = get_db_url()
-        base_kwargs = ENGINE_PROFILES[profile].copy()
-        user_overrides = overrides.copy()
-        engine_kwargs = base_kwargs | user_overrides
+        engine_kwargs = overrides.copy()
 
         compiled_cache_size = engine_kwargs.pop("compiled_cache_size", 0)
 
-        if url.startswith("sqlite"):
-            for opt in _POOL_ONLY_OPTIONS:
-                engine_kwargs.pop(opt, None)
-
-        engine = create_engine(url, echo=False, future=True, **engine_kwargs)
+        engine = create_engine(url, future=True, **engine_kwargs)
         if compiled_cache_size:
             engine = engine.execution_options(
                 compiled_cache=LRUCache(compiled_cache_size)
@@ -167,33 +130,21 @@ class _LazyEngine:
 
     def __init__(self) -> None:
         self._engine: SAEngine | None = None
-        self._profile = DEFAULT_ENGINE_PROFILE
         self._overrides: dict[str, Any] = {}
 
     def _ensure(self) -> SAEngine:
         if self._engine is None:
-            self._engine = _create_engine_safely(self._profile, self._overrides)
+            self._engine = _create_engine_safely(self._overrides)
         return self._engine
 
     def __getattr__(self, name: str) -> object:
         return getattr(self._ensure(), name)
 
-    @property
-    def profile(self) -> str:
-        return self._profile
+    def connect(self) -> Connection:
+        """Return a new Connection from the underlying Engine."""
+        return self._ensure().connect()
 
-    def configure(self, profile: str | None = None, **overrides: object) -> None:
-        if profile is not None:
-            if profile not in ENGINE_PROFILES:
-                msg = (
-                    "Unknown engine profile '"
-                    + str(profile)
-                    + "'. "
-                    + "Known profiles: "
-                    + str(sorted(ENGINE_PROFILES))
-                )
-                raise ValueError(msg)
-            self._profile = profile
+    def configure(self, **overrides: object) -> None:
         if overrides:
             # Coerce overrides to a dict[str, object] and merge into stored overrides.
             self._overrides |= dict(overrides)
@@ -217,14 +168,9 @@ Engine = _LazyEngine()
 SessionLocal = sessionmaker(bind=Engine, expire_on_commit=False, future=True)
 
 
-def configure_engine(profile: str | None = None, **overrides: object) -> None:
-    """Reconfigure (or swap) the lazily created Engine profile."""
-    Engine.configure(profile=profile, **overrides)
-
-
-def get_engine_profile() -> str:
-    """Return the currently selected engine profile."""
-    return Engine.profile
+def configure_engine(**overrides: object) -> None:
+    """Reconfigure (or swap) the lazily created Engine."""
+    Engine.configure(**overrides)
 
 
 def get_session() -> Session:
