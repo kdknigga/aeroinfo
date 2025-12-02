@@ -110,12 +110,14 @@ class StructParser:
             Dictionary mapping field names to their converted values.
 
         """
-        # Ensure record is long enough (pad with spaces if needed)
+        # Use latin-1 encoding because NASR files use ASCII with possible
+        # extended characters. Latin-1 is a superset of ASCII that preserves
+        # all byte values (0-255) and allows round-trip encoding/decoding.
         record_bytes = record.encode("latin-1", errors="replace")
         if len(record_bytes) < self._struct.size:
             record_bytes = record_bytes.ljust(self._struct.size)
 
-        # Unpack all fields at once
+        # Unpack all fields at once using the pre-compiled struct
         raw_values = self._struct.unpack_from(record_bytes)
 
         # Convert each field to its target type
