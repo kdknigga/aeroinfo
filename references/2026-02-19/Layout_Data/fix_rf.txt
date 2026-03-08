@@ -1,0 +1,270 @@
+                     RADIO-FIX (REPORTING POINTS)
+                        DATA BASE RECORD LAYOUT
+                              (FIX-FILE)
+
+INFORMATION EFFECTIVE DATE: 07/19/2018
+    RECORD FORMAT: FIXED
+    LOGICAL RECORD LENGTH: 466
+
+FILE STRUCTURE DESCRIPTION:
+---------------------------
+
+    THERE CAN BE A VARIABLE NUMBER OF FIXED-LENGTH RECORDS FOR
+    EACH FIX. THE NUMBER OF RECORDS IS DETERMINED BY THE
+    AMOUNT OF TEXTUAL INFORMATION USED TO DESCRIBE THE FIX
+    MAKEUPS, GENERAL AND REFERENCED REMARKS FOR THE FIX.
+    EACH OF THE FOUR RECORD TYPES WILL BE IDENTIFIABLE
+    BY A RECORD TYPE INDICATOR (FIX1, FIX2, FIX3, FIX4,
+    AND, FIX5) AND THE FIX IDENTIFIER.  THE RECORDS ARE IN
+    SEQUENCE, i.e., ALL TEXT RECORDS FOLLOW THEIR READABLE
+    ORDER AS SHOWN IN DESCRIPTION OF RECORD TYPES BELOW.
+
+    THE FILE IS SORTED BY RECORD TYPE INDICATOR AND FIX ID
+    (THIS ENSURES THAT MULTIPLE RECORDS OF A SPECIFIC FIX
+    ARE ALL TOGETHER).
+
+    EACH RECORD ENDS WITH A CARRIAGE RETURN CHARACTER AND
+    LINE FEED CHARACTER (CR/LF). THIS LINE TERMINATOR IS
+    NOT INCLUDED IN THE LOGICAL RECORD LENGTH.
+
+DESCRIPTION OF THE RECORD TYPES:
+--------------------------------
+
+    'FIX1' RECORD TYPE CONTAINS THE BASE FIX DATA.
+    THERE IS ONE FIX1 RECORD FOR EACH FIX.
+
+
+    'FIX2' RECORD TYPE CONTAINS TEXTUAL INFORMATION
+    FROM THE NAVAID MAKEUP. THERE CAN BE NONE, ONE OR MORE
+    FIX2 RECORDS, DEPENDING ON THE AVAILABLE NAVAID MAKEUPS
+    FOR THE FIX.
+
+    'FIX3' RECORD TYPE CONTAINS TEXTUAL INFORMATION
+    FROM THE FIX ILS MAKEUP. THERE CAN BE NONE, ONE OR MORE
+    FIX3 RECORDS, DEPENDING ON THE AVAILABLE ILS MAKEUPS
+    FOR THE FIX.
+
+    'FIX4' RECORD TYPE DESCRIBES GENERAL REMARK AND ANY
+    REFERENCED REMARK FOR THE FIX. THERE CAN BE NONE,
+    ONE OR MORE FIX4 RECORDS FOR THE FIX.
+
+    'FIX5' RECORD TYPE CONTAINS TEXTUAL CHARTING INFORMATION
+    ON WHICH THE FIX IS DEPICTED. THERE CAN BE ONE OR MORE
+    FIX5 RECORDS FOR THE FIX.
+
+
+GENERAL INFORMATION:
+--------------------
+
+     1.  LEFT JUSTIFIED FIELDS HAVE TRAILING BLANKS
+     2.  RIGHT JUSTIFIED FIELDS HAVE LEADING BLANKS
+     3.  ELEMENT NUMBER IS FOR INTERNAL REFERENCE ONLY
+         AND NOT IN RECORD
+     4.  THE RECORD IDENTIFIER IS FIX ID AND STATE NAME. IT IS
+         REPEATED ON EACH RECORD TYPE FOR A FIX.
+
+
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+*********************************************************************
+
+            'FIX1' RECORD TYPE - BASE FIX DATA
+
+*********************************************************************
+L  AN0004 00001  NONE    RECORD TYPE INDICATOR.
+                           FIX1: BASE FIX TEXT
+
+L  AN0030 00005  NONE    RECORD IDENTIFIER (FIX ID)
+
+L  AN0030 00035  NONE    RECORD IDENTIFIER (FIX STATE NAME)
+
+L  AN0002 00065  NONE    ICAO REGION CODE
+
+L  AN0014 00067  FX4     GEOGRAPHICAL LATITUDE OF THE FIX.
+
+L  AN0014 00081  FX5     GEOGRAPHICAL LONGITUDE OF THE FIX.
+
+L  AN0003 00095  FX20    CATEGORIZES THE FIX AS A MILITARY (MIL),
+                         OR CIVIL FIX (FIX).
+
+L  AN0022 00098  FX27    3 OR 4 LETTER IDENT*FACILITY TYPE*DIRECTION OR
+                         COURSE OF MLS COMPONENT USED IN FIX DESCRIPTION
+
+L  AN0022 00120  FX27    AIRPORT ID*APPROACH-END-RWY*DISTANCE OF RADAR COMPONENT
+                         USED IN FIX DESCRIPTION
+
+L  AN0033 00142  FX33    PREVIOUS NAME OF THE FIX BEFORE IT WAS RENAMED
+
+L  AN0038 00175  FX31    CHARTING INFORMATION.
+
+L  AN0001 00213  FX34    FIX TO BE PUBLISHED (Y = YES OR N = NO)
+
+L  AN0015 00214  FX36    FIX USE
+                    EX.  CNF (COMPUTER NAVIGATION FIX)
+                         MIL-REP-PT (MILITARY REPORTING POINT)
+                         MIL-WAYPOINT (MILITARY WAYPOINT)
+                         NRS-WAYPOINT (NRS WAYPOINT)
+                         RADAR (RADAR)
+                         REP-PT (REPORTING POINT)
+                         VFR-WP (VFR WAYPOINT)
+                         WAYPOINT (WAYPOINT)
+
+                         THE FOLLOWING FIX USE ARE OBSOLETE:
+                         ARTCC-BDRY (ARTCC BOUNDARY)
+                         AWY-INTXN (AIRWAY INTERSECTION)
+                         BRG-INTXN  (BEARING INTERSECTION)
+                         COORDN-FIX (ATC COORDINATION FIX)
+                         DME-FIX (DME FIX)
+                         DP-TRANS-XING (DP TRANSITION CROSSING)
+                         GPS-WP (GPS WAYPOINT)
+                         RNAV-WP (RNAV WAYPOINT)
+                         STAR-TRANS-XING (STAR TRANSITION CROSSING)
+                         TRANS-INTXN (TRANSITION INTERSECTION)
+                         TURN-PT (TURNING POINT)
+
+L  AN0005 00229  FX37    NATIONAL AIRSPACE SYSTEM(NAS) IDENTIFIER FOR
+                         THE FIX (USUALLY 5 CHARACTERS).
+
+                   NOTE: IF THE FIX OVERLAYES A NAVAID AND HAS AN ID
+                         WHICH IS NOT 5 CHARACTERS, THEN FX37 WILL DISPLAY THE
+                         LOCATION IDENTIFIER OF THE NAVAID.
+
+L  AN0004 00234  FX91    DENOTES HIGH ARTCC AREA OF JURISDICTION.
+
+L  AN0004 00238  NONE    DENOTES LOW ARTCC AREA OF JURISDICTION.
+
+L  AN0030 00242  NONE    FIX COUNTRY NAME (OUTSIDE CONUS)
+
+L  AN0001 00272  NONE    PITCH (Y = YES OR N = NO)
+
+L  AN0001 00273  NONE    CATCH (Y = YES OR N = NO)
+
+L  AN0001 00274  NONE    SUA/ATCAA (Y = YES OR N = NO)
+
+L  AN0192 00275  NONE    BLANKS
+
+********************************************************************
+
+     'FIX2' RECORD TYPE - FIX NAVAID MAKEUP TEXT
+
+*******************************************************************
+L  AN0004 00001  NONE    RECORD TYPE INDICATOR.
+                           FIX2: FIX NAVAID MAKEUP TEXT
+L  AN0030 00005  NONE    RECORD IDENTIFIER (FIX NAME)
+L  AN0030 00035  NONE    RECORD IDENTIFIER (FIX STATE NAME)
+L  AN0002 00065  NONE    ICAO REGION CODE
+L  AN0023 00067  FX22    LOCATION-IDENTIFIER, FACILITY TYPE, AND RADIAL
+                         OR BEARING / DME DISTANCE OF NAVAID USED
+                         IN THE FIX DESCRIPTION
+
+                   NOTE: NAV_FACILITY_TYPE         NAV_TYPE_CODE
+                         ------------------------- -------------
+                         VORTAC                    C
+                         TACAN                     T
+                         VOR/DME                   D
+                         FAN MARKER                F
+                         CONSOLAN                  K
+                         LOW FREQUENCY RANGE       L
+                         MARINE NDB                M
+                         MARINE NDB/DME            MD
+                         VOT                       O
+                         DME                       OD
+                         NDB                       R
+                         NDB/DME                   RD
+                         UHF/NDB                   U
+                         VOR                       V
+
+L AN0377 00090  NONE     BLANKS
+
+
+********************************************************************
+
+     'FIX3' RECORD TYPE - FIX ILS MAKEUP TEXT
+
+*******************************************************************
+L  AN0004 00001  NONE    RECORD TYPE INDICATOR.
+                           FIX3: FIX ILS MAKEUP TEXT
+
+L  AN0030 00005  NONE    RECORD IDENTIFIER (FIX NAME)
+
+L  AN0030 00035  NONE    RECORD IDENTIFIER (FIX STATE NAME)
+
+L  AN0002 00065  NONE    ICAO REGION CODE
+
+L  AN0023 00067  FX26    3 OR 4 LETTER IDENT*FACILITY TYPE*DIRECTION OR COURSE
+                         OF ILS COMPONENT USED IN FIX
+                         DESCRIPTION
+
+                   NOTE: ILS_FACILITY_TYPE         ILS_TYPE_CODE
+                         ------------------------- -------------
+                         LDA/DME                   DD
+                         LDA                       LA
+                         LOCALIZER                 LC
+                         ILS/DME                   LD
+                         LOC/DME                   LE
+                         LOC/GS                    LG
+                         ILS                       LS
+                         SDF/DME                   SD
+                         SDF                       SF
+
+L  AN0377 00090  NONE    BLANKS
+
+
+********************************************************************
+
+     'FIX4' RECORD TYPE - REMARKS TEXT
+
+*******************************************************************
+L  AN0004 00001  NONE    RECORD TYPE INDICATOR.
+                           FIX4: REMARKS TEXT
+
+L  AN0030 00005  NONE    RECORD IDENTIFIER (FIX NAME)
+
+L  AN0030 00035  NONE    RECORD IDENTIFIER (FIX STATE NAME)
+
+L  AN0002 00065  NONE    ICAO REGION CODE
+
+L  AN0100 00067  NONE    FIELD LABEL
+
+                   NOTE: "GENERAL" FOR GENERAL REMARK,
+                         <FIELD LABEL> FOR FIX FIELD
+                         <FIELD LABEL> - <NAVAID/ILS/MLS> -
+                         MAKEUP DEFINITION (FOR MAKEUPS)
+
+L  AN0300 00167  NONE    REMARK TEXT
+
+
+********************************************************************
+
+     'FIX5' RECORD TYPE - CHARTING TYPES
+
+*******************************************************************
+L  AN0004 00001  NONE    RECORD TYPE INDICATOR.
+                           FIX5: CHARTING INFORMATION
+
+L  AN0030 00005  NONE    RECORD IDENTIFIER (FIX NAME)
+
+L  AN0030 00035  NONE    RECORD IDENTIFIER (FIX STATE NAME)
+
+L  AN0002 00065  NONE    ICAO REGION CODE
+
+L  AN0022 00067  FX21    CHART ON WHICH FIX IS TO BE DEPICTED
+                     EX: IAP, AREA, CONTROLLER, MILITARY IAP,
+                         MILITARY SID, MILITARY STAR, NOT REQUIRED,
+                         SPECIAL IAP, STAR, SID, ENROUTE LOW,
+                         ENROUTE HIGH, IFR GOM VERTICAL FLT,
+                         HELICOPTER ROUTE, SECTIONAL, VFR TERMINAL AREA,
+                         VFR FLYWAY PLANNING, CONTROLLER CHART ONLY,
+                         PRIVATE IAP, CONTROLLER HIGH, CONTROLLER LOW,
+                         NORTH ATLANTIC ROUTE, NORTH PACIFIC ROUTE,
+                         WESTERN ATLANTIC ROUTE, SPECIAL DP
+
+L  AN0378 00089  NONE    BLANKS

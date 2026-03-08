@@ -1,0 +1,59 @@
+                                       CODED DEPARTURE ROUTES
+
+                          COMMA-SEPARATED VALUES (CSV) RECORD LAYOUT
+
+                                                (CDR-FILE)
+
+
+
+INFORMATION EFFECTIVE DATE: 10/05/2023
+
+        RECORD FORMAT: COMMA DELIMITED - UNLIKE OTHER CSV FILES, ALL FIELDS ARE NOT
+        ENCLOSED WITHIN DOUBLE-QUOTE CHARACTERS.
+        LOGICAL RECORD INTERVAL: ALL RECORDS HAVE THE SAME NUMBER OF FIELDS, IN THE SAME
+        ORDER AND RECORD ENDS AT A LINE TERMINATOR
+
+        DATA HEADERS: FIRST ROW CONTAINS FIELD NAMES
+        ORDERED BY: RCode
+
+
+
+GENERAL INFORMATION:
+
+    1. The CDR.csv was designed to replace the legacy CDR.txt.
+    2. The Ordered By listed above (RCode) is also the unique record key.
+    3. Data while comparable to the legacy CDR.txt also includes 6 additional columns – ACNTR,
+       TCNTRs, CoordReq, Play, NavEqp and Length.
+    4. Please enter any feedback in the Aeronautical Information Portal.
+        https://nfdc.faa.gov/nfdcApps/controllers/PublicSecurity/nfdcLogin
+
+
+                                            FIELD DESCRIPTION
+
+
+
+RCode – Each CDR is uniquely identified by an eight-character alphanumeric code. The Route Code is a
+concatenation of the Origin, Destination and an alphanumeric route identifier.
+
+Orig – The CDR Point of Origin is a 3 or 4 character departure airport designator.
+Dest – The CDR Point of Destination is a 3 or 4 character arrival airport designator.
+
+DepFix – The Departure Fix associated with a given CDR.
+Route String – The preplanned route of flight associated with a given CDR.
+
+DCNTR – Departure ARTCC associated with a given CDR.
+ACNTR – Arrival ARTCC associated with a given CDR.
+
+TCNTRs – A list of all Traversed ARTCCs for a given CDR.
+CoordReq – Y/N indicator as to whether Coordination is required.
+Play – The Playbook Play name for a given CDR.
+
+NavEqp – Navigation Equipment Designator.
+
+       1 – Basic Navigational Routes
+
+       2 – Routes with RNAV DPs and/or STARs
+
+       3 – Routes with Q-route segments and/or pitch and catch points.
+
+Length – Length of CDR in Nautical Miles

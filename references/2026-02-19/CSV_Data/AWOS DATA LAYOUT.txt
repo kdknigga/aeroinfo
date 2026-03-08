@@ -1,0 +1,97 @@
+                                          ASOS/AWOS DATA
+
+                         COMMA-SEPARATED VALUES (CSV) RECORD LAYOUT
+
+                                              (AWOS-FILE)
+
+
+
+INFORMATION EFFECTIVE DATE: 12/01/2022
+
+       RECORD FORMAT: COMMA DELIMITED WITH ALL TEXT FIELDS ENCLOSED WITHIN DOUBLE-
+       QUOTE CHARACTERS
+
+       LOGICAL RECORD INTERVAL: ALL RECORDS HAVE THE SAME NUMBER OF FIELDS, IN THE SAME
+       ORDER AND RECORD ENDS AT A LINE TERMINATOR
+
+       DATA HEADERS: FIRST ROW CONTAINS FIELD NAMES
+
+       ORDERED BY: ASOS_AWOS_ID, ASOS_AWOS_TYPE
+
+
+
+GENERAL INFORMATION:
+
+   1. The AWOS.csv was designed to replace the legacy AWOS.txt Subscriber File.
+   2. The Ordered By listed above (ASOS_AWOS_ID, ASOS_AWOS_TYPE) is also the unique record key.
+   3. Data while comparable to the legacy information is in some cases organized and presented in a
+      different way.
+   4. Please enter any feedback in the Aeronautical Information Portal.
+       https://nfdc.faa.gov/nfdcApps/controllers/PublicSecurity/nfdcLogin
+
+
+                                         FIELD DESCRIPTION
+
+
+
+EFF_DATE – The 28 Day NASR Subscription Effective Date in format ‘YYYY/MM/DD’.
+
+ASOS_AWOS_ID – Weather System Identifier. Unique 3-4 character alphanumeric identifier.
+
+ASOS_AWOS_TYPE – Weather System Type.
+
+STATE_CODE – Associated State Code standard two letter abbreviation for US States and Territories.
+
+CITY – Weather System associated City Name.
+
+COUNTRY_CODE - Country Code Weather System is Located.
+
+COMMISSIONED_DATE – Decommissioned Weather systems are not included so Dates given are for
+Commissioning Dates.
+
+NAVAID_FLAG – Weather associated with NAVAID – Y/N Flag.
+
+LAT_DEG – Weather System Latitude Degrees
+LAT_MIN – Weather System Latitude Minutes
+
+LAT_SEC – Weather System Latitude Seconds
+
+LAT_HEMIS – Weather System Latitude Hemisphere
+
+LAT_DECIMAL – Weather System Latitude in Decimal Format
+
+LONG_DEG – Weather System Longitude Degrees
+
+LONG_MIN – Weather System Longitude Minutes
+
+LONG_SEC – Weather System Longitude Seconds
+
+LONG_HEMIS – Weather System Longitude Hemisphere
+
+LONG_DECIMAL – Weather System Longitude in Decimal Format
+
+ELEV – Weather System Elevation (Nearest Tenth of a Foot)
+
+SURVEY_METHOD_CODE – Weather System Location Determination Method
+
+              E - ESTIMATED
+              S - SURVEYED
+
+PHONE_NO – Weather System Telephone Number
+
+SECOND_PHONE_NO – Weather System Second Telephone Number
+
+SITE_NO – Landing Facility Site Number when Weather System Located at Airport.
+
+SITE_TYPE_CODE – Landing Facility Type Code when Weather System Located at Airport.
+
+              CODE     FACILITY
+              ----     -----------
+               A       AIRPORT
+               B        BALLOONPORT
+               C        SEAPLANE BASE
+               G        GLIDERPORT
+               H        HELIPORT
+               U        ULTRALIGHT
+
+REMARK – Remark associated with Weather System.

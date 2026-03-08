@@ -1,0 +1,395 @@
+                             INSTRUMENT LANDING SYSTEM (ILS) DATA
+
+                         COMMA-SEPARATED VALUES (CSV) RECORD LAYOUT
+
+                                               (ILS-FILES)
+
+
+
+INFORMATION EFFECTIVE DATE: 8/07/2025
+
+       RECORD FORMAT: COMMA DELIMITED WITH TEXT FIELDS ENCLOSED WITHIN DOUBLE-QUOTE
+       CHARACTERS
+
+       LOGICAL RECORD INTERVAL: ALL RECORDS WITHIN A SPECIFIC ILS FILE HAVE THE SAME
+       NUMBER OF FIELDS, IN THE SAME ORDER AND RECORD ENDS AT A LINE TERMINATOR
+
+       DATA HEADERS: FIRST ROWS CONTAIN FIELD NAMES
+
+       ILS FILES: ILS_BASE, ILS_GS, ILS_DME, ILS_MKR, ILS_RMK
+
+       COMMON TO ALL ILS FILES: EFF_DATE, SITE_NO, SITE_TYPE_CODE, STATE_CODE, ARPT_ID, CITY,
+       COUNTRY_CODE, RWY_END_ID, ILS_LOC_ID, SYSTEM_TYPE_CODE
+
+
+
+GENERAL INFORMATION:
+
+   1. The ILS_*.csv files were designed to replace the legacy ILS.txt Subscriber File.
+   2. The Ordered By list for each ILS FILE documented below is also the Unique Record Key.
+   3. ILS_*.csv files contain the data found in the legacy ILS.txt Subscriber File. Data while
+      comparable to the legacy ILS.txt is in some cases organized and presented in a different way.
+   4. Please enter any feedback in the Aeronautical Information Portal.
+       https://nfdc.faa.gov/nfdcApps/controllers/PublicSecurity/nfdcLogin
+
+
+                                        FIELD DESCRIPTIONS
+
+COMMON TO ALL
+
+##############
+
+EFF_DATE – The 28 Day NASR Subscription Effective Date in format ‘YYYY/MM/DD’.
+
+SITE_NO – Landing Facility Site Number. A unique identifying number.
+
+SITE_TYPE_CODE – Landing Facility Type Code.
+
+              CODE     FACILITY
+              ----     -----------
+               A       AIRPORT
+               B        BALLOONPORT
+               C        SEAPLANE BASE
+                    G      GLIDERPORT
+                    H      HELIPORT
+                    U      ULTRALIGHT
+
+STATE_CODE – Associated State Post Office Code standard two letter abbreviation for US States and
+Territories.
+
+ARPT_ID – Location Identifier. Unique 3-4 character alphanumeric identifier assigned to the Landing
+Facility.
+
+CITY – Associated City Name
+
+COUNTRY_CODE - Country Post Office Code
+
+RWY_END_ID – ILS Runway End Identifier
+
+ILS_LOC_ID – ILS Identification
+
+SYSTEM_TYPE_CODE – ILS System Type.
+
+System Type Code          System Type        Description
+-----------------------   ----------------    ---------------
+LS                        ILS                Instrument Landing System
+
+SF                        SDF                Simplified Directional Facility
+
+LC                        LOC                Localizer
+
+LA                        LDA                Localizer-Type Directional Aid
+
+LD                        ILS/DME            Instrument Landing System/Distance Measuring Equipment
+
+SD                        SDF/DME            Simplified Directional Facility/Distance Measuring Equipment
+
+LE                        LOC/DME            Localizer/Distance Measuring Equipment
+
+LG                        LOC/GS             Localizer/Glide Slope
+
+DD                        LDA/DME            Localizer-Type Directional Aid/Distance Measuring Equipment
+
+
+
+ILS_BASE ordered by SITE_NO, SITE_TYPE_CODE, RWY_END_ID
+
+#########################
+
+STATE_NAME – Associated State Name
+
+REGION_CODE – FAA Region responsible for NAVAID (code)
+              CODE     REGION NAME
+              ----     -----------
+              AAL        ALASKA
+              ACE        CENTRAL
+              AEA        EASTERN
+              AGL       GREAT LAKES
+              ANE        NEW ENGLAND
+              ANM        NORTHWEST MOUNTAIN
+              ASO        SOUTHERN
+              ASW        SOUTHWEST
+              AWP        WESTERN-PACIFIC
+
+RWY_LEN – ILS Runway Length in Whole Feet
+
+RWY_WIDTH – ILS Runway Width in Whole Feet
+
+CATEGORY – Category of the ILS
+
+OWNER – A Concatenation of the ILS OWNER CODE - ILS OWNER NAME
+
+OPERATOR – A Concatenation of the ILS OPERATOR CODE - ILS OPERATOR NAME
+
+APCH_BEAR – ILS Approach Bearing in Degrees Magnetic
+
+MAG_VAR – Magnetic Variation Degrees
+
+MAG_VAR_HEMIS – Magnetic Variation Direction
+
+COMPONENT_STATUS – Operational Status of Localizer
+
+COMPONENT_STATUS_DATE – Effective Date of Localizer Operational Status
+
+LAT_DEG – Localizer Antenna Latitude Degrees
+
+LAT_MIN – Localizer Antenna Latitude Minutes
+
+LAT_SEC – Localizer Antenna Latitude Seconds
+
+LAT_HEMIS – Localizer Antenna Latitude Hemisphere
+
+LAT_DECIMAL – Localizer Antenna Latitude in Decimal Format
+
+LONG_DEG – Localizer Antenna Longitude Degrees
+
+LONG_MIN – Localizer Antenna Longitude Minutes
+
+LONG_SEC – Localizer Antenna Longitude Seconds
+
+LONG_HEMIS – Localizer Antenna Longitude Hemisphere
+
+LONG_DECIMAL – Localizer Antenna Longitude in Decimal Format
+
+LAT_LONG_SOURCE_CODE – Code Indication Source of Latitude/Longitude Information
+             CODE      SOURCE
+             ----      ----------
+             A         AIR FORCE
+             C         COAST GUARD
+             D         CANADIAN AIRAC
+             F         FAA
+             FS        TECH OPS (AFS-530)
+             G         NOS (HISTORICAL)
+             K          NGS
+             M         DOD (NGA)
+             N         US NAVY
+             O         OWNER
+             P         NOS PHOTO SURVEY (HISTORICAL)
+             Q         QUAD PLOT (HISTORICAL)
+             R         ARMY
+             S         SIAP
+             T         3RD PARTY SURVEY
+             Z         SURVEYED
+
+SITE_ELEVATION – Site Elevation of Localizer Antenna in Tenth of a Foot (MSL).
+
+LOC_FREQ – Localizer Frequency (MHZ)
+
+BK_COURSE_STATUS_CODE - Localizer Back Course Status
+
+             CODE      STATUS
+             ----      ----------
+             N         NO RESTRICTIONS
+             R         RESTRICTED
+             U         UNUSABLE
+             Y         USABLE
+
+
+ILS_GS ordered by SITE_NO, SITE_TYPE_CODE, RWY_END_ID
+
+#################################################
+
+COMPONENT_STATUS – Operational Status of Glide Slope
+
+COMPONENT_STATUS_DATE – Effective Date of Glide Slope Operational Status
+
+LAT_DEG – Glide Slope Transmitter Antenna Latitude Degrees
+
+LAT_MIN – Glide Slope Transmitter Antenna Latitude Minutes
+
+LAT_SEC – Glide Slope Transmitter Antenna Latitude Seconds
+
+LAT_HEMIS – Glide Slope Transmitter Antenna Latitude Hemisphere
+
+LAT_DECIMAL – Glide Slope Transmitter Antenna Latitude in Decimal Format
+LONG_DEG – Glide Slope Transmitter Antenna Longitude Degrees
+
+LONG_MIN – Glide Slope Transmitter Antenna Longitude Minutes
+
+LONG_SEC – Glide Slope Transmitter Antenna Longitude Seconds
+
+LONG_HEMIS – Glide Slope Transmitter Antenna Longitude Hemisphere
+
+LONG_DECIMAL – Glide Slope Transmitter Antenna Longitude in Decimal Format
+
+LAT_LONG_SOURCE_CODE – Code Indication Source of Latitude/Longitude Information
+
+             CODE      SOURCE
+             ----      ----------
+             A         AIR FORCE
+             C         COAST GUARD
+             D         CANADIAN AIRAC
+             F         FAA
+             FS        TECH OPS (AFS-530)
+             G         NOS (HISTORICAL)
+             K          NGS
+             M         DOD (NGA)
+             N         US NAVY
+             O         OWNER
+             P         NOS PHOTO SURVEY (HISTORICAL)
+             Q         QUAD PLOT (HISTORICAL)
+             R         ARMY
+             S         SIAP
+             T         3RD PARTY SURVEY
+             Z         SURVEYED
+
+SITE_ELEVATION – Site Elevation of Glide Slope Transmitter Antenna in Tenth of a Foot (MSL).
+
+G_S_TYPE_CODE - Glide Slope Class/Type
+
+             TYPE                      DESCRIPTION
+             ------                    -----------------
+             GLIDE SLOPE               STANDARD GLIDE SLOPE.
+             GLIDE SLOPE/DME           GLIDE SLOPE WITH DISTANCE MEASURING EQUIPMENT.
+
+G_S_ANGLE – Glide Slope Angle in Degrees and Hundredths of Degree
+
+G_S_FREQ – Glide Slope Transmission Frequency
+
+
+
+ILS_DME ordered by SITE_NO, SITE_TYPE_CODE, RWY_END_ID
+
+########################################
+
+COMPONENT_STATUS – Operational Status of DME
+COMPONENT_STATUS_DATE – Effective Date of DME Operational Status
+
+LAT_DEG – DME Transponder Antenna Latitude Degrees
+
+LAT_MIN – DME Transponder Antenna Latitude Minutes
+
+LAT_SEC – DME Transponder Antenna Latitude Seconds
+
+LAT_HEMIS – DME Transponder Antenna Latitude Hemisphere
+
+LAT_DECIMAL – DME Transponder Antenna Latitude in Decimal Format
+
+LONG_DEG – DME Transponder Antenna Longitude Degrees
+
+LONG_MIN – DME Transponder Antenna Longitude Minutes
+
+LONG_SEC – DME Transponder Antenna Longitude Seconds
+
+LONG_HEMIS – DME Transponder Antenna Longitude Hemisphere
+
+LONG_DECIMAL – DME Transponder Antenna Longitude in Decimal Format
+
+LAT_LONG_SOURCE_CODE – Code Indication Source of Latitude/Longitude Information
+
+            CODE       SOURCE
+            ----       ----------
+            A          AIR FORCE
+            C          COAST GUARD
+            D          CANADIAN AIRAC
+            F          FAA
+            FS         TECH OPS (AFS-530)
+            G          NOS (HISTORICAL)
+            K           NGS
+            M          DOD (NGA)
+            N          US NAVY
+            O          OWNER
+            P          NOS PHOTO SURVEY (HISTORICAL)
+            Q          QUAD PLOT (HISTORICAL)
+            R          ARMY
+            S          SIAP
+            T          3RD PARTY SURVEY
+            Z          SURVEYED
+SITE_ELEVATION – Site Elevation of DME Transponder Antenna in Tenth of a Foot (MSL).
+
+CHANNEL – NAS Channel on Which Distance Data is Transmitted
+
+
+
+ILS_MKR ordered by SITE_NO, SITE_TYPE_CODE, RWY_END_ID, ILS_COMP_TYPE_CODE
+
+#########################
+ILS_COMP_TYPE_CODE – Marker Type (IM - Inner Marker, MM - Middle Marker, OM - Outer Marker)
+
+COMPONENT_STATUS – Operational Status of Marker Beacon
+
+COMPONENT_STATUS_DATE – Effective Date of Marker Beacon Operational Status
+
+LAT_DEG – Marker Beacon Latitude Degrees
+
+LAT_MIN – Marker Beacon Latitude Minutes
+
+LAT_SEC – Marker Beacon Latitude Seconds
+
+LAT_HEMIS – Marker Beacon Latitude Hemisphere
+
+LAT_DECIMAL – Marker Beacon Latitude in Decimal Format
+
+LONG_DEG – Marker Beacon Longitude Degrees
+
+LONG_MIN – Marker Beacon Longitude Minutes
+
+LONG_SEC – Marker Beacon Longitude Seconds
+
+LONG_HEMIS – Marker Beacon Longitude Hemisphere
+
+LONG_DECIMAL – Marker Beacon Longitude in Decimal Format
+
+LAT_LONG_SOURCE_CODE – Code Indication Source of Latitude/Longitude Information
+
+             CODE      SOURCE
+             ----      ----------
+             A         AIR FORCE
+             C         COAST GUARD
+             D         CANADIAN AIRAC
+             F         FAA
+             FS        TECH OPS (AFS-530)
+             G         NOS (HISTORICAL)
+             K          NGS
+             M         DOD (NGA)
+             N         US NAVY
+             O         OWNER
+             P         NOS PHOTO SURVEY (HISTORICAL)
+             Q         QUAD PLOT (HISTORICAL)
+             R         ARMY
+             S         SIAP
+             T         3RD PARTY SURVEY
+             Z         SURVEYED
+
+SITE_ELEVATION – Site Elevation of Marker Beacon in Tenth of a Foot (MSL).
+
+MKR_FAC_TYPE_CODE - Facility/Type of Marker/Locator
+       CODE                    TYPE                    DESCRIPTION
+       ------                  ------                  -----------------
+       M                       MARKER                  MARKER BEACON ONLY
+       C                       COMLO                   COMPASS LOCATOR
+       R                       NDB                     NONDIRECTIONAL RADIO BEACON
+       MC                      MARKER/COMLO            MARKER/ COMPASS LOCATOR
+       MR                      MARKER/NDB              MARKER/ NONDIRECTIONAL RADIO BEACON
+
+MARKER_ID_BEACON – Location Identifier of Beacon at Marker
+
+COMPASS_LOCATOR_NAME - Name of the Marker Locator Beacon
+
+FREQ –NAVAID Frequency when Marker is collocated else Locator Frequency (in KHZ)
+
+NAV_ID - Location Identifier of Navigation Aid Collocated With Marker (Blank Indicates Marker Is Not
+Collocated With A NAVAID)
+
+NAV_TYPE – Collocated NAVAID Type
+
+LOW_POWERED_NDB_STATUS - Low Powered NDB Status of Marker Beacon
+
+
+
+ILS_RMK ordered by SITE_NO, SITE_TYPE_CODE, RWY_END_ID, TAB_NAME, ILS_COMP_TYPE_CODE,
+REF_COL_NAME, REF_COL_SEQ_NO
+
+########################################
+
+TAB_NAME – NASR table associated with Remark.
+
+ILS_COMP_TYPE_CODE – TAB_NAME with the Exception of ILS will designate a specific Component Type
+that the Remark refers to.
+
+REF_COL_NAME – NASR Column name associated with Remark. Non-specific remarks are identified as
+GENERAL_REMARK.
+
+REF_COL_SEQ_NO – Sequence number assigned to Reference Column Remark.
+
+REMARK – Remark Text (Free Form Text that further describes a specific Information Item.)

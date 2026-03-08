@@ -1,0 +1,272 @@
+
+                   LOCATION IDENTIFIER MAGNETIC TAPE
+                        DATA BASE RECORD LAYOUT
+                              (LID-FILE)
+
+
+ INFORMATION EFFECTIVE DATE: 09/07/2023
+
+    RECORD FORMAT: FIXED
+    LOGICAL RECORD LENGTH: 1039
+
+
+
+FILE STRUCTURE DESCRIPTION:
+---------------------------
+
+  THERE IS ONE RECORD FOR EACH LOCATION IDENTIFIER WITHIN A GEOGRAPHICAL
+  AREA (U.S. AND DOD OVERSEAS). A RECORD WILL DESCRIBE ALL OPERATIONAL
+  FACILITIES THAT USE THE LOCATION IDENTIFIER. PRESENCE OF DATA IN
+  AN INFORMATION AREA (E.G. LANDING FACILITY AREA, NAVAID AREA)
+  IMPLIES THAT THE LOCATION IDENTIFIER IS APPLICABLE TO THAT TYPE OF
+  FACILITY. LOCATION INFORMATION (CITY, STATE, REGION, COUNTY, PROVINCE,
+  COUNTRY) IS CONSTANT FOR ALL FACILITIES ASSIGNED A COMMON IDENTIFIER.
+
+  THE FILE IS SORTED BY LOCATION IDENTIFIER WITHIN EACH GROUP (USA THEN
+  DOD). THE SAME LOCATION IDENTIFIER MAY BE ASSIGNED IN MORE THAN ONE
+  OF THE GROUPS.
+
+  EACH RECORD ENDS WITH A CARRIAGE RETURN CHARACTER AND LINE FEED
+  CHARACTER (CR/LF). THIS LINE TERMINATOR IS NOT INCLUDED IN THE
+  LOGICAL RECORD LENGTH.
+
+
+
+DESCRIPTION OF EACH GROUP:
+--------------------------
+
+  1.  'USA' RECORDS CONTAIN LOCATION IDENTIFIERS OF FACILITIES
+      AND SERVICES IN THE UNITED STATES AND ITS TERRITORIES.
+
+  2.  'DOD' RECORDS CONTAIN LOCATION IDENTIFIERS OF SELECTED DEPARTMENT
+      OF DEFENSE OVERSEAS LOCATIONS THAT ARE INTENDED FOR PERSONNEL
+      AND CARGO MOVEMENT ONLY AND NOT FOR USE IN FLIGHT PLANS.
+
+
+
+GENERAL INFORMATION:
+     1.  LEFT JUSTIFIED FIELDS HAVE TRAILING BLANKS
+     2.  RIGHT JUSTIFIED FIELDS HAVE LEADING BLANKS
+     3.  ELEMENT NUMBER IS FOR INTERNAL REFERENCE ONLY
+           AND NOT IN RECORD
+
+
+
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+***********************************************************************
+
+           'USA' LOCATION IDENTIFIERS - RECORD DESCRIPTION FOLLOWS
+
+***********************************************************************
+
+L AN    1 00001  NONE    IDENTIFIER GROUP SORT CODE
+                           1: UNITED STATES LOCATIONS
+                           2: DEPARTMENT OF DEFENSE OVERSEAS LOCATIONS
+
+L AN 0003 00002  NONE    IDENTIFIER GROUP CODE
+                           USA: UNITED STATES LOCATIONS
+                           DOD: DEPARTMENT OF DEFENSE OVERSEAS LOCATIONS
+
+L AN 0005 00005  DLID    LOCATION IDENTIFIER
+
+                         BASIC LOCATION INFORMATION
+                         --------------------------
+
+L AN 0003 00010  GEN     FAA REGION ASSOCIATED WITH THE LOCATION IDENTIFIER
+                         EX.: ASW,AEA,AWP
+L AN 0002 00013  II2     STATE ASSOCIATED WITH THE LOCATION IDENTIFIER
+                         ALPHABETIC POST OFFICE CODE. EX.: AK,MD,NY
+                         (NOTE: 59 WAS USED FOR CANADA RATHER THAN CA)
+L AN 0040 00015  II1     CITY ASSOCIATED WITH THE LOCATION IDENTIFIER
+L AN 0004 00055  E146B   CONTROLLING ARTCC FOR THIS LOCATION
+                           NOTE: THIS WILL ONLY BE PRESENT IF THE LOCATION
+                                 IDENTIFIER IS ASSIGNED TO AN AIRPORT OR AN
+                                 ILS ON AN AIRPORT.
+                           EX.:  ZLA,ZDC,ZTL
+L AN 0003 00059  E146B   CONTROLLING ARTCC FOR THIS LOCATION - COMPUTER ID
+                           NOTE: THIS WILL ONLY BE PRESENT IF THE LOCATION
+                                 IDENTIFIER IS ASSIGNED TO AN AIRPORT OR AN
+                                 ILS ON AN AIRPORT.
+                           EX.:  ZCL,ZCD,ZCM
+
+                         LANDING FACILITY INFORMATION
+                         ----------------------------
+
+L AN 0050 00062  E10     LANDING FACILITY NAME
+L AN 0013 00112  DLID    LANDING FACILITY TYPE
+                           AIRPORT
+                           BALLOONPORT
+                           GLIDERPORT
+                           HELIPORT
+                           SEAPLANE BASE
+                           ULTRALIGHT
+L AN 0004 00125  E2      TIE-IN FLIGHT SERVICE STATION (FSS) IDENTIFIER
+                           EX.: DCA, FTW, STL
+
+                         NAVIGATIONAL AID (NAVAID) INFORMATION
+                         -------------------------------------
+
+                         THERE CAN BE UP TO 4 NAVAIDS ASSIGNED THE SAME
+                         IDENTIFIER.
+
+L AN 0030 00129  N8      NAVAID FACILITY NAME(1)
+L AN 0020 00159  DLID    NAVAID FACILITY TYPE(1)
+			   DME
+                           LFR
+                           MARINE NDB
+                           MARINE NDB/DME
+                           NDB
+                           NDB/DME
+                           TACAN
+                           UHF NDB
+                           VOR
+                           VOR/DME
+                           VORTAC
+
+                         ACRONYMS USED:
+                           DME - DISTANCE MEASURING EQUIPMENT
+                           LFR-  LOW FREQUENCY RANGE
+                           NDB - NON-DIRECTIONAL BEACON
+                           TACAN - TACTICAL AIR NAVIGATION
+                           UHF - ULTRA HIGH FREQUENCY
+                           VOR - VHF OMNIDIRECTIONAL RANGE STATION
+                           VORTAC - VHF OMNIDIRECTIONAL RANGE TACTICAL
+                                    AIR NAVIGATION
+L AN 0030 00179  N8      NAVAID FACILITY NAME(2)
+L AN 0020 00209  DLID    NAVAID FACILITY TYPE(2)
+L AN 0030 00229  N8      NAVAID FACILITY NAME(3)
+L AN 0020 00259  DLID    NAVAID FACILITY TYPE(3)
+L AN 0030 00279  N8      NAVAID FACILITY NAME(4)
+L AN 0020 00309  DLID    NAVAID FACILITY TYPE(4)
+L AN 0004 00329  N49     TIE-IN FLIGHT SERVICE STATION (FSS) IDENTIFIER
+                           EX.: DCA, FTW, STL
+
+                         INSTRUMENT LANDING SYSTEM (ILS) INFORMATION
+                         -------------------------------------------
+
+L AN 0003 00333  II20    ILS RUNWAY END EX.: 08, 18R, 36L
+L AN 0020 00336  II29    ILS FACILITY TYPE
+
+                           FACILITY TYPES:
+                           ---------------
+                           ILS
+                           ILS/DME
+                           ISMLS
+                           LDA
+                           LDA/DME
+                           LOC
+                           LOC/GS
+                           LOC/DME
+                           MLS
+                           SDF
+                           SDF/DME
+
+                         ACRONYMS/ABBREVIATIONS USED:
+                           DME -   DISTANCE MEASURING EQUIPMENT
+                           GS -    GLIDE SLOPE
+                           ILS -   INSTRUMENT LANDING SYSTEM
+                           ISMLS - INTERIM MICROWAVE LANDING SYSTEM
+                           LDA -   LOCALIZER DIRECTION AID
+                           LOC -   LOCALIZER
+                           MLS -   MICROWAVE LANDING SYSTEM
+                           SDF -   SIMPLIFIED DIRECTIONAL FACILITY
+
+L AN 0005 00356  E7      LOCATION IDENTIFIER OF ILS AIRPORT
+                           (NOT NECESSARILY THE SAME AS THE ILS LOCATION
+                           IDENTIFIER)
+L AN 0050 00361  E10     ILS AIRPORT NAME
+L AN 0004 00411  E2      TIE-IN FLIGHT SERVICE STATION (FSS) IDENTIFIER
+                           EX.: DCA, FTW, STL
+
+                         FLIGHT SERVICE STATION (FSS) INFORMATION
+                         ----------------------------------------
+
+L AN 0030 00415  II32    FSS NAME
+
+                         AIR ROUTE TRAFFIC CONTROL CENTER (ARTCC) INFORMATION
+                         ----------------------------------------------------
+
+L AN 0030 00445  N/A     ARTCC NAME
+L AN 0017 00475  N/A     ARTCC FACILITY TYPE
+                           ARTCC, CERAP, ARTCC COMPUTER
+
+                         OTHER FACILITY INFORMATION
+                         --------------------------
+
+L AN 0001 00492  AND     FLIGHT WATCH STATION (FLTWO) INDICATOR
+                           Y - THIS IDENTIFIER IS ASSIGNED TO A FLTWO
+                           N - THIS IS NOT A FLTWO
+
+L AN 0075 00493  II26    OTHER FACILITY - FACILITY NAME/DESCRIPTION
+L AN 0015 00568  II25    OTHER FACILITY - FACILITY TYPE
+                         ADMINISTRATIVE  (ADMINISTRATIVE SERVICES)
+                         GEOREF          (GEOGRAPHIC REFERENCE POINT)
+                         SPECIAL USE     (COMMUNICATIONS FACILITIES,
+                                          MESSAGE CENTERS, ETC.)
+                         WEATHER STATION (RAMOS,COMED STN,SAWRS, ETC.)
+L AN 0010 00583  N/A     EFFECTIVE DATE OF THIS INFORMATION (MM/DD/YYYY)
+L AN 0447 00593  N/A     BLANKS
+
+***********************************************************************
+
+           'DOD' LOCATION IDENTIFIERS - RECORD DESCRIPTION FOLLOWS
+
+***********************************************************************
+
+L AN    1 00001  NONE    IDENTIFIER GROUP SORT CODE
+                           1: UNITED STATES LOCATIONS
+                           2: DEPARTMENT OF DEFENSE OVERSEAS LOCATIONS
+
+L AN 0003 00002  NONE    IDENTIFIER GROUP CODE
+                           USA: UNITED STATES LOCATIONS
+                           DOD: DEPARTMENT OF DEFENSE OVERSEAS LOCATIONS
+
+L AN 0005 00005  DLID    LOCATION IDENTIFIER
+L AN 0030 00010  DOD3    COUNTRY ASSOCIATED WITH THE LOCATION IDENTIFIER
+                         EX.: TAIWAN, GERMANY, ENGLAND, TURKEY
+L AN 0020 00040  DOD21   SECOND LEVEL QUALIFIER OF LOCATION DESCRIPTION.
+                         CAN BE A COUNTY, ISLAND, ETC.
+                         EX.: SUFFOLK (COUNTY)
+                              CRETE   (ISLAND; COUNTRY IS GREECE)
+L AN 0050 00060  DOD20   CITY/LOCATION ASSOCIATED WITH THE IDENTIFIER
+L AN 0050 00110  DOD23   LANDING FACILITY NAME
+L AN 0020 00160  DLID    LANDING FACILITY TYPE
+                           CIVIL
+                           MILITARY
+
+                         NAVIGATIONAL AID (NAVAID) DATA (CAN BE 2 OCCURENCES)
+                         -----------------------------------------------------
+
+L AN 0050 00180  DOD23   NAVAID FACILITY NAME (1)
+L AN 0020 00230  DLID    NAVAID FACILITY TYPE (1)
+                           DME
+                           NDB
+                           TACAN
+                           VOR
+                           VORTAC
+                           VOR/DME
+
+L AN 0050 00250  DOD23   NAVAID FACILITY NAME (2)
+L AN 0020 00300  DLID    NAVAID FACILITY TYPE (2)
+
+                         OTHER FACILITY DATA  (CAN BE 2 OCCURENCES)
+                         ------------------------------------------
+
+L AN 0050 00320  DOD23   OTHER FACILITY NAME (1)
+L AN 0020 00370  DLID    OTHER FACILITY TYPE (1)
+                           NAVAL FACILITY
+                           OTHER
+L AN 0050 00390  DOD23   OTHER FACILITY NAME (2)
+L AN 0020 00440  DLID    OTHER FACILITY TYPE (2)
+
+L AN 0010 00460  N/A     EFFECTIVE DATE OF THIS INFORMATION (MM/DD/YYYY)
+L AN 0570 00470  N/A     BLANKS

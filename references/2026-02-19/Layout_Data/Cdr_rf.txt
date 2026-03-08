@@ -1,0 +1,27 @@
+Coded Departure Routes (CDRs) Format
+
+The CDR.TXT file is a comma delimited ascii text file.
+There are six data fields, as described below, separated
+by commas. The records are variable length.
+
+The file accompanying this format can also be downloaded
+from the Air Traffic System Command Center’s web
+site located at WWW.ATCSCC.FAA.GOV.  The file and other
+information regarding CDRs or SWAPs can be found at
+that site under PRODUCTS/Coded Departure Routes.
+
+The format the file is as follows:
+
+..Field..	..Example..
+
+Route Code:	ORDLAX01
+
+Origin:		KORD
+
+Destination:	KLAX
+
+Departure Fix:	MZV
+
+Route String:	KORD MZV LMN J64 CIVET CIVET4 LAX
+
+ARTCC:		KZAU

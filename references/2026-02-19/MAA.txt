@@ -1,0 +1,965 @@
+MAA1LAK001               ULTRALIGHT                                                                         AKALASKA                                                      70-11-41.1200N252701.1200N148-27-54.5900W534474.5900WSCC DEADHORSE                                         50140.7*A                                                                                                                                                           YES
+MAA1SAK001    SPACE LAUNCH ACTIVITY                                                                         AKALASKA                                                      57-26-06.4900N206766.4900N152-20-21.6600W548421.6600W                                                                 ADQ 20    S PACIFIC SPACEPORT COMPLEX ALASKA                                                                                                             YESSPACE LAUNCH AND REENTRY OPERATIONS ARE CONDUCTED AT VARIOUS TIMES WITHIN AREA. VERTICAL LAUNCH AND REENTRY ACTIVITIES ARE CONDUCTED FROM LAUNCH PADS APPROXIMATELY 20NM SOUTH OF PADQ.
+MAA6SAK001ZAN
+MAA6SAK001PAZA
+MAA1AAL002       AEROBATIC PRACTICE                                                                         ALALABAMA                       ASHVILLE                                                                           AL60DUGGER'S FLD                                      00137.*A                                                                                                                                       3000AGL              YESTHE APA WOULD BE LOCATED AT DUGGER'S FIELD AIRPORT. IT WOULD HAVE AN IRREGULAR SHAPE WITH 4 SIDES. BEGINNING WITH THE NORTH WESTERN CORNER AND LISTING CLOCKWISE THE SIDES WOULD MEASURE 5,500 FEET, 500 FEET, 5,500 FEET AND 400 FEET. IT WOULD HAVE A HEIGHT BETWEEN THE SURFACE AND 3,000 FEET ABOVE GROUND LEVEL, AS DEPICTED ON THE ENCLOSED GRAPHIC.                                                                                                        CIVIL
+MAA2AAL00233-50-21.8100N121821.8100N086-13-03.5400W310383.5400W
+MAA2AAL00233-50-17.7100N121817.7100N086-11-58.2000W310318.2000W
+MAA2AAL00233-50-13.4200N121813.4200N086-11-58.3600W310318.3600W
+MAA2AAL00233-50-18.3400N121818.3400N086-13-03.2900W310383.2900W
+MAA3AAL002SUNRISE TO SUNSET
+MAA1AAL003       AEROBATIC PRACTICE                                                                         ALALABAMA                       GEIGER                        32-54-30.6000N118470.6000N088-19-59.9900W317999.9900WAL43HENLEY RANCH                                      00341.1*A              HENLEY RANCH AIRPORT APA                                                                                                4000MSL             3YESTHE APA WOULD BE LOCATED AT HENLEY RANCH AIRPORT. IT WOULD BE A CIRCLE WITH A RADIUS OF 3 MILES CENTERED ON THE AIRPORT RUNWAY AND HAVE A HEIGHT BETWEEN THE SURFACE AND 4000 FEET MEAN SEA LEVEL, AS DEPICTED ON THE ENCLOSED GRAPHIC.                                                                                                                                                                                                                           CIVIL
+MAA3AAL003SUNRISE TO SUNSET
+MAA1AAL001       AEROBATIC PRACTICE                                                                         ALALABAMA                       MANCHESTER                                                                         JFX WALKER COUNTY/BEVILL FLD                          00401.3*A                                                                                                                                      5000AGL              YESTHE APA WOULD BE LOCATED AT WALKER COUNTY AIRPORT. IT WOULD HAVE AN IRREGULAR SHAPE WITH 8 SIDES. BEGINNING WITH THE NORTH WESTERN CORNER AND LISTING CLOCKWISE THE SIDES WOULD MEASURE 2,300 FEET, 650 FEET, 5,100 FEET, 400 FEET, 3,500 FEET, 1,000 FEET, 4,300 FEET AND 1,700 FEET. IT WOULD HAVE A HEIGHT BETWEEN THE SURFACE AND 5,000 FEET ABOVE GROUND LEVEL, AS DEPICTED ON THE ENCLOSED GRAPHIC.
+MAA2AAL00133-54-12.8500N122052.8500N087-19-53.7600W314393.7600W
+MAA2AAL00133-54-08.3500N122048.3500N087-19-27.2400W314367.2400W
+MAA2AAL00133-54-11.2300N122051.2300N087-19-20.5600W314360.5600W
+MAA2AAL00133-54-09.3100N122049.3100N087-18-19.7200W314299.7200W
+MAA2AAL00133-54-05.6900N122045.6900N087-18-21.1200W314301.1200W
+MAA2AAL00133-54-06.6500N122046.6500N087-19-01.6800W314341.6800W
+MAA2AAL00133-53-56.4400N122036.4400N087-19-01.6800W314341.6800W
+MAA2AAL00133-53-56.1400N122036.1400N087-19-53.3700W314393.3700W
+MAA3AAL001DAYLIGHT HOURS MONDAY THROUGH SUNDAY
+MAA1SAL001    SPACE LAUNCH ACTIVITY                                                                         ALALABAMA                                                     34-38-08.3900N124688.3900N086-46-17.9900W312377.9900WHSV HUNTSVILLE INTL-CARL T JONES FLD                  00385.1*A              HUNTSVILLE RE-ENTRY SITE                                                                                                                     YES                                                                                                                                                                                                                                                                                                                                                                                                                                                                  JOINT
+MAA6SAL001ZME
+MAA1AAR001       AEROBATIC PRACTICE                                                                         ARARKANSAS                      MAYSVILLE                                                                                                                                                       BOLTON                                                                                                                  5000AGL              YESTHE APA WOULD BE LOCATED 2 MILES EAST OF MAYSVILLE, AR IN BENTON COUNTY. IT WOULD BE A RECTANGLE THAT IS 7,700 FEET BY 3,800 FEET AND HAVE A HEIGHT BETWEEN THE SURFACE AND 5,000 FEET ABOVE GROUND LEVEL.
+MAA2AAR00136-25-14.8700N131114.8700N094-34-05.0300W340445.0300W
+MAA2AAR00136-25-14.0000N131114.0000N094-33-18.1300W340398.1300W
+MAA2AAR00136-23-57.9400N131037.9400N094-33-21.1200W340401.1200W
+MAA2AAR00136-23-58.7300N131038.7300N094-34-06.2400W340446.2400W
+MAA3AAR001MONDAY THRU SUNDAY DURING DAY LIGHT HOURS
+MAA1AAR002       AEROBATIC PRACTICE                                                                         ARARKANSAS                      MIDWAY                        36-22-14.0000N130934.0000N092-28-23.0000W332903.0000WBPK BAXTER COUNTY                                     01104.4*A              BAXTER COUNTY AIRPORT APA                                                                                               7500MSL             2YESTHE APA WOULD BE LOCATED AT BAXTER COUNTY AIRPORT. IT WOULD BE A CIRCLE WITH A RADIUS OF 2.0 NAUTICAL MILES CENTERED ON THE AIRPORT RUNWAY. IT WOULD HAVE A HEIGHT BETWEEN THE SURFACE AND 7,500 FEET MEAN SEA LEVEL.                                                                                                                                                                                                                                             CIVIL
+MAA3AAR002SUNRISE TO SUNSET.
+MAA7AAR002THIS APA WOULD BE USED ON AVERAGE OF EIGHT HOURS PER MONTH, DURING DAYLIGHT
+MAA7AAR002HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT,
+MAA7AAR002SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.
+MAA1AAZ001       AEROBATIC PRACTICE                                                                         AZARIZONA                       MARANA                                                                             AVQ MARANA RGNL                                       00813.*A                                                                                                                                       5000AGL              YESTHIS APA WOULD BE USED ON AVERAGE OF THREE HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                                                                                                                               CIVIL
+MAA2AAZ00132-22-45.9000N116565.9000N111-12-35.6000W400355.6000W
+MAA2AAZ00132-22-45.9000N116565.9000N111-11-04.8000W400264.8000W
+MAA2AAZ00132-21-58.0000N116518.0000N111-11-04.8000W400264.8000W
+MAA2AAZ00132-21-58.0000N116518.0000N111-12-35.0600W400355.0600W
+MAA3AAZ001SUNRISE TO SUNSET.
+MAA1ACA004       AEROBATIC PRACTICE                                                                         CACALIFORNIA                    APPLE VALLEY                                                                       APV APPLE VALLEY                                      01248.1*A              APPLE VALLEY AIRPORT APA                                                                                                6500MSL              YESTHIS APA WOULD BE USED ON AVERAGE OF 4 HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                                                                                                                                   CIVIL
+MAA2ACA00434-36-22.3200N124582.3200N117-08-13.5100W421693.5100W
+MAA2ACA00434-36-21.8600N124581.8600N117-07-29.1900W421649.1900W
+MAA2ACA00434-35-48.2500N124548.2500N117-07-29.7300W421649.7300W
+MAA2ACA00434-35-48.5900N124548.5900N117-08-13.4800W421693.4800W
+MAA3ACA004SUNRISE TO SUNSET
+MAA1ACA008       AEROBATIC PRACTICE                                                                         CACALIFORNIA                    BORREGO SPRINGS                                                                    L08 BORREGO VALLEY                                    01340.3*A              BORREGO VALLEY AIRPORT                                                                                                  5000AGL              YESTHIS APA WOULD BE USED ON AVERAGE OF 50 HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                                                                                                                                  CIVIL
+MAA2ACA00833-16-09.2800N119769.2800N116-19-43.9200W418783.9200W
+MAA2ACA00833-16-09.8400N119769.8400N116-19-05.3600W418745.3600W
+MAA2ACA00833-15-37.4400N119737.4400N116-19-04.5100W418744.5100W
+MAA2ACA00833-15-36.9900N119736.9900N116-19-43.2500W418783.2500W
+MAA3ACA008SUNRISE TO SUNSET
+MAA1ACA010       AEROBATIC PRACTICE                                                                         CACALIFORNIA                    CASTROVILLE                   36-45-29.7600N132329.7600N121-43-07.2200W438187.2200WOAR MARINA MUNI                                       01860.*A                                                                                                                                       3600MSL 500MSL    1.5YES                                                                                                                                                                                                                                                                                                                                                                                                                                                                  CIVIL
+MAA3ACA010DAILY FROM 0700-1900 LOCAL
+MAA1ACA011       AEROBATIC PRACTICE                                                                         CACALIFORNIA                    CASTROVILLE                   36-45-36.0000N132336.0000N121-43-12.0000W438192.0000W                                                                                                                                                                                                     4500AGL 500AGL    0.5YESTHIS APA WOULD BE USED ON AVERAGE OF FOUR HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                                                                                                                                CIVIL
+MAA3ACA011SUNRISE TO SUNSET
+MAA1ACA002       AEROBATIC PRACTICE                                                                         CACALIFORNIA                    COALINGA                                                                           C80 NEW COALINGA MUNI                                 01419.13*A                                                                                                                                     4000AGL 1000AGL      YESTHE APA WOULD BE LOCATED AT NEW COALINGA MUNICIPAL AIRPORT. IT WOULD BE A BOX THAT IS 3,300 FEET BY 3,300 FEET AND HAVE A HEIGHT BETWEEN 1,000 FEET ABOVE GROUND LEVEL (AGL) AND 4,000 FEET AGL. THIS APA WOULD BE USED ON AVERAGE OF TWO HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                CIVIL
+MAA2ACA00236-09-49.0200N130189.0200N120-18-46.4200W433126.4200W
+MAA2ACA00236-09-49.1100N130189.1100N120-18-08.4700W433088.4700W
+MAA2ACA00236-09-21.4700N130161.4700N120-18-07.8400W433087.8400W
+MAA2ACA00236-09-21.6600N130161.6600N120-18-46.6300W433126.6300W
+MAA3ACA002SUNRISE TO SUNSET
+MAA1ACA001       AEROBATIC PRACTICE                                                                         CACALIFORNIA                    DELANO                                                                             DLO DELANO MUNI                                       01497.*A               DELANO MUNICIPAL AIRPORT                                                                                                4000AGL 1000AGL      YESTHE APA WOULD BE LOCATED AT DELANO MUNICIPAL AIRPORT. IT WOULD BE A BOX THAT IS 3,300 FEET BY 3,300 FEET AND HAVE A HEIGHT BETWEEN 1,000 FEET ABOVE GROUND LEVEL (AGL) AND 4,000 FEET AGL. THIS APA WOULD BE USED ON AVERAGE OF 2 HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                        CIVIL
+MAA2ACA00135-44-48.5400N128688.5400N119-13-47.2800W429227.2800W
+MAA2ACA00135-44-48.5100N128688.5100N119-13-03.6500W429183.6500W
+MAA2ACA00135-44-16.3000N128656.3000N119-13-03.1100W429183.1100W
+MAA2ACA00135-44-16.2100N128656.2100N119-13-46.9800W429226.9800W
+MAA3ACA001SUNRISE TO SUNSET
+MAA1ACA005       AEROBATIC PRACTICE                                                                         CACALIFORNIA                    ESPARTO                                                                            CA34ALA DOBLE                                         01526.205*A            ALA DOBLE AIRPORT APA                                                                                                   5200MSL              YESTHE APA WOULD BE LOCATED NEAR ALA DOBLE AIRPORT. IT WOULD BE A RECTANGLE THAT IS 10,200 FEET BY 6,300 FEET AND HAVE A HEIGHT BETWEEN THE SURFACE AND 5,200 FEET MEAN SEA LEVEL. THIS APA WOULD BE USED ON AVERAGE OF 32 HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                  CIVIL
+MAA2ACA00538-39-59.0600N139199.0600N122-02-22.0900W439342.0900W
+MAA2ACA00538-40-00.9500N139200.9500N122-00-13.9100W439213.9100W
+MAA2ACA00538-38-58.5300N139138.5300N122-00-13.6200W439213.6200W
+MAA2ACA00538-38-57.4000N139137.4000N122-02-21.0700W439341.0700W
+MAA3ACA005SUNRISE TO SUNSET
+MAA1ACA007       AEROBATIC PRACTICE                                                                         CACALIFORNIA                    GILROY                        36-55-47.7100N132947.7100N121-30-39.7200W437439.7200W                                                                             GILROY APA                                                                                                              3000AGL           0.5YESTHIS APA WOULD BE USED ON AVERAGE OF 6 HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                                                                                                                                   CIVIL
+MAA3ACA007SUNRISE TO SUNSET
+MAA1ACA006       AEROBATIC PRACTICE                                                                         CACALIFORNIA                    LANCASTER                                                                          WJF GENERAL WM J FOX AIRFIELD                         01754.2*A              GENERAL WILLIAM J FOX AIRFIELD APA                                                                                      3500AGL 500AGL       YESTHIS APA WOULD BE USED ON AVERAGE OF 40 HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                                                                                                                                  CIVIL
+MAA2ACA00634-46-06.1100N125166.1100N118-13-38.7600W425618.7600W
+MAA2ACA00634-46-05.8800N125165.8800N118-12-42.1600W425562.1600W
+MAA2ACA00634-45-19.5900N125119.5900N118-12-42.5200W425562.5200W
+MAA2ACA00634-45-19.7800N125119.7800N118-13-38.6500W425618.6500W
+MAA3ACA006SUNRISE TO SUNSET
+MAA1HCA001              HANG GLIDER                                                                         CACALIFORNIA                    MARIPOSA                      37-31-59.2100N135119.2100N120-01-47.3400W432107.3400WMPI MARIPOSA-YOSEMITE                                 01866.*A                                                                                                                                                            YESTHE ACTIVITY OCCURS FREQUENTLY ON A RIDGE NE OF THE MARIPOSA-YOSEMITE AIRPORT.                                                                                                                                                                                                                                                                                                                                                                                    CIVIL
+MAA3HCA001DAYLIGHT
+MAA1ACA003       AEROBATIC PRACTICEPOM C VORTAC                   072.6133.76 POMONA                        CACALIFORNIA                    REDLANDS                      34-06-00.2500N122760.2500N117-06-36.0100W421596.0100WREI REDLANDS MUNI                                     02092.*A               REDLANDS MUNICIPAL AIRPORT APA                                                                                          7800MSL 3800MSL     1YESTHE APA WOULD BE LOCATED NEAR REDLANDS MUNICIPAL AIRPORT. IT WOULD BE A CIRCLE WITH A RADIUS OF 1 MILE CENTERED ON A POINT 2.25 MILES NORTHEAST OF THE MAIN AIRPORT RUNWAY. THIS APA WOULD BE USED ON AVERAGE OF 10 HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                      CIVIL
+MAA3ACA003CONTACT SOCAL TRACON 30 MINS BEFORE BEGINNING AEROBATIC ACTIVITY IN THE
+MAA3ACA003PRACTICE AREA AT 858-537-5914 EXT. 5900
+MAA1ACA009       AEROBATIC PRACTICE                                                                         CACALIFORNIA                                                                                                       OAR MARINA MUNI                                       01860.*A                                                                                                                                       3750MSL 500MSL       YES                                                                                                                                                                                                                                                                                                                                                                                                                                                                  CIVIL
+MAA2ACA00936-42-01.2200N132121.2200N121-46-24.4600W438384.4600W
+MAA2ACA00936-41-08.4500N132068.4500N121-44-39.8000W438279.8000W
+MAA2ACA00936-41-27.0000N132087.0000N121-46-51.0000W438411.0000W
+MAA2ACA00936-40-34.3000N132034.3000N121-45-09.3000W438309.3000W
+MAA3ACA009USED DAILY BETWEEN 8:30 AND THE EARLIEST OF 18:00 LOCAL OR EVENING CIVIL
+MAA3ACA009TWILIGHT
+MAA1HCA002              HANG GLIDER                                                                         CACALIFORNIA                                                  38-08-16.7994N137296.7994N122-11-41.9994W439901.9994W                                                                                                                                                                                                                          YES
+MAA1HCA003              HANG GLIDER                                                                         CACALIFORNIA                                                  33-21-06.3000N120066.3000N116-58-23.2000W421103.2000W                                                                                                                                                                                                                          YES
+MAA1HCA004              HANG GLIDER                                                                         CACALIFORNIA                                                  33-08-48.9000N119328.9000N116-48-51.0000W420531.0000W                                                                                                                                                                                                                          YES
+MAA1HCA005              HANG GLIDER                                                                         CACALIFORNIA                                                  37-05-46.3400N133546.3400N122-16-41.1400W440201.1400W                                                                                                                                                                                                                          YES
+MAA1SCA001    SPACE LAUNCH ACTIVITY                                                                         CACALIFORNIA                                                  34-38-26.2900N124706.2900N120-35-23.3400W434123.3400WVBG VANDENBERG SPACE FORCE BASE                       01788.1*A              CALIFORNIA SPACEPORT AT VANDENBURG AFB                                                                                                       YESSPACE LAUNCH AND REENTRY OPERATIONS ARE CONDUCTED AT VARIOUS TIMES WITHIN AREA. VERTICAL LAUNCH AND REENTRY ACTIVITIES ARE CONDUCTED FROM LAUNCH PADS LOCATED AS FAR SOUTH AS 12 NM FROM  KVBG AIRPORT.
+MAA6SCA001KHHR
+MAA6SCA001KZLA
+MAA6SCA001KVBG
+MAA1SCA002    SPACE LAUNCH ACTIVITY                                                                         CACALIFORNIA                                                  35-03-32.1900N126212.1900N118-09-02.1900W425342.1900WMHV MOJAVE AIR & SPACE PORT/RUTAN FLD                 01899.*A               MOJAVE AIR & SPACEPORT                                                                                                                       YESSPACE LAUNCH AND REENTRY OPERATIONS ARE CONDUCTED AT VARIOUS TIMES WITHIN AREA. VERTICAL LAUNCH AND REENTRY ACTIVITIES ARE CONDUCTED FROM LAUNCH PADS LOCATED NORTH OF RUNWAYS. HORIZONTAL LAUNCH AND REENTRY ACTIVITY ARE CONDUCTED FROM RUNWAYS.
+MAA6SCA002KZLA
+MAA6SCA002KMHV
+MAA6SCA002KEDW
+MAA1ACO001       AEROBATIC PRACTICE                                                                         COCOLORADO                      DEL NORTE                                                                          RCV ASTRONAUT KENT ROMINGER                           02558.*A               ASTRONAUT KENT ROMINGER AIRPORT APA                                                                                     5000AGL 1200AGL      YESTHE APA IS LOCATED AT ASTRONAUT KENT ROMINGER AIRPORT. IT IS A  BOX 3,280 FEET BY 3,280 FEET. IT PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS.                                                                                                                                                                                                                                                                     CIVIL
+MAA2ACO00137-43-18.6700N135798.6700N106-21-46.4200W382906.4200W
+MAA2ACO00137-43-18.9500N135798.9500N106-21-05.5100W382865.5100W
+MAA2ACO00137-42-46.1200N135766.1200N106-21-05.1700W382865.1700W
+MAA2ACO00137-42-46.5900N135766.5900N106-21-47.1000W382907.1000W
+MAA3ACO001SUNRISE TO SUNSET
+MAA5ACO001ZDV DENVER ARTCC                                     128.37N 379.95N
+MAA1ACO005       AEROBATIC PRACTICE                                                                         COCOLORADO                      ELBERT                                                                             CO15KELLY AIR PARK                                    02592.1*A                                                                                                                                      4000AGL 500AGL       YESTHE APA WOULD BE LOCATED 3 MILES EAST OF KELLY AIR PARK. IT WOULD BE A BOX THAT IS 3,300 FEET BY 3,300 FEET AND HAVE A HEIGHT BETWEEN 500 FEET ABOVE GROUND LEVEL (AGL) AND 4,000 FEET AGL, AS DEPICTED ON ENCLOSED GRAPHIC.                                                                                                                                                                                                                                      CIVIL
+MAA2ACO00539-13-34.4200N141214.4200N104-35-03.5000W376503.5000W
+MAA2ACO00539-13-34.3000N141214.3000N104-34-20.0200W376460.0200W
+MAA2ACO00539-13-02.8100N141182.8100N104-34-20.1900W376460.1900W
+MAA2ACO00539-13-02.5100N141182.5100N104-35-03.5200W376503.5200W
+MAA3ACO005SUNRISE TO SUNSET.
+MAA1ACO007       AEROBATIC PRACTICE                                                                         COCOLORADO                      GRAND JUNCTION                                                                                                                                                                                                                                                                          10000MSL             YESTHE APA WOULD BE LOCATED APPROXIMATELY 5 MILES NORTHWEST OF GRAND JUNCTION REGIONAL AIRPORT. IT WOULD HAVE AN IRREGULAR SHAPE WITH 4 SIDES. BEGINNING WITH THE NORTH CORNER AND LISTING CLOCKWISE, THE SIDES WILL MEASURE 3.9 MILES, 3.2 MILES, 3.8 MILES AND 4.1 MILES. IT WOULD HAVE A HEIGHT BETWEEN THE SURFACE AND 10,000 FEET MEAN SEA LEVEL, AS DEPICTED ON THE ENCLOSED GRAPHIC.                                                                          CIVIL
+MAA2ACO00739-16-12.0000N141372.0000N108-35-59.9900W390959.9900W
+MAA2ACO00739-13-48.0000N141228.0000N108-32-59.9900W390779.9900W
+MAA2ACO00739-11-24.0000N141084.0000N108-34-48.0000W390888.0000W
+MAA2ACO00739-13-12.0000N141192.0000N108-38-24.0000W391104.0000W
+MAA3ACO007SUNRISE TO SUNSET.
+MAA1ACO006       AEROBATIC PRACTICE                                                                         COCOLORADO                      KREMMLING                                                                          20V MC ELROY AIRFIELD                                 02649.*A                                                                                                                                       10500MSL             YESTHE APA WOULD BE LOCATED AT MC ELROY AIRFIELD. IT WOULD HAVE AN IRREGULAR SHAPE WITH 7 SIDES. BEGINNING WITH THE NORTHWEST CORNER AND LISTING CLOCKWISE, THE SIDES WOULD MEASURE 1,500 FEET, 2,500 FEET, 1,700 FEET, 1,300 FEET, 1,900 FEET, 3,600 FEET, AND 1,900 FEET. IT WOULD HAVE A HEIGHT BETWEEN THE SURFACE AND 10,500 FEET MEAN SEA LEVEL, AS DEPICTED ON THE ENCLOSED GRAPHIC.                                                                          CIVIL
+MAA2ACO00640-03-09.1700N144189.1700N106-21-52.7300W382912.7300W
+MAA2ACO00640-03-05.7500N144185.7500N106-21-33.4700W382893.4700W
+MAA2ACO00640-02-56.4700N144176.4700N106-21-04.2900W382864.2900W
+MAA2ACO00640-02-58.3200N144178.3200N106-20-42.0000W382842.0000W
+MAA2ACO00640-02-45.5400N144165.5400N106-20-45.0100W382845.0100W
+MAA2ACO00640-02-43.7600N144163.7600N106-21-09.8700W382869.8700W
+MAA2ACO00640-02-50.2700N144170.2700N106-21-54.9300W382914.9300W
+MAA3ACO006SUNRISE TO SUNSET.
+MAA1ACO002       AEROBATIC PRACTICE                                                                         COCOLORADO                      LAMAR                                                                              LAA SOUTHEAST COLORADO RGNL                           02654.*A               LAMAR MUNICIPAL AIRPORT APA                                                                                             4000AGL              YESTHE APA WOULD BE LOCATED AT LAMAR MUNICIPAL AIRPORT. IT IS A BOX THAT IS 3,350 FEET BY 3,350 FEET. IT WILL ALLOW PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS.                                                                                                                                                                                                                                                             CIVIL
+MAA2ACO00238-04-13.0500N137053.0500N102-41-12.4600W369672.4600W
+MAA2ACO00238-04-13.1400N137053.1400N102-40-30.1600W369630.1600W
+MAA2ACO00238-03-39.6600N137019.6600N102-40-30.0500W369630.0500W
+MAA2ACO00238-03-40.1000N137020.1000N102-41-11.6600W369671.6600W
+MAA3ACO002SUNRISE TO SUNSET
+MAA5ACO002ZDV DENVER ARTCC                                      133.4N 387.15N
+MAA1ACO004       AEROBATIC PRACTICE                                                                         COCOLORADO                      LIMON                                                                              LIC LIMON MUNI                                        02665.1*A                                                                                                                                      3000AGL              YESTHE APA WOULD BE LOCATED AT LIMON MUNICIPAL AIRPORT. IT WOULD BE A RECTANGLE THAT IS 5,000 FEET BY 2,000 FEET AND HAVE A HEIGHT BETWEEN THE SURFACE AND 3,000 FEET ABOVE GROUND LEVEL, AS DEPICTED ON THE ENCLOSED GRAPHIC.                                                                                                                                                                                                                                       CIVIL
+MAA2ACO00439-16-53.9900N141413.9900N103-40-08.6600W373208.6600W
+MAA2ACO00439-16-58.9700N141418.9700N103-39-39.4000W373179.4000W
+MAA2ACO00439-16-09.3700N141369.3700N103-39-25.6400W373165.6400W
+MAA2ACO00439-16-04.2700N141364.2700N103-39-55.6900W373195.6900W
+MAA3ACO004SUNRISE TO SUNSET.
+MAA1GCO001                   GLIDER                                                                         COCOLORADO                                                    40-10-00.0000N144600.0000N105-30-05.0000W379805.0000WBDU BOULDER MUNI                                      02522.*A                                                                                                                                                            YES
+MAA7GCO001ADD 2 GLIDER SYMBOLS 1 EACH PLACED AT COORDINATES AS FOLLOWS:
+MAA7GCO001N40-10-0.0000 / W105-30-5.0000 AND N39-53-38.0000 / W105-30-0.0000
+MAA1SCO001    SPACE LAUNCH ACTIVITY                                                                         COCOLORADO                                                    39-47-03.1000N143223.1000N104-32-15.5000W376335.5000WCFO COLORADO AIR AND SPACE PORT                       02575.1*A              COLORADO AIR & SPACE PORT                                                                                                                    YESFAA LICENSED LAUNCH SITE                                                                                                                                                                                                                                                                                                                                                                                                                                          CIVIL
+MAA6SCO001KCFO
+MAA1ACT001       AEROBATIC PRACTICE                                                                         CTCONNECTICUT                   EASTON                                                                                                                                                          MANN                                                                                                                    5500MSL 500AGL       YESTHE APA WOULD BE LOCATED APPROXIMATELY 3 MILES WEST OF EASTON, CT IN FAIRFIELD COUNTY.  IT WOULD HAVE AN IRREGULAR SHAPE WITH 4 SIDES. BEGINNING WITH THE NORTHEAST CORNER AND LISTING CLOCKWISE THE SIDES WILL MEASURE 3,200 FEET, 3,300 FEET, 3,500 FEET, AND 3,200 FEET.  IT WOULD HAVE A HEIGHT BETWEEN 500 FEET ABOVE GROUND LEVEL AND 5,500 FEET MEAN SEA LEVEL, AS DEPICTED ON THE ENCLOSED GRAPHIC.                                                       CIVIL
+MAA2ACT00141-16-30.0000N148590.0000N073-21-03.6000W264063.6000W
+MAA2ACT00141-16-01.2000N148561.2000N073-20-45.6000W264045.6000W
+MAA2ACT00141-15-46.8000N148546.8000N073-21-25.2000W264085.2000W
+MAA2ACT00141-16-19.2000N148579.2000N073-21-43.2000W264103.2000W
+MAA3ACT001SUNRISE-SUNSET
+MAA1ACT002       AEROBATIC PRACTICE                                                                         CTCONNECTICUT                   NEW MILFORD                                                                        11N CANDLELIGHT FARMS                                 02861.9*A              CANDLELIGHT FARMS AIRPORT APA                                                                                           4325AGL 1525AGL      YESAN APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS. THIS APA WOULD BE USED ON AVERAGE OF FIVE HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                            CIVIL
+MAA2ACT00241-34-28.4700N149668.4700N073-27-02.8800W264422.8800W
+MAA2ACT00241-33-56.6800N149636.6800N073-26-40.5800W264400.5800W
+MAA2ACT00241-33-41.0900N149621.0900N073-27-23.7700W264443.7700W
+MAA2ACT00241-34-13.6800N149653.6800N073-27-45.3500W264465.3500W
+MAA3ACT002SR-SS
+MAA1AFL003       AEROBATIC PRACTICE                                                                         FLFLORIDA                       CLEWISTON                                                                          2IS AIRGLADES                                         03118.*A               AIRGLADES AIRPORT APA                                                                                                   4500AGL 500AGL       YESLOCATED AT AIRGLADES AIRPORT.  A BOX THAT IS 3,500 FEET BY 3,500 FEET AND HAVE A HEIGHT BETWEEN 500 FEET ABOVE GROUND LEVEL (AGL) AND 4,500 FEET AGL. AN APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS. THIS APA WOULD BE USED ON AVERAGE OF FOUR HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.      CIVIL
+MAA2AFL00326-45-05.9800N096305.9800N081-02-46.7900W291766.7900W
+MAA2AFL00326-45-06.1700N096306.1700N081-02-05.2700W291725.2700W
+MAA2AFL00326-44-32.7900N096272.7900N081-02-05.2200W291725.2200W
+MAA2AFL00326-44-32.4600N096272.4600N081-02-46.4300W291766.4300W
+MAA3AFL003SUNRISE TO SUNSET
+MAA1AFL004       AEROBATIC PRACTICE                                                                         FLFLORIDA                       CRYSTAL RIVER                                                                                                                                                   CRYSTAL RIVER WEST APA                                                                                                  4500MSL 1500MSL      YESTHE APA WOULD BE LOCATED 3.5 MILES SOUTHWEST OF CRYSTAL RIVER, FL. IT WOULD BE A RECTANGLE THAT IS 3.5 MILES BY 2.75 MILES AND HAVE A HEIGHT BETWEEN 1,500 FEET MEAN SEA LEVEL (MSL) AND 4,500 FEET MSL, AS DEPICTED ON THE ENCLOSED GRAPHIC. THIS APA WOULD BE USED ON AVERAGE OF NINE HOURS PER MONTH, DURING DAYLIGHT HOURS. MONDAY THRU SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT SINGLE-ENGINE PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.
+MAA2AFL00428-51-12.3100N103872.3100N082-38-46.8800W297526.8800W
+MAA2AFL00428-51-13.7800N103873.7800N082-35-18.6100W297318.6100W
+MAA2AFL00428-48-43.8600N103723.8600N082-35-15.0000W297315.0000W
+MAA2AFL00428-48-42.2200N103722.2200N082-38-47.0900W297527.0900W
+MAA3AFL004SUNRISE TO SUNSET
+MAA1AFL005       AEROBATIC PRACTICE                                                                         FLFLORIDA                       LECANTO                                                                                                                                                         BUELL APA                                                                                                               5000MSL 500AGL       YESBEGINNING WITH THE NORTHWEST CORNER AND LISTING CLOCKWISE THE SIDES WILL MEASURE 5.4 MILES, 2.75 MILES, 6.4 MILES, 3.3 MILES, 5.8 MILES, 1.9 MILES AND 2.4 MILES. IT WOULD HAVE A HEIGHT BETWEEN 500 FEET ABOVE GROUND LEVEL AND 5,000 FEET MEAN SEA LEVEL. THIS APA WOULD BE USED ON AVERAGE OF TWO HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.     CIVIL
+MAA2AFL00528-50-36.0000N103836.0000N082-28-36.0000W296916.0000W
+MAA2AFL00528-50-36.0000N103836.0000N082-23-12.0000W296592.0000W
+MAA2AFL00528-48-24.0000N103704.0000N082-22-18.0000W296538.0000W
+MAA2AFL00528-42-48.0000N103368.0000N082-23-12.0000W296592.0000W
+MAA2AFL00528-42-54.0000N103374.0000N082-26-30.0000W296790.0000W
+MAA2AFL00528-48-00.0000N103680.0000N082-26-48.0000W296808.0000W
+MAA2AFL00528-48-30.0000N103710.0000N082-28-36.0000W296916.0000W
+MAA3AFL005SUNRISE TO SUNSET
+MAA1AFL002       AEROBATIC PRACTICE                                                                         FLFLORIDA                       SEBRING                                                                            SEF SEBRING RGNL                                      03493.*A               SEBRING REGIONAL AIRPORT APA                                                                                            3500AGL              YESTHE APA WOULD BE LOCATED AT SEBRING REGIONAL AIRPORT. IT WOULD BE A BOX THAT IS 4,500 FEET AND HAVE A HEIGHT BETWEEN THE SURFACE AND 3,500 FEET ABOVE GROUND LEVEL.  AN APA PEMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC. THIS APA WOULD BE USED ON AVERAGE OF FOUR HOURS PER MONTH DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.      CIVIL
+MAA2AFL00227-28-18.1800N098898.1800N081-20-13.0200W292813.0200W
+MAA2AFL00227-27-49.1600N098869.1600N081-19-35.8000W292775.8000W
+MAA2AFL00227-27-15.6000N098835.6000N081-20-13.3300W292813.3300W
+MAA2AFL00227-27-46.4100N098866.4100N081-20-48.9800W292848.9800W
+MAA3AFL002SUNRISE TO SUNSET
+MAA1AFL006       AEROBATIC PRACTICE                                                                         FLFLORIDA                       WILLISTON                     29-21-21.5500N105681.5500N082-27-50.1000W296870.1000WX60 WILLISTON RGNL                                    03559.*A               WILLISTON MUNICIPAL AIRPORT APA                                                                                         4000AGL 500AGL      1YESTHE APA WOULD BE LOCATED AT WILLISTON MUNICIPAL AIRPORT. IT WOULD BE A CIRCLE WITH A RADIUS OF ONE MILE CENTERED ON AIRPORT PROPERTY. AN APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS.  THIS APA WOULD BE USED ON AVERAGE OF FOUR HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                     CIVIL
+MAA3AFL006SUNRISE TO SUNSET
+MAA1AFL001       AEROBATIC PRACTICE                                                                         FLFLORIDA                                                                                                          IMM IMMOKALEE RGNL                                    03245.*A                                                                                                                                       4000AGL              YESTHE APA WOULD BE LOCATED AT IMMOKALEE REGIONAL AIRPORT. IT WOULD BE A BOX THAT IS 3,600 FEET BY 3,600 FEET AND HAVE A HEIGHT BETWEEN THE SURFACE AND 4,000 FEET ABOVE GROUND LEVEL. AN APA PERMITS PILOTS TO CONDUCT IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETIONS. THIS APA WOULD BE USED ON AVERAGE OF 32 HOURS PER MONTH DURING DAYLIGHT HOURS, MONDAY THRU SUNDAY EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE PROPELLER-DRIVEN AEROBATIC AIRCRAFT CIVIL
+MAA2AFL00126-26-51.2200N095211.2200N081-24-02.3300W293042.3300W
+MAA2AFL00126-26-52.9000N095212.9000N081-23-22.1800W293002.1800W
+MAA2AFL00126-26-17.1000N095177.1000N081-23-19.6900W292999.6900W
+MAA2AFL00126-26-15.7800N095175.7800N081-23-59.8500W293039.8500W
+MAA3AFL001SUNRISE TO SUNSET
+MAA1GFL001                   GLIDER                                                                         FLFLORIDA                                                     29-10-09.7200N105009.7200N081-15-56.0800W292556.0800WFD90LAFAYETTE LANDINGS                                03156.35*A                                                                                                                                                          YESTHE GLIDERS THAT ARE REGULARLY FLOWN ARE TWO SGS-2-33S AND ONE ASK-21 SAILPLANE THAT FLY FROM THE FIELD. THERE ARE MULTIPLE TOWPLANES BASED AT THE AIRFIELD                                                                                                                                                                                                                                                                                                       CIVIL
+MAA1SFL001    SPACE LAUNCH ACTIVITY                                                                         FLFLORIDA                                                     28-28-02.4200N102482.4200N080-33-58.9400W290038.9400WXMR CAPE CANAVERAL SPACE FORCE STATION SKID STRIP     03121.12*A             CAPE CANAVERAL AREA (SPACE FLORIDA, CAPE CANAVERAL AIR FORCE STATION, SHUTTLE LANDING FACILITY, KENNEDY SPACE CENTER)                        YESSPACE LAUNCH AND REENTRY OPERATIONS ARE CONDUCTED AT VARIOUS TIMES WITHIN THE AREA. VERTICAL LAUNCH AND REENTRY ACTIVITIES ARE CONDUCTED FROM LAUNCH PADS LOCATED THROUGHOUT THE CAPE CANAVERAL AREA. HORIZONTAL LAUNCH AND REENTRY ACTIVITIES ARE NOT CURRENTLY BEING CONDUCTED AT THE SHUTTLE LANDING FACILITY (SLF).
+MAA1SFL001    SPACE LAUNCH ACTIVITY                                                                         FLFLORIDA                                                     28-28-02.4200N102482.4200N080-33-58.9400W290038.9400WTTS SPACE FLORIDA LAUNCH AND LANDING FACILITY         03531.3*A              CAPE CANAVERAL AREA (SPACE FLORIDA, CAPE CANAVERAL AIR FORCE STATION, SHUTTLE LANDING FACILITY, KENNEDY SPACE CENTER)                        YESSPACE LAUNCH AND REENTRY OPERATIONS ARE CONDUCTED AT VARIOUS TIMES WITHIN THE AREA. VERTICAL LAUNCH AND REENTRY ACTIVITIES ARE CONDUCTED FROM LAUNCH PADS LOCATED THROUGHOUT THE CAPE CANAVERAL AREA. HORIZONTAL LAUNCH AND REENTRY ACTIVITIES ARE NOT CURRENTLY BEING CONDUCTED AT THE SHUTTLE LANDING FACILITY (SLF).
+MAA6SFL001KZMA
+MAA1SFL002    SPACE LAUNCH ACTIVITY                                                                         FLFLORIDA                                                     30-13-07.6000N108787.6000N081-52-37.8000W294757.8000WVQQ CECIL                                             03250.3*A              CECIL FIELD SPACEPORT                                                                                                                        YESSPACE LAUNCH AND REENTRY OPERATIONS ARE NOT CURRENTLY BEING CONDUCTED IN THE SLA. THE SITE DOES NOT HAVE A LICENSED OPERATOR AUTHORIZED TO CONDUCT ANY SPACE LAUNCH OR REENTRY ACTIVITIES IN THE AREA.
+MAA6SFL002KZJX
+MAA6SFL002KVQQ
+MAA6SFL002KZMA
+MAA1SFL003    SPACE LAUNCH ACTIVITY                                                                         FLFLORIDA                                                     28-30-53.3000N102653.3000N080-47-57.2000W290877.2000WTIX SPACE COAST RGNL                                  03532.*A               SPACE COAST REGIONAL AIRPORT                                                                                                                 YESSPACE COAST REGIONAL AIRPORT IS AN FAA LICENSED LAUNCH SITE.
+MAA6SFL003KTIX
+MAA1AGA003       AEROBATIC PRACTICE                                                                         GAGEORGIA                       COLUMBUS                                                                           CSG COLUMBUS                                          03728.*A               COLUMBUS AIRPORT APA                                                                                                    5000MSL              YESTHE APA WOULD BE LOCATED AT COLUMBUS AIRPORT. IT WOULD BE A BOX THAT IS 3,300 FEET BY 3,300 FEET AND HAVE A HEIGHT THE BETWEEN THE SURFACE AND 5,000 FEET MEAN SEA LEVEL. THIS APA WOULD BE USED ON AVERAGE OF SIX HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNNDAY OF EACH MORNT. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, EAROBATIC AIRCRAFT                                                                                       CIVIL
+MAA2AGA00332-31-21.7100N117081.7100N084-56-43.6100W305803.6100W
+MAA2AGA00332-31-05.4300N117065.4300N084-56-09.7400W305769.7400W
+MAA2AGA00332-30-38.0500N117038.0500N084-56-28.3200W305788.3200W
+MAA2AGA00332-30-54.2700N117054.2700N084-57-02.6800W305822.6800W
+MAA3AGA003SUNRISE TO SUNSET
+MAA1AGA001       AEROBATIC PRACTICE                                                                         GAGEORGIA                       CORNELIA                                                                           AJR HABERSHAM COUNTY                                  03738.5*A              HABERSHAM COUNTY AIRPORT APA                                                                                            4500AGL              YESAN APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS. THIS APA WOULD BE USED ON AVERAGE OF SIX HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                             CIVIL
+MAA2AGA00134-29-47.0300N124187.0300N083-33-54.2500W300834.2500W
+MAA2AGA00134-30-03.8200N124203.8200N083-33-20.9100W300800.9100W
+MAA2AGA00134-29-36.5300N124176.5300N083-33-00.5900W300780.5900W
+MAA2AGA00134-29-17.8900N124157.8900N083-33-34.7300W300814.7300W
+MAA3AGA001SUNRISE TO SUNSET
+MAA1AGA004       AEROBATIC PRACTICE                                                                         GAGEORGIA                       EASTMAN                                                                            EZM HEART OF GEORGIA RGNL                             03772.2*A                                                                                                                                      4000MSL 2500AGL      YES                                                                                                                                                                                                                                                                                                                                                                                                                                                                  CIVIL
+MAA2AGA00432-13-23.6600N116003.6600N083-08-18.9200W299298.9200W
+MAA2AGA00432-13-14.5300N115994.5300N083-07-38.6200W299258.6200W
+MAA2AGA00432-12-41.5500N115961.5500N083-07-49.2300W299269.2300W
+MAA2AGA00432-12-50.5200N115970.5200N083-08-29.4800W299309.4800W
+MAA1AGA002       AEROBATIC PRACTICE                                                                         GAGEORGIA                       JEFFERSON                     34-10-39.3400N123039.3400N083-33-43.8200W300823.8200WJCA JACKSON COUNTY                                    03854.1*A                                                                                                                                      5000MSL             1YESTHIS APA WOULD BE A CIRCLE WITH A RADIUS OF 1 NM CENTER ON THE AIRPORT RWY.  THE HEIGHT BETWEEN THE SURFACE AND 5,000 FT MSL.  THIS APA WOULD BE USED MON-SUN, ON AVERAGE OF 8 HRS PER MONTH DURING DAYLIGHT HRS.  TO BE USED BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                                      CIVIL
+MAA3AGA002SUNRISE TO SUNSET
+MAA1AGA005       AEROBATIC PRACTICE                                                                         GAGEORGIA                       LAGRANGE                                                                           LGC LAGRANGE/CALLAWAY                                 03862.*A               LAGRANGE CALLAWAY AIRPORT APA                                                                                           4000AGL              YESA BOX THAT IS 3,400 FEET BY 3,400 FEET AND HAVE A HEIGHT BETWEEN THE SURFACE AND 4,000 FEET ABOVE GROUND LEVEL, AS DEPICTED ON THE ENCLOSED GRAPHIC.                                                                                                                                                                                                                                                                                                              CIVIL
+MAA2AGA00533-00-39.6000N118839.6000N085-04-40.8000W306280.8000W
+MAA2AGA00533-00-18.0000N118818.0000N085-04-08.4000W306248.4000W
+MAA2AGA00532-59-52.8000N118792.8000N085-04-33.6000W306273.6000W
+MAA2AGA00533-00-14.2200N118814.2200N085-05-05.2800W306305.2800W
+MAA3AGA005SUNRISE TO SUNSET
+MAA1AIA007       AEROBATIC PRACTICE                                                                         IAIOWA                          ALGONA                        43-04-40.5000N155080.5000N094-16-19.0000W339379.0000WAXA ALGONA MUNI                                       05816.*A               NORTHERN PLANES AEROSPORT                                                                                               5000AGL 328AGL      1YESAEROBATIC PRACTICE AREA IS A 'BOX' 3,280 FEET IN LENGTH AND WIDTH LOCATED PARALLEL TO RUNWAY 12/30 ON THE SOUTHSIDE OVER A FIELD. NORTHWEST CORNER 43-04-55.92N 94-16-49.12W. NORTHEAST CORNER 43-04-34.26N 94-16-16.18W. SOUTHWEST CORNER 43-04-31.86N 94-17-18.77W. SOUTHEAST CORNER 43-04-10.2N 94-16-45.84W.                                                                                                                                                  CIVIL
+MAA3AIA007FROM MAY 1, 2025 ENDING APRIL 30, 2028 SUNRISE TO SUNSET VFR ONLY.
+MAA1AIA008       AEROBATIC PRACTICE                                                                         IAIOWA                          CLINTON                       41-49-54.0000N150594.0000N090-20-03.0000W325203.0000WCWI CLINTON MUNI                                      05915.*A               CLINTON IA AEROBATIC PRACTICE AREA BOX B                                                                                8000AGL 708MSL      2YESBOX B IS MORE OF A SQUARE BASED ON THE FOLLOWING COORDINATES: NORTH CORNER: 41-50'29"N 90-19'54"W SOUTH CORNER: 41-49'17"N 90-20'12"W EAST CORNER: 41-50'19"N 90-19'25"W WEST CORNER: 41-49'29"N 90-20'39"W                                                                                                                                                                                                                                                       CIVIL
+MAA3AIA008VARIOUS ON DEMAND SUNSET TO SUNRISE
+MAA7AIA008AEROBATIC PRACTICE AREA LOCATED OVER TOP AIRPORT SFC-8500 ACTIVATED BY NOTAM.
+MAA1AIA009       AEROBATIC PRACTICE                                                                         IAIOWA                          CLINTON                       40-50-01.0000N147001.0000N090-19-34.0000W325174.0000WCWI CLINTON MUNI                                      05915.*A               CLINTON IA AEROBATIC PRACTICE AREA BOX A                                                                                8000AGL 708MSL      2YESBOX A IS MORE OF A SQUARE BASED ON THE FOLLOWING COORDINATES: NORTH CORNER: 41-50'29"N 90-19'31"W SOUTH CORNER: 41-49'31"N 90-19'37"W EAST CORNER: 41-49'54"N 90-18'57"W WEST CORNER: 41-50'07"N 90-20'11"W                                                                                                                                                                                                                                                       CIVIL
+MAA3AIA009VARIOUS ON DEMAND SUNSET TO SUNRISE
+MAA7AIA009AEROBATIC PRACTICE AREA LOCATED OVER TOP AIRPORT SFC-8500 ACTIVATED BY NOTAM.
+MAA1AIA003       AEROBATIC PRACTICE                                                                         IAIOWA                          POCAHONTAS                                                                         POH POCAHONTAS MUNI                                   06277.*A                                                                                                                                       5000AGL 500AGL       YESA BOX THAT IS 3,600 FEET BY 3,600 FEET AND HAVE A HEIGHT BETWEEN 500 FEET ABOVE GROUND LEVEL (AGL) AND 5,000 FEET AGL.                                                                                                                                                                                                                                                                                                                                            CIVIL
+MAA2AIA00342-45-24.5900N153924.5900N094-39-31.7400W340771.7400W
+MAA2AIA00342-45-24.4500N153924.4500N094-38-42.6000W340722.6000W
+MAA2AIA00342-44-49.8300N153889.8300N094-38-42.7600W340722.7600W
+MAA2AIA00342-44-49.7500N153889.7500N094-39-31.5800W340771.5800W
+MAA3AIA003SUNRISE TO SUNSET
+MAA1AIA002       AEROBATIC PRACTICE                                                                         IAIOWA                                                                                                             IA63EDGREN                                            06255.01*A             ERIK EDGREN AIRSHOWS                                                                                                    3000MSL              YES                                                                                                                                                                                                                                                                                                                                                                                                                                                                  CIVIL
+MAA2AIA00241-16-00.0000N148560.0000N092-32-29.0000W333149.0000W
+MAA2AIA00241-16-00.0000N148560.0000N092-32-18.0000W333138.0000W
+MAA2AIA00241-14-58.0000N148498.0000N092-32-29.0000W333149.0000W
+MAA2AIA00241-14-58.0000N148498.0000N092-32-18.0000W333138.0000W
+MAA3AIA002DAYLIGHT HOURS
+MAA7AIA002LONG TERM AEROBATIC PRACTICE AREA - FROM AUGUST 14, 2022, THROUGH AUGUST 13, 2025
+MAA1AIA004       AEROBATIC PRACTICE                                                                         IAIOWA                                                        41-13-15.5700N148395.5700N092-29-45.6600W332985.6600WOOA OSKALOOSA MUNI                                    06255.1*A              ERIK EDGREN AIRSHOWS                                                                                                    6840MSL 840MSL    1.5YESTHIS APA IS FOR AIRSHOWS WITHIN AN AREA 41.13'43.88"N/92.29'56.01"W - 41.13'22.75"N/92.30'22.21"W -41.13'5.50"N /92.29'4.48"W - 41.12'50.05"N/92.29'40.69"W                                                                                                                                                                                                                                                                                                       CIVIL
+MAA3AIA0041100-2300 LCL
+MAA1OID001                    OTHERDNJ D VOR/DME                  -004.17.18  DONNELLY                      IDIDAHO                                                       44-52-58.0000N161578.0000N116-09-47.0400W418187.0400WMYL MC CALL MUNI                                      04236.*A                                                                                                                                       10000MSL            4YESFIREFIGHTING OPERATIONS                                                                                                                                                                                                                                                                                                                                                                                                                                           CIVIL
+MAA3OID001MARCH-OCTOBER
+MAA4OID001FOREST SERVICE
+MAA1OID002                    OTHERDNJ D VOR/DME                  -003.711    DONNELLY                      IDIDAHO                                                       44-56-37.9600N161797.9600N116-08-17.9100W418097.9100WMYL MC CALL MUNI                                      04236.*A                                                                                                                                       10000MSL            4YESFIREFIGHTING OPERATIONS                                                                                                                                                                                                                                                                                                                                                                                                                                           CIVIL
+MAA3OID002MARCH - OCTOBER
+MAA4OID002FOREST SERVICE
+MAA1AIL003       AEROBATIC PRACTICE                                                                         ILILLINOIS                      DEKALB                                                                             DKB DE KALB TAYLOR MUNI                               04567.*A               DEKALB TAYLOR MUNICIPAL AIRPORT APA                                                                                     5000AGL              YESTHE APA WOULD BE LOCATED AT DEKALB TAYLOR MUNICIPAL AIRPORT. IT WOULD BE A BOX THAT IS 3,300 FEET BY 3,700 FEET AND HAVE A HEIGHT BETWEEN THE SURFACE AND 5,000 FEET ABOVE GROUND LEVEL.                                                                                                                                                                                                                                                                          CIVIL
+MAA2AIL00341-56-33.3000N150993.3000N088-43-09.7000W319389.7000W
+MAA2AIL00341-56-33.3800N150993.3800N088-42-19.9800W319339.9800W
+MAA2AIL00341-56-00.6000N150960.6000N088-42-20.2600W319340.2600W
+MAA2AIL00341-56-00.9200N150960.9200N088-43-09.6900W319389.6900W
+MAA3AIL003SUNRISE TO SUNSET
+MAA7AIL003THIS APA WOULD BE USED ON AVERAGE OF EIGHT HOURS PER MONTH
+MAA7AIL003DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH.
+MAA7AIL003USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.
+MAA1AIL004       AEROBATIC PRACTICE                                                                         ILILLINOIS                      EAST ALTON                                                                         ALN ST LOUIS RGNL                                     04372.*A                                                                                                                                       5000MSL              YESTHE APA IS LOCATED AT ST. LOUIS REGIONAL AIRPORT. IT HAS AN IRREGULAR SHAPE WITH 4 SIDES. BEGINNING WITH THE WESTERN SIDE AND LISTING CLOCKWISE, THE SIDES WILL MEASURE 7,300 FEET, 7,600 FEET, 4,400 FEET, AND 6,200 FEET AND HAVE A HEIGHT BETWEEN THE SURFACE AND 5,000 FEET MEAN SEA LEVEL.                                                                                                                                                                   CIVIL
+MAA2AIL00438-53-58.0100N140038.0100N090-03-08.7600W324188.7600W
+MAA2AIL00438-53-25.8700N140005.8700N090-01-39.0400W324099.0400W
+MAA2AIL00438-52-42.5800N139962.5800N090-01-38.3500W324098.3500W
+MAA2AIL00438-52-42.7300N139962.7300N090-02-56.9900W324176.9900W
+MAA3AIL004SUNRISE TO SUNSET
+MAA7AIL004THIS APA WILL BE USED ON AVERAGE OF SIX HOURS PER MONTH,
+MAA7AIL004DURING DAYLIGHT HOURS,
+MAA7AIL004MONDAY THROUGH SUNDAY OF EACH MONTH. USE WILL BE BY
+MAA7AIL004LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.
+MAA1AIL001       AEROBATIC PRACTICE                                                                         ILILLINOIS                      GREENWOOD                                                                          10C GALT FLD                                          04715.*A               GALT AIRPORT APA                                                                                                        3825AGL 200AGL       YESTHE APA WOULD BE LOCATED AT GALT AIRPORT. IT WOULD BE A BOX THAT IS 3,400 FEET BY 3,600 FEET AND HAVE A HEIGHT BETWEEN 200 FEET ABOVE GROUND LEVEL (AGL) AND 3,825 FEET AGL.                                                                                                                                                                                                                                                                                      CIVIL
+MAA2AIL00142-24-38.1900N152678.1900N088-22-52.3800W318172.3800W
+MAA2AIL00142-24-38.5800N152678.5800N088-22-03.2900W318123.2900W
+MAA2AIL00142-24-04.9800N152644.9800N088-22-03.0200W318123.0200W
+MAA2AIL00142-24-04.7500N152644.7500N088-22-52.1600W318172.1600W
+MAA3AIL001SUNRISE TO SUNSET
+MAA1AIL002       AEROBATIC PRACTICE                                                                         ILILLINOIS                      LITCHFIELD                                                                         3LF LITCHFIELD MUNI                                   04824.*A               LITCHFIELD MUNICIPAL AIRPORT APA                                                                                        4300AGL 1000AGL      YESTHE APA WOULD BE LOCATED AT LITCHFIELD MUNICIPAL AIRPORT. IT WOULD BE A BOX THAT IS 3,300 FEET BY 3,300 FEET AND HAVE A HEIGHT BETWEEN 1,000 FEET ABOVE GROUND LEVEL (AGL) AND 4,300 FEET AGL.                                                                                                                                                                                                                                                                    CIVIL
+MAA2AIL00239-10-01.7300N141001.7300N089-41-02.2300W322862.2300W
+MAA2AIL00239-10-02.0200N141002.0200N089-40-21.3100W322821.3100W
+MAA2AIL00239-09-29.3300N140969.3300N089-40-21.0700W322821.0700W
+MAA2AIL00239-09-29.4200N140969.4200N089-41-02.3300W322862.3300W
+MAA3AIL002SUNRISE TO SUNSET
+MAA1AIL006       AEROBATIC PRACTICE                                                                         ILILLINOIS                      ROCK FALLS                    41-44-34.2000N150274.2000N089-40-34.6000W322834.6000WSQI WHITESIDE COUNTY/JOS H BITTORF FLD                05012.1*A                                                                                                                                      8000AGL             2YESTHE APA WOULD BE LOCATED AT WHITESIDE COUNTY AIRPORT. IT WOULD BE A CIRCLE WITH A RADIUS OF TWO MILES CENTERED ON THE AIRPORT RUNWAY. IT WOULD HAVE A HEIGHT BETWEEN THE SURFACE AND 8,000 FEET ABOVE GROUND LEVEL.  THIS APA WOULD BE USED ON AVERAGE OF FOUR HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                           CIVIL
+MAA3AIL006SUNRISE TO SUNSET
+MAA1AIL005       AEROBATIC PRACTICE                                                                         ILILLINOIS                      SALEM                                                                              SLO SALEM-LECKRONE                                    04989.*A               SALEM-LECKRONE AIRPORT APA                                                                                              5000AGL              YESTHE APA WOULD BE LOCATED AT SALEM-LECKRONE AIRPORT. IT WOULD BE A RECTANGLE THAT IS 4,700 FEET BY 5,100 FEET AND HAVE A HEIGHT BETWEEN THE SURFACE AND 5,000 FEET ABOVE GROUND LEVEL.                                                                                                                                                                                                                                                                             CIVIL
+MAA2AIL00538-39-43.6800N139183.6800N088-58-17.8200W320297.8200W
+MAA2AIL00538-39-43.4900N139183.4900N088-57-14.3000W320234.3000W
+MAA2AIL00538-38-57.4800N139137.4800N088-57-14.0300W320234.0300W
+MAA2AIL00538-38-57.2700N139137.2700N088-58-18.1100W320298.1100W
+MAA3AIL005THIS APA WOULD BE USED ON AVERAGE OF TWO HOURS PER MONTH, DURING
+MAA3AIL005MONDAY THROUGH SUNDAY OF EACH MONTH.
+MAA3AIL005USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.
+MAA1AIN001       AEROBATIC PRACTICE                                                                         ININDIANA                       TERRE HAUTE                                                                        HUF TERRE HAUTE RGNL                                  05689.*A               TERRE HAUTE AIRPORT APA                                                                                                 6000AGL              YESTHE APA WOULD BE LOCATED AT TERRE HAUTE AIRPORT. IT WOULD BE A RECTANGLE THAT IS 10,000 FEET BY 4,200 FEET AND HAVE A HEIGHT BETWEEN THE SURFACE AND 6,000 FEET ABOVE GROUND LEVEL. THIS APA WOULD BE USED ON AVERAGE OF 25 HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                              CIVIL
+MAA2AIN00139-27-40.1900N142060.1900N087-17-53.8400W314273.8400W
+MAA2AIN00139-27-10.9700N142030.9700N087-17-16.1200W314236.1200W
+MAA2AIN00139-26-01.8800N141961.8800N087-18-51.3200W314331.3200W
+MAA2AIN00139-26-32.4100N141992.4100N087-19-27.2300W314367.2300W
+MAA3AIN001SUNRISE TO SUNSET
+MAA1AKS001       AEROBATIC PRACTICE                                                                         KSKANSAS                        DODGE CITY                                                                         DDC DODGE CITY RGNL                                   06557.*A               DODGE CITY REGIONAL AIRPORT APA                                                                                         5000AGL              YESTHIS APA WOULD BE USED ON AVERAGE OF FIVE HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                                                                                                                                CIVIL
+MAA2AKS00137-46-39.9000N135999.9000N099-57-37.3800W359857.3800W
+MAA2AKS00137-46-08.5500N135968.5500N099-57-18.5000W359838.5000W
+MAA2AKS00137-45-53.3600N135953.3600N099-57-58.3800W359878.3800W
+MAA2AKS00137-46-24.6400N135984.6400N099-58-16.8000W359896.8000W
+MAA3AKS001SUNRISE TO SUNSET
+MAA1AKS002       AEROBATIC PRACTICE                                                                         KSKANSAS                        GARDNER                                                                            K34 GARDNER MUNI                                      06623.*A               GARDNER MUNICIPAL AIRPORT APA                                                                                           5500AGL 500AGL       YESTHIS APA WOULD BE USED ON AVERAGE OF ONE HOUR PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                                                                                                                                  CIVIL
+MAA2AKS00238-48-36.2800N139716.2800N094-57-32.1800W341852.1800W
+MAA2AKS00238-48-36.3400N139716.3400N094-56-46.1900W341806.1900W
+MAA2AKS00238-48-01.2700N139681.2700N094-56-46.0900W341806.0900W
+MAA2AKS00238-48-01.4500N139681.4500N094-57-32.0200W341852.0200W
+MAA3AKS002SUNRISE TO SUNSET
+MAA1AKS003       AEROBATIC PRACTICE                                                                         KSKANSAS                        LEAVENWORTH                                                                                                                                                     DOWTY APA                                                                                                               5000AGL 1500AGL      YESTHIS APA WOULD BE USED ON AVERAGE OF THREE HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                                                                                                                               CIVIL
+MAA2AKS00339-16-40.2600N141400.2600N095-07-52.7600W342472.7600W
+MAA2AKS00339-17-31.4400N141451.4400N095-02-07.6400W342127.6400W
+MAA2AKS00339-13-34.9400N141214.9400N094-57-04.8900W341824.8900W
+MAA2AKS00339-10-57.7400N141057.7400N095-03-29.2500W342209.2500W
+MAA3AKS003SUNRISE TO SUNSET.
+MAA1AKS004       AEROBATIC PRACTICE                                                                         KSKANSAS                        SMITH CENTER                                                                       K82 SMITH CENTER MUNI                                 06902.*A               SMITH CENTER MUNICIPAL AIRPORT APA                                                                                      4000AGL              YESTHIS APA WOULD BE USED ON AVERAGE OF FOUR HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE.                                                                                                                                                                                                                                                                                                      CIVIL
+MAA2AKS00439-45-54.0000N143154.0000N098-48-18.0000W355698.0000W
+MAA2AKS00439-45-54.0000N143154.0000N098-46-44.4000W355604.4000W
+MAA2AKS00439-45-25.2000N143125.2000N098-46-44.4000W355604.4000W
+MAA2AKS00439-45-25.2000N143125.2000N098-48-18.0000W355698.0000W
+MAA3AKS004SUNRISE TO SUNSET
+MAA1AKY002       AEROBATIC PRACTICE                                                                         KYKENTUCKY                      FRANKLIN                                                                           35KYWELCOME FLD                                       07148.*A               WELCOME FIELD APA                                                                                                       4200MSL              YESTHE APA WOULD BE LOCATED AT WELCOME FIELD. IT WOULD BE A RECTANGLE THAT IS 3,500 FEET BY 1,500 FEET AND HAVE A HEIGHT BETWEEN THE SURFACE AND 4,200 FEET MEAN SEA LEVEL, AS DEPICTED ON THE ENCLOSED GRAPHIC.                                                                                                                                                                                                                                                     CIVIL
+MAA2AKY00236-43-00.5300N132180.5300N086-38-28.2700W311908.2700W
+MAA2AKY00236-42-45.8600N132165.8600N086-37-44.6000W311864.6000W
+MAA2AKY00236-42-34.1400N132154.1400N086-37-51.1600W311871.1600W
+MAA2AKY00236-42-49.2700N132169.2700N086-38-34.6500W311914.6500W
+MAA3AKY002SUNRISE TO SUNSET
+MAA1AKY001       AEROBATIC PRACTICE                                                                         KYKENTUCKY                      SPRINGFIELD                                                                        6I2 LEBANON SPRINGFIELD/GEORGE HOERTER FLD            07369.31*A                                                                                                                                     4500AGL              YESHE APA WOULD BE LOCATED AT LEBANON SPRINGFIELD-GEORGE HOERTER FIELD. IT WOULD BE A BOX THAT IS 3,600 FEET BY 3,600 FEET AND HAVE A HEIGHT BETWEEN THE SURFACE AND 4,500 FEET ABOVE GROUND LEVEL.
+MAA2AKY00137-38-05.9600N135485.9600N085-14-53.1500W306893.1500W
+MAA2AKY00137-37-56.7300N135476.7300N085-14-09.5100W306849.5100W
+MAA2AKY00137-37-22.5400N135442.5400N085-14-21.4800W306861.4800W
+MAA2AKY00137-37-31.6200N135451.6200N085-15-05.5600W306905.5600W
+MAA3AKY001MONDAY THRU SUNDAY DURING DAY LIGHT HOURS
+MAA1ALA004       AEROBATIC PRACTICE                                                                         LALOUISIANA                     COUSHATTA                                                                                                                                                       RED RIVER AIRPORT APA                                                                                                   5000AGL              YESTHE APA WOULD BE LOCATED AT RED RIVER AIRPORT. IT WOULD BE A BOX THAT IS 6,100 FEET BY 6,100 FEET AND HAVE A HEIGHT BETWEEN THE SURFACE AND 5,000 FEET ABOVE GROUND LEVEL, AS DEPICTED ON THE ENCLOSED GRAPHIC.                                                                                                                                                                                                                                                   CIVIL
+MAA2ALA00431-59-44.2200N115184.2200N093-18-26.8400W335906.8400W
+MAA2ALA00431-59-43.5500N115183.5500N093-17-18.2700W335838.2700W
+MAA2ALA00431-58-43.1500N115123.1500N093-17-17.5700W335837.5700W
+MAA2ALA00431-58-44.1600N115124.1600N093-18-26.6300W335906.6300W
+MAA3ALA004SUNRISE TO SUNSET
+MAA1ALA003       AEROBATIC PRACTICE                                                                         LALOUISIANA                     SHREVEPORT                                                                         DTN SHREVEPORT DOWNTOWN                               07739.*A                                                                                                                                       2500AGL              YESTHE APA WOULD BE LOCATED AT SHREVEPORT DOWNTOWN AIRPORT. IT WOULD HAVE AN IRREGULAR SHAPE WITH 3 SIDES THAT ARE STRAIGHT AND 1 SIDE THAT RUNS ALONG THE EASTERN SIDE OF THE RED RIVER. STARTING WITH THE LONGEST SIDE THAT RUNS PARALLEL WITH THE RUNWAY AND GOING CLOCKWISE, THE SIDES WILL MEASURE 11,000 FEET, 3,500 FEET, 5,000 FEET. THE EASTERN BORDER OF THE APA WILL RUN ALONG THE EAST SIDE OF THE RED RIVER WITH A LENGTH OF 12,000 FEET.               CIVIL
+MAA2ALA00332-33-21.2900N117201.2900N093-45-33.5300W337533.5300W
+MAA2ALA00332-33-20.2800N117200.2800N093-44-43.4100W337483.4100W
+MAA2ALA00332-33-29.3600N117209.3600N093-43-52.9200W337432.9200W
+MAA2ALA00332-32-34.1400N117154.1400N093-43-30.6300W337410.6300W
+MAA2ALA00332-32-19.2700N117139.2700N093-43-32.4400W337412.4400W
+MAA2ALA00332-31-57.9700N117117.9700N093-43-44.6700W337424.6700W
+MAA2ALA00332-31-52.2500N117112.2500N093-44-06.1300W337446.1300W
+MAA3ALA003SUNRISE TO SUNSET
+MAA1ALA005       AEROBATIC PRACTICE                                                                         LALOUISIANA                     SUNSET                                                                                                                                                          RED OAK LANDING AIRPORT APA                                                                                             2500AGL              YESTHE APA WOULD BE LOCATED AT RED OAK LANDING AIRPORT. IT WOULD HAVE AN IRREGULAR SHAPE WITH 5 SIDES. BEGINNING WITH THE NORTHWEST CORNER AND LISTING CLOCKWISE, THE SIDES WILL MEASURE 850 FEET, 1,600 FEET, 900 FEET, 700 FEET AND 800 FEET. IT WOULD HAVE A HEIGHT BETWEEN THE SURFACE AND 2,500 FEET ABOVE GROUND LEVEL                                                                                                                                         CIVIL
+MAA2ALA00530-26-42.4700N109602.4700N092-06-49.7700W331609.7700W
+MAA2ALA00530-26-38.6000N109598.6000N092-06-20.9500W331580.9500W
+MAA2ALA00530-25-52.5400N109552.5400N092-06-21.6600W331581.6600W
+MAA2ALA00530-25-59.2500N109559.2500N092-06-50.9700W331610.9700W
+MAA2ALA00530-26-19.0100N109579.0100N092-06-47.7700W331607.7700W
+MAA3ALA005SUNRISE TO SUNSET
+MAA1ALA002       AEROBATIC PRACTICE                                                                         LALOUISIANA                     TALLULAH                                                                           M80 SCOTT                                             07751.*A                                                                                                                                       3000AGL              YESTHE APA WOULD BE LOCATED AT SCOTT AIRPORT. IT WOULD BE A BOX THAT IS 6,000 FEET BY 3,000 FEET AND HAVE A HEIGHT BETWEEN THE SURFACE AND 3,000 FEET ABOVE GROUND LEVEL(AGL), AS DEPICTED ON THE ENCLOSED GRAPHIC.                                                                                                                                                                                                                                                  CIVIL
+MAA2ALA00232-25-45.0400N116745.0400N091-09-43.7300W328183.7300W
+MAA2ALA00232-25-45.3400N116745.3400N091-09-06.4200W328146.4200W
+MAA2ALA00232-24-45.5300N116685.5300N091-09-05.9500W328145.9500W
+MAA2ALA00232-24-45.3100N116685.3100N091-09-43.6100W328183.6100W
+MAA3ALA002SUNRISE TO SUNSET
+MAA1ALA001       AEROBATIC PRACTICE                                                                         LALOUISIANA                     VICKSBURG                                                                          TVR VICKSBURG TALLULAH RGNL                           07751.11*A                                                                                                                                     4000AGL              YESTHE APA WOULD BE LOCATED AT VICKSBURG TALLULAH REGIONAL AIRPORT. IT WOULD BE A RECTANGLE THAT IS 6,200 FEET BY 2,600 FEET AND HAVE A HEIGHT BETWEEN THE SURFACE AND 4,000 FEET ABOVE GROUND LEVEL.
+MAA2ALA00132-21-48.7100N116508.7100N091-02-12.7400W327732.7400W
+MAA2ALA00132-21-48.8200N116508.8200N091-01-40.5200W327700.5200W
+MAA2ALA00132-20-41.3300N116441.3300N091-01-39.2200W327699.2200W
+MAA2ALA00132-20-41.6600N116441.6600N091-02-12.0900W327732.0900W
+MAA3ALA001SUNDAY THRU MONDAY DURING DAY LIGHT HOURS
+MAA1HMA001              HANG GLIDER                                                                         MAMASSACHUSETTS                                               42-14-02.0000N152042.0000N072-39-00.0000W261540.0000WBAF WESTFIELD-BARNES RGNL                             09398.*A                                                                                                                                                            YES
+MAA1AMD001       AEROBATIC PRACTICE                                                                         MDMARYLAND                      BROOMES ISLAND                                                                                                                                                  NAILS AVIATION APA                                                                                                      4500AGL              YESTHE APA WOULD BE LOCATED JUST OFF THE SHORE OF BROOMES ISLAND, MD AND WILL BE ENTIRELY OVER THE PATUXENT RIVER. IT WOULD BE A RECTANGLE THAT IS 3.3 MILES BY 1.1 MILES AND HAVE A HEIGHT BETWEEN THE SURFACE AND 4,500 FEET ABOVE GROUND LEVEL.                                                                                                                                                                                                                   CIVIL
+MAA2AMD00138-25-56.3500N138356.3500N076-36-05.2600W275765.2600W
+MAA2AMD00138-24-11.9200N138251.9200N076-33-09.7000W275589.7000W
+MAA2AMD00138-23-27.3900N138207.3900N076-33-51.0200W275631.0200W
+MAA2AMD00138-25-09.2600N138309.2600N076-36-47.8200W275807.8200W
+MAA3AMD001SUNRISE TO SUNSET
+MAA1AME001       AEROBATIC PRACTICE                                                                         MEMAINE                         BRUNSWICK                                                                          BXM BRUNSWICK EXEC                                    07885.*A                                                                                                                                       5000AGL 1500AGL      YES                                                                                                                                                                                                                                                                                                                                                                                                                                                                  CIVIL
+MAA2AME00143-53-40.1500N158020.1500N069-57-00.1800W251820.1800W
+MAA2AME00143-53-42.3700N158022.3700N069-56-18.6300W251778.6300W
+MAA2AME00143-53-03.0800N157983.0800N069-56-13.6200W251773.6200W
+MAA2AME00143-53-00.9200N157980.9200N069-56-56.1100W251816.1100W
+MAA3AME001SUNRISE-SUNSET
+MAA1AMI002       AEROBATIC PRACTICE                                                                         MIMICHIGAN                      ALMA                                                                               AMN GRATIOT COMMUNITY                                 09515.1*A              GRATIOT COMMUNITY AIRPORT APA                                                                                           8000AGL              YESLOCATED AT GRATIOT COMMUNITY AIRPORT. A RECTANGLE THAT IS 6200 FEET BY 4800 FEET WITH A HEIGHT BETWEEN THE SURFACE AND 8000 FEET AGL, WHERE PILOTS CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS. USED ON AVERAGE OF ONE HOUR PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN AEROBATIC AIRCRAFT.                                                                     CIVIL
+MAA2AMI00243-19-25.2800N155965.2800N084-41-47.8000W304907.8000W
+MAA2AMI00243-19-25.6500N155965.6500N084-40-22.7600W304822.7600W
+MAA2AMI00243-18-38.0600N155918.0600N084-40-22.1700W304822.1700W
+MAA2AMI00243-18-37.7100N155917.7100N084-41-47.9200W304907.9200W
+MAA3AMI002SUNRISE TO SUNSET.
+MAA4AMI002GRATIOT COMMUNITY AIRPORT APA
+MAA7AMI002AUTHORIZING OFFICIAL NAME: MIKE MILLARD
+MAA7AMI002AUTHORIZING OFFICIAL TITLE/ROUTING CODE: AFS ENVIRONMENTAL SPECIALIST/AFS-830
+MAA1AMI001       AEROBATIC PRACTICE                                                                         MIMICHIGAN                      BATTLE CREEK                                                                       BTL BATTLE CREEK EXEC AT KELLOGG FLD                  09548.*A               BRONCO                                                                                                                  7000MSL 3500MSL      YESWESTERN MICHIGAN UNIVERSITY COLLEGE OF AVIATION AEROBATIC TRAINING SITE                                                                                                                                                                                                                                                                                                                                                                                           CIVIL
+MAA2AMI00142-19-11.0200N152351.0200N085-15-29.3300W306929.3300W
+MAA2AMI00142-19-47.4900N152387.4900N085-16-41.6300W307001.6300W
+MAA2AMI00142-19-49.1100N152389.1100N085-20-30.4900W307230.4900W
+MAA2AMI00142-13-59.2100N152039.2100N085-15-28.1900W306928.1900W
+MAA3AMI001SUNRISE TO SUNSET YEAR ROUND.
+MAA1AMI003       AEROBATIC PRACTICE                                                                         MIMICHIGAN                      GWINN                                                                              SAW MARQUETTE/SAWYER RGNL                             10064.02*A             SAWYER INTERNATIONAL AIRPORT APA                                                                                        4500AGL              YESLOCATED AT SAWYER INTERNATIONAL AIRPORT. A RECTANGLE 12000 FEET BY 3300 FEET WITH A HEIGHT BETWEEN THE SURFACE AND 4500 FEET ABOVE GROUND LEVEL, WHERE PILOTS CAN CONDUCT AEROBATICS IN PREPERATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS. USED AN AVERAGE OF FIVE HOURS PER MONTH DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY. USE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                             CIVIL
+MAA2AMI00346-22-19.5300N166939.5300N087-24-24.2200W314664.2200W
+MAA2AMI00346-22-13.6800N166933.6800N087-23-34.5100W314614.5100W
+MAA2AMI00346-20-23.5600N166823.5600N087-24-00.1700W314640.1700W
+MAA2AMI00346-20-28.2900N166828.2900N087-24-48.1200W314688.1200W
+MAA3AMI003SUNRISE TO SUNSET.
+MAA7AMI003AUTHORIZING OFFICIAL: MIKE MILLARD
+MAA7AMI003AUTHORIZING OFFICIAL TITLE/ROUTING TITLE: AFS ENVIRONMENTAL SPECIALIST/AFS-830
+MAA1AMN003       AEROBATIC PRACTICE                                                                         MNMINNESOTA                     GRANITE FALLS                                                                                                                                                   GRANITE FALLS WEST APA                                                                                                  6000MSL              YESTHIS APA WOULD BE USED ON AVERAGE OF FIVE HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                                                                                                                                CIVIL
+MAA2AMN00344-46-07.5700N161167.5700N095-38-06.9900W344286.9900W
+MAA2AMN00344-46-07.4400N161167.4400N095-37-29.3800W344249.3800W
+MAA2AMN00344-45-10.9600N161110.9600N095-37-29.2000W344249.2000W
+MAA2AMN00344-45-11.0700N161111.0700N095-38-06.4600W344286.4600W
+MAA3AMN003SUNRISE TO SUNSET.
+MAA1AMN001       AEROBATIC PRACTICE                                                                         MNMINNESOTA                     LITCHFIELD                                                                         LJF LITCHFIELD MUNI                                   10786.01*A             LITCHFIELD MUNICIPAL AIRPORT APA                                                                                        5000MSL              YESPROPOSED LOCATION: THE APA WOULD BE LOCATED AT LITCHFIELD MUNI ARPT. IT WOULD BE A BOX 3700 FT BY 3700 FT, AND HAVE A HEIGHT HEIGHT BETWEEN THE SURFACE AND 5000 FT MSL. PROPOSED ACTIVITY DESCRIPTION: AN APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPERATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS. THIS APA WOULD BE USED AN AVERAGE OF 2 HRS PER MONTH DURING DAYLIGHT HRS, MONDAY THROUGH SUNDAY EACH MONTH.                                           CIVIL
+MAA2AMN00145-06-27.7400N162387.7400N094-30-01.4400W340201.4400W
+MAA2AMN00145-06-00.1000N162360.1000N094-29-27.3400W340167.3400W
+MAA2AMN00145-05-35.8700N162335.8700N094-30-06.4000W340206.4000W
+MAA2AMN00145-06-03.4400N162363.4400N094-30-41.0600W340241.0600W
+MAA3AMN001SUNRISE TO SUNSET
+MAA4AMN001LITCHFIELD MUNICIPAL AIRPORT APA
+MAA7AMN001USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.
+MAA1AMN002       AEROBATIC PRACTICE                                                                         MNMINNESOTA                     WASECA                                                                             ACQ WASECA MUNI/MAYNARD RICHARD STENSRUD FLD          11055.1*A              WASECA MUNICIPAL AIRPORT APA                                                                                            5000MSL              YESPROPOSED LOCATION: THE APA WOULD BE LOCATED AT WASECA MUNI APT. IT WOULD BE A BOX 3300 FT BY 3300 FT AND HAVE A HEIGHT BETWEEN THE SURFACE AND 5000 FT MSL. PROPOSED ACTIVITY DESCRIPTION: AN APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPERATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS. THIS APA WOULD BE USED AN AVERAGE OF 2 HRS A MONTH, DURING DAYLIGHT HRS, MONDAY THROUGH SUNDAY, BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.     CIVIL
+MAA2AMN00244-04-40.7400N158680.7400N093-33-17.7100W336797.7100W
+MAA2AMN00244-04-11.3700N158651.3700N093-32-57.6300W336777.6300W
+MAA2AMN00244-03-57.1400N158637.1400N093-33-40.9500W336820.9500W
+MAA2AMN00244-04-27.1900N158667.1900N093-33-59.5700W336839.5700W
+MAA3AMN002SUNRISE TO SUNSET.
+MAA4AMN002WASECA MUNICIPAL AIRPORT
+MAA1AMO001       AEROBATIC PRACTICE                                                                         MOMISSOURI                      NEOSHO                                                                             EOS NEOSHO HUGH ROBINSON                              11956.1*A              NEOSHO HUGH ROBINSON MEMORIAL AIRPORT APA                                                                               7000MSL              YESIT WILL HAVE AN IRREGULAR SHAPE WITH 6 SIDES. BEGINNING WITH THE NORTH CORNER AND LISTING CLOCKWISE, THE SIDES WILL MEASURE 3,000 FEET, 2,700 FEET, 2,500 FEET, 2,000 FEET, 300 FEET, AND 5,600 FEET. THIS APA WOULD BE USED ON AVERAGE OF 20 HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                            CIVIL
+MAA2AMO00136-49-08.3900N132548.3900N094-23-33.7700W339813.7700W
+MAA2AMO00136-48-58.3800N132538.3800N094-22-58.0200W339778.0200W
+MAA2AMO00136-48-32.6800N132512.6800N094-22-59.8100W339779.8100W
+MAA2AMO00136-48-35.0200N132515.0200N094-23-28.2100W339808.2100W
+MAA2AMO00136-48-12.3100N132492.3100N094-23-35.1700W339815.1700W
+MAA2AMO00136-48-13.1200N132493.1200N094-23-38.5500W339818.5500W
+MAA3AMO001SUNRISE TO SUNSET.
+MAA1AMO002       AEROBATIC PRACTICE                                                                         MOMISSOURI                      POMONA                        36-52-38.6000N132758.6000N091-54-09.8500W330849.8500WUNO WEST PLAINS RGNL                                  12223.3*A              WEST PLAINS REGIONAL AIRPORT APA                                                                                        7000MSL             1YESTHE APA WOULD BE LOCATED AT WEST PLAINS REGIONAL AIRPORT. IT WOULD BE A CIRCLE WITH A RADIUS OF 1 NAUTICAL MILE CENTERED ON THE AIRPORT RUNWAY. IT WOULD HAVE A HEIGHT BETWEEN THE SURFACE AND 7,000 FEET MEAN SEA LEVEL.                                                                                                                                                                                                                                         CIVIL
+MAA3AMO002SUNRISE TO SUNSET.
+MAA7AMO002THIS APA WOULD BE USED ON AVERAGE OF EIGHT HOURS PER MONTH, DURING DAYLIGHT
+MAA7AMO002HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT,
+MAA7AMO002SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.
+MAA1AMS003       AEROBATIC PRACTICE                                                                         MSMISSISSIPPI                   FLORA                                                                              MS71SLOBOVIA OUTERNATIONAL                            11399.4*A                                                                                                                                      5500MSL 1500MSL      YESTHE APA WOULD BE LOCATED AT SLOBOVIA OUTERNATIONAL WHICH IS APPROXIMATELY 3 MILES SOUTHEAST OF FLORA, MS. IT WOULD BE A RECTANGLE THAT IS 3,200 FEET BY 4,700 FEET AND HAVE A HEIGHT BETWEEN 1,500 FEET MEAN SEA LEVEL (MSL) AND 5,500 FEET MSL LEVEL, AS DEPICTED ON THE ENCLOSED GRAPHIC. AS DEPICTED ON THE ENCLOSED GRAPHIC.                                                                                                                                  CIVIL
+MAA2AMS00332-30-07.7000N117007.7000N090-17-48.5400W325068.5400W
+MAA2AMS00332-30-23.1500N117023.1500N090-17-15.9900W325035.9900W
+MAA2AMS00332-29-42.7100N116982.7100N090-16-48.8800W325008.8800W
+MAA2AMS00332-29-27.5800N116967.5800N090-17-21.1300W325041.1300W
+MAA3AMS003SUNRISE TO SUNSET
+MAA1AMS002       AEROBATIC PRACTICE                                                                         MSMISSISSIPPI                   HATTIESBURG                                                                        PIB HATTIESBURG/LAUREL RGNL                           11255.1*A              HATTIESBURG-LAUREL REGIONAL AIRPORT APA                                                                                 5000MSL              YESAPPROXIMATELY 8 MILES NORTH OF HATTIESBURG, MS. AN APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS                                                                                                                                                                                                                                                                                                                CIVIL
+MAA2AMS00231-27-31.9300N113251.9300N089-20-18.7600W321618.7600W
+MAA2AMS00231-27-32.5200N113252.5200N089-19-35.8400W321575.8400W
+MAA2AMS00231-26-57.1400N113217.1400N089-19-35.0900W321575.0900W
+MAA2AMS00231-26-57.0500N113217.0500N089-20-18.6800W321618.6800W
+MAA3AMS002AVERAGE OF FIVE HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY-SUNDAY
+MAA1AMS001       AEROBATIC PRACTICE                                                                         MSMISSISSIPPI                   NEW ALBANY                    34-32-53.9900N124373.9900N089-01-27.2300W320487.2300WM72 NEW ALBANY/UNION COUNTY                           11360.1*A              NEW ALBANY-UNION COUNTY AIRPORT APA                                                                                     5000MSL             1YES1 NAUTICAL MILE CENTERED ON THE AIRPORT RUNWAY. AN APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC CPMPETITION.                                                                                                                                                                                                                                                                                                                CIVIL
+MAA3AMS001ON AVERAGE OF EIGHT HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY-SUNDAY
+MAA1AMS004       AEROBATIC PRACTICE                                                                         MSMISSISSIPPI                   TUNICA                        34-40-46.6400N124846.6400N090-19-19.3600W325159.3600WUTA TUNICA MUNI                                       11458.2*A              TUNICA MUNICIPAL AIRPORT APA                                                                                            4999MSL             2YESAN APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS. THIS APA WOULD BE USED ON AVERAGE OF 21 HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                              CIVIL
+MAA3AMS004SUNRISE TO SUNSET
+MAA1HMT002              HANG GLIDER                                                                         MTMONTANA                       BOZEMAN                       45-42-50.0000N164570.0000N110-58-28.2000W399508.2000WBZN BOZEMAN YELLOWSTONE INTL                          12278.*A               HMT002                                                                                                                  10000MSL             YESBOZEMAN M (ALSO A VFR CHECKPOINT), 8NM SE OF KBZN. SOUTH END OF BRIDGER MOUNTAIN RANGE BELOW BALDY MT, 3 MILES NORTH OF I-90.                                                                                                                                                                                                                                                                                                                                     MILITARY
+MAA3HMT0021/2 HOUR PAST SUNRISE TO SUNSET, SURFACE TO 10000 MSL.
+MAA4HMT002BOZEMAN AIRFORCE PARAGLIDING AND HANG-GLIDING CLUB, WWW.FLYBOZEMAN.ORG
+MAA7HMT002CONTACT FACILITY: NONE, USE BY BOZEMAN AIRFORCE PARAGLIDING, AND
+MAA7HMT002HANG-GLIDING CLUB, WWW.FLYBOZEMAN.ORG.
+MAA1HMT003              HANG GLIDER                                                                         MTMONTANA                       BOZEMAN                       45-36-04.0000N164164.0000N110-57-57.0000W399477.0000WBZN BOZEMAN YELLOWSTONE INTL                          12278.*A               HMT003                                                                                                                  10000MSL             YESMOUNT ELLIS, 15NM SE IF KBZN, (1 MILE LONG SLOPING RIDGE RUNS NW-SE STARTS ON OPEN MEADOW TERMINATES AT MT ELLIS PEAK) 8 MILES NW OF SOUTH SIDE OF CITY OF BOZEMAN.                                                                                                                                                                                                                                                                                               MILITARY
+MAA3HMT003SUNRISE TO SUNSET, SURFACE TO 10000 MSL.
+MAA4HMT003BOZEMAN AIRFORCE PARAGLIDING AND HANG-GLIDING CLUB, WWW.FLYBOZEMAN.ORG
+MAA7HMT003CONTACT FACILITY: NONE, USE BY BOZEMAN AIRFORCE PARAGLIDING AND
+MAA7HMT003HANG-GLIDING CLUB, WWW.FLYBOZEMAN.ORG.
+MAA1AMT001       AEROBATIC PRACTICE                                                                         MTMONTANA                       HAVRE                                                                              HVR HAVRE CITY-COUNTY                                 12399.*A                                                                                                                                       4000AGL              YESTHIS APA WOULD BE USED ON AVERAGE OF FOUR HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                                                                                                                                CIVIL
+MAA2AMT00148-32-37.7500N174757.7500N109-46-47.1600W395207.1600W
+MAA2AMT00148-32-37.8300N174757.8300N109-45-54.0100W395154.0100W
+MAA2AMT00148-32-02.4100N174722.4100N109-45-54.2600W395154.2600W
+MAA2AMT00148-32-02.4500N174722.4500N109-46-47.9000W395207.9000W
+MAA3AMT001SUNRISE TO SUNSET.
+MAA1HMT001              HANG GLIDER                                                                         MTMONTANA                       HELENA                        45-31-35.0000N163895.0000N110-37-52.0000W398272.0000W                                                                             HMT001                                                                                                                  10000MSL             YESHOGBACK MOUNTAIN, 23NM S OF KLVM, 8 MILES SOUTH OF CITY OF LIVINGSTON, WEST OF HIGHWAY 89S ABD YELLOWSTONE RIVER. 4 MILES LONG KNIFE EDGE RIDGE RUNNING WEST-EAST.                                                                                                                                                                                                                                                                                                MILITARY
+MAA3HMT001SUNRISE TO SUNSET, SURFACE TO 10000 MSL
+MAA4HMT001BOZEMAN AIRFORCE HANG GLIDERS AND PARAGLIDING CLUB, WWW.FLYBOZEMAN.ORG.
+MAA7HMT001ASSOCIATED AIRPORT KLVM.
+MAA7HMT001CONTACT FACILITY: NONE, USE BY BOZEMAN AIRFORCE PARAGLIDING AND
+MAA7HMT001HANG-GLIDING CLUB. WWW.FLYBOZEMAN.ORG
+MAA1HMT004              HANG GLIDER                                                                         MTMONTANA                                                     46-00-14.2800N165614.2800N112-26-34.2700W404794.2700W                                                                                                                                                                                                                          YES
+MAA1ANC002       AEROBATIC PRACTICE                                                                         NCNORTH CAROLINA                BEAUFORT                                                                                                                                                                                                                                                                                4000MSL              YESAN APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS. THE APAS WOULD BE USED ON AVERAGEOF THREE HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIV AIRCRAFT.                                                                                                                                                            CIVIL
+MAA2ANC00234-43-09.9100N124989.9100N076-43-58.5000W276238.5000W
+MAA2ANC00234-42-53.4900N124973.4900N076-42-19.3600W276139.3600W
+MAA2ANC00234-42-19.4700N124939.4700N076-42-19.8500W276139.8500W
+MAA2ANC00234-42-19.1600N124939.1600N076-43-52.7800W276232.7800W
+MAA2ANC00234-42-41.7900N124961.7900N076-44-04.8300W276244.8300W
+MAA3ANC002SUNRISE TO SUNSET
+MAA1ANC003       AEROBATIC PRACTICE                                                                         NCNORTH CAROLINA                BEAUFORT                                                                                                                                                                                                                                                                                4000MSL              YESAN APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS. THE APAS WOULD BE USED ON AVERAGE OF THREE HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                           CIVIL
+MAA2ANC00334-42-32.1400N124952.1400N076-40-34.5500W276034.5500W
+MAA2ANC00334-42-24.8800N124944.8800N076-39-39.2200W275979.2200W
+MAA2ANC00334-41-02.5400N124862.5400N076-36-06.4500W275766.4500W
+MAA2ANC00334-40-35.7000N124835.7000N076-36-18.8700W275778.8700W
+MAA2ANC00334-42-02.1400N124922.1400N076-40-45.7700W276045.7700W
+MAA3ANC003SUNRISE TO SUNSET
+MAA1ANC001       AEROBATIC PRACTICE                                                                         NCNORTH CAROLINA                KENANSVILLE                                                                        DPL DUPLIN COUNTY                                     16827.*A                                                                                                                                       4000MSL              YESAN APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS. THIS APA WOULD BE USED ON AVERAGE OF THREE HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                           CIVIL
+MAA2ANC00135-00-29.4800N126029.4800N077-58-33.3500W280713.3500W
+MAA2ANC00135-00-24.2000N126024.2000N077-58-14.7000W280694.7000W
+MAA2ANC00134-59-45.3700N125985.3700N077-58-07.5400W280687.5400W
+MAA2ANC00134-59-25.9200N125965.9200N077-57-43.4200W280663.4200W
+MAA2ANC00134-58-51.9500N125931.9500N077-58-43.1100W280723.1100W
+MAA2ANC00134-59-35.2200N125975.2200N077-59-23.7200W280763.7200W
+MAA3ANC001SUNRISE TO SUNSET
+MAA1ANC006       AEROBATIC PRACTICE                                                                         NCNORTH CAROLINA                MARION                                                                             9A9 SHIFLET FLD                                       16896.*A                                                                                                                                       3500AGL 1500AGL      YESTHE APA WOULD BE LOCATED AT SHIFLET FIELD. IT WOULD HAVE AN IRREGULAR SHAPE WITH 9 SIDES. BEGINNING WITH THE NORTHWEST CORNER AND LISTING CLOCKWISE, AN APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS. THIS APA WOULD BE USED ON AVERAGE OF FIVE HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.       CIVIL
+MAA2ANC00635-43-37.2800N128617.2800N082-00-45.3600W295245.3600W
+MAA2ANC00635-43-30.5700N128610.5700N082-00-14.2600W295214.2600W
+MAA2ANC00635-43-15.5400N128595.5400N082-00-04.1900W295204.1900W
+MAA2ANC00635-43-09.6400N128589.6400N081-59-35.6500W295175.6500W
+MAA2ANC00635-42-52.2600N128572.2600N081-59-41.2300W295181.2300W
+MAA2ANC00635-42-42.7300N128562.7300N081-59-53.0400W295193.0400W
+MAA2ANC00635-42-53.5900N128573.5900N082-00-42.2600W295242.2600W
+MAA2ANC00635-43-16.5400N128596.5400N082-00-35.4600W295235.4600W
+MAA2ANC00635-43-20.1700N128600.1700N082-00-50.9000W295250.9000W
+MAA3ANC006SUNRISE TO SUNSET
+MAA1ANC004       AEROBATIC PRACTICE                                                                         NCNORTH CAROLINA                NEW BERN                                                                           EWN COASTAL CAROLINA RGNL                             16971.*A                                                                                                                                       4000MSL              YESAN APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS. THE APAS WOULD BE USED ON AVERAGE OF THREE HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH.                                                                                                                                                                                                                                       CIVIL
+MAA2ANC00435-05-04.4400N126304.4400N077-02-11.2200W277331.2200W
+MAA2ANC00435-04-34.1100N126274.1100N077-01-51.7800W277311.7800W
+MAA2ANC00435-03-58.9200N126238.9200N077-02-02.7700W277322.7700W
+MAA2ANC00435-03-36.3100N126216.3100N077-02-57.6500W277377.6500W
+MAA2ANC00435-02-55.2000N126175.2000N077-02-57.0100W277377.0100W
+MAA2ANC00435-02-54.1600N126174.1600N077-03-56.3100W277436.3100W
+MAA2ANC00435-03-20.8800N126200.8800N077-03-56.3200W277436.3200W
+MAA2ANC00435-03-21.1300N126201.1300N077-04-10.1300W277450.1300W
+MAA2ANC00435-03-40.1400N126220.1400N077-04-07.6300W277447.6300W
+MAA2ANC00435-03-55.0600N126235.0600N077-03-08.0200W277388.0200W
+MAA2ANC00435-04-43.6100N126283.6100N077-02-48.2600W277368.2600W
+MAA3ANC004SUNRISE TO SUNSET
+MAA1ANC005       AEROBATIC PRACTICE                                                                         NCNORTH CAROLINA                NEW BERN                                                                           EWN COASTAL CAROLINA RGNL                             16971.*A                                                                                                                                       4000MSL              YESAN APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS. THE APAS WOULD BE USED ON AVERAGE OF THREE HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH.                                                                                                                                                                                                                                       CIVIL
+MAA2ANC00535-07-54.8800N126474.8800N077-03-01.1300W277381.1300W
+MAA2ANC00535-08-09.3400N126489.3400N077-02-13.1600W277333.1600W
+MAA2ANC00535-06-52.5900N126412.5900N077-01-12.1300W277272.1300W
+MAA2ANC00535-06-13.0200N126373.0200N077-01-13.4000W277273.4000W
+MAA2ANC00535-06-20.2500N126380.2500N077-00-13.2500W277213.2500W
+MAA2ANC00535-07-17.3600N126437.3600N077-00-11.9800W277211.9800W
+MAA2ANC00535-07-31.1100N126451.1100N076-59-46.3300W277186.3300W
+MAA2ANC00535-06-50.8400N126410.8400N076-58-22.2300W277102.2300W
+MAA2ANC00535-05-07.9500N126307.9500N076-57-58.7100W277078.7100W
+MAA2ANC00535-04-37.3500N126277.3500N077-00-50.2700W277250.2700W
+MAA2ANC00535-05-58.9100N126358.9100N077-02-13.1200W277333.1200W
+MAA2ANC00535-06-42.9600N126402.9600N077-01-57.1400W277317.1400W
+MAA3ANC005SUNRISE TO SUNSET
+MAA1HNC001              HANG GLIDER                                                                         NCNORTH CAROLINA                                              36-12-12.8100N130332.8100N080-51-54.3800W291114.3800W78A SWAN CREEK                                        16820.*A                                                                                                                                                            YES
+MAA1AND001       AEROBATIC PRACTICE                                                                         NDNORTH DAKOTA                  GRAFTON                                                                            GAF HUTSON FLD                                        17347.*A               HUTSON FIELD APA                                                                                                        5000AGL              YESTHE APA WOULD BE LOCATED AT HUTSON FIELD. IT WOULD BE A RECTANGLE THAT IS 9,500 FEET BY 5,200 FEET AND HAVE A HEIGHT BETWEEN THE SURFACE AND 5,000 FEET ABOVE GROUND LEVEL.                                                                                                                                                                                                                                                                                       CIVIL
+MAA2AND00148-24-44.6600N174284.6600N097-23-20.0300W350600.0300W
+MAA2AND00148-24-44.5300N174284.5300N097-21-00.0300W350460.0300W
+MAA2AND00148-23-52.8800N174232.8800N097-21-00.2100W350460.2100W
+MAA2AND00148-23-52.6500N174232.6500N097-23-20.5500W350600.5500W
+MAA3AND001SUNRISE TO SUNSET
+MAA7AND001THIS APA WOULD BE USED ON AVERAGE OF 16 HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.
+MAA1AND002       AEROBATIC PRACTICE                                                                         NDNORTH DAKOTA                  SAWYER                                                                             ND42WARREN PIETSCH                                    17458.41*A             WARREN PIETSCH AIRPORT APA                                                                                              3500AGL              YESTHE APA AT WARREN PIETSCH AIRPORT HAS AN IRREGULAR SHAPE WITH FOUR SIDES. BEGINNING WITH THE NORTHWEST CORNER AND LISTING CLOCKWISE, THE SIDES WILL MEASURE 2300 FT, 3000 FT, 2000 FT AND 6200 FT.  HEIGHT IS BETWEEN THE SURFACE AND 3500 FT AGL.  THIS APA WOULD BE USED ON AVERAGE OF 10 HRS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THRU SUNDAY OF EACH MONTH.  USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN AEROBATIC AIRCRAFT.                   CIVIL
+MAA2AND00248-06-34.8900N173194.8900N101-05-28.0200W363928.0200W
+MAA2AND00248-06-34.4000N173194.4000N101-04-53.7300W363893.7300W
+MAA2AND00248-06-15.0300N173175.0300N101-04-20.4000W363860.4000W
+MAA2AND00248-05-56.3700N173156.3700N101-04-20.2200W363860.2200W
+MAA3AND002SUNRISE TO SUNSET
+MAA1ANJ001       AEROBATIC PRACTICE                                                                         NJNEW JERSEY                    HAMMONTON                                                                          N81 HAMMONTON MUNI                                    13796.2*A                                                                                                                                      3500AGL              YESTHE APA WOULD BE LOCATED AT HAMMONTON MUNICIPAL AIRPORT. IT WOULD BE A BOX THAT IS 3,300 FEET BY 3,300 FEET AND HAVE A HEIGHT BETWEEN THE SURFACE AND 3,500 FEET ABOVE GROUND LEVEL, AS DEPICTED ON THE ENCLOSED GRAPHICS.                                                                                                                                                                                                                                        CIVIL
+MAA2ANJ00139-40-19.5700N142819.5700N074-45-13.4200W269113.4200W
+MAA2ANJ00139-40-07.8100N142807.8100N074-44-28.8100W269068.8100W
+MAA2ANJ00139-39-33.8200N142773.8200N074-44-43.9800W269083.9800W
+MAA2ANJ00139-39-45.9700N142785.9700N074-45-28.4900W269128.4900W
+MAA3ANJ001SUNRISE TO SUNSET.
+MAA1ANJ002       AEROBATIC PRACTICE                                                                         NJNEW JERSEY                    HOPE                                                                                                                                                            ANDERSON AEROBATIC PRACTICE AREA                                                                                        4500MSL              YESTHE APA WOULD BE LOCATED APPROXIMATELY 2.5 MILES EAST OF HOPE, NJ IN WARREN COUNTY. IT WOULD HAVE AN IRREGULAR SHAPE WITH 5 SIDES. BEGINNING WITH THE NORTH CORNER AND LISTING CLOCKWISE, THE SIDES WILL MEASURE 1.1 MILES, 1.3 MILES, 1 MILE, 0.8 MILES, AND 1.3 MILES. THE APA WILL HAVE A HEIGHT BETWEEN THE SURFACE AND 4,500 FEET MEAN SEA LEVEL, AS DEPICTED ON THE ENCLOSED GRAPHIC.                                                                       CIVIL
+MAA2ANJ00240-54-10.6400N147250.6400N074-54-48.2900W269688.2900W
+MAA2ANJ00240-53-38.2600N147218.2600N074-53-43.9600W269623.9600W
+MAA2ANJ00240-52-43.8200N147163.8200N074-54-29.5600W269669.5600W
+MAA2ANJ00240-52-42.7300N147162.7300N074-55-46.0000W269746.0000W
+MAA2ANJ00240-53-23.9400N147203.9400N074-55-49.8700W269749.8700W
+MAA3ANJ002SUNRISE - SUNSET
+MAA1ANM001       AEROBATIC PRACTICE                                                                         NMNEW MEXICO                    GOLDEN                                                                                                                                                          MALDONADO APA                                                                                                           4000AGL              YESTHIS APA WOULD BE USED ON AVERAGE OF 10 HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SMALL, JET-ENGINE AIRCRAFT.                                                                                                                                                                                                                                                                                           CIVIL
+MAA2ANM00135-20-39.4300N127239.4300N106-14-18.7100W382458.7100W
+MAA2ANM00135-20-29.0900N127229.0900N106-13-03.2400W382383.2400W
+MAA2ANM00135-19-25.6500N127165.6500N106-13-10.6800W382390.6800W
+MAA2ANM00135-19-31.4400N127171.4400N106-14-27.4100W382467.4100W
+MAA3ANM001SUNRISE TO SUNSET.
+MAA1SNM001    SPACE LAUNCH ACTIVITY                                                                         NMNEW MEXICO                                                  32-59-22.7000N118762.7000N106-58-10.1000W385090.1000W9NM9SPACEPORT AMERICA                                 14747.04*A             SPACEPORT AMERICA                                                                                                                            YESSPACE LAUNCH AND REENTRY OPERATIONS ARE CONDUCTED AT VARIOUS TIMES WITHIN THE AREA. VERTICAL LAUNCH AND REENTRY ACTIVITIES ARE CONDUCTED FROM LAUNCH PADS SOUTHEAST OF RUNWAY. ALTHOUGH HORIZONTAL LAUNCH AND REENTRY ACTIVITIES ARE NOT CURRENTLY BEING CONDUCTED AT SPACEPORT AMERICA, A LAUNCH OPERATOR HAS APPROACHED THE FAA WITH THE INTENT TO BEGIN HORIZONTAL LAUNCH AND REENTRY OPERATIONS AT SPACEPORT AMERICA IN THE FUTURE.
+MAA6SNM001KZAB
+MAA1ANY001       AEROBATIC PRACTICE                                                                         NYNEW YORK                      NIAGARA FALLS                                                                      IAG NIAGARA FALLS INTL                                15800.*A               NIAGARA FALLS INTERNATIONAL AIRPORT APA                                                                                 3100AGL              YESTHE APA WOULD BE LOCATED AT NIAGARA FALLS INTERNATIONAL AIRPORT. IT WOULD BE A RECTANGLE THAT IS 3,800 FEET BY 2,800 FEET AND HAVE A HEIGHT BETWEEN THE SURFACE AND 3,100 FEET ABOVE GROUND LEVEL.                                                                                                                                                                                                                                                                CIVIL
+MAA2ANY00143-06-48.3800N155208.3800N078-58-05.0900W284285.0900W
+MAA2ANY00143-06-48.5400N155208.5400N078-57-13.2800W284233.2800W
+MAA2ANY00143-06-20.5900N155180.5900N078-57-13.1700W284233.1700W
+MAA2ANY00143-06-20.8500N155180.8500N078-58-05.0400W284285.0400W
+MAA3ANY001SUNRISE TO SUNSET
+MAA1ANY002       AEROBATIC PRACTICE                                                                         NYNEW YORK                      PATTERSON                                                                                                                                                       PATTERSON NY APA                                                                                                        3300AGL 1500AGL      YESTHE APA WOULD BE LOCATED 1.5 MILES EAST OF PATTERSON, NY. IT WOULD HAVE AN IRREGULAR SHAPE WITH 4 SIDES. BEGINNING WITH THE NORTHWEST CORNER AND LISTING CLOCKWISE, THE SIDES WILL MEASURE 1.3 MILES, 1.8 MILES, 1.4 MILES AND 2.3 MILES. IT WOULD HAVE A HEIGHT BETWEEN 1,500 FEET ABOVE GROUND LEVEL (AGL) AND 3,300 FEET AGL,                                                                                                                                  CIVIL
+MAA2ANY00241-31-06.4300N149466.4300N073-34-31.1600W264871.1600W
+MAA2ANY00241-31-12.2100N149472.2100N073-32-58.5400W264778.5400W
+MAA2ANY00241-29-37.9900N149377.9900N073-32-58.4000W264778.4000W
+MAA2ANY00241-29-02.8900N149342.8900N073-34-28.3000W264868.3000W
+MAA3ANY002SUNRISE TO SUNSET
+MAA7ANY002THIS APA WOULD BE USED ON AVERAGE OF TWO HOURS PER MONTH,
+MAA7ANY002DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY
+MAA7ANY002OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE,
+MAA7ANY002PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.
+MAA1HNY001              HANG GLIDER                                                                         NYNEW YORK                                                    42-02-59.0000N151379.0000N073-30-12.0000W264612.0000W                                                                                                                                                                                                                          YES                                                                                                                                                                                                                                                                                                                                                                                                                                                                  CIVIL
+MAA1AOH003       AEROBATIC PRACTICE                                                                         OHOHIO                          GOSHEN                                                                             OH66OBANNON CREEK AERODROME                           17979.03*A             OBANNON CREEK AERODROME                                                                                                 4000AGL              YESTHE APA WOULD BE LOCATED NEAR THE OBANNON CREEK AERODROME. IT WOULD HAVE AN IRREGULAR SHAPE WITH FOUR SIDES. BEGINNING WITH THE NORTHERN CORNER AND LISTING CLOCKWISE THE SIDES WILL MEASURE 3,900 FEET, 2,000 FEET, 4,300 FEET, AND 2,600 FEET. IT WOULD HAVE A HEIGHT BETWEEN THE SURFACE AND 4,000 FEET ABOVE GROUND LEVEL.                                                                                                                                    CIVIL
+MAA2AOH00339-14-55.9500N141295.9500N084-11-16.9400W303076.9400W
+MAA2AOH00339-15-08.9000N141308.9000N084-10-49.2700W303049.2700W
+MAA2AOH00339-14-36.4800N141276.4800N084-10-23.2500W303023.2500W
+MAA2AOH00339-14-23.8900N141263.8900N084-10-41.1500W303041.1500W
+MAA3AOH003SUNRISE TO SUNSET
+MAA7AOH003THIS APA WOULD BE USED ON AVERAGE OF FOUR HOURS PER MONTH,
+MAA7AOH003DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH.
+MAA7AOH003USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.
+MAA1AOH002       AEROBATIC PRACTICE                                                                         OHOHIO                          GREENFORD                                                                                                                                                       DYE APA                                                                                                                 8000MSL 500AGL       YESTHE APA WOULD BE LOCATED IN GREENFORD, OH IN MAHONING COUNTY. IT WOULD BE A RECTANGLE THAT IS 4.5 MILES BY 1 MILE AND HAVE A HEIGHT BETWEEN 500 FEET ABOVE GROUND LEVEL AND 8,000 FEET MEAN SEA LEVEL. THIS APA WOULD BE USED ON AVERAGE OF EIGHT HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                        CIVIL
+MAA2AOH00240-57-30.0000N147450.0000N080-49-53.0000W290993.0000W
+MAA2AOH00240-57-28.0000N147448.0000N080-44-40.0000W290680.0000W
+MAA2AOH00240-56-34.0000N147394.0000N080-44-41.0000W290681.0000W
+MAA2AOH00240-56-39.0000N147399.0000N080-49-53.0000W290993.0000W
+MAA3AOH002SUNRISE TO SUNSET.
+MAA1AOH001       AEROBATIC PRACTICE                                                                         OHOHIO                          SUMMERFORD                                                                         UYF MADISON COUNTY                                    18101.21*A             MADISON COUNTY AIRPORT APA                                                                                              6500AGL 1500AGL      YESTHIS APA WILL BE LOCATED AT MADISON COUNTY AIRPORT.  IT WILL HAVE AN IRREGULAR SHAPE WITH FOUR SIDES. BEGINNING WITH THE NORTHWEST CORNER AND LISTING CLOCKWISE, THE SIDES WILL MEASURE 11,000 FEET, 5,500 FEET, 7,600 FEET AND 6,000 FEET. IT WILL HAVE A HEIIGHT BETWEEN 1,500 FEET ABOVE GROUND LEVEL (AGL) AND 6,500 FEET.  IT WILL BE USED ON AVERGAE ABOUT 20 HOURS PER MONTH DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY.                                 CIVIL
+MAA2AOH00139-55-52.0400N143752.0400N083-29-26.4900W300566.4900W
+MAA2AOH00139-55-58.8800N143758.8800N083-27-04.4100W300424.4100W
+MAA2AOH00139-55-05.0000N143705.0000N083-27-10.8400W300430.8400W
+MAA2AOH00139-54-59.5900N143699.5900N083-28-48.1100W300528.1100W
+MAA3AOH001SUNRISE TO SUNSET
+MAA1AOK001       AEROBATIC PRACTICE                                                                         OKOKLAHOMA                      COOKSON                                                                            44M TENKILLER LAKE AIRPARK                            18892.*A               TENKILLER LAKE AIRPARK APA                                                                                              3000AGL              YES                                                                                                                                                                                                                                                                                                                                                                                                                                                                  CIVIL
+MAA2AOK00135-42-07.7200N128527.7200N094-56-27.9400W341787.9400W
+MAA2AOK00135-42-23.9700N128543.9700N094-55-58.0700W341758.0700W
+MAA2AOK00135-42-01.1600N128521.1600N094-55-36.9700W341736.9700W
+MAA2AOK00135-41-43.6000N128503.6000N094-56-06.9600W341766.9600W
+MAA3AOK001SUNRISE TO SUNSET
+MAA1SOK001    SPACE LAUNCH ACTIVITY                                                                         OKOKLAHOMA                                                    35-20-23.4200N127223.4200N099-12-01.8000W357121.8000WCSM CLINTON/SHERMAN                                   18877.*A               OKLAHOMA SPACEPORT                                                                                                                           YESSPACE LAUNCH AND REENTRY OPERATIONS ARE NOT CURRENTLY BEING CONDUCTED IN THE SLA. THE SITE DOES NOT HAVE A LICENSED OPERATOR AUTHORIZED TO CONDUCT ANY SPACE LAUNCH OR REENTRY ACTIVITIES IN THE AREA.
+MAA6SOK001KZFW
+MAA6SOK001KCSM
+MAA6SOK001KZKC
+MAA1AOR001       AEROBATIC PRACTICE                                                                         OROREGON                        CORVALLIS                                                                          CVO CORVALLIS MUNI                                    19407.*A               CORVALLIS MUNICIPAL AIRPORT APA                                                                                         4000AGL              YESTHIS APA WOULD BE USED ON AVERAGE OF 20 HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                                                                                                                                  CIVIL
+MAA2AOR00144-29-48.8000N160188.8000N123-17-25.4600W443845.4600W
+MAA2AOR00144-29-45.0400N160185.0400N123-16-40.5300W443800.5300W
+MAA2AOR00144-29-12.9300N160152.9300N123-16-46.1700W443806.1700W
+MAA2AOR00144-29-17.0000N160157.0000N123-17-30.9000W443850.9000W
+MAA3AOR001SUNRISE TO SUNSET
+MAA1AOR002       AEROBATIC PRACTICELTJ D VOR/DME                  241.5 18.38 KLICKITAT                     OROREGON                        HOOD RIVER                    45-40-21.9964N164421.9964N121-32-01.9099W437521.9099W4S2 KEN JERNSTEDT AIRFIELD                            19473.*A               JERNSTEDT AIRPORT APA                                                                                                   6638MSL 1138MSL   1.5YES                                                                                                                                                                                                                                                                                                                                                                                                                                                                  CIVIL
+MAA3AOR002SUNRISE TO SUNSET
+MAA3AOR002DATES AND TIMES VIA NOTAM
+MAA1APA006       AEROBATIC PRACTICE                                                                         PAPENNSYLVANIA                  FREDERICKSBURG                                                                                                                                                  SHARTLE APA                                                                                                             3500AGL              YESTHE APA WOULD BE LOCATED APPROXIMATELY 2.5 MILES NORTHEAST OF FREDERICKSBURG, PA IN LEBANON AND BERKS COUNTIES. IT WILL HAVE AN IRREGULAR SHAPE WITH 4 SIDES. BEGINNING WITH THE NORTH SIDE AND LISTING CLOCKWISE, THE SIDES WILL MEASURE 460 FEET, 2,100 FEET, 560 FEET, AND 2,100 FEET. IT WILL HAVE A HEIGHT BETWEEN THE SURFACE AND 3,500 FEET ABOVE GROUND LEVEL.                                                                                            CIVIL
+MAA2APA00640-28-35.6800N145715.6800N076-24-15.5700W275055.5700W
+MAA2APA00640-28-35.6500N145715.6500N076-24-09.6400W275049.6400W
+MAA2APA00640-28-15.3400N145695.3400N076-24-09.3600W275049.3600W
+MAA2APA00640-28-15.3700N145695.3700N076-24-16.5000W275056.5000W
+MAA3APA006SUNRISE TO SUNSET
+MAA7APA006THIS APA WOULD BE USED ON AVERAGE OF TWO HOURS PER MONTH,
+MAA7APA006DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH.
+MAA7APA006USE WOULD BE BY LIGHT, SINGLE-ENGINE,
+MAA7APA006PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.
+MAA1APA004       AEROBATIC PRACTICE                                                                         PAPENNSYLVANIA                  GREENCASTLE                                                                                                                                                                                                                                                                             6500MSL 500AGL       YESAEROBATIC BOX OVER LANDFILL                                                                                                                                                                                                                                                                                                                                                                                                                                       CIVIL
+MAA2APA00439-48-06.8800N143286.8800N077-48-30.8000W280110.8000W
+MAA2APA00439-47-55.4100N143275.4100N077-47-58.6000W280078.6000W
+MAA2APA00439-47-10.5300N143230.5300N077-47-32.5400W280052.5400W
+MAA2APA00439-47-02.3700N143222.3700N077-48-13.0500W280093.0500W
+MAA2APA00439-47-14.7900N143234.7900N077-48-28.5800W280108.5800W
+MAA2APA00439-47-45.8200N143265.8200N077-48-34.8400W280114.8400W
+MAA3APA004SUNRISE TO SUNSET
+MAA7APA004BEFORE COMMENCING AEROBATIC FLIGHT OPERATIONS,
+MAA7APA004THE PERSON(S) AUTHORIZED TO ACTIVATE AND DEACTIVATE THE AEROBATIC
+MAA7APA004PRACTICE AREA SHALL BE RESPONSIBLE FOR ADVISING THE
+MAA7APA004LEESBURG FLIGHT SERVICE STATION (FSS) AT
+MAA7APA004(888) 766-8267 OF THE ACTIVITY ONE HOUR BEFORE DEPARTURE,
+MAA7APA004AND REQUESTING THAT A NOTICE TO AIRMEN (NOTAM)
+MAA7APA004THAT INCLUDES THE FOLLOWING INFORMATION BE ISSUED:
+MAA7APA004THE LOCATION, DATES, AND TIMES THE AEROBATIC ACTIVITY WILL BE IN EFFECT.
+MAA7APA004NOTIFICATION SHALL BE MADE TO THE LEESBURG FSS
+MAA7APA004WITH A COPY OF THE CERTIFICATE OF WAIVER AT LEAST 48 HOURS BEFORE
+MAA7APA004INITIAL ACTIVATION OF THE NOTAM.
+MAA7APA004THE LEESBURG FSS SHALL ALSO BE NOTIFIED AT THE
+MAA7APA004TERMINATION OF AEROBATIC ACTIVITIES WITHIN THE APA.
+MAA7APA004NOTIFICATION SHALL BE MADE TO THE POTOMAC TRACON
+MAA7APA004OPERATIONS MANAGER IN CHARGE (OMIC)
+MAA7APA004APPROXIMATELY ONE HOUR PRIOR TO USING THE 6G ENTERPRISES
+MAA7APA004AEROBATIC PRACTICE AREA AT 540-349-7541
+MAA7APA004PROVIDE THE EXPECTED DURATION OF PRACTICE AND
+MAA7APA004CONTACT THE OMIC AGAIN WHEN OPERATION IS TERMINATED.
+MAA1APA008       AEROBATIC PRACTICE                                                                         PAPENNSYLVANIA                  MARIETTA                                                                           N71 DONEGAL SPRINGS AIRPARK                           20993.*A               DONEGAL SPRINGS AIRPARK APA                                                                                             4000AGL 1000AGL      YES                                                                                                                                                                                                                                                                                                                                                                                                                                                                  CIVIL
+MAA2APA00840-06-09.8400N144369.8400N076-35-00.2000W275700.2000W
+MAA2APA00840-06-12.6600N144372.6600N076-34-18.0300W275658.0300W
+MAA2APA00840-05-40.4100N144340.4100N076-34-14.3500W275654.3500W
+MAA2APA00840-05-37.5900N144337.5900N076-34-56.5100W275696.5100W
+MAA3APA008SR-SS LOCAL
+MAA1APA001       AEROBATIC PRACTICE                                                                         PAPENNSYLVANIA                  PALMYRA                                                                            58N REIGLE FLD                                        21176.*A               REIGLE AVIATION                                                                                                         3500MSL 1000AGL      YES                                                                                                                                                                                                                                                                                                                                                                                                                                                                  CIVIL
+MAA2APA00140-17-48.3000N145068.3000N076-34-36.1000W275676.1000W
+MAA2APA00140-17-18.6000N145038.6000N076-34-28.9200W275668.9200W
+MAA2APA00140-17-18.6000N145038.6000N076-35-16.5912W275716.5912W
+MAA2APA00140-17-47.8824N145067.8824N076-35-20.0868W275720.0868W
+MAA3APA001SUNRISE TO SUNSET
+MAA5APA001    WASHINGTON HUB FSS                                123.6N
+MAA1APA005       AEROBATIC PRACTICE                                                                         PAPENNSYLVANIA                  POTTSVILLE                                                                         ZER SCHUYLKILL COUNTY/JOE ZERBEY                      21300.*A               SCHUYKILL COUNTY AIRPORT                                                                                                10000MSL             YESTHE APA WOULD BE LOCATED AT SCHUYLKILL COUNTY AIRPORT. IT WOULD HAVE RECTANGULAR SHAPE WITH SIDES MEASURING 10,000 FEET BY 2,800 FEET AND HAVE A HEIGHT BETWEEN THE SURFACE AND 10,000 FEET MEAN SEA LEVEL.                                                                                                                                                                                                                                                       CIVIL
+MAA2APA00540-42-32.2300N146552.2300N076-24-14.9200W275054.9200W
+MAA2APA00540-42-19.6600N146539.6600N076-22-05.6000W274925.6000W
+MAA2APA00540-41-51.3900N146511.3900N076-22-10.6200W274930.6200W
+MAA2APA00540-42-04.6700N146524.6700N076-24-18.5600W275058.5600W
+MAA3APA005SUNRISE TO SUNSET
+MAA1APA007       AEROBATIC PRACTICE                                                                         PAPENNSYLVANIA                  SCHAEFFERSTOWN                                                                     08N KELLER BROTHERS                                   20736.*A               KELLER BROTHER AIRPORT APA                                                                                              4000AGL 1000AGL      YESTHE APA WOULD BE LOCATED AT KELLER BROTHERS AIRPORT. IT WOULD BE A BOX THAT IS 3,600 FEET BY 3,600 FEET AND WOULD HAVE A HEIGHT BETWEEN 1,000 FEET ABOVE GROUND LEVEL (AGL) AND 4,000 FEET AGL.                                                                                                                                                                                                                                                                   CIVIL
+MAA2APA00740-17-45.7900N145065.7900N076-19-11.8600W274751.8600W
+MAA2APA00740-17-16.2700N145036.2700N076-18-45.7500W274725.7500W
+MAA2APA00740-16-56.3500N145016.3500N076-19-24.4600W274764.4600W
+MAA2APA00740-17-25.8800N145045.8800N076-19-50.5700W274790.5700W
+MAA3APA007SUNRISE TO SUNSET
+MAA7APA007THIS APA WOULD BE USED ON AVERAGE OF EIGHT HOURS PER MONTH,
+MAA7APA007DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH.
+MAA7APA007USE WOULD BE BY LIGHT, SINGLE-ENGINE,
+MAA7APA007ROPELLER-DRIVEN, AEROBATIC AIRCRAFT.
+MAA1APA002       AEROBATIC PRACTICE                                                                         PAPENNSYLVANIA                                                41-25-15.2800N149115.2800N076-32-03.8100W275523.8100W4PN7MERRITT FLD                                       20275.6*A              GEORGE JENKINS                                                                                                          5600MSL 3600MSL     1YES                                                                                                                                                                                                                                                                                                                                                                                                                                                                  CIVIL
+MAA3APA002DAYLIGHT
+MAA7APA002PERSONS AUTHORIZED ARE TO ADVISE NYC (ZNY) AREA D FRONT LINE
+MAA7APA002MANAGER AT 1-631-468-1403, 1 HOUR PRIOR TO DEPARTURE
+MAA7APA002AND REQUESTING THAT A NOTAM BE ISSUED.
+MAA1APA003       AEROBATIC PRACTICE                                                                         PAPENNSYLVANIA                                                40-27-50.0000N145670.0000N077-04-03.0000W277443.0000W                                                                             NEWPRT                                                                                                                  5000MSL 1500MSL     2YES                                                                                                                                                                                                                                                                                                                                                                                                                                                                  CIVIL
+MAA3APA003DAYLIGHT
+MAA7APA003THE PERSON(S) RESPONSIBLE FOR ACTIVATION OF THE PRACTICE AREA WILL
+MAA7APA003PROVIDE THE WASHINGTON HUB FSS WITH A COPY OF THE CERTIFICATE
+MAA7APA003OF WAIVER AT LEAST 48 HOURS BEFORE ACTIVATION OF NOTAM.
+MAA7APA003THIS WAIVER IS ISSUED ON A LONG-TERM BASIS.
+MAA7APA003THE PERSON(S) RESPONSIBLE FOR ACTIVATION OF THE NOTAM SHOULD
+MAA7APA003COORDINATE WITH WASHINGTON HUB FSS TO ENSURE THAT THE FSS
+MAA7APA003KEEPS THE WAIVER ON FILE FOR FUTURE NOTAM ACTIVATION.
+MAA7APA003NOTIFICATION SHALL BE MADE TO THE HARRISBURG APPROACH CONTROL
+MAA7APA003717-948-9183 AT LEAST 30 MINUTES BEFORE THE COMMENCEMENT OF
+MAA7APA003AEROBATIC ACTIVITY IN THE PRACTICE AREA, OR IF A LETTER OF AGREEMENT
+MAA7APA003EXISTS, NOTIFICATION SHALL BE MADE AS SPECIFIED IN THAT DOCUMENT.
+MAA7APA003THE HARRISBURG APPROACH CONTROL SHALL ALSO BE NOTIFIED
+MAA7APA003AT THE TERMINATION OF AEROBATIC ACTIVITIES.
+MAA1GPA001                   GLIDER                                                                         PAPENNSYLVANIA                                                39-54-04.1000N143644.1000N080-07-50.5000W288470.5000WWAY GREENE COUNTY                                     21694.*A                                                                                                                                                            YESEXTENSIVE GLIDER OPERATIONS WEEKENDS
+MAA1ASC001       AEROBATIC PRACTICE                                                                         SCSOUTH CAROLINA                ANDERSON                                                                           AND ANDERSON RGNL                                     22102.*A                                                                                                                                       4000AGL              YESTHE APA WOULD BE LOCATED AT ANDERSON REGIONAL AIRPORT. THE APA WOULD HAVE AN IRREGULAR SHAPE WITH 8 SIDES. BEGINNING WITH THE LONGEST SIDE THAT RUNS PARALLEL TO THE MAIN RUNWAY AND LISTING COUNTER CLOCKWISE, THE SIDES WILL MEASURE 8,500 FEET, 1,700 FEET, 3,000 FEET, 3,700 FEET, 2,250 FEET, 1,850 FEET, 2,250 FEET AND 2,000 FEET. IT WOULD HAVE A HEIGHT BETWEEN THE SURFACE AND 4,000 FEET ABOVE GROUND LEVEL, AS DEPICTED ON THE ENCLOSED GRAPHIC.      CIVIL
+MAA2ASC00134-30-05.0900N124205.0900N082-42-04.1400W297724.1400W
+MAA2ASC00134-29-52.6500N124192.6500N082-41-48.8900W297708.8900W
+MAA2ASC00134-29-30.0700N124170.0700N082-41-59.2500W297719.2500W
+MAA2ASC00134-29-24.6300N124164.6300N082-41-46.2100W297706.2100W
+MAA2ASC00134-29-03.1500N124143.1500N082-41-54.5800W297714.5800W
+MAA2ASC00134-29-10.4900N124150.4900N082-42-35.1100W297755.1100W
+MAA2ASC00134-28-56.5000N124136.5000N082-43-08.1300W297788.1300W
+MAA2ASC00134-29-06.8400N124146.8400N082-43-17.4500W297797.4500W
+MAA3ASC001SUNRISE-SUNSET
+MAA1ASC002       AEROBATIC PRACTICE                                                                         SCSOUTH CAROLINA                CHESTER                                                                            DCM CHESTER CATAWBA RGNL                              22190.*A                                                                                                                                       3000AGL 500AGL       YES                                                                                                                                                                                                                                                                                                                                                                                                                                                                  CIVIL
+MAA2ASC00234-47-45.3000N125265.3000N081-11-58.8300W292318.8300W
+MAA2ASC00234-47-52.7000N125272.7000N081-11-16.4100W292276.4100W
+MAA2ASC00234-47-17.8700N125237.8700N081-11-07.3900W292267.3900W
+MAA2ASC00234-47-10.4600N125230.4600N081-11-04.8100W292264.8100W
+MAA1ASD001       AEROBATIC PRACTICE                                                                         SDSOUTH DAKOTA                  CANTON                                                                                                                                                          CANTON APA                                                                                                              2500AGL              YESTHE APA WOULD BE LOCATED APPROXIMATELY 5 MILES NORTH WEST OF CANTON, SD IN LINCOLN COUNTY. THIS APA WOULD BE USED ON AVERAGE OF TWO HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH.                                                                                                                                                                                                                                                  CIVIL
+MAA2ASD00143-21-32.1900N156092.1900N096-39-58.9200W347998.9200W
+MAA2ASD00143-21-31.9200N156091.9200N096-38-55.6800W347935.6800W
+MAA2ASD00143-21-06.5800N156066.5800N096-38-55.7200W347935.7200W
+MAA2ASD00143-21-06.5400N156066.5400N096-40-06.4500W348006.4500W
+MAA2ASD00143-21-28.2300N156088.2300N096-40-06.1900W348006.1900W
+MAA2ASD00143-21-28.3600N156088.3600N096-39-59.1200W347999.1200W
+MAA3ASD001SUNRISE TO SUNSET.
+MAA1ASD002       AEROBATIC PRACTICE                                                                         SDSOUTH DAKOTA                  STURGIS                                                                            49B STURGIS MUNI                                      22808.2*A              STURGIS MUNICIPAL AIRPORT APA                                                                                           8000AGL              YESTHIS APA WOULD BE USED ON AVERAGE OF 15 HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                                                                                                                                  CIVIL
+MAA2ASD00244-26-17.3100N159977.3100N103-22-52.1000W372172.1000W
+MAA2ASD00244-26-16.8100N159976.8100N103-22-03.3400W372123.3400W
+MAA2ASD00244-25-40.9200N159940.9200N103-22-03.5500W372123.5500W
+MAA2ASD00244-25-41.1700N159941.1700N103-22-51.4300W372171.4300W
+MAA3ASD002SUNRISE TO SUNSET
+MAA1ATN001       AEROBATIC PRACTICE                                                                         TNTENNESSEE                     ASHLAND CITY                                                                       TN77WHIFFERDILL                                       22897.*A               WIFFERDILL AIRPORT APA                                                                                                  3500AGL              YESTHE APA WOULD BE LOCATED SOUTH OF WHIFFERDILL AIRPORT. IT WOULD BE A BOX THAT IS 1 MILE BY 1 MILE AND HAVE A HEIGHT BETWEEN THE SURFACE AND 3,500 FEET ABOVE GROUND LEVEL. THE APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS. THIS APA WOULD BE USED ON AVERAGE OF THREE HOURS PER MONTH. MONDAY THROUGH SUNDAY.                                                                                                CIVIL
+MAA2ATN00136-19-01.5200N130741.5200N087-09-29.9000W313769.9000W
+MAA2ATN00136-18-42.6400N130722.6400N087-08-32.1600W313712.1600W
+MAA2ATN00136-17-54.8400N130674.8400N087-08-55.1500W313735.1500W
+MAA2ATN00136-18-15.2400N130695.2400N087-09-54.9000W313794.9000W
+MAA3ATN001SUNRISE TO SUNSET
+MAA1ATN003       AEROBATIC PRACTICE                                                                         TNTENNESSEE                     SPRINGFIELD                                                                                                                                                     HOLENTHAWALL AIRPORT APA                                                                                                3500AGL              YESTHE APA WOULD BE LOCATED AT HOLENTHAWALL AIRPORT. IT WOULD HAVE AN IRREGULAR SHAPE WITH 7 SIDES. BEGINNING WITH THE NORTHWEST CORNER AND LISTING CLOCKWISE, THE SIDES WILL MEASURE 2,600 FEET, 2,300 FEET, 3,300 FEET, 2,200 FEET, 3,000 FEET, 700 FEET AND 1,900 FEET.                                                                                                                                                                                           CIVIL
+MAA2ATN00336-37-22.8500N131842.8500N086-48-41.7800W312521.7800W
+MAA2ATN00336-37-19.7300N131839.7300N086-48-10.4400W312490.4400W
+MAA2ATN00336-36-56.8800N131816.8800N086-48-13.5900W312493.5900W
+MAA2ATN00336-36-26.4500N131786.4500N086-48-24.5600W312504.5600W
+MAA2ATN00336-36-28.9800N131788.9800N086-48-51.7000W312531.7000W
+MAA2ATN00336-36-58.7100N131818.7100N086-48-42.6200W312522.6200W
+MAA2ATN00336-37-04.9800N131824.9800N086-48-46.5100W312526.5100W
+MAA3ATN003SUNRISE TO SUNSET.
+MAA7ATN003AN APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS
+MAA7ATN003OR AEROBATIC COMPETITIONS. THIS APA WOULD BE USED ON AVERAGE OF EIGHT HOURS
+MAA7ATN003PER MONTH, DURING  DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH.
+MAA7ATN003USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.
+MAA1ATN002       AEROBATIC PRACTICE                                                                         TNTENNESSEE                     UNION CITY                    36-22-47.0785N130967.0785N088-59-08.5337W320348.5337WUCY EVERETT-STEWART RGNL                              23235.*A               EVERETT-STEWART REGIONAL AIRPORT                                                                                        6500AGL             1YESAN APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS. THIS APA WOULD BE USED ON AVERAGE OF TWO HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                                           CIVIL
+MAA3ATN002SURISE TO SUNSET
+MAA1ATX008       AEROBATIC PRACTICE                                                                         TXTEXAS                         EDNA                                                                               26R JACKSON COUNTY                                    23808.1*A              JACKSON COUNTY AIRPORT APA                                                                                              4000MSL              YESTHIS APA IS BOX SHAPED THAT IS 5,300 FEET BY 4,100 FEET.  THIS APA WILL BE USED ON AVERAGE OF 2 HOURS PER MONTH DURING THE DAYLIGHT HOURS, MONDAY THRU SUNDAY.  APA TO BE USED BY LIGHT, SINGE-ENGINE, PROPELLER-DRIVEN AEROBATIC AIRCRAFT.                                                                                                                                                                                                                       CIVIL
+MAA2ATX00829-00-28.7100N104428.7100N096-35-10.1300W347710.1300W
+MAA2ATX00829-00-48.7800N104448.7800N096-34-31.3800W347671.3800W
+MAA2ATX00829-00-04.3100N104404.3100N096-34-01.6600W347641.6600W
+MAA2ATX00828-59-43.9400N104383.9400N096-34-40.4300W347680.4300W
+MAA3ATX008SUNRISE - SUNSET
+MAA1ATX010       AEROBATIC PRACTICE                                                                         TXTEXAS                         EL CAMPO                                                                                                                                                        BLUE CREEK AIRFIELD                                                                                                     10000AGL             YESTHIS APA WOULD HAVE AN IRREGULAR SHAPE WITH 5 SIDES.  BEGINNING WITH THE NORTH CORNER AND LISTING CLOCKWISE:  THE SIDES ARE 13500 FT, 8600 FT, 9100 FT, 6800 FT AND 2800 FT.  THIS APA WOULD BE USED ON AVERAGE OF 9 HR PER MONTH DURING DAYLIGHT HRS, MON THRU SUN.  USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                 CIVIL
+MAA2ATX01029-07-15.4100N104835.4100N096-03-32.8400W345812.8400W
+MAA2ATX01029-05-19.8700N104719.8700N096-02-13.5600W345733.5600W
+MAA2ATX01029-04-39.3700N104679.3700N096-03-38.9700W345818.9700W
+MAA2ATX01029-05-57.6200N104757.6200N096-04-29.5100W345869.5100W
+MAA2ATX01029-07-01.2700N104821.2700N096-04-01.1700W345841.1700W
+MAA3ATX010SUNRISE TO SUNSET
+MAA1ATX011       AEROBATIC PRACTICE                                                                         TXTEXAS                         GILMER                                                                             JXI FOX STEPHENS FLD/GILMER MUNI                      23939.11*A             FOX STEPHENS FIELD-GILMER MUNICIPAL AIRPORT APA                                                                         3000AGL              YESTHIS APA WOULD BE USED ON AVERAGE OF SEVEN HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                                                                                                                               CIVIL
+MAA2ATX01132-42-13.1600N117733.1600N094-57-17.7000W341837.7000W
+MAA2ATX01132-42-13.0800N117733.0800N094-56-56.2900W341816.2900W
+MAA2ATX01132-41-30.7900N117690.7900N094-56-56.6100W341816.6100W
+MAA2ATX01132-41-30.9200N117690.9200N094-57-17.7500W341837.7500W
+MAA3ATX011SUNRISE - SUNSET
+MAA7ATX011THIS APA PERMITS PILOTS TO CONDUCT AEROBATICS FOR AIR SHOWS/COMPETITIONS.  THIS APA TO BE USED APPROX 7 HRS PER MONTH, DAYLIGHT HRS, MON-SUN BY LIGHT SINGLE-ENGINE, PROPELLER-DRIVEN AEROBATIC AIRCRAFT
+MAA1ATX007       AEROBATIC PRACTICEMQP C VORTAC                   115.5 26.93 MILLSAP                       TXTEXAS                         GODLEY                        32-28-14.5010N116894.5010N097-33-37.0820W351217.0820W20T ARESTI AERODROME                                  23949.54*A             ARESTI                                                                                                                  3500AGL             2YESAEROBATIC AREA 1NM NW OF ARESTI AIRPORT (20T) SFC-3500 AGL.                                                                                                                                                                                                                                                                                                                                                                                                       CIVIL
+MAA3ATX007SUNRISE TO SUNSET DAILY
+MAA1ATX009       AEROBATIC PRACTICE                                                                         TXTEXAS                         GRAHAM                                                                             RPH GRAHAM MUNI                                       23961.*A               GRAHAM MUNICIPAL AIRPORT APA                                                                                            4700MSL              YESTHE APA HAS A DIAMOND SHAPE THAT IS 3,300 FT BY 3300 FT, THE HEIGHT IS 4700 MSL.  THIS APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS.  THIS APA WILL BE USED ON AVERAGE OF 13 HRS PER MONTH DURING DAYLIGHT HOURS USED BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                           CIVIL
+MAA2ATX00933-06-46.8000N119206.8000N098-33-03.6000W354783.6000W
+MAA2ATX00933-06-25.2000N119185.2000N098-32-34.8000W354754.8000W
+MAA2ATX00933-06-00.1500N119160.1500N098-33-00.0100W354780.0100W
+MAA2ATX00933-06-21.6000N119181.6000N098-33-28.8000W354808.8000W
+MAA3ATX009SUNRISE TO SUNSET
+MAA1ATX001       AEROBATIC PRACTICE                                                                         TXTEXAS                         LANCASTER                                                                          LNC LANCASTER RGNL                                    24189.6*A                                                                                                                                      1500AGL              YES                                                                                                                                                                                                                                                                                                                                                                                                                                                                  CIVIL
+MAA2ATX00132-32-01.8600N117121.8600N096-43-29.8600W348209.8600W
+MAA2ATX00132-35-13.0600N117313.0600N096-43-13.7200W348193.7200W
+MAA2ATX00132-35-11.0600N117311.0600N096-42-23.0700W348143.0700W
+MAA2ATX00132-34-39.7800N117279.7800N096-42-02.4900W348122.4900W
+MAA2ATX00132-34-13.1400N117253.1400N096-42-41.6400W348161.6400W
+MAA3ATX001SUNRISE - SUNSET
+MAA1ATX006       AEROBATIC PRACTICE                                                                         TXTEXAS                         RANKIN                                                                                                                                                          RANKIN APA                                                                                                              9999MSL              YESTHE APA WOULD BE LOCATED IN RANKIN, TX IN ELLIS COUNTY.  IT WOULD HAVE A RECTANGULAR SHAPE THAT IS 9,200 FEET BY 3,200 FEET AND WOULD HAVE A HEIGHT BETWEEN THE SURFACE AND 9,999 FEET MEAN SEAL LEVEL.                                                                                                                                                                                                                                                           CIVIL
+MAA2ATX00632-12-43.1500N115963.1500N096-41-39.1800W348099.1800W
+MAA2ATX00632-11-23.6200N115883.6200N096-40-46.5500W348046.5500W
+MAA2ATX00632-11-08.9200N115868.9200N096-41-16.6100W348076.6100W
+MAA2ATX00632-12-26.5200N115946.5200N096-42-11.2900W348131.2900W
+MAA3ATX006SUNRISE TO SUNSET
+MAA1ATX002       AEROBATIC PRACTICE                                                                         TXTEXAS                         SHERMAN                                                                            GYI NORTH TEXAS RGNL/PERRIN FLD                       24780.*A                                                                                                                                       4700MSL              YES                                                                                                                                                                                                                                                                                                                                                                                                                                                                  CIVIL
+MAA2ATX00233-43-34.7500N121414.7500N096-40-54.2800W348054.2800W
+MAA2ATX00233-43-33.9800N121413.9800N096-40-13.6700W348013.6700W
+MAA2ATX00233-42-16.0300N121336.0300N096-40-15.9400W348015.9400W
+MAA2ATX00233-42-16.6700N121336.6700N096-40-56.8400W348056.8400W
+MAA3ATX002SUNRISE - SUNSET
+MAA1ATX005       AEROBATIC PRACTICE                                                                         TXTEXAS                         SLATON                                                                             F49 CITY OF SLATON/LARRY T NEAL MEML                  24812.2*A              SLATON MUNICIPAL AIRPORT APA                                                                                            9000MSL              YESTHE APA WOULD BE LOCATED AT SLATON MUNICIPAL AIRPORT.  IT WOULD HAVE AN IRREGULAR SHAPE WITH 4 SIDES.  BEGINNING WITH THE NE CORNER AND LISTING CLOCKWISE, THE SIDES WILL MEASURE 4,400 FT; 10,500 FT; 3,300 FT AND 8,600 FT.  IT WOULD HAVE A HEIGHT BETWEEN THE SURFACE AND 9,000 FT MSL.                                                                                                                                                                       CIVIL
+MAA2ATX00533-29-15.0900N120555.0900N101-40-31.1100W366031.1100W
+MAA2ATX00533-29-15.1200N120555.1200N101-39-39.3500W365979.3500W
+MAA2ATX00533-27-32.2600N120452.2600N101-39-58.3000W365998.3000W
+MAA2ATX00533-27-50.2000N120470.2000N101-40-29.9600W366029.9600W
+MAA3ATX005SUNRISE TO SUNSET
+MAA3ATX005THIS APA WOULD BE USED ON AVERAGE OF 5 HRS PER MONTH, DURING DAYLIGHT HOURS
+MAA3ATX005MONDAY THROUGH SUNDAY.  USE WOULD BE BY LIGHT, SINGLE-ENGINE,
+MAA3ATX005PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.
+MAA1ATX003       AEROBATIC PRACTICE                                                                         TXTEXAS                         SLIDELL                                                                            3TX AKROVILLE                                         24812.5*A              AKROVILLE AIRPORT APA                                                                                                   4000MSL              YESTHE APA IS A RECTANGLE APPROX 10,000 FT BY 3,000 FT.                                                                                                                                                                                                                                                                                                                                                                                                              CIVIL
+MAA2ATX00333-23-50.0700N120230.0700N097-22-48.4900W350568.4900W
+MAA2ATX00333-23-48.5300N120228.5300N097-20-51.3900W350451.3900W
+MAA2ATX00333-23-18.5400N120198.5400N097-20-51.2100W350451.2100W
+MAA2ATX00333-23-19.8500N120199.8500N097-22-48.8400W350568.8400W
+MAA3ATX003SUNRISE - SUNSET
+MAA1ATX004       AEROBATIC PRACTICE                                                                         TXTEXAS                         WAXAHACHIE                                                                         25XSMOONBOW FLD                                       24986.2*A              MOONBOW FIELD AIRPORT APA                                                                                               3500MSL              YESTHE APA WOULD BE LOCATED AT MOONBOW FIELD AIRPORT. IT WOULD BE A BOX THAT IS 3,100 FEET BY 3,100 FEET AND HAVE A HEIGHT BETWEEN THE SURFACE AND 3,500 FEET MEAN SEA LEVEL (AGL). THIS APA WOULD BE USED ON AVERAGE OF SIX HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT                                                                                 CIVIL
+MAA2ATX00432-29-18.8500N116958.8500N096-51-27.7300W348687.7300W
+MAA2ATX00432-29-23.9800N116963.9800N096-50-51.8500W348651.8500W
+MAA2ATX00432-28-53.8900N116933.8900N096-50-45.4400W348645.4400W
+MAA2ATX00432-28-47.9900N116927.9900N096-51-21.7000W348681.7000W
+MAA3ATX004SUNRISE TO SUNSET
+MAA1STX001    SPACE LAUNCH ACTIVITY                                                                         TXTEXAS                                                       29-36-26.0000N106586.0000N095-09-32.0000W342572.0000WEFD ELLINGTON                                         24067.3*A              HOUSTON SPACEPORT                                                                                                                            YESSPACE LAUNCH AND REENTRY OPERATIONS ARE NOT CURRENTLY BEING CONDUCTED IN THE SLA. THE SITE DOES NOT HAVE A LICENSED OPERATOR AUTHORIZED TO CONDUCT ANY SPACE LAUNCH OR REENTRY ACTIVITIES IN THE AREA.
+MAA6STX001KZHU
+MAA6STX001KEFD
+MAA1STX002    SPACE LAUNCH ACTIVITY                                                                         TXTEXAS                                                       31-56-33.1000N114993.1000N102-12-06.9000W367926.9000WMAF MIDLAND INTL AIR AND SPACE PORT                   24353.*A               MIDLAND SPACEPORT                                                                                                                            YESSPACE LAUNCH AND REENTRY OPERATIONS ARE NOT CURRENTLY BEING CONDUCTED IN THE SLA. THE SITE DOES NOT HAVE A LICENSED OPERATOR AUTHORIZED TO CONDUCT ANY SPACE LAUNCH OR REENTRY ACTIVITIES IN THE AREA.
+MAA6STX002KMAF
+MAA6STX002KZFW
+MAA1STX003    SPACE LAUNCH ACTIVITY                                                                         TXTEXAS                                                       31-23-33.6600N113013.6600N097-27-46.2500W350866.2500W                                                                 PWG 9     SWSPACEX ROCKET DEVELOPMENT FACILITY                                                                                                           YESSUB-ORBITAL LAUNCH OPERATIONS ARE CONDUCTED FROM THE FACILITY AT VARIOUS TIMES.
+MAA6STX003KPWG
+MAA6STX003KZFW
+MAA6STX003KTPL
+MAA6STX003KZHU
+MAA1STX004    SPACE LAUNCH ACTIVITY                                                                         TXTEXAS                                                       31-24-24.2600N113064.2600N104-45-08.7400W377108.7400W                                                                 VHN 22    N WEST TEXAS LAUNCH SITE                                                                                                                       YESSUB-ORBITAL SPACE LAUNCH OPERATIONS ARE CONDUCTED FROM THE SITE AT VARIOUS TIMES.
+MAA6STX004KZAB
+MAA1STX005    SPACE LAUNCH ACTIVITY                                                                         TXTEXAS                                                       25-59-50.5700N093590.5700N097-09-26.1900W349766.1900W                                                                 BRO 18.7  SWSPACEX LAUNCH FACILITY BOCA CHICA                                                                                                            YESSPACEX BOCA CHICA LAUNCH FACILITY IS AN EXCLUSIVE USE LAUNCH SITE WHERE FAA LICENSED ACTIVITY OCCURS.                                                                                                                                                                                                                                                                                                                                                             CIVIL
+MAA6STX005KBRO
+MAA1AUT001       AEROBATIC PRACTICE                                                                         UTUTAH                          NEPHI                                                                              U14 NEPHI MUNI                                        25228.*A               NEPHI MUNICIPAL AIRPORT APA                                                                                             9000MSL              YESTHIS APA WOULD BE USED ON AVERAGE OF 40 HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                                                                                                                                  CIVIL
+MAA2AUT00139-44-28.3500N143068.3500N111-52-58.4700W402778.4700W
+MAA2AUT00139-44-28.4500N143068.4500N111-52-15.0700W402735.0700W
+MAA2AUT00139-43-55.4500N143035.4500N111-52-15.2100W402735.2100W
+MAA2AUT00139-43-55.3000N143035.3000N111-52-58.6400W402778.6400W
+MAA3AUT001SUNRISE TO SUNSET
+MAA1AVA004       AEROBATIC PRACTICE                                                                         VAVIRGINIA                      LOVETTSVILLE                                                                       VA61LOVETTSVILLE VINTAGE AERODROME                    25857.4*A                                                                                                                                      5000MSL 800MSL       YESTHIS APA WOULD BE USED ON AVERAGE OF 10 HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                                                                                                                                  CIVIL
+MAA2AVA00439-16-10.9600N141370.9600N077-39-56.0100W279596.0100W
+MAA2AVA00439-16-08.4500N141368.4500N077-39-11.6300W279551.6300W
+MAA2AVA00439-15-49.4400N141349.4400N077-39-10.5700W279550.5700W
+MAA2AVA00439-15-50.6600N141350.6600N077-39-48.4700W279588.4700W
+MAA2AVA00439-16-07.8400N141367.8400N077-39-56.5800W279596.5800W
+MAA3AVA004INTERMITTENT
+MAA1AVA002       AEROBATIC PRACTICE                                                                         VAVIRGINIA                      MIDLAND                       38-35-10.6000N138910.6000N077-42-38.3000W279758.3000WHWY WARRENTON/FAUQUIER                                26049.2*A                                                                                                                                      3500AGL          1.25YES                                                                                                                                                                                                                                                                                                                                                                                                                                                                  CIVIL
+MAA1AVA001       AEROBATIC PRACTICE                                                                         VAVIRGINIA                      STAFFORD                                                                           RMN STAFFORD RGNL                                     25783.12*A                                                                                                                                     5000AGL              YES                                                                                                                                                                                                                                                                                                                                                                                                                                                                  CIVIL
+MAA2AVA00138-24-24.4600N138264.4600N077-27-59.2900W278879.2900W
+MAA2AVA00138-23-37.7800N138217.7800N077-26-56.7400W278816.7400W
+MAA2AVA00138-23-13.0000N138193.0000N077-27-17.2000W278837.2000W
+MAA2AVA00138-24-10.2000N138250.2000N077-28-20.7000W278900.7000W
+MAA3AVA001INTERMITTENT
+MAA1AVA005       AEROBATIC PRACTICE                                                                         VAVIRGINIA                      VICTORIA                                                                           W31 LUNENBURG COUNTY                                  25838.5*A              LUNENBURG COUNTY AIRPORT APA                                                                                            5400MSL 2100MSL      YESTHIS APA WOULD BE USED ON AVERAGE OF SEVEN HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH FRIDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                                                                                                                               CIVIL
+MAA2AVA00536-58-00.9600N133080.9600N078-11-43.9100W281503.9100W
+MAA2AVA00536-57-52.9400N133072.9400N078-11-04.0800W281464.0800W
+MAA2AVA00536-57-22.0500N133042.0500N078-11-14.0100W281474.0100W
+MAA2AVA00536-57-29.2700N133049.2700N078-11-52.8800W281512.8800W
+MAA3AVA005SUNRISE TO SUNSET
+MAA1AVA006       AEROBATIC PRACTICE                                                                         VAVIRGINIA                      WAKEFIELD                                                                          AKQ WAKEFIELD MUNI                                    26047.5*A                                                                                                                                      3500AGL 500AGL       YESTHE APA WOULD BE LOCATED AT WAKEFIELD MUNICIPAT AIRPORT. IT WOULD BE A BOX THAT IS 3,300 FT BY 3,300 FT AND HAVE A HEIGHT BETWEEN 500 FT AGL AND 3,500 AGL. AN APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS. THIS APA WOULD BE USED ON AVERAGE OF THREE HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH FRIDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFTCIVIL
+MAA2AVA00636-59-44.6000N133184.6000N077-00-37.6200W277237.6200W
+MAA2AVA00636-59-34.5000N133174.5000N076-59-58.8100W277198.8100W
+MAA2AVA00636-59-02.2900N133142.2900N077-00-10.7100W277210.7100W
+MAA2AVA00636-59-13.3700N133153.3700N077-00-50.4500W277250.4500W
+MAA3AVA006SUNRISE TO SUNSET
+MAA1LVA001               ULTRALIGHT                                                                         VAVIRGINIA                                                    39-08-28.0000N140908.0000N077-42-17.0000W279737.0000W                                                                                                                                                                                                                          YES
+MAA7LVA001POWERED PARACHUTE OPERATIONS IN THE PURCELLVILLE, VIRGINIA AREA, MOST GENERALLY ON WEEKENDS. THE AREA IS 307 DEGREES AND 8 NM NORTHWEST OF LEESBURG EXECUTIVE AIRPORT.
+MAA1SVA001    SPACE LAUNCH ACTIVITY                                                                         VAVIRGINIA                                                    37-51-02.1300N136262.1300N075-28-15.9300W271695.9300W                                                                 WAL 5     S MID-ATLANTIC REGIONAL SPACEPORT AT WALLOPS FLIGHT FACILITY                                                                                   YESSPACE LAUNCH AND REENTRY OPERATIONS ARE CONDUCTED AT VARIOUS TIMES WITHIN AREA. VERTICAL LAUNCH AND REENTRY ACTIVITIES ARE CONDUCTED FROM LAUNCH PADS LOCATED ABOUT 5 NM SOUTH OF KWAL AIRPORT.
+MAA6SVA001KZDC
+MAA1AWA003       AEROBATIC PRACTICE                                                                         WAWASHINGTON                    EPHRATA                                                                            EPH EPHRATA MUNI                                      26204.*A               EPHRATA MUNICIPAL AIRPORT APA                                                                                           5000AGL              YESTHE APA WOULD BE LOCATED AT EPHRATA MUNICIPAL AIRPORT. IT WOULD HAVE AN IRREGULAR SHAPE WITH FOUR SIDES. BEGINNING WITH THE NORTH CORNER AND LISTING CLOCKWISE, THE SIDES WILL MEASURE 7,300 FEET, 5,500 FEET, 7,000 FEET AND 6,400 FEET. IT WOULD HAVE A HEIGHT BETWEEN THE SURFACE AND 5,000 FEET ABOVE GROUND LEVEL, AS DEPICTED ON THE ENCLOSED GRAPHIC                                                                                                       CIVIL
+MAA2AWA00347-19-03.4400N170343.4400N119-30-17.7300W430217.7300W
+MAA2AWA00347-18-12.0200N170292.0200N119-29-04.5000W430144.5000W
+MAA2AWA00347-17-33.5800N170253.5800N119-30-01.6400W430201.6400W
+MAA2AWA00347-18-17.0700N170297.0700N119-31-20.6300W430280.6300W
+MAA3AWA003SUNRISE TO SUNSET
+MAA1AWA002       AEROBATIC PRACTICE                                                                         WAWASHINGTON                    NACHES                                                                                                                                                                                                                                                                                  3200AGL 328AGL       YESTHE APA WOULD BE LOCATED APPROX. 6 MILES EAST OF NACHES, WA IN YAKIMA COUNTY. IT WILL BE A BOX WITH 4 EQUAL SIDES. BEGINNING WITH THE NW CORNER LISTING CLOCKWISE, THE SIDES MEASURE 5400 FT, 4500 FT, 5400 FT AND 4600 FT.  THIS APA WOULD BE USED ON AVERAGE 2 HRS PER MONTH DURING DAYLIGHT HRS.  USE  WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                 CIVIL
+MAA2AWA00246-45-29.5700N168329.5700N120-34-24.0000W434064.0000W
+MAA2AWA00246-45-28.8700N168328.8700N120-33-06.5400W433986.5400W
+MAA2AWA00246-44-43.8900N168283.8900N120-33-07.4900W433987.4900W
+MAA2AWA00246-44-43.9600N168283.9600N120-34-24.5800W434064.5800W
+MAA3AWA002SUNRISE TO SUNSET
+MAA1AWA001       AEROBATIC PRACTICE                                                                         WAWASHINGTON                    PORT ANGELES                                                                       CLM WILLIAM R FAIRCHILD INTL                          26357.*A               WILLIAM R. FAIRCHILD INTERNATIONAL AIRPORT APA                                                                          4000AGL 328AGL       YESTHE APA IS LOCATED AT WILLIAM R. FAIRCHILD INTERNATIONAL AIRPORT. IT IS A BOX THAT IS 3,400 FEET BY 3,400 FEET AND HAS A HEIGHT BETWEEN 328 FEET ABOVE GROUND LEVEL  (AGL) AND 4,000 FEET AGL.  THIS APA WILL BE USED ON AVERAGE OF THREE HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY EACH MONTH.  USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER DRIVEN, AEORBATIC AIRCRAFT.                                                                  CIVIL
+MAA2AWA00148-07-34.5400N173254.5400N123-30-47.0900W444647.0900W
+MAA2AWA00148-07-25.6600N173245.6600N123-29-58.7200W444598.7200W
+MAA2AWA00148-06-54.2500N173214.2500N123-30-10.8300W444610.8300W
+MAA2AWA00148-07-02.5600N173222.5600N123-30-59.4100W444659.4100W
+MAA3AWA001SUNRISE TO SUNSET
+MAA1HWA001              HANG GLIDER                                                                         WAWASHINGTON                                                  47-47-45.7100N172065.7100N120-03-02.3500W432182.3500W                                                                                                                                                                                                                          YES
+MAA1HWA002              HANG GLIDER                                                                         WAWASHINGTON                                                  48-36-34.0000N174994.0000N122-25-34.0000W440734.0000W                                                                                                                                                                                                                          YES
+MAA1AWI003       AEROBATIC PRACTICE                                                                         WIWISCONSIN                     CUMBERLAND                                                                         UBE CUMBERLAND MUNI                                   27132.4*A              CUMBERLAND MUNICIPAL AIRPORT APA                                                                                        5000MSL              YESPROPOSED LOCATION: THE APA WOULD BE LOCATED AT CUMBERLAND MUNI ARPT. IT WOULD BE A BOX 3500 FT BY 3200 FT AND HAVE A HEIGHT BETWEEN THE SURFACE AND 5000 MSL. PROPOSED ACTIVITY DESCRIPTION: AN APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS. THIS APA WOULD BE USED AN AVERAGE OF 2 HRS PER MO, DURING DAYLIGHT HRS, MONDAY THROUGH SUNDAY EACH MONTH.                                                        CIVIL
+MAA2AWI00345-30-20.8200N163820.8200N091-59-17.0000W331157.0000W
+MAA2AWI00345-30-20.5800N163820.5800N091-58-27.8300W331107.8300W
+MAA2AWI00345-29-48.8300N163788.8300N091-58-27.9000W331107.9000W
+MAA2AWI00345-29-49.2200N163789.2200N091-59-17.0500W331157.0500W
+MAA3AWI003SUNRISE TO SUNSET
+MAA4AWI003CUMBERLAND MUNICIPAL AIRPORT APA
+MAA7AWI003USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.
+MAA1AWI004       AEROBATIC PRACTICE                                                                         WIWISCONSIN                     EAU CLAIRE                                                                         EAU CHIPPEWA VALLEY RGNL                              27170.*A               CHIPPEWA VALLEY REGIONAL AIRPORT APA                                                                                    4500AGL              YESAN APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS. THIS APA WOULD BE USED ON AVERAGE OF FIVE HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                                                                                                            CIVIL
+MAA2AWI00444-52-58.1900N161578.1900N091-28-05.6900W329285.6900W
+MAA2AWI00444-52-48.1500N161568.1500N091-27-51.3200W329271.3200W
+MAA2AWI00444-51-51.2500N161511.2500N091-29-11.6000W329351.6000W
+MAA2AWI00444-52-01.8400N161521.8400N091-29-25.7300W329365.7300W
+MAA3AWI004SUNRISE TO SUNSET.
+MAA1AWI002       AEROBATIC PRACTICE                                                                         WIWISCONSIN                     SHAWANO                                                                            EZS SHAWANO MUNI                                      27562.*A               SHAWANO MUNICIPAL AIRPORT APA                                                                                           4000MSL 250AGL       YESPROPOSED LOCATION: THE APA WOULD BE LOCATED 2.5 MILES SOUTH OF SHAWANO MUNI ARPT. IT WOULD BE A BOX THAT IS 5200 FT AND HAVE A HEIGHT BETWEEN 250 FT AGL  4000 FEET MSL, AS DEPICTED ON THE ENCLOSED GRAPHIC.  PROPOSED ACTIVITY DESCRIPTION: AN APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS. THIS APA WOULD BE USED ON AVERAGE OF FOUR HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY MONTHLY.CIVIL
+MAA2AWI00244-45-20.9500N161120.9500N088-33-20.5000W318800.5000W
+MAA2AWI00244-45-20.7600N161120.7600N088-32-08.2300W318728.2300W
+MAA2AWI00244-44-28.8200N161068.8200N088-32-07.9700W318727.9700W
+MAA2AWI00244-44-29.5800N161069.5800N088-33-21.6200W318801.6200W
+MAA3AWI002SUNRISE TO SUNSET
+MAA4AWI002SHAWANO MUNICIPAL AIRPORT APA
+MAA7AWI002USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.
+MAA1AWI001       AEROBATIC PRACTICE                                                                         WIWISCONSIN                     WAUPACA                                                                            PCZ WAUPACA MUNI                                      27664.*A               WAUPACA MUNICIPAL AIRPORT APA                                                                                           6000AGL              YESPROPOSED LOCATION: THE APA WOULD BE LOCATED AT WAUPACA AIRPORT. IT WOULD BE A RECTANGLE THAT IS 1,000 FEET BY 5,100 FEET AND HAVE A HEIGHT BETWEEN THE SURFACE AND 6,000 FEET MEAN SEA LEVEL. PROPOSED ACTIVITY DESCRIPTION: AN APA PERMITS PILOTS TO CONDUCT AEROBATICS IN  PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS. THIS APA WOULD BE USED ON AVERAGE OF FIVE HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH.          CIVIL
+MAA2AWI00144-20-05.6300N159605.6300N089-01-58.3500W320518.3500W
+MAA2AWI00144-20-01.7600N159601.7600N089-00-46.2200W320446.2200W
+MAA2AWI00144-19-52.8100N159592.8100N089-00-46.7900W320446.7900W
+MAA2AWI00144-19-56.0400N159596.0400N089-01-59.2200W320519.2200W
+MAA3AWI001SUNRISE TO SUNSET
+MAA7AWI001USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.
+MAA1AWI005       AEROBATIC PRACTICE                                                                         WIWISCONSIN                                                   42-41-21.6860N153681.6860N090-26-39.8080W325599.8080WPVB PLATTEVILLE MUNI                                  27490.1*A              PLATTEVILLE MUNICIPAL AIRPORT APA                                                                                       5000AGL             1YESAPA LOCATED AT PLATTEVILLE MUNICIPAL AIRPORT.  APA IS A CIRCLE WITH A RADIUS OF ONE NAUTICAL MILE CENTERED ON THE AIRPORT RUNWAY. APA HAVING A HEIGHT BETWEEN THE SURFACE AND 5,000 FEET ABOVE GROUND LEVEL.                                                                                                                                                                                                                                                      CIVIL
+MAA3AWI005SUNRISE TO SUNSET.
+MAA7AWI005APA PERMITS PILOTS TO CONDUCT AEROBATICS IN PREPARATION FOR AIR SHOWS OR AEROBATIC COMPETITIONS.
+MAA7AWI005THIS APA WILL BE USED ON AVERAGE OF 12 HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH.
+MAA7AWI005USE WILL BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.
+MAA1AWV001       AEROBATIC PRACTICE                                                                         WVWEST VIRGINIA                 WHEELING                                                                           HLG WHEELING OHIO COUNTY                              26948.*A               WHEELING OHIO COUNTY AIRPORT APA                                                                                        4300AGL              YESTHE APA WOULD BE LOCATED AT WHEELING OHIO COUNTY AIRPORT. IT WOULD BE A RECTANGLE THAT IS 4,300 FEET BY 7,100 FEET AND HAVE A HEIGHT BETWEEN THE SURFACE AND 4,300 FEET ABOVE GROUND LEVEL.  THIS APA WOULD BE USED ON AVERAGE OF SIX HOURS PER MONTH, DURING DAYLIGHT HOURS, MONDAY THROUGH SUNDAY OF EACH MONTH. USE WOULD BE BY LIGHT, SINGLE-ENGINE, PROPELLER-DRIVEN, AEROBATIC AIRCRAFT.                                                                    CIVIL
+MAA2AWV00140-10-47.5900N144647.5900N080-39-27.6700W290367.6700W
+MAA2AWV00140-10-49.6500N144649.6500N080-38-32.5900W290312.5900W
+MAA2AWV00140-09-40.4100N144580.4100N080-38-25.7900W290305.7900W
+MAA2AWV00140-09-37.7900N144577.7900N080-39-22.8500W290362.8500W
+MAA3AWV001SUNRISE TO SUNSET
+MAA1AWY001       AEROBATIC PRACTICE                                                                         WYWYOMING                       POWELL                                                                             POY POWELL MUNI                                       27870.*A                                                                                                                                       5000AGL              YESTHE APA WOULD BE LOCATED AT POWELL MUNICIPAL AIRPORT. IT WOULD BE A RECTANGLE THAT IS 3 MILES BY 2 MILES AND HAVE A HEIGHT BETWEEN THE SURFACE AND 5,000 FEET ABOVE GROUND LEVEL, AS DEPICTED ON THE ENCLOSED GRAPHIC.                                                                                                                                                                                                                                            CIVIL
+MAA2AWY00144-52-53.3200N161573.3200N108-48-21.2000W391701.2000W
+MAA2AWY00144-50-43.8600N161443.8600N108-46-13.5600W391573.5600W
+MAA2AWY00144-49-35.9500N161375.9500N108-48-30.2500W391710.2500W
+MAA2AWY00144-51-47.5400N161507.5400N108-50-34.1000W391834.1000W
+MAA3AWY001SUNRISE TO SUNSET
+MAA1GWY001                   GLIDERJAC D VOR/DME                  232.325.11  JACKSON                       WYWYOMING                                                     43-35-07.5000N156907.5000N110-50-17.4300W399017.4300W                                                                                                                                                                                                                          YES

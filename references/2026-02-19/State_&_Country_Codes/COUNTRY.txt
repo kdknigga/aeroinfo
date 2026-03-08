@@ -1,0 +1,293 @@
+CO COUNTRY_NAME                   NUMERIC_COUNTRY_CODE
+-- ------------------------------ --------------------
+AF AFGHANISTAN                                       4
+AX ALAND ISLANDS                                   248
+AL ALBANIA                                           8
+DZ ALGERIA                                          12
+AS AMERICAN SAMOA                                   16
+AD ANDORRA                                          20
+AO ANGOLA                                           24
+AI ANGUILLA                                        660
+AQ ANTARCTICA                                       10
+AG ANTIGUA AND BARBUDA                              28
+AR ARGENTINA                                        32
+AM ARMENIA                                          51
+AW ARUBA                                           533
+AU AUSTRALIA                                        36
+AT AUSTRIA                                          40
+AZ AZERBAIJAN                                       31
+BS BAHAMAS                                          44
+BH BAHRAIN                                          48
+BD BANGLADESH                                       50
+BB BARBADOS                                         52
+BY BELARUS                                         112
+
+CO COUNTRY_NAME                   NUMERIC_COUNTRY_CODE
+-- ------------------------------ --------------------
+BE BELGIUM                                          56
+BZ BELIZE                                           84
+BJ BENIN                                           204
+BM BERMUDA                                          60
+BT BHUTAN                                           64
+BO BOLIVIA                                          68
+BA BOSNIA AND HERZEGOVINA                           70
+BW BOTSWANA                                         72
+BV BOUVET ISLAND                                    74
+BR BRAZIL                                           76
+IO BRITISH INDIAN OCEAN TERRITORY                   86
+IB BRITISH WEST INDIES                             998
+BN BRUNEI DARUSSALAM                                96
+BG BULGARIA                                        100
+BF BURKINA FASO                                    854
+BI BURUNDI                                         108
+KH CAMBODIA                                        116
+CM CAMEROON                                        120
+CA CANADA                                          124
+CV CAPE VERDE                                      132
+KY CAYMAN ISLANDS                                  136
+
+CO COUNTRY_NAME                   NUMERIC_COUNTRY_CODE
+-- ------------------------------ --------------------
+CF CENTRAL AFRICAN REPUBLIC                        140
+TD CHAD                                            148
+CL CHILE                                           152
+CN CHINA                                           156
+CX CHRISTMAS ISLAND                                162
+CC COCOS (KEELING) ISLANDS                         166
+CO COLOMBIA                                        170
+KM COMOROS                                         174
+CG CONGO                                           178
+CD CONGO, THE DEMOCRATIC REP OF                    180
+CK COOK ISLANDS                                    184
+CR COSTA RICA                                      188
+CI COTE D'IVOIRE                                   384
+HR CROATIA                                         191
+CU CUBA                                            192
+CY CYPRUS                                          196
+CZ CZECH REPUBLIC                                  203
+DK DENMARK                                         208
+DJ DJIBOUTI                                        262
+DM DOMINICA                                        212
+DO DOMINICAN REPUBLIC                              214
+
+CO COUNTRY_NAME                   NUMERIC_COUNTRY_CODE
+-- ------------------------------ --------------------
+EC ECUADOR                                         218
+EG EGYPT                                           818
+SV EL SALVADOR                                     222
+GQ EQUATORIAL GUINEA                               226
+ER ERITREA                                         232
+EE ESTONIA                                         233
+ET ETHIOPIA                                        231
+FK FALKLAND ISLANDS (MALVINAS)                     238
+FO FAROE ISLANDS                                   234
+FJ FIJI                                            242
+FI FINLAND                                         246
+FR FRANCE                                          250
+GF FRENCH GUIANA                                   254
+PF FRENCH POLYNESIA                                258
+TF FRENCH SOUTHERN TERRITORIES                     260
+IF FRENCH WEST INDIES                               83
+GA GABON                                           266
+GM GAMBIA                                          270
+GE GEORGIA                                         268
+DE GERMANY                                         276
+GH GHANA                                           288
+
+CO COUNTRY_NAME                   NUMERIC_COUNTRY_CODE
+-- ------------------------------ --------------------
+GI GIBRALTAR                                       292
+GR GREECE                                          300
+GL GREENLAND                                       304
+GD GRENADA                                         308
+GP GUADELOUPE                                      312
+GU GUAM                                            316
+GT GUATEMALA                                       320
+GG GUERNSEY                                        831
+GN GUINEA                                          324
+GW GUINEA-BISSAU                                   624
+GY GUYANA                                          328
+HT HAITI                                           332
+HM HEARD IS. AND MCDONALD IS.                      334
+VA HOLY SEE (VATICAN CITY STATE)                   336
+HN HONDURAS                                        340
+HK HONG KONG                                       344
+HU HUNGARY                                         348
+IS ICELAND                                         352
+IN INDIA                                           356
+OI INDIAN OCEAN                                    997
+ID INDONESIA                                       360
+
+CO COUNTRY_NAME                   NUMERIC_COUNTRY_CODE
+-- ------------------------------ --------------------
+IR IRAN, ISLAMIC REPUBLIC OF                       364
+IQ IRAQ                                            368
+IE IRELAND                                         372
+IM ISLE OF MAN                                     833
+IL ISRAEL                                          376
+IT ITALY                                           380
+JM JAMAICA                                         388
+JP JAPAN                                           392
+JE JERSEY                                          832
+JO JORDAN                                          400
+KZ KAZAKHSTAN                                      398
+KE KENYA                                           404
+KI KIRIBATI                                        296
+KR KOREA, REPUBLIC OF                              410
+KW KUWAIT                                          414
+KG KYRGYZSTAN                                      417
+LA LAO PEOPLE'S DEMOCRATIC REP                     418
+LV LATVIA                                          428
+LB LEBANON                                         422
+LS LESOTHO                                         426
+LR LIBERIA                                         430
+
+CO COUNTRY_NAME                   NUMERIC_COUNTRY_CODE
+-- ------------------------------ --------------------
+LY LIBYAN ARAB JAMAHIRIYA                          434
+LI LIECHTENSTEIN                                   438
+LT LITHUANIA                                       440
+LU LUXEMBOURG                                      442
+MO MACAO                                           446
+MK MACEDONIA                                       807
+MG MADAGASCAR                                      450
+MW MALAWI                                          454
+MY MALAYSIA                                        458
+MV MALDIVES                                        462
+ML MALI                                            466
+MT MALTA                                           470
+MH MARSHALL ISLANDS                                584
+MQ MARTINIQUE                                      474
+MR MAURITANIA                                      478
+MU MAURITIUS                                       480
+YT MAYOTTE                                         175
+MX MEXICO                                          484
+FM MICRONESIA, FED STATES OF                       583
+MD MOLDOVA, REPUBLIC OF                            498
+MC MONACO                                          492
+
+CO COUNTRY_NAME                   NUMERIC_COUNTRY_CODE
+-- ------------------------------ --------------------
+MN MONGOLIA                                        496
+ME MONTENEGRO                                      499
+MS MONTSERRAT                                      500
+MA MOROCCO                                         504
+MZ MOZAMBIQUE                                      508
+MM MYANMAR                                         104
+NA NAMIBIA                                         516
+NR NAURU                                           520
+NP NEPAL                                           524
+NL NETHERLANDS                                     528
+AN NETHERLANDS ANTILLES                            530
+NC NEW CALEDONIA                                   540
+NZ NEW ZEALAND                                     554
+NI NICARAGUA                                       558
+NE NIGER                                           562
+NG NIGERIA                                         566
+NU NIUE                                            570
+NF NORFOLK ISLAND                                  574
+KP NORTH KOREA                                     408
+MP NORTHERN MARIANA ISLANDS                        580
+NO NORWAY                                          578
+
+CO COUNTRY_NAME                   NUMERIC_COUNTRY_CODE
+-- ------------------------------ --------------------
+OA OFFSHORE ATLANTIC                               999
+OC OFFSHORE CARIB                                   93
+OG OFFSHORE GULF                                    91
+OM OMAN                                            512
+PI PACIFIC ISLANDS                                  77
+PO PACIFIC OCEAN                                     7
+PK PAKISTAN                                        586
+PW PALAU                                           585
+PS PALESTINIAN TER, OCCUPIED                       275
+PA PANAMA                                          591
+PG PAPUA NEW GUINEA                                598
+PY PARAGUAY                                        600
+PE PERU                                            604
+PH PHILIPPINES                                     608
+PN PITCAIRN                                        612
+PL POLAND                                          616
+PT PORTUGAL                                        620
+PR PUERTO RICO                                     630
+QA QATAR                                           634
+RE REUNION                                         638
+RO ROMANIA                                         642
+
+CO COUNTRY_NAME                   NUMERIC_COUNTRY_CODE
+-- ------------------------------ --------------------
+RU RUSSIAN FEDERATION                              643
+RW RWANDA                                          646
+GS S. GEORGIA AND S. SANDWICH IS.                  239
+BL SAINT BARTHELEMY                                652
+SH SAINT HELENA                                    654
+KN SAINT KITTS AND NEVIS                           659
+LC SAINT LUCIA                                     662
+MF SAINT MARTIN                                    663
+PM SAINT PIERRE AND MIQUELON                       666
+WS SAMOA                                           882
+SM SAN MARINO                                      674
+ST SAO TOME AND PRINCIPE                           678
+SA SAUDI ARABIA                                    682
+SN SENEGAL                                         686
+RS SERBIA                                          688
+SC SEYCHELLES                                      690
+SL SIERRA LEONE                                    694
+SG SINGAPORE                                       702
+SK SLOVAKIA                                        703
+SI SLOVENIA                                        705
+SB SOLOMON ISLANDS                                  90
+
+CO COUNTRY_NAME                   NUMERIC_COUNTRY_CODE
+-- ------------------------------ --------------------
+SO SOMALIA                                         706
+ZA SOUTH AFRICA                                    710
+ES SPAIN                                           724
+LK SRI LANKA                                       144
+VC ST. VINCENT AND THE GRENADINES                  670
+SD SUDAN                                           736
+SR SURINAME                                        740
+SJ SVALBARD AND JAN MAYEN                          744
+SZ SWAZILAND                                       748
+SE SWEDEN                                          752
+CH SWITZERLAND                                     756
+SY SYRIAN ARAB REPUBLIC                            760
+TW TAIWAN, PROVINCE OF CHINA                       158
+TJ TAJIKISTAN                                      762
+TZ TANZANIA, UNITED REPUBLIC OF                    834
+TH THAILAND                                        764
+TL TIMOR-LESTE                                     626
+TG TOGO                                            768
+TK TOKELAU                                         772
+TO TONGA                                           776
+TT TRINIDAD AND TOBAGO                             780
+
+CO COUNTRY_NAME                   NUMERIC_COUNTRY_CODE
+-- ------------------------------ --------------------
+TQ TRUST TERRITORIES                                75
+TN TUNISIA                                         788
+TR TURKEY                                          792
+TM TURKMENISTAN                                    795
+TC TURKS AND CAICOS ISLANDS                        796
+TV TUVALU                                          798
+UM U.S. MINOR OUTLYING ISLANDS                     581
+UG UGANDA                                          800
+UA UKRAINE                                         804
+AE UNITED ARAB EMIRATES                            784
+GB UNITED KINGDOM                                  826
+US UNITED STATES                                   840
+UY URUGUAY                                         858
+UZ UZBEKISTAN                                      860
+VU VANUATU                                         548
+VE VENEZUELA                                       862
+VN VIET NAM                                        704
+VG VIRGIN ISLANDS, BRITISH                          92
+VI VIRGIN ISLANDS, U.S.                            850
+WF WALLIS AND FUTUNA                               876
+EH WESTERN SAHARA                                  732
+
+CO COUNTRY_NAME                   NUMERIC_COUNTRY_CODE
+-- ------------------------------ --------------------
+YE YEMEN                                           887
+ZM ZAMBIA                                          894
+ZW ZIMBABWE                                        716

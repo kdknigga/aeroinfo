@@ -1,0 +1,748 @@
+
+                   TERMINAL COMMUNICATIONS SERVICES
+                        DATA BASE RECORD LAYOUT
+                              (TWR-FILE)
+
+INFORMATION EFFECTIVE DATE: 04/05/2012 CHARTING CYCLE
+
+    RECORD FORMAT: FIXED
+    LOGICAL RECORD LENGTH: 1608
+
+
+FILE STRUCTURE DESCRIPTION
+--------------------------
+
+    THIS FILE CONTAINS ALL AIRPORTS THAT HAVE OR ARE PROVIDED
+    TERMINAL COMMUNICATIONS.  IT INCLUDES AIRPORTS WITH VISUAL
+    FLIGHT RULES(VFR) AND INSTRUMENT FLIGHT RULES(IFR) TOWERS, AND
+    AIRPORTS HAVING TERMINAL COMMUNICATIONS PROVIDED BY AIR ROUTE
+    TRAFFIC CONTROL CENTERS AND FLIGHT SERVICE STATIONS.
+
+    WHEN A TERMINAL COMMUNICATIONS FACILITY(MASTER AIRPORT) PROVIDES
+    SERVICES FOR A SATELLITE AIRPORT THE FREQUENCY/USE INFORMATION FOR
+    APPROACH/DEPARTURE CONTROL IS CONTAINED IN RECORD TWR7 AND THAT
+    RECORD IS WITH THE MASTER AIRPORT THAT PROVIDES THE SERVICE.
+
+    THE LOCATION IDENTIFIER IN RECORD TWR7 POINTS TO THE SAT-
+    TELLITE AIRPORT BEING PROVIDED APPROACH/DEPARTURE SERVICE.
+
+    THERE ARE A VARIABLE NUMBER OF FIXED LENGTH RECORDS FOR EACH
+    TERMINAL COMMUNICATIONS FACILITY.  THE NUMBER OF RECORDS IS
+    DETERMINED BY (1) OPERATING HOURS, (2) THE AMOUNT OF TEXT NEEDED
+    TO DESCRIBE THE COMMUNICATIONS FREQUENCIES AND THEIR USES,
+    (3) SERVICES PROVIDED TO SATELLITE AIRPORTS, (4) DIFFERENT TYPES
+    OF RADAR AIRPORTS, (5) THE AMOUNT OF TEXTUAL REMARKS PERTAINING TO
+    THE TERMINAL COMMUNICATION FACILITY, AND (6) THE NUMBER OF
+    SATELLITE AIRPORTS BEING PROVIDED SERVICE FROM A TERMINAL
+    COMMUNICATIONS FACILITY.
+
+    THE RECORDS ARE IDENTIFIED BY A RECORD TYPE INDICATOR (TWR1,
+    TWR2, TWR3, TWR4, TWR5, TWR6, TWR7, TWR8, TWR9) AND THE TERMINAL
+    COMMUNICATIONS IDENTIFIER FACILITY.
+
+    EACH RECORD ENDS WITH A CARRIAGE RETURN CHARACTER AND LINE FEED
+    CHARACTER (CR/LF). THIS LINE TERMINATOR IS NOT INCLUDED IN THE
+    LOGICAL RECORD LENGTH.
+
+    THE FILE IS SORTED BY: TERMINAL COMMUNICATIONS FACILITY IDENTIFIER
+
+DESCRIPTION OF THE RECORD TYPES
+-------------------------------
+
+        - A TWR1 RECORD CONTAINS THE TERMINAL COMMUNICATIONS FACILITY
+          GENERAL DESCRIPTIVE LOCATION AND OPERATION INFORMATION.  THE
+          PRIMARY KEY FOR THIS AND ALL OTHER RECORDS IS THE FOUR
+          CHARACTER ALPHANUMERIC LOCATION IDENTIFIER CODE.  (THERE IS
+          ALWAYS ONE TWR1 RECORD).
+
+        - THE TWR2 RECORD(S) CONTAIN(S) THE DESCRIPTION OF THE OPERATING
+          HOURS OF THE FACILITY.  THERE CAN BE 0 OR 1 TWR2 RECORDS.
+
+        - THE TWR3 RECORD(S) CONTAIN(S) THE COMMUNICATIONS FREQUENCIES
+          AND THEIR USE.  TWR3 RECORD(S) MAY OR MAY NOT EXIST.
+
+        - THE TWR4 RECORD(S) DEFINE(S) THE TYPE OF SERVICE(S) PROVIDED
+          BY THE TERMINAL COMMUNICATIONS FACILITY(MASTER AIRPORT) TO A
+          SATELLITE AIRPORT AND THE SERVICES AVAILABLE AT THE TOWER.
+          TWR4 RECORD(S) MAY OR MY NOT EXIST.
+
+        - THE TWR5 RECORD(S) CONTAIN(S) INFORMATION ON EXISTENCE OF
+          RADAR AND THE TYPE OF RADAR AT THE FACILITY.
+          TWR5 RECORD(S) THERE MAY BE 0 OR 1 TWR5 RECORDS.
+
+        - THE TWR6 RECORD(S) CONTAIN(S) TEXTUAL REMARKS PERTAINING
+          TO TERMINAL COMMUNICATIONS FACILITY.
+          TWR6 RECORD(S) MAY OR MAY NOT EXIST.
+
+        - THE TWR7 RECORD(S) CONTAIN(S) GENERAL DESCRIPTIVE
+          LOCATION AND OPERATION INFORMATION FOR A SATELLITE
+          AIRPORT ASSOCIATED WITH THE TERMINAL COMMUNICATIONS FACILITY
+          (MASTER AIRPORT).  THERE IS ONE TWR7 RECORD FOR EACH FREQUENCY
+          AND USE SERVICED BY A MASTER AIRPORT.
+
+        - THE TWR8 RECORD CONTAINS INFORMATION ON CLASS B/C/D/E AIRSPACE
+          AND AIRSPACE HOURS. TWR8 RECORD WILL REPORT ONLY IF ONE OR MORE
+          AIRSPACE CLASSES HAVE 'Y' VALUE. NULL VALUES WILL REPORT AS BLANK.
+          THERE MAY BE 0 OR 1 TWR8 RECORDS.
+
+        - THE TWR9 RECORD CONTAINS ATIS DATA
+          THERE MAY BE 1 OR MORE TWR9 RECORDS.
+
+          GENERAL INFORMATION
+          -------------------
+             1.  LEFT JUSTIFIED FIELDS HAVE TRAILING BLANKS
+             2.  RIGHT JUSTIFIED FIELDS HAVE LEADING BLANKS
+             3.  ELEMENT NUMBER IS FOR INTERNAL REFERENCE ONLY
+                 AND NOT IN THE RECORD.
+             4.  THE UNIQUE RECORD KEY IS THE LOCATION IDENTIFIER
+             5.  LATITUDE AND LONGITUDE INFORMATION IS REPRESENTED
+                 IN TWO WAYS:
+                 A.  FORMATTED:
+                     ----------
+                     LATITUDE     DD-MM-SS.SSSH
+                     LONGITUDE    DDD-MM-SS.SSSH
+
+                 WHERE:           DD IS DEGREES
+                                  MM IS MINUTES
+                                  SS.SSS IS SECONDS
+                                  H IS DECLINATION
+                 EXAMPLES:        LAT-     39-06-51.07N
+                                  LONG-    075-27-54.660W
+
+                 B.  IN ALL SECONDS:
+                     ---------------
+                     LATITUDE AND LONGITUDE      SSSSSS.SSSH
+
+                     WHERE    SSSSSS.SSS IS THE DEG/MIN/SEC CONVERTED
+                              TO ALL SECONDS
+                              H IS THE DECLINATION
+
+                     EXAMPLE: LAT-     140811.070N
+                              LONG-    27164.66W
+
+
+             6.  THE FOLLOWING TERMS ARE USED INTERCHANGEABLY IN THIS
+                 DOCUMENT.
+                 A.  TOWER/TERMINAL COMMUNICATIONS FACILITY
+                 B.  LANDING FACILITY/AIRPORT
+
+
+***********************************************************************
+*                                                                     *
+*                    'TWR1' RECORD TYPE  BASE DATA                    *
+*                                                                     *
+***********************************************************************
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+L AN    4  0001  NONE    RECORD TYPE INDICATOR.
+                         TWR1 - BASIC TERMINAL COMMUNICATIONS FACILITY
+                                INFORMATION
+
+L AN 0004 00005  DLID    TERMINAL COMMUNICATIONS FACILITY IDENTIFIER
+                          CONSIST OF:
+                          ALPHABETIC OR ALPHA-NUMERIC LOCATION
+                          IDENTIFIER. (EX: FME)
+
+L AN 0010 00009  NONE    INFORMATION EFFECTIVE DATE (MM/DD/YYYY)
+                          THIS DATE COINCIDES WITH THE 56-DAY
+                          CHARTING AND PUBLICATION CYCLE DATE.
+
+                         ------------------------------------------
+                              LANDING FACILITY(AIRPORT) DATA
+                         ------------------------------------------
+
+L AN 0011 00019  DLID    LANDING FACILITY SITE NUMBER
+                          UNIQUE IDENTIFYING NUMBER ASSIGNED TO
+                          THE AIRPORT
+                          (EX: 01818.*A, 03001.*H)
+
+                          SUFFIX TYPE         LANDING FACILITY
+                          -----------         ----------------
+
+                               A               AIRPORT
+
+
+
+                               B               BALLOONPORT
+                               C               SEAPLANE BASE
+                               G               GLIDERPORT
+                               H               HELIPORT
+                               S               STOLPORT
+                               U               ULTRALIGHT
+
+L AN 0003 00030  A6      FAA REGION CODE
+                          CODE    REGION NAME
+                          ----    -----------
+                          AAL     ALASKA
+                          ACE     CENTRAL
+                          AEA     EASTERN
+                          AGL     GREAT LAKES
+                          AIN     INTERNATIONAL
+                          ANE     NEW ENGLAND
+                          ANM     NORTHWEST MOUNTAIN
+                          ASO     SOUTHERN
+                          ASW     SOUTHWEST
+                          AWP     WESTERN-PACIFIC
+
+L AN 0030 00033  A4      ASSOCIATED STATE NAME
+                          (EX: CALIFORNIA)
+L AN 0002 00063  A4      ASSOCIATED STATE POST OFFICE  CODE
+                          (EX: CA)
+L AN 0040 00065  A1      ASSOCIATED CITY NAME
+                          (EX: LOS ANGELES)
+L AN 0050 00105  A2      OFFICIAL AIRPORT NAME
+                          (EX: EWARDS AFB)
+
+L AN 0014 00155  A19     AIRPORT REFERENCE POINT LATITUDE (FORMATTED)
+L AN 0011 00169  A19S    AIRPORT REFERENCE POINT LATITUDE (SECONDS)
+L AN 0014 00180  A20     AIRPORT REFERENCE POINT LONGITUDE (FORMATTED)
+L AN 0011 00194  A20S    AIRPORT REFERENCE POINT LONGITUDE (SECONDS)
+L AN 0004 00205  A86     TIE-IN FLIGHT SERVICE STATION (FSS) IDENTIFIER
+                          (EX: WJF)
+L AN 0030 00209  A86     TIE-IN FLIGHT SERVICE STATION (FSS) NAME
+                          (EX: LANCASTER)
+
+                         ---------------------------------------------
+                             TERMINAL COMMUNICATIONS FACILITY DATA
+                         ---------------------------------------------
+
+L AN 0012 00239  TA9     FACILITY TYPE
+                          (ATCT, NON-ATCT, ATCT-A/C, ATCT-RAPCON,
+                           ATCT-RATCF, ATCT-TRACON, TRACON, ATCT-TRACAB,
+                           ATCT-CERAP)
+
+                          TYPE CODE         DESCRIPTION
+                          ---------         -----------
+                          ATCT              AIR TRAFFIC CONTROL TOWER.
+
+                          NON-ATCT          NON-AIR TRAFFIC CONTROL
+                                            TOWER.
+                                            AIRPORT BEING PROVIDED
+
+
+
+                                            IFR (INSTRUMENT FLIGHT
+                                            RULES) SERVICE.
+
+                          ATCT-A/C          AIR TRAFFIC CONTROL TOWER
+                                            PLUS APPROACH CONTROL.
+
+                          ATCT-RAPCON       AIR TRAFFIC CONTROL TOWER
+                                            PLUS RADAR APPROACH CONTROL
+                                            (AIR FORCE OPERATES ATCT/FAA
+                                            OPERATES APPROACH CONTROL)
+
+                          ATCT-RATCF        AIR TRAFFIC CONTROL TOWER
+                                            PLUS RADAR APPROACH CONTROL.
+                                            (NAVY OPERATES ATCT/ FAA
+                                            OPERATES APPROACH CONTROL)
+
+                          ATCT-TRACON       AIR TRAFFIC CONTROL TOWER
+                                            PLUS TERMINAL RADAR APPROACH
+                                            CONTROL.
+
+                          TRACON            TERMINAL RADAR APPROACH
+                                            CONTROL.
+
+                          ATCT-TRACAB       AIR TRAFFIC CONTROL TOWER
+                                            PLUS TERMINAL RADAR CAB.
+
+                          ATCT-CERAP        AIR TRAFFIC CONTROL TOWER
+                                            PLUS CENTER RADAR APPROACH
+                                            CONTROL.
+
+L AN 0002 00251  TA55    NUMBER OF HOURS OF DAILY OPERATION
+                          (EX: 16, DD(DUSK TO DAWN))
+L AN 0003 00253  TA55    NUMBER OF HOURS OF DAILY OPERATION
+                         INDICATION OF REGULARITY. TOWER OPERATES 24
+                         UNLESS OTHERWISE INDICATED.
+
+                          CODE      DESCRIPTION
+                          ----      -----------
+                          WDO       WEEKDAYS ONLY
+                          WEO       WEEKENDS ONLY
+                          SEA       SUBJECT TO SEASONAL ADJUSTMENT
+                          WDE       WEEKDAYS, OTHER HOURS WEEKENDS
+                          WDS       WEEKDAYS, SUBJECT TO SEASONAL
+                                    ADJUSTMENT
+                          WES       WEEKENDS, SUBJECT TO SEASONAL
+                                    ADJUSTMENT
+
+
+L AN 0004 00256  TA34    MASTER AIRPORT LOCATION IDENTIFIER (EX: LAX)
+L AN 0050 00260  TA34    NAME OF MASTER AIRPORT FURNISHING SERVICES
+                         IF THIS FACILITY IS A SATELLITE AIRPORT.
+                          LEFT BLANK IF MASTER AIRPORT.
+                          (EX: LOS ANGELES INTL)
+L AN 0015 00310  TA38    DIRECTION FINDING EQUIPMENT (TYPE)
+
+
+
+
+                          TYPE
+                          ----
+
+                          VHF
+                          UHF
+                          VHF/UHF
+                          DOPPLER VHF
+                          DOPPLER VHF/UHF
+
+                         -----------------------------------------------
+                           TERMINAL COMMUNICATIONS FACILITY OFF AIRPORT
+                         -----------------------------------------------
+
+L AN 0050 00325  TA45    NAME OF ASSOCIATED LANDING FACILITY WHEN THE
+                         TERMINAL FACILITY IS NOT LOCATED ON THE
+                         AIRPORT OR WHEN LOCATED OUTSIDE OF THE
+                         UNITED STATES.
+                         (EX: NEW YORK TRACON)
+L AN 0040 00375  TA46    NAME OF THE ASSOCIATED CITY WHEN THE FACILITY
+                         NOT LOCATED ON THE AIRPORT OR WHEN LOCATED
+                         OUTSIDE OF THE UNITED STATES.
+                         (EX: NEW YORK)
+L AN 0020 00415  TA47    NAME OF THE STATE OR PROVINCE WHEN THE FACILITY
+                         NOT LOCATED ON THE AIRPORT OR WHEN LOCATED
+                         OUTSIDE OF THE UNITED STATES.
+                          (EX: NEW YORK)
+L AN 0025 00435  TA48    NAME OF STATE/COUNTRY WHEN FACILITY NOT LOCATED
+                         ON AIRPORT OR WHEN LOCATED OUTSIDE OF THE
+                         UNITED STATES.
+                          (EX: NEW YORK)
+L AN 0002 00460  TA48    COUNTRY/STATE  POST OFFICE CODE WHEN FACILITY
+                         NOT LOCATED ON AIRPORT OR WHEN
+                         LOCATED OUTSIDE OF THE UNITED STATES.
+                          (EX: NY)
+L AN 0003 00462  TA49    FAA REGION CODE WHEN THE FACILITY NOT LOCATED
+                         ON THE AIRPORT OR WHEN LOCATED OUTSIDE OF THE
+                         UNITED STATES.
+                          (EX: AEA)
+                         -----------------------------------------------
+                           LATITUDE/LONGITUDE DATA
+                         -----------------------------------------------
+
+L AN 0014 00465  TA32    AIRPORT SURVEILLANCE RADAR LATITUDE(FORMATTED)
+L AN 0011 00479  TA32    AIRPORT SURVEILLANCE RADAR LATITUDE (SECONDS)
+L AN 0014 00490  TA33    AIRPORT SURVEILLANCE RADAR LONGITUDE (FORMATTED)
+L AN 0011 00504  TA33    AIRPORT SURVEILLANCE RADAR LONGITUDE (SECONDS)
+L AN 0014 00515  TA39    LATITUDE OF DIRECTION FINDING ANTENNA (FORMATTED)
+L AN 0011 00529  TA39    LATITUDE OF DIRECTION FINDING ANTENNA (SECONDS)
+L AN 0014 00540  TA40    LONGITUDE OF DIRECTION FINDING ANTENNA(FORMATTED)
+L AN 0011 00554  TA40    LONGITUDE OF DIRECTION FINDING ANTENNA (SECONDS)
+
+                         -----------------------------------------------
+                             OPERATOR DATA
+                         -----------------------------------------------
+
+
+
+
+L AN 0040 00565  TA11    NAME OF THE AGENCY THAT OPERATES THE TOWER
+                         (EX: U.S. AIR FORCE)
+L AN 0040 00605  TA53    NAME OF THE AGENCY THAT OPERATES MILITARY
+                         OPERATIONS
+                         (EX: U. S. ARMY)
+L AN 0040 00645  TA20    NAME OF THE AGENCY THAT OPERATES THE PRIMARY
+                         APPROACH CONTROL FACILITY/FUNCTIONS
+                         (EX: FAA)
+L AN 0040 00685  TA23    NAME OF THE AGENCY OPERATING THE SECONDARY
+                         APPROACH CONTROL FACILITY/FUNCTIONS
+                         (EX: FAA)
+L AN 0040 00725  TA26    NAME OF THE AGENCY OPERATING THE PRIMARY
+                         DEPARTURE CONTROL FACILITY/FUNCTIONS
+                         (EX: FAA)
+L AN 0040 00765  TA29    NAME OF THE AGENCY OPERATING THE SECONDARY
+                         DEPARTURE CONTROL FACILITY/FUNCTIONS
+                         (EX: FAA)
+
+                         -----------------------------------------------
+                              RADIO CALL DATA
+                         -----------------------------------------------
+
+L AN 0026 00805  TA51    RADIO CALL USED BY PILOT TO CONTACT TOWER
+                         (EX: EDWARDS)
+L AN 0026 00831  TA52    RADIO CALL NAME FOR MILITARY OPERATIONS AT
+                         THIS AIRPORT (EX: CONFORM)
+L AN 0026 00857  TA19    RADIO CALL OF FACILITY THAT FURNISHES PRIMARY
+                         APPROACH CONTROL.
+                         (EX: EDWARDS)
+L AN 0026 00883  TA22    RADIO CALL OF FACILITY THAT TAKES OVER APPROACH
+                         CONTROL WHEN PRIMARY CONTROL IS A PART-TIME
+                         FACILITY.  ALSO USED TO INDICATE IF
+                          APPROACH CONTROL IS PROVIDED BY TWO
+                         DIFFERENT FACILITIES.
+                         (EX: LOS ANGELES CENTER)
+L AN 0026 00909  TA25    RADIO CALL OF FACILITY THAT FURNISHES PRIMARY
+                         DEPARTURE CONTROL.  ALSO USED TO INDICATE
+                         IF DEPARTURE CONTROL IS PROVIDED BY TWO
+                         DIFFERENT FACILITIES.
+                         (EX: EDWARDS)
+L AN 0026 00935  TA28    RADIO CALL OF FACILITY THAT TAKES OVER
+                         DEPARTURE CONTROL WHEN PRIMARY CONTROL IS A
+                         PART-TIME FACILITY.  ALSO USED TO INDICATE
+                         IF DEPARTURE CONTROL IS PROVIDED BY TWO
+                         DIFFERENT FACILITIES.
+                         (EX: LOS ANGELES CENTER)
+L AN 0648 00961  NONE    BLANK
+
+
+************************************************************************
+*                                                                      *
+*                  'TWR2' OPERATION HOURS DATA                         *
+*                                                                      *
+************************************************************************
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+L AN    4  0001  NONE    RECORD IDENTIFIER
+                         TWR2 - HOURS RECORD
+L AN 0004 00005  DLID    TERMINAL COMMUNICATIONS FACILITY IDENTIFIER
+L AN 0200 00009  TA42    HOURS OF OPERATION OF THE MILITARY
+                         PILOT-TO-METRO SERVICE (PMSV) LOCATED AT
+                         THE FACILITY (IF ANY) (IN LOCAL TIME)
+                         (EX:  PART-TIME)
+L AN 0200 00209  TA41    HOURS OF OPERATION OF THE MILITARY
+                         AIRCRAFT COMMAND POST (MACP) LOCATED AT
+                         THE FACILITY (IF ANY) (IN LOCAL TIME)
+                         (EX: 0800-1700)
+L AN 0200 00409  TA54    HOURS OF MILITARY OPERATIONS CONDUCTED
+                         EACH DAY.
+                         (EX: 0800-1630 TUE-SAT)
+L AN 0200 00609  TA21    HOURS OF OPERATION OF PRIMARY APPROACH
+                         CONTROL FACILITY. (IN LOCAL TIME)
+                         (EX: 0700-2200 MON-FRI; 0800-2100 SAT-SUN-HOL)
+L AN 0200 00809  TA24    HOURS OF OPERATION OF SECONDARY APPROACH
+                         CONTROL FACILITY. (IN LOCAL TIME)
+                         (EX: 2200-0700 MON-FRI; 2100-0800 SAT-SUN-HOL)
+L AN 0200 01009  TA27    HOURS OF OPERATION OF PRIMARY DEPARTURE
+                         CONTROL FACILITY.(IN LOCAL TIME)
+                         (EX: 0700-2200 MON-FRI; 0800-2100 SAT-SUN-HOL)
+L AN 0200 01209  TA30    HOURS OF OPERATION OF SECONDARY DEPARTURE
+                         CONTROL FACILITY.(IN LOCAL TIME)
+                         (EX: 2200-0700 MON-FRI; 2100-0800 SAT-SUN-HOL)
+L AN 0200 01409  TA15    HOURS OF TOWER OPERATION IN LOCAL TIME
+                         (0800-2100)
+
+
+************************************************************************
+*                                                                      *
+*         'TWR3' COMMUNICATIONS FREQUENCIES AND USE DATA               *
+*                      (MASTER AIRPORT USE ONLY)                       *
+*                                                                      *
+************************************************************************
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+L AN    4  0001  NONE    RECORD IDENTIFIER
+                         TWR3 - FREQUENCY/USE RECORD
+L AN 0004 00005  DLID    TERMINAL COMMUNICATIONS FACILITY IDENTIFIER
+L AN 0044 00009  TA13    FREQUENCY(S) FOR MASTER AIRPORT USE ONLY AND
+                         SECTORIZATION BASED ON MASTER AIRPORT OR AIRWAY
+                         BOUNDARIES, OR LIMITATIONS BASED ON RUNWAY USAGE.(1)
+                         (EX: 126.6 (150-360) RUNWAY 33)
+L AN 0050 00053  TA13    FREQUENCY USE.(1)
+                         (EX: LCL/P APCH/S STAGE-II IC)
+L AN 0044 00103  TA13    FREQUENCY(S) FOR MASTER AIRPORT USE ONLY AND
+                         SECTORIZATION BASED ON MASTER AIRPORT OR AIRWAY
+                         BOUNDARIES, OR LIMITATIONS BASED ON RUNWAY USAGE.(2)
+L AN 0050 00147  TA13    FREQUENCY USE.(2)
+L AN 0044 00197  TA13    FREQUENCY(S) FOR MASTER AIRPORT USE ONLY AND
+                         SECTORIZATION BASED ON MASTER AIRPORT OR AIRWAY
+                         BOUNDARIES, OR LIMITATIONS BASED ON RUNWAY USAGE.(3)
+L AN 0050 00241  TA13    FREQUENCY USE.(3)
+L AN 0044 00291  TA13    FREQUENCY(S) FOR MASTER AIRPORT USE ONLY AND
+                         SECTORIZATION BASED ON MASTER AIRPORT OR AIRWAY
+                         BOUNDARIES, OR LIMITATIONS BASED ON RUNWAY USAGE.(4)
+L AN 0050 00335  TA13    FREQUENCY USE.(4)
+L AN 0044 00385  TA13    FREQUENCY(S) FOR MASTER AIRPORT USE ONLY AND
+                         SECTORIZATION BASED ON MASTER AIRPORT OR AIRWAY
+                         BOUNDARIES, OR LIMITATIONS BASED ON RUNWAY USAGE.(5)
+L AN 0050 00429  TA13    FREQUENCY USE.(5)
+L AN 0044 00479  TA13    FREQUENCY(S) FOR MASTER AIRPORT USE ONLY AND
+                         SECTORIZATION BASED ON MASTER AIRPORT OR AIRWAY
+                         BOUNDARIES, OR LIMITATIONS BASED ON RUNWAY USAGE.(6)
+L AN 0050 00523  TA13    FREQUENCY USE.(6)
+L AN 0044 00573  TA13    FREQUENCY(S) FOR MASTER AIRPORT USE ONLY AND
+                         SECTORIZATION BASED ON MASTER AIRPORT OR AIRWAY
+                         BOUNDARIES, OR LIMITATIONS BASED ON RUNWAY USAGE.(7)
+L AN 0050 00617  TA13    FREQUENCY USE.(7)
+L AN 0044 00667  TA13    FREQUENCY(S) FOR MASTER AIRPORT USE ONLY AND
+                         SECTORIZATION BASED ON MASTER AIRPORT OR AIRWAY
+                         BOUNDARIES, OR LIMITATIONS BASED ON RUNWAY USAGE.(8)
+L AN 0050 00711  TA13    FREQUENCY USE.(8)
+L AN 0044 00761  TA13    FREQUENCY(S) FOR MASTER AIRPORT USE ONLY AND
+                         SECTORIZATION BASED ON MASTER AIRPORT OR AIRWAY
+                         BOUNDARIES, OR LIMITATIONS BASED ON RUNWAY USAGE.(9)
+L AN 0050 00805  TA13    FREQUENCY USE.(9)
+L AN 0060 00855  TA13    FREQUENCY(S) FOR MASTER AIRPORT USE ONLY AND
+                         SECTORIZATION BASED ON MASTER AIRPORT OR AIRWAY
+                         BOUNDARIES, OR LIMITATIONS BASED ON RUNWAY USAGE.(1)
+                         (NOT TRUNCATED) (EX: 126.6 (150-360) RUNWAY 33)
+L AN 0060 00915  TA13    FREQUENCY(S) FOR MASTER AIRPORT USE ONLY AND
+                         SECTORIZATION BASED ON MASTER AIRPORT OR AIRWAY
+                         BOUNDARIES, OR LIMITATIONS BASED ON RUNWAY USAGE.(2)
+                         (NOT TRUNCATED) (EX: 126.6 (150-360) RUNWAY 33)
+L AN 0060 00975  TA13    FREQUENCY(S) FOR MASTER AIRPORT USE ONLY AND
+                         SECTORIZATION BASED ON MASTER AIRPORT OR AIRWAY
+                         BOUNDARIES, OR LIMITATIONS BASED ON RUNWAY USAGE.(3)
+                         (NOT TRUNCATED) (EX: 126.6 (150-360) RUNWAY 33)
+L AN 0060 01035  TA13    FREQUENCY(S) FOR MASTER AIRPORT USE ONLY AND
+                         SECTORIZATION BASED ON MASTER AIRPORT OR AIRWAY
+                         BOUNDARIES, OR LIMITATIONS BASED ON RUNWAY USAGE.(4)
+                         (NOT TRUNCATED) (EX: 126.6 (150-360) RUNWAY 33)
+L AN 0060 01095  TA13    FREQUENCY(S) FOR MASTER AIRPORT USE ONLY AND
+                         SECTORIZATION BASED ON MASTER AIRPORT OR AIRWAY
+                         BOUNDARIES, OR LIMITATIONS BASED ON RUNWAY USAGE.(5)
+                         (NOT TRUNCATED) (EX: 126.6 (150-360) RUNWAY 33)
+L AN 0060 01155  TA13    FREQUENCY(S) FOR MASTER AIRPORT USE ONLY AND
+                         SECTORIZATION BASED ON MASTER AIRPORT OR AIRWAY
+                         BOUNDARIES, OR LIMITATIONS BASED ON RUNWAY USAGE.(6)
+                         (NOT TRUNCATED) (EX: 126.6 (150-360) RUNWAY 33)
+L AN 0060 01215  TA13    FREQUENCY(S) FOR MASTER AIRPORT USE ONLY AND
+                         SECTORIZATION BASED ON MASTER AIRPORT OR AIRWAY
+                         BOUNDARIES, OR LIMITATIONS BASED ON RUNWAY USAGE.(7)
+                         (NOT TRUNCATED) (EX: 126.6 (150-360) RUNWAY 33)
+L AN 0060 01275  TA13    FREQUENCY(S) FOR MASTER AIRPORT USE ONLY AND
+                         SECTORIZATION BASED ON MASTER AIRPORT OR AIRWAY
+                         BOUNDARIES, OR LIMITATIONS BASED ON RUNWAY USAGE.(8)
+                         (NOT TRUNCATED) (EX: 126.6 (150-360) RUNWAY 33)
+L AN 0060 01335  TA13    FREQUENCY(S) FOR MASTER AIRPORT USE ONLY AND
+                         SECTORIZATION BASED ON MASTER AIRPORT OR AIRWAY
+                         BOUNDARIES, OR LIMITATIONS BASED ON RUNWAY USAGE.(9)
+                         (NOT TRUNCATED) (EX: 126.6 (150-360) RUNWAY 33)
+L AN 0214 01395  NONE    BLANK
+
+************************************************************************
+*                                                                      *
+*      'TWR4' SERVICES PROVIDED TO SATELLITE AIRPORT DATA              *
+*                                                                      *
+************************************************************************
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+L AN    4  0001  NONE    RECORD IDENTIFIER
+                         TWR4 - AIRPORT SERVICES RECORD
+L AN 0004 00005  DLID    TERMINAL COMMUNICATIONS FACILITY IDENTIFIER
+L AN 0100 00009  TA35    MASTER AIRPORT SERVICES.
+                         (EX: TC APCH CTL ON SECTORIZED FREQ'S)
+L AN 1500 00109  NONE    BLANK
+
+************************************************************************
+*                                                                      *
+*       'TWR5' INDICATION OF RADAR OR TYPE OF RADAR DATA               *
+*                                                                      *
+************************************************************************
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+L AN    4  0001  NONE    RECORD IDENTIFIER
+                         TWR5 - RADAR RECORD
+L AN 0004 00005  DLID    TERMINAL COMMUNICATIONS FACILITY IDENTIFIER
+L AN 0009 00009  TA19    /RADAR/ OR /NON-RADAR/ PRIMARY APPROACH CALL
+                          (EX: RADAR, NON-RADAR, RAPCON)
+L AN 0009 00018  TA22    /RADAR/ OR /NON-RADAR/ SECONDARY APPROACH CALL
+                          (EX: RADAR, NON-RADAR, RAPCON)
+L AN 0009 00027  TA25    /RADAR/ OR /NON-RADAR/ PRIMARY DEPARTURE CALL
+                          (EX: RADAR, NON-RADAR, RAPCON)
+L AN 0009 00036  TA28    /RADAR/ OR /NON-RADAR/ SECONDARY DEPARTURE CALL
+                          (EX: RADAR, NON-RADAR, RAPCON)-
+L AN 0010 00045  TA31    TYPE OF RADAR AT THE TOWER(1)
+                          (EX: ASR-8)
+L AN 0200 00055  TA31    RADAR HOURS OF OPERATION(1) (EX: 0700-2300)
+L AN 0010 00255  TA31    TYPE OF RADAR AT THE TOWER(2)
+L AN 0200 00265  TA31    RADAR HOURS OF OPERATION(2)
+L AN 0010 00465  TA31    TYPE OF RADAR AT THE TOWER(3)
+L AN 0200 00475  TA31    RADAR HOURS OF OPERATION(3)
+L AN 0010 00675  TA31    TYPE OF RADAR AT THE TOWER(4)
+L AN 0200 00685  TA31    RADAR HOURS OF OPERATION(4)
+
+                         TYPE CODE   DESCRIPTION
+                         ---------   -----------
+                         ASR         AIRPORT SURVEILLANCE RADAR
+                         GCA         GROUND CONTROL APPROACH
+                         PAR         PRECISION APPROACH RADAR
+                         ASR/PAR     AIRPORT SURVEILLANCE RADAR PLUS
+                                     PRECISION APPROACH RADAR
+                         ASR-8       NUMBER DENOTES TYPE OF AIRPORT
+                                     SURVEILLANCE RADAR.
+L AN 0724 00885  NONE    BLANK
+
+************************************************************************
+*                                                                      *
+*      'TWR6' TERMINAL COMMUNICATIONS FACILITY REMARKS DATA            *
+*                                                                      *
+************************************************************************
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+L AN    4  0001  NONE    RECORD IDENTIFIER
+                         TWR6 - REMARKS RECORD
+L AN 0004 00005  DLID    TERMINAL COMMUNICATIONS FACILITY IDENTIFIER
+L AN 0005 00009  NONE    TOWER ELEMENT NUMBER
+                         (EX: 1)
+L AN 0800 00014  NONE    TOWER REMARK TEXT
+                         (EX: APCH/DEP SERVICE PROVIDED BY INDIANAPOLIS
+                          ARTCC ON FREQS 132.6/281.4 (MERWYN RCAG).)
+L AN 0795 00814  NONE    BLANK
+
+
+************************************************************************
+*                                                                      *
+*                 'TWR7' SATELLITE AIRPORT DATA                        *
+*                                                                      *
+************************************************************************
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+L AN    4  0001  NONE    RECORD IDENTIFIER
+                         TWR7 - SATELLITE AIRPORT RECORD
+L AN 0004 00005  DLID    TERMINAL COMMUNICATIONS FACILITY IDENTIFIER
+L AN 0044 00009  DLID    SATELLITE FREQUENCY (EX: 126.1)
+L AN 0050 00053  DLID    SATELLITE FREQUENCY USE (EX: APCH/P DEP/P)
+L AN 0011 00103  S6S     SATELLITE AIRPORT SITE NUMBER
+                         (EX: 02013.*A)
+L AN 0004 00114  A7      SATELLITE AIRPORT LOCATION IDENTIFIER
+                         (EX: PMD)  MAY BE USED AS A LINK TO
+                          TERMINAL COMMUNICATIONS FACILITY RECORD
+L AN 0003 00118  A6      SATELLITE FAA REGION CODE (EX: AWP)
+L AN 0030 00121  A4      SATELLITE ASSOCIATED STATE NAME
+                         (EX: CALIFORNIA)
+L AN 0002 00151  A4      SATELLITE ASSOCIATED STATE POST OFFICE CODE
+                         (EX: CA)
+L AN 0040 00153  A1      SATELLITE ASSOCIATED CITY (EX: PALMDALE)
+L AN 0050 00193  A2      SATELLITE ARPT NAME
+                         (EX:  PALMDALE PRODN FLT/TEST INSTLN PLANT 42)
+L AN 0014 00243  A19     AIRPORT LATITUDE(FORMATTED)
+L AN 0011 00257  A19S    AIRPORT LATITUDE (SECONDS)
+L AN 0014 00268  A20     AIRPORT LONGITUDE (FORMATTED)
+L AN 0011 00282  A20S    AIRPORT LONGITUDE (SECONDS)
+L AN 0004 00293  A86     FLIGHT SERVICE STATION IDENTIFIER (EX: WJF)
+L AN 0030 00297  A86     FLIGHT SERVICE STATION NAME
+                         (EX: LANCASTER)
+
+                         -----------------------------------------
+                             MASTER AIRPORT INFORMATION
+                         -----------------------------------------
+
+L AN 0011 00327  S021    MASTER AIRPORT INFORMATION (EX: 01526.8*A)
+
+                         AIRPORT TYPE      DESCRIPTION
+                         ------------      -----------
+
+                             A             AIRPORT
+                             B             BALLOONPORT
+                             C             SEAPLANE BASE
+                             G             GLIDERPORT
+                             H             HELIPORT
+                             U             ULTRALIGHT
+
+
+
+
+L AN 0003 00338  A6      MASTER AIRPORT FAA REGION CODE (EX: ACE)
+L AN 0030 00341  A4      MASTER AIRPORT ASSOCIATED STATE NAME
+                         (EX: CALIFORNIA)
+L AN 0002 00371  A4      MASTER AIRPORT ASSOCIATED STATE POST OFFICE
+                         CODE (EX: CALIFORNIA)
+L AN 0040 00373  A1      MASTER AIRPORT ASSOCIATED CITY (EX: EWARDS)
+L AN 0050 00413  A2      MASTER AIRPORT NAME  (EX: EDWARDS AFB)
+L AN 0060 00463  ????    SATELLITE FREQUENCY (EX: 126.1) (NOT TRUNCATED)
+L AN 1086 00523  NONE    BLANK
+
+************************************************************************
+*                                                                      *
+*           'TWR8' CLASS B/C/D/E AIRSPACE AND AIRSPACE HOURS DATA      *
+*                                                                      *
+************************************************************************
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+L AN    4  0001  NONE    RECORD IDENTIFIER
+                         TWR8 - CLASS B/C/D/E AIRSPACE RECORD
+L AN 0004 00005  DLID    TERMINAL COMMUNICATIONS FACILITY IDENTIFIER
+L AN 0001 00009  ????    CLASS B AIRSPACE (EX: Y)
+L AN 0001 00010  ????    CLASS C AIRSPACE (EX: Y)
+L AN 0001 00011  ????    CLASS D AIRSPACE (EX: Y)
+L AN 0001 00012  ????    CLASS E AIRSPACE (EX: Y)
+L AN 0300 00013  ????    AIRSPACE HOURS
+                         (EX: 0800-1630 TUE-SAT)
+L AN 1296 00313  NONE    BLANK
+
+
+************************************************************************
+*                                                                      *
+*           'TWR9' AUTOMATIC TERMINAL INFORMATION SYSTEM (ATIS) DATA   *
+*                                                                      *
+************************************************************************
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+L AN    4  0001  NONE    RECORD IDENTIFIER
+                         TWR9 - ATIS DATA
+L AN 0004 00005  DLID    TERMINAL COMMUNICATIONS FACILITY IDENTIFIER
+R  N 0004 00009  NONE    ATIS SERIAL NUMBER
+L AN 0200 00013  TA43    ATIS HOURS OF OPERATION IN LOCAL TIME
+L AN 0100 00213  NONE    OPTIONAL DESCRIPTION OF PURPOSE, FULFILLED BY ATIS
+L AN 0018 00313  NONE    ATIS PHONE NUMBER
+L AN 1278 00331  NONE    BLANK

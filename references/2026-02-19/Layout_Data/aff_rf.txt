@@ -1,0 +1,310 @@
+             AIR ROUTE TRAFFIC CONTROL CENTER FACILITIES
+             AND COMMUNICATIONS DATA BASE RECORD LAYOUT
+                              (AFF-FILE)
+
+INFORMATION EFFECTIVE DATE: 6/13/2024
+    RECORD FORMAT: FIXED
+    LOGICAL RECORD LENGTH: 254
+ FILE STRUCTURE DESCRIPTION:
+---------------------------
+
+       THERE ARE A VARIABLE NUMBER OF FIXED-LENGTH RECORDS FOR EACH
+    AIR ROUTE TRAFFIC CONTROL CENTER FACILITY. THE AIR ROUTE TRAFFIC
+    CONTROL CENTER FACILITY FILE (ARTCC) CONTAINS ALL REMOTE AIR/GROUND
+    FACILITIES (RCAG), AIR ROUTE SURVEILLANCE RADARS (ARSR), SECONDARY
+    RADARS (SECRA), AND CENTER RADAR APPROACH CONTROL FACILITIES
+    (CERAP), UNDER U.S. AREA OF RESPONSIBILITY. THE FILE DOES NOT
+    INCLUDE ANY FOREIGN FACILITIES AND/OR RADARS.
+
+       THE NUMBER OF RECORDS IS DETERMINED BY:
+
+    1) THE AMOUNT OF TEXTUAL REMARKS PERTAINING TO THE AIR ROUTE TRAFFIC
+       CONTROL CENTER
+    2) FREQUENCIES AND THEIR USES ASSOCIATED WITH EACH AIR ROUTE
+       TRAFFIC CONTROL CENTER
+    3) THE AMOUNT OF TEXTUAL REMARKS PERTAINING TO FREQUENCIES AND THEIR
+       USES
+
+       THE RECORDS ARE IDENTIFIED BY A RECORD TYPE INDICATOR (AFF1,
+    AFF2, AFF3, AFF4), AND THE ARTCC CENTER IDENTIFIER, LOCATION, AND
+    FACILITY TYPE.
+
+       THE FILE IS SORTED BY CENTER IDENTIFIER,
+                             LOCATION,
+                             FACILITY TYPE,
+                             RECORD TYPE,
+                             (FREQUENCY,
+                             ASSOCIATED AIRPORT IDENT) - AFF3 RECORDS ONLY
+
+       EACH RECORD ENDS WITH A CARRIAGE RETURN CHARACTER AND LINE FEED
+    CHARACTER (CR/LF). THIS LINE TERMINATOR IS NOT INCLUDED IN THE LOGICAL
+    RECORD LENGTH.
+
+
+DESCRIPTION OF THE RECORD TYPES:
+--------------------------------
+
+    'AFF1' RECORDS CONTAIN GENERAL DESCRIPTIVE LOCATION INFORMATION
+    PERTAINING TO THE AIR ROUTE TRAFFIC CONTROL CENTER FACILITY. THERE
+    IS ALWAYS ONE 'AFF1' RECORD.
+
+    'AFF2' RECORD(S) CONTAIN(S) TEXTUAL REMARKS PERTAINING TO THE AIR
+    ROUTE TRAFFIC CONTROL CENTER FACILITY. THERE CAN BE 0 OR MORE 'AFF2'
+    RECORDS.
+
+    'AFF3' RECORD(S) CONTAIN(S) THE COMMUNICATIONS FREQUENCIES AND
+    THEIR USES AS THEY ARE RELATED TO THE AIR ROUTE TRAFFIC CONTROL
+    CENTER FACILITY. THERE CAN BE 0 OR MORE 'AFF3' RECORDS.
+
+    'AFF4' RECORD(S) CONTAIN(S) TEXTUAL REMARKS PERTAINING TO THE
+    COMMUNICATIONS FREQUENCIES AND THEIR USE. THERE CAN BE 0 OR MORE
+    'AFF4' RECORDS.
+
+
+GENERAL INFORMATION:
+--------------------
+     1.  LEFT JUSTIFIED FIELDS HAVE TRAILING BLANKS
+     2.  RIGHT JUSTIFIED FIELDS HAVE LEADING BLANKS
+     3.  ELEMENT NUMBER IS FOR INTERNAL REFERENCE ONLY
+         AND NOT IN THE RECORD.
+     4.  THE UNIQUE RECORD IDENTIFIER AT THE AFF1 RECORD IS MADE UP OF THE
+         CENTER IDENTIFIER, LOCATION, FACILITY TYPE AND STATE CODE.
+     5.  LATITUDE AND LONGITUDE INFORMATION IS REPRESENTED IN
+         TWO WAYS:
+         A.  FORMATTED:
+            ------------
+            LATITUDE    DD-MM-SS.SSSH
+            LONGITUDE   DDD-MM-SS.SSSH
+
+            WHERE :     DD IS DEGREES
+                        MM IS MINUTES
+                        SS.SSS IS SECONDS
+                        H IS DECLINATION
+
+            EXAMPLE :   LAT-   39-06-51.070N
+                        LONG-  075-27-54.660W
+
+         B.  IN ALL SECONDS:
+            -----------------
+            LATITUDE AND LONGITUDE     SSSSSS.SSSH
+            WHERE :     SSSSSS.SSS IS THE DEG/MIN/SEC CONVERTED
+                                   TO ALL SECONDS
+                        H IS THE DECLINATION
+
+            EXAMPLE :   LAT-   140811.070N
+                        LONG-  271674.660W
+
+*********************************************************************
+
+            'AFF1' RECORD TYPE - BASE DATA
+
+********************************************************************
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+L AN   04 00001  NONE    RECORD TYPE INDICATOR.
+                           AFF1 - AIR ROUTE TRAFFIC CONTROL CENTER
+                                  FACILITY INFORMATION
+
+L AN 0004 00005  DLID    AIR ROUTE TRAFFIC CONTROL CENTER IDENTIFIER.
+                         (EX: ZAB)
+
+
+                         ADMINISTRATIVE DATA
+                         -------------------
+
+
+L AN 0040 00009  NONE    AIR ROUTE TRAFFIC CONTROL CENTER NAME.
+                         (EX: ALBUQUERQUE)
+
+L AN 0030 00049  DLID    SITE LOCATION. LOCATION OF THE FACILITY
+                         CONTROLLED BY THE AIR ROUTE TRAFFIC CONTROL
+                         CENTER. (EX: SANDIA MOUNTAIN)
+
+L AN 0050 00079  FF21    CROSS REFERENCE. ALTERNATE NAME FOR REMOTE
+                         COMMUNICATIONS AIR/GROUND FACILITY AND AIR
+                         ROUTE SURVEILLANCE RADAR. (EX: ALBUQUERQUE)
+
+L AN 0005 00129  DLID    FACILITY TYPE.
+
+                           TYPE CODE    DESCRIPTION
+                           ---------    -----------
+
+                             ARSR       AIR ROUTE SURVEILLANCE RADAR
+                             ARTCC      AIR ROUTE TRAFFIC CONTROL CENTER
+                             CERAP      CENTER RADAR APPROACH CONTROL
+                                        FACILITY
+                             RCAG       REMOTE COMMUNICATIONS,
+                                        AIR/GROUND
+                             SECRA      SECONDARY RADAR
+
+L AN 0010 00134  NONE    INFORMATION EFFECTIVE DATE (MM/DD/YYYY)
+                         THIS DATE COINCIDES WITH THE 56 DAY CHARTING
+                         AND PUBLICATION CYCLE EFFECTIVE DATE.
+
+L AN 0030 00144  FF2S    SITE STATE NAME. (EX: NEW MEXICO)
+
+L AN 0002 00174  FF2     SITE STATE POST OFFICE CODE. (EX: NM)
+
+                         GEOGRAPHICAL DATA
+                         -----------------
+
+
+L AN 0014 00176  FF4     SITE LATITUDE. (FORMATTED)
+
+L AN 0011 00190  FF4S    SITE LATITUDE. (SECONDS)
+
+L AN 0014 00201  FF5     SITE LONGITUDE. (FORMATTED)
+
+L AN 0011 00215  FF5S    SITE LONGITUDE. (SECONDS)
+
+L AN 0004 00226  DLID    ICAO ARTCC ID. (EX: KZAB)
+
+L AN 0025 00230  NONE    BLANK.
+
+*********************************************************************
+
+            'AFF2' RECORD TYPE - SITE REMARKS DATA
+
+*********************************************************************
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+
+L AN   04 00001  NONE    RECORD TYPE INDICATOR.
+                           AFF2 - REMARKS RECORD.
+
+L AN 0004 00005  DLID    AIR ROUTE TRAFFIC CONTROL CENTER IDENTIFIER.
+                         (EX: ZAB)
+
+L AN 0030 00009  DLID    SITE LOCATION. LOCATION OF THE FACILITY
+                         CONTROLLED BY THE AIR ROUTE TRAFFIC CONTROL
+                         CENTER. (EX: SANDIA MOUNTAIN)
+
+L AN 0005 00039  DLID    FACILITY TYPE.
+
+L AN 0004 00044  NONE    SITE REMARKS ELEMENT NUMBER. (EX: 1)
+
+L AN 0200 00048  NONE    SITE REMARKS TEXT. (EX: ARSR SHARED WITH
+                         CLEVELAND ARTCC)
+
+L AN 0007 00248  NONE    BLANK.
+
+************************************************************************
+
+      'AFF3' RECORD TYPE - COMMUNICATIONS FREQUENCY(S) AND THEIR USES
+
+************************************************************************
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+L AN   04 00001  NONE    RECORD TYPE INDICATOR.
+                           AFF3 - FREQUENCY(S) AND THEIR USES.
+
+L AN 0004 00005  DLID    AIR ROUTE TRAFFIC CONTROL CENTER IDENTIFIER.
+                         (EX: ZAB)
+
+L AN 0030 00009  DLID    SITE LOCATION. LOCATION OF THE FACILITY
+                         CONTROLLED BY THE AIR ROUTE TRAFFIC CONTROL
+                         CENTER. (EX: SANDIA MOUNTAIN)
+
+L AN 0005 00039  DLID    FACILITY TYPE.
+
+                         FREQUENCY/ALTITUDE/USE DATA
+                         ----------------------------
+
+L AN 0008 00044  NONE    FREQUENCY ASSOCIATED WITH THE FACILITY.
+                         (EX: 269.4)
+
+L AN 0010 00052  FQ20    ALTITUDE. INDICATION OF WHETHER LOW, HIGH,
+                         LOW/HIGH, AND/OR ULTRA HIGH TRAFFIC IS
+                         CONTROLLED ON EACH FREQUENCY. (EX: LOW)
+
+L AN 0016 00062  NONE    NOT USED
+
+L AN 0001 00078  NONE    RCAG FREQUENCY CHARTED FLAG(Y/N)
+
+                         IFR SERVICE PROVIDED TO LANDING FACILITY
+                         ----------------------------------------
+
+
+L AN 0004 00079  E7      LOCATION IDENTIFIER ASSIGNED TO THE LANDING
+                         FACILITY (AIRPORT). (EX: E80)
+
+L AN 0030 00083  A4S     ASSOCIATED STATE NAME.
+                         (EX: NEW MEXICO)
+
+L AN 0002 00113  A4      ASSOCIATED STATE POST OFFICE CODE. (EX: NM)
+
+L AN 0040 00115  A1      ASSOCIATED CITY NAME.
+                         (EX: BELEN)
+
+L AN 0050 00155  A2      OFFICIAL AIRPORT NAME. (EX: ALEXANDER MUNI)
+
+L AN 0014 00205  A19     LATITUDE OF THE AIRPORT. (FORMATTED)
+
+L AN 0011 00219  A19S    LATITUDE OF THE AIRPORT. (SECONDS)
+
+L AN 0014 00230  A20     LONGITUDE OF THE AIRPORT. (FORMATTED)
+
+L AN 0011 00244  A20S    LONGITUDE OF THE AIRPORT. (SECONDS)
+
+
+*********************************************************************
+
+               'AFF4' RECORD TYPE - REMARKS DATA
+
+********************************************************************
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+L AN   04 00001  NONE    RECORD TYPE INDICATOR.
+                            AFF4 - REMARKS RECORD.
+
+L AN 0004 00005  DLID    AIR ROUTE TRAFFIC CONTROL CENTER IDENTIFIER.
+                         (EX: ZAB)
+
+L AN 0030 00009  DLID    SITE LOCATION. LOCATION OF THE FACILITY
+                         CONTROLLED BY THE AIR ROUTE TRAFFIC CONTROL
+                         CENTER. (EX: SANDIA MOUNTAIN)
+
+L AN 0005 00039  DLID    FACILITY-TYPE.
+
+L AN 0008 00044  NONE    FREQUENCY ASSOCIATED WITH THE REMARK.
+                         (EX: 269.4)
+
+L AN 0002 00052  NONE    FREQUENCY REMARK SEQUENCE NUMBER.
+                         (EX: 1)
+
+L AN 0200 00054  NONE    FREQUENCY REMARKS TEXT. (EX: PRIMARY FOR AREA
+                         NE AND E OF HNL VORTAC OUT TO APPROXLY 90NM)
+
+L AN 0001 00254  NONE    BLANK.

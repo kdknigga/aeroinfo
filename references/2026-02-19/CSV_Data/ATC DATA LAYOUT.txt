@@ -1,0 +1,249 @@
+                           AIR TRAFFIC CONTROL COMMUNICATION DATA
+
+                        COMMA-SEPARATED VALUES (CSV) RECORD LAYOUT
+
+                                             (ATC-FILES)
+
+
+
+INFORMATION EFFECTIVE DATE: 12/01/2022
+
+       RECORD FORMAT: COMMA DELIMITED WITH TEXT FIELDS ENCLOSED WITHIN DOUBLE-QUOTE
+       CHARACTERS
+
+       LOGICAL RECORD INTERVAL: ALL RECORDS WITHIN A SPECIFIC ATC FILE HAVE THE SAME
+       NUMBER OF FIELDS, IN THE SAME ORDER AND RECORD ENDS AT A LINE TERMINATOR
+
+       DATA HEADERS: FIRST ROWS CONTAIN FIELD NAMES
+
+       ATC FILES: ATC_BASE, APT_SVC, ATC_RMK
+
+       COMMON TO ALL ATC FILES: EFF_DATE, SITE_NO, SITE_TYPE_CODE, FACILITY_TYPE,
+       STATE_CODE, FACILITY_ID, CITY, COUNTRY_CODE
+
+
+
+GENERAL INFORMATION:
+
+   1. The ATC_*.csv files were designed from a deconstruction of the legacy TWR.txt and AFF.txt
+      Subscriber Files. ATC_*.csv files are not a complete replacement but a logical grouping of Tower
+      specific data, Radio Call and Operator Data from TWR1 record, Services from TWR4 record, ATIS
+      from TWR9 record, APCH/DEP Primary/Secondary Operator Hours from TWR2 record,
+      ARTCC/CERAP data from AFF1 record, Remarks from the TWR6 record and ARTCC/CERAP
+      remarks from AFF2.
+   2. The Ordered By list for each ATC FILE documented below is also the Unique Record Key.
+   3. Data in the ATC_*.csv files while comparable to elements from the legacy TWR.txt and AFF.txt is
+      in some cases organized and presented in different ways.
+   4. Please enter any feedback in the Aeronautical Information Portal.
+       https://nfdc.faa.gov/nfdcApps/controllers/PublicSecurity/nfdcLogin
+
+
+                                        FIELD DESCRIPTIONS
+
+COMMON TO ALL
+
+##############
+
+EFF_DATE – The 28 Day NASR Subscription Effective Date in format ‘YYYY/MM/DD’.
+
+SITE_NO – Landing Facility Site Number. A unique identifying number. Not applicable to TRACON,
+ARTCC or CERAP.
+
+SITE_TYPE_CODE – Facility Type Code.
+               CODE              FACILITY
+               ----              -----------
+                A                AIRPORT
+                B                BALLOONPORT
+                C                SEAPLANE BASE
+                G                GLIDERPORT
+                H                HELIPORT
+                U                ULTRALIGHT
+                V                VERTIPORT
+
+FACILITY_TYPE – Facility Type.
+
+                TYPE CODE                DESCRIPTION
+                ---------                -----------
+                ATCT                     Air Traffic Control Tower.
+                ATCT-A/C                  Air Traffic Control Tower plus Approach Control.
+                ATCT-RAPCON              Air Traffic Control Tower plus Radar Approach Control (Air Force
+                                         Operates ATCT/FAA Operates Approach Control)
+                ATCT-RATCF               Air Traffic Control Tower plus Radar Approach Control. (Navy
+                                         Operates ATCT/ FAA Operates Approach Control)
+                ATCT-TRACON              Air Traffic Control Tower plus Terminal Radar Approach Control.
+                NON-ATCT                 Non-Air Traffic Control Tower.
+                TRACON                   Consolidated Tracon.
+                ARTCC                    Air Route Traffic Control Center.
+                CERAP                    Center Radar Approach Control Facility.
+
+STATE_CODE – Associated State Post Office Code standard two letter abbreviation for US States and
+Territories.
+
+FACILITY_ID – Location Identifier. Unique 3-4 character alphanumeric identifier assigned to the Landing
+Facility or TRACON.
+
+CITY – Airport Associated City Name
+
+COUNTRY_CODE - Country Post Office Code Airport Located
+
+
+
+ATC_BASE ordered by FACILITY_ID, FACILITY_TYPE
+
+##########################################
+
+ICAO_ID - ICAO Identifier
+
+FACILITY_NAME – Official Facility Name
+
+REGION_CODE – FAA Region Code.
+
+               CODE     REGION NAME
+               ----     -----------
+               AAL       ALASKA
+               ACE       CENTRAL
+               AEA       EASTERN
+               AGL       GREAT LAKES
+               ANE       NEW ENGLAND
+               ANM       NORTHWEST MOUNTAIN
+               ASO       SOUTHERN
+               ASW       SOUTHWEST
+               AWP        WESTERN-PACIFIC
+
+TWR_OPERATOR_CODE – Operator Code of the Agency that Operates the Tower.
+
+               OPER CODE               DESCRIPTION
+               ---------               -----------
+               A                       U.S. Air Force
+               C                       U.S. Coast Guard
+               CITY                    CITY
+               COUNTY                  COUNTY
+               D                       Canadian Ministry of Transport
+               F                       Federal Aviation Admin
+               FCT                     FAA Contract Tower
+               G                       Federal Gov't - Not U.S.A
+               N                       U.S. Navy
+               NFCT                    Non Fed Control Tower
+               O                       Other
+               P                       Private
+               R                       U.S. Army
+               W                       U.S. Weather Service
+               X                       Royal Canadian Air Force
+               Z                       Unknown
+
+TWR_CALL – Radio Call used by Pilot to Contact Tower.
+
+TWR_HRS – Hours of Tower Operation in Local Time.
+
+PRIMARY_APCH_RADIO_CALL – Radio Call of Facility That Furnishes Primary Approach Control.
+
+APCH_P_PROVIDER – Facility ID (or Provider Description when Provider Type equals ‘S’) of the Agency
+That Operates the Primary Approach Control Facility/Functions
+
+APCH_P_PROV_TYPE_CD – Provider Agency Type Code for Agency that Operates the Primary Approach
+Control Facility/Functions.
+
+              CODE             FACILITY
+              ----             -----------
+               A               AIRPORT (with ATCT)
+               C               ARTCC
+               S               Special
+               T               TRACON
+
+SECONDARY_APCH_RADIO_CALL – Radio Call of Facility That Furnishes Secondary Approach Control.
+
+APCH_S_PROVIDER – Facility ID (or Provider Description when Provider Type equals ‘S’) of the Agency
+That Operates the Secondary Approach Control Facility/Functions
+
+APCH_S_PROV_TYPE_CD – Provider Agency Type Code for Agency that Operates the Secondary
+Approach Control Facility/Functions.
+
+              CODE             FACILITY
+              ----             -----------
+               A               AIRPORT (with ATCT)
+               C               ARTCC
+               S               Special
+               T               TRACON
+
+PRIMARY_DEP_RADIO_CALL – Radio Call of Facility That Furnishes Primary Departure Control.
+
+DEP_P_PROVIDER – Facility ID (or Provider Description when Provider Type equals ‘S’) of the Agency
+That Operates the Primary Departure Control Facility/Functions
+
+DEP_P_PROV_TYPE_CD – Provider Agency Type Code for Agency that Operates the Primary Departure
+Control Facility/Functions.
+
+              CODE             FACILITY
+              ----             -----------
+               A               AIRPORT (with ATCT)
+               C               ARTCC
+               S               Special
+               T               TRACON
+
+SECONDARY_DEP_RADIO_CALL – Radio Call of Facility That Furnishes Secondary Departure Control.
+
+DEP_S_PROVIDER – Facility ID (or Provider Description when Provider Type equals ‘S’) of the Agency
+That Operates the Secondary Departure Control Facility/Functions
+
+DEP_S_PROV_TYPE_CD – Provider Agency Type Code for Agency that Operates the Secondary Departure
+Control Facility/Functions.
+
+              CODE             FACILITY
+              ----             -----------
+               A               AIRPORT (with ATCT)
+               C               ARTCC
+               S               Special
+               T               TRACON
+
+CTL_FAC_APCH_DEP_CALLS – Approach Departure Call associated with a Control Facility.
+
+APCH_DEP_OPER_CODE – Agency Type Code that Operates the Control Facility
+               CODE             FACILITY
+               ----             -----------
+                A               U.S. AIR FORCE
+                F               FEDERAL AVIATION ADMIN
+                N               U.S. NAVY
+                R               U.S. ARMY
+
+CTL_PRVDING_HRS – Hours of Operation of the Primary Control Facility.
+
+SECONDARY_CTL_PRVDING_HRS – Hours of Operation of the Secondary Control Facility.
+
+
+
+ATC_ATIS ordered by SITE_NO, SITE_TYPE_CODE, ATIS_NO
+
+###############################################
+
+ATIS_NO – ATIS Serial Number.
+
+DESCRIPTION – Optional Description of Purpose, Fulfilled by ATIS.
+
+ATIS_HRS – ATIS Hours of Operation in Local Time.
+
+ATIS_PHONE_NO – ATIS Phone Number.
+
+
+
+ATC_RMK ordered by FACILITY_ID, FACILITY_TYPE, REF_COL_NAME, REMARK_NO
+
+#############################################################
+
+LEGACY_ELEMENT_NUMBER – Legacy Remark Element.
+
+TAB_NAME – NASR Table name associated with Remark.
+
+REF_COL_NAME – NASR Column name associated with Remark. ARPT_CTL_REMARKs are identified as
+ATC_REMARK. All other Non-specific remarks are identified as GENERAL_REMARK.
+
+REMARK_NO - Sequence number assigned to Reference Column Remark.
+
+REMARK – Remark Text (Free Form Text that further describes a specific Information Item.)
+
+
+
+ATC_SVC ordered by FACILITY_ID, FACILITY_TYPE, CTL_SVC
+
+#################################################
+
+CTL_SVC – Services Provided to Satellite Airport.

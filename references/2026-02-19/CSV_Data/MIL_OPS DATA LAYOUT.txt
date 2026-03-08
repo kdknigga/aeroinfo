@@ -1,0 +1,80 @@
+                                    MILITARY OPERATIONS DATA
+
+                         COMMA-SEPARATED VALUES (CSV) RECORD LAYOUT
+
+                                           (MIL_OPS-FILE)
+
+
+
+INFORMATION EFFECTIVE DATE: 07/14/2022
+
+       RECORD FORMAT: COMMA DELIMITED WITH ALL FIELDS ENCLOSED WITHIN DOUBLE-QUOTE
+       CHARACTERS
+
+       LOGICAL RECORD INTERVAL: ALL RECORDS HAVE THE SAME NUMBER OF FIELDS, IN THE SAME
+       ORDER AND RECORD ENDS AT A LINE TERMINATOR
+
+       DATA HEADERS: FIRST ROW CONTAINS FIELD NAMES
+
+       ORDERED BY: SITE_NO, SITE_TYPE_CODE
+
+
+
+GENERAL INFORMATION:
+
+   1. The MIL_OPS.csv was designed from a deconstruction of the legacy TWR.txt Subscriber File as a
+      logical grouping of military data found in the TWR1 and TWR2 records.
+   2. The Ordered By listed above (SITE_NO, SITE_TYPE_CODE) is also the unique record key.
+   3. Data while comparable to the legacy information is in some cases organized and presented in a
+      different way.
+   4. Please enter any feedback in the Aeronautical Information Portal.
+       https://nfdc.faa.gov/nfdcApps/controllers/PublicSecurity/nfdcLogin
+
+
+                                         FIELD DESCRIPTION
+
+
+
+EFF_DATE – The 28 Day NASR Subscription Effective Date in format ‘YYYY/MM/DD’.
+
+SITE_NO – Landing Facility Site Number. A unique identifying number.
+
+SITE_TYPE_CODE – Facility Type Code.
+
+              CODE             FACILITY
+              ----             -----------
+               A               AIRPORT
+               B               BALLOONPORT
+               C               SEAPLANE BASE
+               G               GLIDERPORT
+               H               HELIPORT
+               U               ULTRALIGHT
+STATE_CODE – Associated State Post Office Code standard two letter abbreviation for US States and
+Territories.
+
+ARPT_ID – Location Identifier. Unique 3-4 character alphanumeric identifier assigned to the Landing
+Facility.
+
+CITY – Airport Associated City Name
+
+COUNTRY_CODE - Country Post Office Code Airport Located
+
+MIL_OPS_OPER_CODE – Military Agency Type Code that Operates the Control Facility.
+
+              CODE              FACILITY
+              ----              -----------
+               A                U.S. AIR FORCE
+               C                U.S. COAST GUARD
+               F                FEDERAL AVIATION ADMIN
+               N                U.S. NAVY
+               R                U.S. ARMY
+
+MIL_OPS_CALL – Radio Call Name for Military Operations at this Control Facility.
+
+MIL_OPS_HRS – Hours of Military Operations Conducted each Day.
+
+AMCP_HRS – Hours of Operation of the Military Aircraft Command Post (AMCP) Located At the Facility.
+
+PMSV_HRS – Hours Of Operation Of The Military Pilot-To-Metro Service (PMSV) Located At The Facility.
+
+REMARK – Remark associated with Military Operations.

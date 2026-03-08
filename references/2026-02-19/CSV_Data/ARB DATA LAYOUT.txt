@@ -1,0 +1,121 @@
+                            AERONAUTICAL BOUNDARY SEGMENTS (ARB) DATA
+
+                            COMMA-SEPARATED VALUES (CSV) RECORD LAYOUT
+
+                                              (ARB-FILE)
+
+
+
+INFORMATION EFFECTIVE DATE: 02/22/2024
+
+       RECORD FORMAT: COMMA DELIMITED WITH ALL TEXT FIELDS ENCLOSED WITHIN DOUBLE-
+       QUOTE CHARACTERS
+
+       LOGICAL RECORD INTERVAL: ALL RECORDS HAVE THE SAME NUMBER OF FIELDS, IN THE SAME
+       ORDER AND RECORD ENDS AT A LINE TERMINATOR
+
+       DATA HEADERS: FIRST ROW CONTAINS FIELD NAMES
+
+       ARB FILES: ARB_BASE, ARB_SEG
+
+       COMMON TO ALL ARB FILES: EFF_DATE, LOCATION_ID, LOCATION_NAME
+
+
+
+GENERAL INFORMATION:
+
+   1. The ARB_*.csv files were designed to replace the legacy ARB.txt Subscriber File.
+   2. ARB_*.csv files contain the data found in the legacy ARB.txt Subscriber File. Data while
+      comparable to the legacy ARB.txt is in some cases organized and presented in a different way.
+   3. Please enter any feedback in the Aeronautical Information Portal.
+       https://nfdc.faa.gov/nfdcApps/controllers/PublicSecurity/nfdcLogin
+
+
+                                         FIELD DESCRIPTIONS
+
+COMMON TO ALL
+
+##############
+
+EFF_DATE – The 28 Day NASR Subscription Effective Date in format ‘YYYY/MM/DD’.
+
+LOCATION_ID – Location Identifier. 3-4 character alphanumeric identifier.
+
+LOCATION_NAME – Center Name.
+
+
+
+ARB_BASE ordered by and unique key: LOCATION_ID
+
+#########################
+
+COMPUTER_ID – Location Computer Identifier
+
+ICAO_ID – ICAO Identifier
+LOCATION_TYPE – Location Type (ARTCC or CERAP).
+
+CITY – Location City Name
+
+STATE – Location State Post Office Code standard two letter abbreviation for US States and Territories.
+
+COUNTRY_CODE – Location Country Post Office Code
+
+LAT_DEG – Location Reference Point Latitude Degrees
+
+LAT_MIN – Location Reference Point Latitude Minutes
+
+LAT_SEC – Location Reference Point Latitude Seconds
+
+LAT_HEMIS – Location Reference Point Latitude Hemisphere
+
+LAT_DECIMAL – Location Reference Point Latitude in Decimal Format
+
+LONG_DEG – Location Reference Point Longitude Degrees
+
+LONG_MIN – Location Reference Point Longitude Minutes
+
+LONG_SEC – Location Reference Point Longitude Seconds
+
+LONG_HEMIS – Location Reference Point Longitude Hemisphere
+
+LONG_DECIMAL – Location Reference Point Longitude in Decimal Format
+
+CROSS_REF – Cross Reference Text (Free Form Text that further describes a specific Information Item.)
+
+
+
+ARB_SEG ordered by LOCATION_ID, TYPE, ALTITUDE, POINT_SEQ; Unique key: REC_ID
+
+#################################################
+
+REC_ID – Concatenation of the LOCATION_ID * BNDRY_CODE * 5 Character Point Designator.
+
+ALTITUDE – Boundary Altitude Structure – HIGH, LOW or UNLIMITED.
+
+TYPE – Boundary Type (ARTCC, FIR, CTA, CTA/FIR, UTA).
+
+POINT_SEQ – Sequencing number in multiples of ten. Points are in order adapted for given Boundary.
+
+LAT_DEG – Boundary Point Latitude Degrees
+
+LAT_MIN – Boundary Point Latitude Minutes
+
+LAT_SEC – Boundary Point Latitude Seconds
+
+LAT_HEMIS – Boundary Point Latitude Hemisphere
+
+LAT_DECIMAL – Boundary Point Latitude in Decimal Format
+
+LONG_DEG – Boundary Point Longitude Degrees
+
+LONG_MIN – Boundary Point Longitude Minutes
+LONG_SEC – Boundary Point Longitude Seconds
+
+LONG_HEMIS – Boundary Point Longitude Hemisphere
+
+LONG_DECIMAL – Boundary Point Longitude in Decimal Format
+
+BNDRY_PT_DESCRIP – Description of Boundary Line Connecting Points on The Boundary.
+
+NAS_DESCRIP_FLAG – An 'X' In This Field Indicates This Point Is Used Only in The NAS Description and
+Not the Legal Description.

@@ -1,0 +1,179 @@
+                                        PREFERRED ROUTE DATA
+
+                          COMMA-SEPARATED VALUES (CSV) RECORD LAYOUT
+
+                                               (PFR-FILES)
+
+
+
+INFORMATION EFFECTIVE DATE: 05/16/2024
+
+        RECORD FORMAT: COMMA DELIMITED WITH ALL TEXT FIELDS ENCLOSED WITHIN DOUBLE-
+        QUOTE CHARACTERS
+
+        LOGICAL RECORD INTERVAL: ALL RECORDS HAVE THE SAME NUMBER OF FIELDS, IN THE SAME
+        ORDER AND RECORD ENDS AT A LINE TERMINATOR
+
+        DATA HEADERS: FIRST ROW CONTAINS FIELD NAMES
+
+        PFR FILES: PFR_BASE, PFR_SEG, PFR_RMT_FMT
+
+        COMMON TO ALL PFR FILES: EFF_DATE, ORIGIN_ID, DSTN_ID, PFR_TYPE_CODE, ROUTE_NO
+        (excluding PFR_RMT_FMT, see General Info #4)
+
+
+
+GENERAL INFORMATION:
+
+    1. The PFR_*.csv files were designed to replace the legacy PFR.txt Subscriber File.
+    2. The Ordered By list for each PFR FILE documented below is also the Unique Record Key.
+    3. PFR_*.csv file contains the data found in the legacy PFR.txt Subscriber File. Data, while
+       comparable to the legacy PFR.txt, is in some cases organized and presented in a different way.
+    4. PFR_RMT_FMT was designed to be an exact match to the RMT prefroutes_db.csv download.
+    5. Please enter any feedback in the Aeronautical Information Portal.
+        https://nfdc.faa.gov/nfdcApps/controllers/PublicSecurity/nfdcLogin
+
+
+                                           FIELD DESCRIPTION
+
+COMMON TO ALL (excluding PFR_RMT_FMT)
+
+##############
+
+EFF_DATE – The 28 Day NASR Subscription Effective Date in format ‘YYYY/MM/DD’.
+
+ORIGIN_ID – Origin Facility Location Identifier (Depending on NAR Type and Direction, Origin ID Is either
+Coastal Fix or Inland NAV Facility or Fix)
+
+DSTN_ID – Destination Facility Location Identifier (Depending on NAR Type and Direction, Destination ID
+Is either Airport, Coastal Fix or Inland NAV Facility or Fix)
+
+PFR_TYPE_CODE –Type Code of Preferred Route Description.
+               CODE             DESCRIPTION
+               ----             ------------------
+                L               LOW ALTITUDE
+                H               HIGH ALTITUDE
+                LPD             LOW ALTITUDE PREFERRED DIRECTION
+                HPD             HIGH ALTITUDE PREFERRED DIRECTION
+                SLD             SPECIAL LOW ALTITUDE DIRECTIONAL
+                SHD             SPECIAL HIGH ALTITUDE DIRECTIONAL
+                TEC             TOWER ENROUTE CONTROL
+                NAR             NORTH AMERICAN ROUTE
+
+ROUTE_NO – Route Identifier Sequence Number (1-99)
+
+
+
+PFR_BASE ordered by ORIGIN_ID, DSTN_ID, PFR_TYPE_CODE, ROUTE_NO
+
+#########################
+
+ORIGIN_CITY – Origin Facility Associated City Name.
+
+ORIGIN_STATE_CODE – This is the two letter state ID of the Origin Facility location. NULL if outside the
+US.
+
+ORIGIN_COUNTRY_CODE – Country Code of the Origin Facility Located.
+
+DSTN_CITY – Destination Facility Associated City Name.
+
+DSTN_STATE_CODE – This is the two letter state ID of the Destination Facility location. NULL if outside
+the US.
+
+DSTN_COUNTRY_CODE – Country Code of the Destination Facility Located.
+
+SPECIAL_AREA_DESCRIP – Preferred Route Area Description.
+
+ALT_DESCRIP – Preferred Route Altitude Description.
+
+AIRCRAFT – Aircraft Allowed/Limitations Description
+
+HOURS – Effective Hours (GMT) Description * All Preferred IFR Routes are in Effect Continuously Unless
+Otherwise Noted.
+
+ROUTE_DIR_DESCRIP – Route Direction Limitations Description
+
+DESIGNATOR – Preferred Route Designator if applicable
+
+NAR_TYPE – North American Route Type (COMMON, NON-COMMON)
+
+INLAND_FAC_FIX – North American Route Inland NAV Facility or Fix is the Origin on COMMON
+EASTBOUND and NON-COMMON (Eastbound or Westbound) and the Destination on COMMON
+WESTBOUND.
+COASTAL_FIX – North American Route Coastal Fix is the Origin on COMMON WESTBOUND and the
+Destination on COMMON EASTBOUND.
+
+DESTINATION – North American Route Destination for NON_COMMON (Eastbound or Westbound).
+
+ROUTE_STRING – Preferred Route String. *Canadian DPs and STARs will use the generic format of “-DP”
+and “-STAR”. See the Canadian Aeronautical Data for the correct amendment number for filing.
+
+
+
+PFR_SEG ordered by ORIGIN_ID, DSTN_ID, PFR_TYPE_CODE, ROUTE_NO, SEG_VALUE, NEXT_SEG
+
+#########################
+
+SEGMENT_SEQ – A sequencing number in multiples of five for each SEG_VALUE. Segment Values are in
+order adapted for each Preferred Route.
+
+SEG_VALUE – The Segment ID Value for each Element of the Route String from PFR_BASE.
+
+SEG_TYPE – The Segment Type of the Segment ID Value.
+
+STATE_CODE – This is the two letter state ID of the Segment Values that are within the US and are Type
+FIX, FRD, NAVAID or RADIAL. Segment Values outside the US or Types AIRWAY, DP or STAR are NULL.
+
+COUNTRY_CODE – Country Code for Types FIX, FRD, NAVAID or RADIAL. Segment Value Types AIRWAY,
+DP or STAR are NULL.
+
+ICAO_REGION_CODE – This is the two letter ICAO Region Code for FIX Segment Types only.
+
+NAV_TYPE – Specific NAVAID Type for Segment Value Types NAVAID, RADIAL or FRD.
+
+NEXT_SEG – The Segment ID Value of the Element that directly follows the current Segment Value.
+
+
+
+PFR_RMT_FMT ordered by Orig, Dest, Type, Seq
+
+#########################
+
+Orig – Origin Facility Location Identifier (Depending on NAR Type and Direction, Origin ID Is either
+Coastal Fix or Inland NAV Facility or Fix)
+
+Route String – Preferred Route String which starts with Orig and ends with Dest. *Canadian DPs and
+STARs will use the generic format of “-DP” and “-STAR”. See the Canadian Aeronautical Data for the
+correct amendment number for filing.
+
+Dest – Destination Facility Location Identifier (Depending on NAR Type and Direction, Destination ID Is
+either Airport, Coastal Fix or Inland NAV Facility or Fix)
+
+Hours1 – Effective Hours (GMT) Description * All Preferred IFR Routes are in Effect Continuously Unless
+Otherwise Noted.
+
+Type –Type Code of Preferred Route Description.
+               CODE             DESCRIPTION
+               ----             ------------------
+                L               LOW ALTITUDE
+                H               HIGH ALTITUDE
+                LPD             LOW ALTITUDE PREFERRED DIRECTION
+                HPD             HIGH ALTITUDE PREFERRED DIRECTION
+                SLD             SPECIAL LOW ALTITUDE DIRECTIONAL
+                SHD             SPECIAL HIGH ALTITUDE DIRECTIONAL
+                TEC             TOWER ENROUTE CONTROL
+                NAR             NORTH AMERICAN ROUTE
+
+Area – Preferred Route Area Description.
+
+Altitude – Preferred Route Altitude Description.
+
+Aircraft– Aircraft Allowed/Limitations Description
+
+Direction – Route Direction Limitations Description
+
+Seq – Route Identifier Sequence Number (1-99)
+
+DCNTR – Departure ARTCC associated with a given PFR.
+
+ACNTR – Arrival ARTCC associated with a given PFR.

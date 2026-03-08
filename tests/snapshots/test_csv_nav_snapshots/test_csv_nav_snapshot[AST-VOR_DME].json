@@ -1,0 +1,129 @@
+{
+  "airspace_fixes": [],
+  "automatic_voice_id": {
+    "code": "N",
+    "description": "NO"
+  },
+  "catch": {
+    "code": "N",
+    "description": "NO"
+  },
+  "city": "ASTORIA",
+  "common_system_usage": "Y",
+  "coords_survey_accuracy": {
+    "code": "SIX",
+    "description": "NOS"
+  },
+  "country": null,
+  "country_code": null,
+  "dme_service_volume": {
+    "code": "L",
+    "description": "LOW ALTITUDE"
+  },
+  "effective_date": "2026-02-19",
+  "elevation": 11.3,
+  "facility_id": "AST",
+  "facility_type": "VOR/DME",
+  "fan_marker_true_bearing": null,
+  "fan_marker_type": null,
+  "fan_markers": [],
+  "frequency": "114.00",
+  "fss_hours_of_operation": "24",
+  "fss_id": "MMV",
+  "fss_name": "MC MINNVILLE",
+  "high_altitude_artcc_id": "ZSE",
+  "high_altitude_artcc_name": "SEATTLE",
+  "hiwas": null,
+  "holding_patterns": [],
+  "hours_of_operation": "24",
+  "latitude_dms": "46-09-42.117N",
+  "latitude_secs": "166182.117N",
+  "longitude_dms": "123-52-49.351W",
+  "longitude_secs": "445969.351W",
+  "low_altitude_artcc_id": "ZSE",
+  "low_altitude_artcc_name": "SEATTLE",
+  "low_altitude_facility_used_in_high_structure": null,
+  "mag_variation": "15E",
+  "mag_variation_year": 2020,
+  "monitoring_category": {
+    "code": "ONE",
+    "description": "1 - INTERNAL MONITORING PLUS A STATUS INDICATOR INSTALLED AT CONTROL POINT. (REVERTS TO A TEMPORARY CATEGORY 3 STATUS WHEN THE CONTROL POINT IS NOT MANNED.)"
+  },
+  "name": "ASTORIA",
+  "navaid_class": "L-VORW/DME",
+  "navaid_restriction": null,
+  "navaid_status": "OPERATIONAL RESTRICTED",
+  "notam_accountability_code": "AST",
+  "official_facility_id": "AST",
+  "operators_name": "FEDERAL AVIATION ADMIN",
+  "owners_name": "FEDERAL AVIATION ADMIN",
+  "pitch": {
+    "code": "N",
+    "description": "NO"
+  },
+  "power_output_watts": null,
+  "public_use": "Y",
+  "quadrant_id_and_range_leg_bearing": null,
+  "radio_voice_call_name": "NONE",
+  "region": {
+    "code": "ANM",
+    "description": "NORTHWEST MOUNTAIN"
+  },
+  "remarks": [
+    {
+      "facility_id": "AST",
+      "facility_type": "VOR/DME",
+      "remark": "DME UNUSBL 079-092 BYD 35 NM BLW 7000 FT, 334-004 BYD 28 NM BLW 6300 FT."
+    },
+    {
+      "facility_id": "AST",
+      "facility_type": "VOR/DME",
+      "remark": "VOR UNUSBL 000-018 BYD 40 NM; 019-029 BYD 40 NM BLW 5500 FT; 019-029 BYD 57 NM; 023-034 BYD 35 NM BLW 5500 FT; 030-050 BYD 40 NM; 034-049 BYD 30 NM BLW 5500 FT; 049-059 BYD 30 NM BLW 7500 FT; 051-061 BYD 40 NM BLW 9500 FT; 051-061 BYD 55 NM; 062-077 BYD 40 NM; 078-088 BYD 40 NM BLW 8500 FT; 078-088 BYD 62 NM; 084-104 BYD 34 NM BLW 6000 FT; 089-104 BYD 40 NM BLW 8500 FT; 089-104 BYD 64 NM; 105-121 BYD 40 NM; 122-132 BYD 40 NM; 122-132 BYD 67 NM; 124-154 BYD 33 NM BLW 7000 FT; 133-164 BYD 40 NM; 154-174 BYD 36 NM BLW 7000 FT; 165-175 BYD 40 NM BLW 10000 FT; 165-175 BYD 56 NM;"
+    },
+    {
+      "facility_id": "AST",
+      "facility_type": "VOR/DME",
+      "remark": "VOR UNUSBL 174-204 BYD 15 NM BLW 8000 FT; 176-305 BYD 40 NM; 184-214 BYD 10 NM BLW 3300 FT; 184-244 BYD 5 NM BLW 2000 FT; 204-214 BYD 20 NM BLW 8000 FT; 214-244 BYD 30 NM BLW 6000 FT; 244-324 BYD 12 NM BLW 2000 FT; 244-324 BYD 25 NM BLW 5000 FT; 324-334 BYD 30 NM BLW 5500 FT; 327-337 BYD 40 NM BLW 7100 FT; 327-337 BYD 53 NM; 334-004 BYD 20 NM BLW 5500 FT; 338-359 BYD 40 NM."
+    }
+  ],
+  "simultaneous_voice": {
+    "code": "N",
+    "description": "NO"
+  },
+  "state_code": "OR",
+  "state_name": "OREGON",
+  "sua_atcaa": {
+    "code": "N",
+    "description": "NO"
+  },
+  "tacan_channel": "87X",
+  "tacan_only_latitude_dms": "46-09-42.114N",
+  "tacan_only_latitude_secs": "166182.114N",
+  "tacan_only_longitude_dms": "123-52-49.356W",
+  "tacan_only_longitude_secs": "445969.356W",
+  "transmitted_id": null,
+  "tweb": null,
+  "tweb_hours": null,
+  "tweb_phone_number": null,
+  "vor_receiver_checkpoints": [
+    {
+      "air_ground": {
+        "code": "G",
+        "description": "GROUND"
+      },
+      "air_narrative": null,
+      "airport_id": "AST",
+      "altitude": null,
+      "bearing": 156,
+      "facility_id": "AST",
+      "facility_type": "VOR/DME",
+      "ground_narrative": "0.5 NM EAST EDGE OF RAMP IN FRONT OF LARGE HANGAR.",
+      "state": "OR"
+    }
+  ],
+  "vor_service_volume": {
+    "code": "VL",
+    "description": "VOR LOW"
+  },
+  "z_marker_available": null
+}

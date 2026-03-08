@@ -1,0 +1,66 @@
+                                             RADAR DATA
+
+                         COMMA-SEPARATED VALUES (CSV) RECORD LAYOUT
+
+                                              (RDR-FILE)
+
+
+
+INFORMATION EFFECTIVE DATE: 11/03/2022
+
+        RECORD FORMAT: COMMA DELIMITED WITH ALL TEXT FIELDS ENCLOSED WITHIN DOUBLE-
+        QUOTE CHARACTERS
+
+        LOGICAL RECORD INTERVAL: ALL RECORDS HAVE THE SAME NUMBER OF FIELDS, IN THE SAME
+        ORDER AND RECORD ENDS AT A LINE TERMINATOR
+
+        DATA HEADERS: FIRST ROW CONTAINS FIELD NAMES
+
+        ORDERED BY: FACILITY_ID, COUNTRY_CODE, RADAR_NO
+
+
+
+GENERAL INFORMATION:
+
+    1. The RDR.csv was designed from a deconstruction of the legacy TWR.txt Subscriber File as a
+       logical grouping of RADAR data found in the TWR5 record.
+    2. The Ordered By listed above (FACILITY_ID, COUNTRY_CODE, RADAR_NO) is also the unique
+       record key.
+    3. Data while comparable to the legacy information is in some cases organized and presented in a
+       different way.
+    4. Please enter any feedback in the Aeronautical Information Portal.
+        https://nfdc.faa.gov/nfdcApps/controllers/PublicSecurity/nfdcLogin
+
+
+                                          FIELD DESCRIPTION
+
+
+
+EFF_DATE – The 28 Day NASR Subscription Effective Date in format ‘YYYY/MM/DD’.
+
+FACILITY_ID – Location Identifier. Unique 3-4 character alphanumeric identifier assigned to the Landing
+Facility or TRACON.
+
+FACILITY_TYPE – Type of Facility associated with the RADAR data – either AIRPORT or TRACON.
+
+STATE_CODE – Associated State Post Office Code standard two letter abbreviation for US States and
+Territories.
+
+COUNTRY_CODE - Country Post Office Code Airport or TRACON is Located.
+
+RADAR_TYPE – RADAR Type Code.
+
+        TYPE CODE       DESCRIPTION
+       ---------      -----------
+       ARSR           AIR ROUTE SURVEILLANCE RADAR
+       ASR            AIRPORT SURVEILLANCE RADAR (-# DENOTES TYPE OF ASR)
+       ASR/PAR        AIRPORT SURVEILLANCE RADAR PLUS PRECISION APPROACH RADAR
+       GCA            GROUND CONTROL APPROACH
+       PAR            PRECISION APPROACH RADAR
+       SECRA          SECONDARY RADAR
+
+RADAR_NO – Unique Sequence Number assigned to each Radar at a Facility.
+
+RADAR_HRS – RADAR Hours of Operation.
+
+REMARK – Remark associated with RADAR Operations.

@@ -1,0 +1,149 @@
+                                  PARACHUTE JUMP AREA (PJA) DATA
+
+                         COMMA-SEPARATED VALUES (CSV) RECORD LAYOUT
+
+                                              (PJA-FILES)
+
+
+
+INFORMATION EFFECTIVE DATE: 10/05/2023
+
+        RECORD FORMAT: COMMA DELIMITED WITH TEXT FIELDS ENCLOSED WITHIN DOUBLE-QUOTE
+        CHARACTERS
+        LOGICAL RECORD INTERVAL: ALL RECORDS WITHIN A SPECIFIC ILS FILE HAVE THE SAME
+        NUMBER OF FIELDS, IN THE SAME ORDER AND RECORD ENDS AT A LINE TERMINATOR
+
+        DATA HEADERS: FIRST ROWS CONTAIN FIELD NAMES
+        PJA FILES: PJA_BASE, PJA_CON
+
+        COMMON TO ALL PJA FILES: EFF_DATE, PJA_ID
+
+
+
+GENERAL INFORMATION:
+    1. The PJA_*.csv files were designed to replace the legacy PJA.txt Subscriber File.
+    2. The Ordered By list for each PJA FILE documented below is also the Unique Record Key.
+    3. PJA_*.csv files contain the data found in the legacy PJA.txt Subscriber File. Data while
+       comparable to the legacy PJA.txt is in some cases organized and presented in a different way.
+    4. Please enter any feedback in the Aeronautical Information Portal.
+        https://nfdc.faa.gov/nfdcApps/controllers/PublicSecurity/nfdcLogin
+
+
+                                          FIELD DESCRIPTIONS
+COMMON TO ALL
+
+##############
+
+EFF_DATE – The 28 Day NASR Subscription Effective Date in format ‘YYYY/MM/DD’.
+
+PJA_ID – PJA ID that uniquely identifies a Parachute Jump Area.
+
+
+
+PJA_BASE ordered by PJA_ID
+
+#########################
+
+NAV_ID – NAVAID Facility Identifier with which PJA is Associated.
+
+NAV_TYPE – NAVAID Facility Type with which the PJA is Associated.
+        TYPE                    Description
+        ------                  ---------------
+        CONSOLAN                A Low Frequency, Long-Distance NAVAID Used Principally for
+                                Transoceanic navigation.
+        DME                     Distance Measuring Equipment only.
+        FAN MARKER              There are 3 types of EN ROUTE Market Beacons. FAN MARKER,
+                                Low powered FAN MARKERS and Z MARKERS. A FAN MARKER
+                                Is used to provide a positive identification of positions at
+                                Definite points along the airways.
+        MARINE NDB              A NON Directional Beacon used primarily for Marine (surface)
+                                Navigation.
+        MARINE NDB/DME          A NON Directional Beacon with associated Distance measuring
+                                Equipment; used primarily for Marine (surface) Navigation.
+        NDB                     A NON Directional Beacon
+        NDB/DME                 Non Directional Beacon with associated Distance Measuring
+                                Equipment.
+        TACAN                   A Tactical Air Navigation System providing Azimuth and Slant
+                                Range Distance.
+        UHF/NDB                 Ultra High Frequency/NON Directional Beacon.
+        VOR                     A VHF OMNI-Directional Range providing Azimuth only.
+        VORTAC                  A Facility consisting of two components, VOR and TACAN,
+                                Which provides three individual services: VOR AZIMITH,
+                                TACAN AZIMUTH and TACAN Distance (DME) at one site.
+        VOR/DME                 VHF OMNI-DIRECTIONAL Range with associated Distance
+                                Measuring equipment.
+        VOT                     A FAA VOR Test Facility.
+
+
+RADIAL – Azimuth (Degrees) From NAVAID (0-359.99)
+
+DISTANCE – Distance, In Nautical Miles, From NAVAID
+NAVAID_NAME – Name of NAVAID with which PJA is Associated.
+
+STATE_CODE – PJA State Abbreviation (Two-Letter Post Office)
+CITY – PJA Associated City Name
+
+LATITUDE – PJA Latitude (Formatted)
+
+LAT_DECIMAL – PJA Latitude in Decimal Format
+
+LONGITUDE – PJA Longitude (Formatted)
+LONG_DECIMAL – PJA Longitude in Decimal Format
+
+ARPT_ID – Landing Facility Identifier with which PJA is Associated.
+
+SITE_NO – Site Number of Associated Landing Facility
+SITE_TYPE_CODE – Landing Facility Type Code.
+
+               CODE      FACILITY
+               ----      -----------
+                A        AIRPORT
+                B         BALLOONPORT
+                C         SEAPLANE BASE
+                G         GLIDERPORT
+                H         HELIPORT
+                U         ULTRALIGHT
+
+DROP_ZONE_NAME – PJA Drop Zone Name
+
+MAX_ALTITUDE – PJA Maximum Altitude Allowed
+
+MAX_ALTITUDE_TYPE_CODE – PJA Maximum Altitude Allowed Type (AGL, MSL, UNR)
+
+PJA_RADIUS – PJA Area Radius, in Nautical Miles from Center Point
+
+CHART_REQUEST_FLAG – Sectional Charting Required (Y/N)
+PUBLISH_CRITERIA – PJA to be Published in Airport/Facility Directory (Y/N)
+
+DESCRIPTION – Additional Descriptive Text for PJA Area
+TIME_OF_USE – Times of Use Description
+
+FSS_ID – FSS Ident with which PJA is Associated
+FSS_NAME – FSS Name with which PJA is Associated
+PJA_USE – PJA Use Description
+
+VOLUME – PJA Area Volume
+PJA_USER – PJA User Group Name and Description
+
+REMARK – Remark Text (Free Form Text that further describes a PJA.)
+
+
+
+PJA_CON ordered by PJA_ID, FAC_NAME
+
+#################################################
+
+FAC_ID – Contact Facility Identifier
+FAC_NAME – Contact Facility Name
+
+LOC_ID – Related Location Identifier
+COMMERCIAL_FREQ – Commercial Frequency
+
+COMMERCIAL_CHART_FLAG – Commercial Chart Flag
+MIL_FREQ– Military Frequency
+
+MIL_CHART_FLAG – Military Chart Flag
+
+SECTOR – Sector Description Text
+
+CONTACT_FREQ_ALTITUDE – Altitude Description Text

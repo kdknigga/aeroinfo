@@ -1,0 +1,101 @@
+{
+  "airspace_fixes": [],
+  "automatic_voice_id": {
+    "code": "N",
+    "description": "NO"
+  },
+  "catch": {
+    "code": "N",
+    "description": "NO"
+  },
+  "city": "ENTERPRISE",
+  "common_system_usage": "Y",
+  "coords_survey_accuracy": {
+    "code": "FIVE",
+    "description": "1 SECOND OR BETTER"
+  },
+  "country": null,
+  "country_code": null,
+  "dme_service_volume": null,
+  "effective_date": "2026-02-19",
+  "elevation": 378.6,
+  "facility_id": "EDN",
+  "facility_type": "VOR",
+  "fan_marker_true_bearing": null,
+  "fan_marker_type": null,
+  "fan_markers": [],
+  "frequency": "116.60",
+  "fss_hours_of_operation": "24",
+  "fss_id": "ANB",
+  "fss_name": "ANNISTON",
+  "high_altitude_artcc_id": "ZJX",
+  "high_altitude_artcc_name": "JACKSONVILLE",
+  "hiwas": null,
+  "holding_patterns": [],
+  "hours_of_operation": "24",
+  "latitude_dms": "31-17-46.940N",
+  "latitude_secs": "112666.940N",
+  "longitude_dms": "085-54-09.850W",
+  "longitude_secs": "309249.850W",
+  "low_altitude_artcc_id": "ZJX",
+  "low_altitude_artcc_name": "JACKSONVILLE",
+  "low_altitude_facility_used_in_high_structure": null,
+  "mag_variation": "03W",
+  "mag_variation_year": 2005,
+  "monitoring_category": {
+    "code": "THREE",
+    "description": "3 - INTERNAL MONITORING ONLY. STATUS INDICATOR NON INSTALLED AT CONTROL POINT."
+  },
+  "name": "ENTERPRISE",
+  "navaid_class": "T-VORW",
+  "navaid_restriction": null,
+  "navaid_status": "OPERATIONAL IFR",
+  "notam_accountability_code": "ANB",
+  "official_facility_id": "EDN",
+  "operators_name": "US ARMY",
+  "owners_name": "US ARMY",
+  "pitch": {
+    "code": "N",
+    "description": "NO"
+  },
+  "power_output_watts": null,
+  "public_use": "Y",
+  "quadrant_id_and_range_leg_bearing": null,
+  "radio_voice_call_name": "NONE",
+  "region": {
+    "code": "ASO",
+    "description": "SOUTHERN"
+  },
+  "remarks": [
+    {
+      "facility_id": "EDN",
+      "facility_type": "VOR",
+      "remark": "VOR UNMONITORED."
+    }
+  ],
+  "simultaneous_voice": {
+    "code": "N",
+    "description": "NO"
+  },
+  "state_code": "AL",
+  "state_name": "ALABAMA",
+  "sua_atcaa": {
+    "code": "N",
+    "description": "NO"
+  },
+  "tacan_channel": null,
+  "tacan_only_latitude_dms": null,
+  "tacan_only_latitude_secs": null,
+  "tacan_only_longitude_dms": null,
+  "tacan_only_longitude_secs": null,
+  "transmitted_id": null,
+  "tweb": null,
+  "tweb_hours": null,
+  "tweb_phone_number": null,
+  "vor_receiver_checkpoints": [],
+  "vor_service_volume": {
+    "code": "T",
+    "description": "TERMINAL"
+  },
+  "z_marker_available": null
+}

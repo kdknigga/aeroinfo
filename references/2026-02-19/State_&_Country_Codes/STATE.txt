@@ -1,0 +1,82 @@
+desc state
+Name                           Null     Type
+------------------------------ -------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+STATE_CODE                     NOT NULL VARCHAR2(2)
+NON_US_STATE_CODE                       VARCHAR2(2)
+NUMERIC_STATE_CODE             NOT NULL VARCHAR2(2)
+REGION_CODE                    NOT NULL VARCHAR2(3)
+STATE_NAME                     NOT NULL VARCHAR2(30)
+US_STATE_CODE                           VARCHAR2(2)
+
+6 rows selected
+
+STATE_CODE NON_US_STATE_CODE NUMERIC_STATE_CODE REGION_CODE STATE_NAME                     US_STATE_CODE
+---------- ----------------- ------------------ ----------- ------------------------------ -------------
+AK                           2                  AAL         ALASKA                         AK
+AL                           1                  ASO         ALABAMA                        AL
+AR                           5                  ASW         ARKANSAS                       AR
+AS                           60                 AWP         AMERICAN SAMOA                 AS
+AZ                           4                  AWP         ARIZONA                        AZ
+BS         BS                96                 ASO         BAHAMA ISLANDS
+CA                           6                  AWP         CALIFORNIA                     CA
+CO                           8                  ANM         COLORADO                       CO
+CT                           9                  ANE         CONNECTICUT                    CT
+DC                           11                 AEA         DIST. OF COLUMBIA              DC
+DE                           10                 AEA         DELAWARE                       DE
+FL                           12                 ASO         FLORIDA                        FL
+GA                           13                 ASO         GEORGIA                        GA
+GU                           66                 AWP         GUAM                           GU
+HI                           15                 AWP         HAWAII                         HI
+IA                           19                 ACE         IOWA                           IA
+IB         IB                95                 ASO         BRITISH WEST INDIES
+ID                           16                 ANM         IDAHO                          ID
+IL                           17                 AGL         ILLINOIS                       IL
+IN                           18                 AGL         INDIANA                        IN
+KS                           20                 ACE         KANSAS                         KS
+KY                           21                 ASO         KENTUCKY                       KY
+LA                           22                 ASW         LOUISIANA                      LA
+MA                           23                 ANE         MASSACHUSETTS                  MA
+MD                           24                 AEA         MARYLAND                       MD
+ME                           25                 ANE         MAINE                          ME
+MI                           26                 AGL         MICHIGAN                       MI
+MN                           27                 AGL         MINNESOTA                      MN
+MO                           28                 ACE         MISSOURI                       MO
+MP                           61                 AWP         N MARIANA ISLANDS              MP
+MS                           29                 ASO         MISSISSIPPI                    MS
+MT                           30                 ANM         MONTANA                        MT
+NC                           37                 ASO         NORTH CAROLINA                 NC
+ND                           38                 AGL         NORTH DAKOTA                   ND
+NE                           31                 ACE         NEBRASKA                       NE
+NH                           33                 ANE         NEW HAMPSHIRE                  NH
+NJ                           34                 AEA         NEW JERSEY                     NJ
+NM                           35                 ASW         NEW MEXICO                     NM
+NV                           32                 AWP         NEVADA                         NV
+NY                           36                 AEA         NEW YORK                       NY
+OA                           90                 AEA         OFFSHORE ATLANTIC              OA
+OC                           93                 ASO         OFFSHORE CARIB                 OC
+OG                           91                 ASW         OFFSHORE GULF                  OG
+OH                           39                 AGL         OHIO                           OH
+OK                           40                 ASW         OKLAHOMA                       OK
+OP                           92                 AWP         OFFSHORE PACIFIC               OP
+OR                           41                 ANM         OREGON                         OR
+PA                           42                 AEA         PENNSYLVANIA                   PA
+PR                           72                 ASO         PUERTO RICO                    PR
+QM                           63                 AWP         MIDWAY ISLANDS                 QM
+QW                           62                 AWP         WAKE ISLAND                    QW
+RI                           44                 ANE         RHODE ISLAND                   RI
+SC                           45                 ASO         SOUTH CAROLINA                 SC
+SD                           46                 AGL         SOUTH DAKOTA                   SD
+TN                           47                 ASO         TENNESSEE                      TN
+TX                           48                 ASW         TEXAS                          TX
+UT                           49                 ANM         UTAH                           UT
+VA                           51                 AEA         VIRGINIA                       VA
+VI                           78                 ASO         VIRGIN ISLANDS                 VI
+VT                           50                 ANE         VERMONT                        VT
+WA                           53                 ANM         WASHINGTON                     WA
+WI                           55                 AGL         WISCONSIN                      WI
+WV                           54                 AEA         WEST VIRGINIA                  WV
+WY                           56                 ANM         WYOMING                        WY
+XL                           64                 AWP         PALMYRA ATOLL                  XL
+XX                           97                 AIN         INTERNATIONAL
+
+66 rows selected

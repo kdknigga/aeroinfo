@@ -1,0 +1,148 @@
+                     FLIGHT SERVICE STATION COMMUNICATION FACILITIES DATA
+
+                          COMMA-SEPARATED VALUES (CSV) RECORD LAYOUT
+
+                                              (COM-FILE)
+
+
+
+INFORMATION EFFECTIVE DATE: 12/01/2022
+
+        RECORD FORMAT: COMMA DELIMITED WITH ALL TEXT FIELDS ENCLOSED WITHIN DOUBLE-
+        QUOTE CHARACTERS
+
+        LOGICAL RECORD INTERVAL: ALL RECORDS HAVE THE SAME NUMBER OF FIELDS, IN THE SAME
+        ORDER AND RECORD ENDS AT A LINE TERMINATOR
+
+        DATA HEADERS: FIRST ROW CONTAINS FIELD NAMES
+
+        ORDERED BY: COMM_LOC_ID, COMM_TYPE, COMM_OUTLET_NAME, STATE_CODE,
+        FACILITY_ID
+
+
+
+GENERAL INFORMATION:
+
+    1. The COM.csv was designed to replace the legacy COM.txt Subscriber File along with AFF.txt
+       Subscriber File data pertaining to RCAG.
+    2. The Ordered By listed above (COMM_LOC_ID, COMM_TYPE, COMM_OUTLET_NAME,
+       STATE_CODE, FACILITY_ID) is also the unique record key.
+    3. Data while comparable to the legacy information is in some cases organized and presented in a
+       different way. Notably, Any Frequency related information can be found in FRQ.csv.
+    4. Please enter any feedback in the Aeronautical Information Portal.
+        https://nfdc.faa.gov/nfdcApps/controllers/PublicSecurity/nfdcLogin
+
+
+                                          FIELD DESCRIPTION
+
+
+
+EFF_DATE – The 28 Day NASR Subscription Effective Date in format ‘YYYY/MM/DD’.
+
+COMM_LOC_ID – Communications Outlet Ident. A 3-4 character alphanumeric identifier. COMM_TYPE
+RCAG do not currently have a 3-4 character identifier stored in NASR.
+
+COMM_TYPE – Communication Outlet Type – RCAG, RCO or RCO1. RCAG is a Remote Communications,
+Air/Ground. RCO and RCO1 are the same and Serve the Same Function; A Remote Communication
+Outlet. An RCO1 may exist if two separate sites share the same identifier, e.g. one is collocated with a
+NAVAID, the Other Is Physically on Airport Property.
+
+NAV_ID – Associated NAVAID Ident - Applies to RCO/RCO1 types only.
+
+NAV_TYPE – Associated NAVAID Type - Applies to RCO/RCO1 types only.
+       TYPE                    Description
+       ------                  ---------------
+       CONSOLAN                A Low Frequency, Long-Distance NAVAID Used Principally for
+                               Transoceanic navigation.
+       DME                     Distance Measuring Equipment only.
+
+       FAN MARKER              There are 3 types of EN ROUTE Market Beacons. FAN MARKER,
+                               Low powered FAN MARKERS and Z MARKERS. A FAN MARKER
+                               Is used to provide a positive identification of positions at
+                               Definite points along the airways.
+       MARINE NDB              A NON Directional Beacon used primarily for Marine (surface)
+                               Navigation.
+       MARINE NDB/DME          A NON Directional Beacon with associated Distance measuring
+                               Equipment; used primarily for Marine (surface) Navigation.
+       NDB                     A NON Directional Beacon
+       NDB/DME                 Non Directional Beacon with associated Distance Measuring
+                               Equipment.
+       TACAN                   A Tactical Air Navigation System providing Azimuth and Slant
+                               Range Distance.
+       UHF/NDB                 Ultra High Frequency/NON Directional Beacon.
+       VOR                     A VHF OMNI-Directional Range providing Azimuth only.
+       VORTAC                  A Facility consisting of two components, VOR and TACAN,
+                               Which provides three individual services: VOR AZIMITH,
+                               TACAN AZIMUTH and TACAN Distance (DME) at one site.
+       VOR/DME                 VHF OMNI-DIRECTIONAL Range with associated Distance
+                               Measuring equipment.
+       VOT                     A FAA VOR Test Facility.
+
+
+CITY – Communications Outlet City Name. RCAG do not have an Associated City stored in NASR.
+
+STATE_CODE – Associated State Code standard two letter abbreviation for US States and Territories.
+
+REGION_CODE – FAA Region responsible for Communications Outlet (code)
+
+               CODE     REGION NAME
+               ----     -----------
+               AAL        ALASKA
+               ACE        CENTRAL
+               AEA        EASTERN
+               AGL       GREAT LAKES
+               ANE        NEW ENGLAND
+               ANM        NORTHWEST MOUNTAIN
+               ASO        SOUTHERN
+               ASW        SOUTHWEST
+               AWP        WESTERN-PACIFIC
+COUNTRY_CODE - Country Code Communications Outlet is Located.
+
+COMM_OUTLET_NAME – Communications Outlet Name. The Communications Outlet Name is also used
+as the Communications Outlet Call.
+
+LAT_DEG – Communications Outlet Latitude Degrees
+
+LAT_MIN – Communications Outlet Latitude Minutes
+
+LAT_SEC – Communications Outlet Latitude Seconds
+
+LAT_HEMIS – Communications Outlet Latitude Hemisphere
+
+LAT_DECIMAL – Communications Outlet Latitude in Decimal Format
+
+LONG_DEG – Communications Outlet Longitude Degrees
+
+LONG_MIN – Communications Outlet Longitude Minutes
+
+LONG_SEC – Communications Outlet Longitude Seconds
+
+LONG_HEMIS – Communications Outlet Longitude Hemisphere
+
+LONG_DECIMAL – Communications Outlet Longitude in Decimal Format
+
+FACILITY_ID – For RCO and RCO1, the Facility ID is the Associated Flight Service Station Ident. For RCAG,
+the Facility ID is the Associated ARTCC.
+
+FACILITY_NAME - For RCO and RCO1, the Facility Name is the Associated Flight Service Station Name.
+For RCAG, the Facility Name is the Associated ARTCC Name.
+
+ALT_FSS_ID – Associated Alternate Flight Service Station Ident - Applies to RCO/RCO1 types only.
+
+ALT_FSS_NAME - Associated Alternate Flight Service Station Name - Applies to RCO/RCO1 types only.
+
+OPR_HRS – Standard Time Zone - Applies to RCO/RCO1 types only.
+
+COMM_STATUS_CODE – Communication Outlet Status - Applies to RCO/RCO1 types only.
+
+               CODE     STATUS
+               ----     ---------
+                A       Operational IFR
+
+                Q       To be commissioned
+
+                Z       Decommissioned
+
+COMM_STATUS_DATE – STATUS Date of Communications Outlet - Applies to RCO/RCO1 types only.
+
+REMARK – Remark associated with Communications Outlet.

@@ -10,6 +10,7 @@ the application.
 import datetime
 import enum
 import logging
+from typing import Any
 
 from sqlalchemy import Boolean, Date, Enum, Float, ForeignKey, Index, Integer, String
 from sqlalchemy.orm import (
@@ -379,9 +380,11 @@ class Airport(Base):
     minimum_operational_network: Mapped[str | None] = mapped_column(String(1))
     # L AN 0311 01219  NONE    AIRPORT RECORD FILLER (BLANK)
 
-    runways = relationship("Runway", back_populates="airport")
-    remarks = relationship("AirportRemark", back_populates="airport")
-    attendance_schedules = relationship("AttendanceSchedule", back_populates="airport")
+    runways: Mapped[list["Runway"]] = relationship(back_populates="airport")
+    remarks: Mapped[list["AirportRemark"]] = relationship(back_populates="airport")
+    attendance_schedules: Mapped[list["AttendanceSchedule"]] = relationship(
+        back_populates="airport"
+    )
 
     def __repr__(self) -> str:
         """Short debug representation."""
@@ -389,7 +392,7 @@ class Airport(Base):
             f"<Airport(name='{self.name}', faa='{self.faa_id}', icao='{self.icao_id}')>"
         )
 
-    def to_dict(self, include: list[str] | None = None) -> dict[str, object]:
+    def to_dict(self, include: list[str] | None = None) -> dict[str, Any]:
         """
         Return a dict representation of the airport.
 
@@ -722,15 +725,15 @@ class Runway(Base):
         mapped_column(String(1500))
     )
 
-    airport = relationship("Airport", back_populates="runways")
-    runway_ends = relationship("RunwayEnd", back_populates="runway")
-    remarks = relationship("RunwayRemark", back_populates="runway")
+    airport: Mapped["Airport"] = relationship(back_populates="runways")
+    runway_ends: Mapped[list["RunwayEnd"]] = relationship(back_populates="runway")
+    remarks: Mapped[list["RunwayRemark"]] = relationship(back_populates="runway")
 
     def __repr__(self) -> str:
         """Short debug representation."""
         return f"<Runway(name='{self.name}', airport='{self.airport}')>"
 
-    def to_dict(self, include: list[str] | None = None) -> dict[str, object]:
+    def to_dict(self, include: list[str] | None = None) -> dict[str, Any]:
         """
         Return a dict representation of the runway.
 
@@ -1059,14 +1062,14 @@ class RunwayEnd(Base):
     # L AN 0009 00027  E60     TYPE OF AIRCRAFT ARRESTING DEVICE
     arresting_gear: Mapped[str | None] = mapped_column(String(9))
 
-    runway = relationship("Runway", back_populates="runway_ends")
-    remarks = relationship("RunwayEndRemark", back_populates="runway_end")
+    runway: Mapped["Runway"] = relationship(back_populates="runway_ends")
+    remarks: Mapped[list["RunwayEndRemark"]] = relationship(back_populates="runway_end")
 
     def __repr__(self) -> str:
         """Short debug representation."""
         return f"<Runway End(id='{self.id}', runway='{self.runway}')>"
 
-    def to_dict(self, include: list[str] | None = None) -> dict[str, object]:
+    def to_dict(self, include: list[str] | None = None) -> dict[str, Any]:
         """Return a dict representation of the runway end."""
         _include = include or []
 
@@ -1228,7 +1231,7 @@ class AirportRemark(Base):
     remark_element_name: Mapped[str] = mapped_column(String(13), primary_key=True)
     remark: Mapped[str | None] = mapped_column(String(1500))
 
-    airport = relationship("Airport", back_populates="remarks")
+    airport: Mapped["Airport"] = relationship(back_populates="remarks")
 
     def __repr__(self) -> str:
         """Short debug representation."""
@@ -1255,7 +1258,7 @@ class RunwayRemark(Base):
     remark_element_name: Mapped[str] = mapped_column(String(13), primary_key=True)
     remark: Mapped[str | None] = mapped_column(String(1500))
 
-    runway = relationship("Runway", back_populates="remarks")
+    runway: Mapped["Runway"] = relationship(back_populates="remarks")
 
     def __repr__(self) -> str:
         """Short debug representation."""
@@ -1283,7 +1286,7 @@ class RunwayEndRemark(Base):
     remark_element_name: Mapped[str] = mapped_column(String(13), primary_key=True)
     remark: Mapped[str | None] = mapped_column(String(1500))
 
-    runway_end = relationship("RunwayEnd", back_populates="remarks")
+    runway_end: Mapped["RunwayEnd"] = relationship(back_populates="remarks")
 
     def __repr__(self) -> str:
         """Short debug representation."""
@@ -1307,7 +1310,7 @@ class AttendanceSchedule(Base):
     attendance_schedule: Mapped[str | None] = mapped_column(String(108))
     # L AN 1403 00127  NONE    ATTENDANCE SCHEDULE RECORD FILLER (BLANK)
 
-    airport = relationship("Airport", back_populates="attendance_schedules")
+    airport: Mapped["Airport"] = relationship(back_populates="attendance_schedules")
 
     def __repr__(self) -> str:
         """Short debug representation."""
