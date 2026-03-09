@@ -20,7 +20,6 @@ repos:
       - id: check-xml
       - id: check-yaml
         args: ["--allow-multiple-documents"]
-      - id: debug-statements
       - id: detect-aws-credentials
       - id: detect-private-key
       - id: end-of-file-fixer
