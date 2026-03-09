@@ -377,7 +377,7 @@ def detect_encoding(path: Path) -> str:
     """
     result = from_path(path)
     best = result.best()
-    encoding = best.encoding if best else "utf-8"
+    encoding = (best.encoding or "utf-8") if best else "utf-8"
     if encoding != "utf-8":
         logger.info("%s: detected encoding %s", path.name, encoding)
     return encoding
