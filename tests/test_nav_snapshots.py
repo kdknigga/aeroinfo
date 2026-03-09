@@ -27,7 +27,7 @@ from sqlalchemy import create_engine
 from sqlalchemy import inspect as sa_inspect
 from sqlalchemy.orm import sessionmaker
 
-from tests.conftest import _REFERENCES_DIR, CURATED_NAVAIDS
+from tests.conftest import _NAV_TXT_FILE, CURATED_NAVAIDS
 from tests.snapshot_helpers import extract_record
 
 if TYPE_CHECKING:
@@ -38,12 +38,12 @@ if TYPE_CHECKING:
 
     from aeroinfo.database.models.nav import Navaid
 
-_NAV_FILE = _REFERENCES_DIR / "NAV.txt"
+_NAV_FILE = _NAV_TXT_FILE
 
 
 @pytest.fixture(scope="module")
 def nav_engine() -> Generator[Engine]:
-    """Parse references/NAV.txt into in-memory SQLite once for all snapshot tests."""
+    """Parse the reference NAV.txt into in-memory SQLite once for all snapshot tests."""
     import aeroinfo.database as db
     from aeroinfo.database.base import Base
 

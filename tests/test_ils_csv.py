@@ -2,9 +2,14 @@
 
 from __future__ import annotations
 
-from pathlib import Path
+from typing import TYPE_CHECKING
 
 import pytest
+
+from tests.conftest import _REFERENCES_DIR
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 
 def _write_csv(tmp_path: Path, rows: list[str], filename: str = "ILS_BASE.csv") -> Path:
@@ -110,7 +115,7 @@ class TestBuildApproachTypeLookup:
         """Actual ILS_BASE.csv parses without error."""
         from aeroinfo.parsers.ils_csv import build_approach_type_lookup
 
-        real_path = Path("references/2026-02-19/CSV_Data/ILS_BASE.csv")
+        real_path = _REFERENCES_DIR / "2026-02-19" / "CSV_Data" / "ILS_BASE.csv"
         if not real_path.exists():
             pytest.skip("ILS_BASE.csv not available")
         lookup = build_approach_type_lookup(real_path)

@@ -73,6 +73,9 @@ if TYPE_CHECKING:
 
 
 _REFERENCES_DIR = Path(__file__).resolve().parents[1] / "references"
+_TXT_DATA_DIR = _REFERENCES_DIR / "2026-02-19"
+_APT_TXT_FILE = _TXT_DATA_DIR / "APT.txt"
+_NAV_TXT_FILE = _TXT_DATA_DIR / "NAV.txt"
 _CSV_DATA_DIR = _REFERENCES_DIR / "2026-02-19" / "CSV_Data"
 
 CURATED_AIRPORTS: list[str] = [

@@ -23,7 +23,7 @@ from sqlalchemy import create_engine
 from sqlalchemy import inspect as sa_inspect
 from sqlalchemy.orm import sessionmaker
 
-from tests.conftest import _REFERENCES_DIR, CURATED_AIRPORTS
+from tests.conftest import _APT_TXT_FILE, CURATED_AIRPORTS
 from tests.snapshot_helpers import extract_record
 
 if TYPE_CHECKING:
@@ -34,12 +34,12 @@ if TYPE_CHECKING:
 
     from aeroinfo.database.models.apt import Airport
 
-_APT_FILE = _REFERENCES_DIR / "APT.txt"
+_APT_FILE = _APT_TXT_FILE
 
 
 @pytest.fixture(scope="module")
 def apt_engine() -> Generator[Engine]:
-    """Parse references/APT.txt into in-memory SQLite once for all snapshot tests."""
+    """Parse the reference APT.txt into in-memory SQLite once for all snapshot tests."""
     import aeroinfo.database as db
     from aeroinfo.database.base import Base
 
