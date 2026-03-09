@@ -24,7 +24,7 @@
 
 - Fetch data with `python -m aeroinfo.download_nasr -e current -l info`; it stores zips under a temp dir keyed by edition date and retries 60 times on FAA hiccups.
 - Import extracted files using the `--format` flag to select the parser path:
-  - **CSV (recommended):** `uv run aeroinfo/import.py /path/to/CSV_Data --format csv`
+  - **CSV (recommended):** `uv run aeroinfo/import.py /path/to/NASR --format csv`
   - **TXT (legacy):** `uv run aeroinfo/import.py /path/to/NASR --format txt`
 - CSV import calls `parsers.apt_csv.parse()` (reads APT_BASE.csv and child files), `parsers.nav_csv.parse()` (reads NAV_BASE.csv and child files), `parsers.frq_csv.parse()` (reads FRQ.csv), and `parsers.ils_csv.parse()` (reads ILS_BASE.csv for approach type enrichment).
 - TXT import calls `parsers.apt.parse("APT.txt")` then `parsers.nav.parse("NAV.txt")`.
