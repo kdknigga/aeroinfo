@@ -56,7 +56,7 @@ It's probably a good idea to run `uv run alembic upgrade head` after pulling dow
 
 ## Snapshot Testing
 
-Snapshot fixture files in `tests/__snapshots__/` capture parser output field-by-field. Follow these rules when working with them:
+Snapshot fixture files in `tests/snapshots/` capture parser output field-by-field. Follow these rules when working with them:
 
 - **Only run `--snapshot-update` against committed reference files.** The reference files in `references/` are the source of truth; running the update flag against uncommitted or modified input data produces incorrect baselines.
 - **Verify anchor values before committing updated snapshots.** After running `uv run pytest --snapshot-update`, inspect the diff for key fields (e.g., airport name, facility ID, coordinates) to confirm the parser produced correct output — not just that it ran without error.
