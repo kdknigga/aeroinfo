@@ -9,6 +9,25 @@ Tested with Python 3.13.
 See the following for an example application:
 https://api.aeronautical.info/dev/?airport=ORD&include=demographic&include=geographic&include=ownership&include=runways
 
+## FAA's TXT to CSV Migration
+The FAA is deprecating the TXT format this project was originally designed to handle, in favor of a CSV format.
+
+Version 3.0.0 of this project has added support for the CSV format and gone through great pains to ensure the product of the CSV parsers is the same as the product of the TXT parsers, to the extent possible.
+
+### Usage changes
+`import.py` now defaults to using the CSV parsers.  The `--format txt` argument can be given to force use of the TXT parsers.  Other than that, no changes have been made to the way the script is used.
+
+The CSV files are included in the normal NASR zip file, so no real changes were needed in the downloading process, except extracting them from a zip file that's included in the main zip file.  No changes to usage.
+
+### Output changes
+Despite our best efforts, there are some of the known changes to the CSV parsing output compared to the TXT parser output.
+
+* boundary_artcc_* - these fields have no equivalent in the CSV files, so they are now just NULL
+* airport based aircraft and annual operations - these fields were deprecated in both TXT and CSV datasets in September, 2024, and are now just NULL
+* a few remarks fields no longer exist, no longer are populated, or have different contents in the CSV data files compared to the TXT files
+* G100UL fuel is now represented as G100UL instead of G100
+
+
 ## Development
 - [uv](https://docs.astral.sh/uv/getting-started/installation/) is used to manage dependencies and virtual environments.  Install that, if you don't have it yet.
 - Next set up your database. I'm using postgresql, but I've tried sqlite3, too. Assuming postgresql, create the database and a user with permissions to create/alter tables.
