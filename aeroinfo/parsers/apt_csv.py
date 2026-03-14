@@ -540,13 +540,24 @@ def _log_unmapped_apt_base_cols(actual_cols: set[str]) -> None:
 # ---------------------------------------------------------------------------
 
 
+_CONDITION_ABBREV: dict[str, str] = {
+    "EXCELLENT": "E",
+    "GOOD": "G",
+    "FAIR": "F",
+    "POOR": "P",
+}
+
+
 def _reconstruct_surface_type_condition(
     surface: str | None, cond: str | None
 ) -> str | None:
     """
     Reconstruct 'ASPH-CONC-E' from SURFACE_TYPE_CODE='ASPH-CONC' + COND='EXCELLENT'.
 
-    Condition is abbreviated to its first character and appended with a dash.
+    Condition is abbreviated using an explicit mapping dict.  FAIR maps to 'F'
+    (first letter), which matches the majority of TXT records.  A small number
+    of TXT records encode FAIR as 'L' — these are FAA source data
+    inconsistencies that cannot be resolved from CSV data alone.
     Returns None when surface is empty.
     """
     surface = (surface or "").strip()
@@ -554,7 +565,8 @@ def _reconstruct_surface_type_condition(
         return None
     cond = (cond or "").strip()
     if cond:
-        return f"{surface}-{cond[0]}"
+        abbrev = _CONDITION_ABBREV.get(cond, cond[0])
+        return f"{surface}-{abbrev}"
     return surface
 
 
@@ -1292,20 +1304,55 @@ def _parse_apt_con(f: TextIO, session: SASession) -> None:
                 continue
 
             name = csv_field(row, "NAME")
-            address1 = csv_field(row, "ADDRESS1") or ""
-            address2 = csv_field(row, "ADDRESS2") or ""
-            city = csv_field(row, "TITLE_CITY") or ""
+            phone = csv_field(row, "PHONE_NO")
+
+            # --- Address reconstruction (match TXT fixed-width format) ---
+            # TXT stores the complete address as a single 72-char field.
+            # CSV splits it into ADDRESS1 and ADDRESS2.  We use the *raw*
+            # values (not stripped) so that internal whitespace from the
+            # original FAA data is preserved after joining with ", ".
+            raw_addr1 = row.get("ADDRESS1", "")
+            raw_addr2 = row.get("ADDRESS2", "")
+            if raw_addr2:
+                address = f"{raw_addr1}, {raw_addr2}".strip() or None
+            else:
+                address = raw_addr1.strip() or None
+
+            # --- City/state/zip reconstruction (match TXT fixed-width format) ---
+            # TXT stores city_state_zip as one 45-char field.  CSV splits
+            # it into TITLE_CITY, STATE, ZIP_CODE, ZIP_PLUS_FOUR.
+            # Use raw TITLE_CITY to preserve trailing whitespace that
+            # appears in the TXT composite field (e.g. "SMITHS , AL 36877").
+            raw_city = row.get("TITLE_CITY", "")
             state = csv_field(row, "STATE") or ""
             zip_code = csv_field(row, "ZIP_CODE") or ""
             zip_plus_four = csv_field(row, "ZIP_PLUS_FOUR") or ""
-            phone = csv_field(row, "PHONE_NO")
-
-            # Reconstruct address to match TXT format.
-            # TXT uses ", " as the separator between ADDRESS1 and ADDRESS2.
-            address = f"{address1}, {address2}" if address2 else address1 or None
-            # Build ZIP string: include ZIP+4 suffix when present (e.g., "61109-2902")
             full_zip = f"{zip_code}-{zip_plus_four}" if zip_plus_four else zip_code
-            city_state_zip = f"{city}, {state} {full_zip}".strip() if city else None
+
+            if state:
+                # "CITY, ST ZIP" -- standard format with state code/name
+                # Use raw_city (not stripped) to preserve trailing whitespace
+                # that appears in TXT composite field (e.g. "SMITHS , AL 36877").
+                # But when city is empty, omit the leading ", " to match TXT.
+                if raw_city.strip() and full_zip:
+                    city_state_zip = f"{raw_city}, {state} {full_zip}".strip() or None
+                elif raw_city.strip():
+                    city_state_zip = f"{raw_city}, {state}".strip() or None
+                elif full_zip:
+                    city_state_zip = f"{state} {full_zip}"
+                else:
+                    city_state_zip = state
+            elif raw_city.strip() and full_zip:
+                # No state -- "CITY ZIP" (space-separated, no comma)
+                city_state_zip = f"{raw_city} {full_zip}".strip() or None
+            elif raw_city.strip():
+                # City only (no state, no zip) -- use city as-is
+                city_state_zip = raw_city.strip() or None
+            elif full_zip:
+                # No city, no state, but have zip
+                city_state_zip = full_zip.strip() or None
+            else:
+                city_state_zip = None
 
             if title == "OWNER":
                 airport.owners_name = name

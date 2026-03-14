@@ -18,6 +18,7 @@ import datetime
 
 import pytest
 
+from aeroinfo.parsers.apt_csv import _reconstruct_surface_type_condition
 from aeroinfo.parsers.utils import (
     build_dms_string,
     build_total_secs_string,
@@ -436,3 +437,75 @@ def test_arff_type_only() -> None:
     """reconstruct_arff() handles type_code only."""
     result = reconstruct_arff("I A", "", "")
     assert result == "I A"
+
+
+# ---------------------------------------------------------------------------
+# FIX-02: reconstruct_attendance_schedule() trailing slash stripping
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.parametrize(
+    ("month", "day", "hour", "expected"),
+    [
+        # Empty day+hour should NOT produce trailing //
+        ("ON CALL", "", "", "ON CALL"),
+        ("UNATTND", "", "", "UNATTND"),
+        # Empty hour should NOT produce trailing /
+        ("JAN", "1-15", "", "JAN/1-15"),
+        # Normal three-part schedule unchanged
+        ("ALL", "ALL", "0600-2400", "ALL/ALL/0600-2400"),
+    ],
+)
+def test_attendance_trailing_slash_stripping(
+    month: str, day: str, hour: str, expected: str
+) -> None:
+    """reconstruct_attendance_schedule() strips trailing / characters."""
+    assert reconstruct_attendance_schedule(month, day, hour) == expected
+
+
+# ---------------------------------------------------------------------------
+# FIX-04: build_dms_string() single-digit latitude zero-padding
+# ---------------------------------------------------------------------------
+
+
+def test_build_dms_string_single_digit_latitude_padded() -> None:
+    """build_dms_string() zero-pads single-digit latitude degrees to 2 digits."""
+    result = build_dms_string(7, 18, 47.643, "S")
+    assert result == "07-18-47.6430S"
+
+
+# ---------------------------------------------------------------------------
+# FIX-07: _reconstruct_surface_type_condition() explicit mapping
+# ---------------------------------------------------------------------------
+
+
+class TestReconstructSurfaceTypeCondition:
+    """Tests for explicit condition-to-letter mapping in surface type."""
+
+    def test_excellent_maps_to_E(self) -> None:
+        """EXCELLENT condition abbreviates to E."""
+        assert _reconstruct_surface_type_condition("ASPH", "EXCELLENT") == "ASPH-E"
+
+    def test_good_maps_to_G(self) -> None:
+        """GOOD condition abbreviates to G."""
+        assert _reconstruct_surface_type_condition("CONC", "GOOD") == "CONC-G"
+
+    def test_poor_maps_to_P(self) -> None:
+        """POOR condition abbreviates to P."""
+        assert _reconstruct_surface_type_condition("ASPH", "POOR") == "ASPH-P"
+
+    def test_fair_maps_to_F(self) -> None:
+        """FAIR maps to 'F' (first letter); some TXT records use 'L' but that's a source inconsistency."""
+        assert _reconstruct_surface_type_condition("ASPH", "FAIR") == "ASPH-F"
+
+    def test_none_none_returns_none(self) -> None:
+        """None inputs return None."""
+        assert _reconstruct_surface_type_condition(None, None) is None
+
+    def test_surface_only_no_condition(self) -> None:
+        """Surface without condition returns surface only."""
+        assert _reconstruct_surface_type_condition("ASPH", None) == "ASPH"
+
+    def test_compound_surface_with_fair(self) -> None:
+        """Compound surfaces like ASPH-GRVL also get correct FAIR->F mapping."""
+        assert _reconstruct_surface_type_condition("ASPH-GRVL", "FAIR") == "ASPH-GRVL-F"

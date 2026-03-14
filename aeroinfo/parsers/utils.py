@@ -167,7 +167,7 @@ def build_dms_string(
         DMS string, e.g., "41-46-18.9000N" or "088-28-32.4000W".
 
     """
-    deg_str = f"{deg:03d}" if is_longitude else str(deg)
+    deg_str = f"{deg:03d}" if is_longitude else f"{deg:02d}"
     min_str = f"{min_:02d}"
     sec_str = f"{sec:07.4f}"
     return f"{deg_str}-{min_str}-{sec_str}{hemis.upper()}"
@@ -228,7 +228,7 @@ def reconstruct_attendance_schedule(
         return None
     if month.upper() == "UNATNDD":
         return "UNATNDD"
-    return f"{month}/{day}/{hour}"
+    return f"{month}/{day}/{hour}".rstrip("/")
 
 
 def reconstruct_fuel(csv_fuel: str | None) -> str | None:

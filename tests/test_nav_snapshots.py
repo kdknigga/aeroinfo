@@ -19,48 +19,20 @@ Navaids selected (all verified in references/NAV.txt):
 
 from __future__ import annotations
 
-import importlib
 from typing import TYPE_CHECKING, Any
 
 import pytest
-from sqlalchemy import create_engine
 from sqlalchemy import inspect as sa_inspect
 from sqlalchemy.orm import sessionmaker
 
-from tests.conftest import _NAV_TXT_FILE, CURATED_NAVAIDS
+from tests.conftest import CURATED_NAVAIDS
 from tests.snapshot_helpers import extract_record
 
 if TYPE_CHECKING:
-    from collections.abc import Generator
-
     from sqlalchemy.engine import Engine
     from syrupy.assertion import SnapshotAssertion
 
     from aeroinfo.database.models.nav import Navaid
-
-_NAV_FILE = _NAV_TXT_FILE
-
-
-@pytest.fixture(scope="module")
-def nav_engine() -> Generator[Engine]:
-    """Parse the reference NAV.txt into in-memory SQLite once for all snapshot tests."""
-    import aeroinfo.database as db
-    from aeroinfo.database.base import Base
-
-    engine = create_engine("sqlite:///:memory:")
-    original_inner = db.Engine._engine
-    db.Engine._engine = engine
-
-    Base.metadata.create_all(engine)
-
-    import aeroinfo.parsers.nav as nav_parser
-
-    importlib.reload(nav_parser)
-    nav_parser.parse(str(_NAV_FILE))
-
-    yield engine
-
-    db.Engine._engine = original_inner
 
 
 @pytest.mark.parametrize(

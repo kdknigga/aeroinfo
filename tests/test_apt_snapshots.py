@@ -15,48 +15,20 @@ Coverage spans 107 airports across diverse types (all verified in references/APT
 
 from __future__ import annotations
 
-import importlib
 from typing import TYPE_CHECKING, Any
 
 import pytest
-from sqlalchemy import create_engine
 from sqlalchemy import inspect as sa_inspect
 from sqlalchemy.orm import sessionmaker
 
-from tests.conftest import _APT_TXT_FILE, CURATED_AIRPORTS
+from tests.conftest import CURATED_AIRPORTS
 from tests.snapshot_helpers import extract_record
 
 if TYPE_CHECKING:
-    from collections.abc import Generator
-
     from sqlalchemy.engine import Engine
     from syrupy.assertion import SnapshotAssertion
 
     from aeroinfo.database.models.apt import Airport
-
-_APT_FILE = _APT_TXT_FILE
-
-
-@pytest.fixture(scope="module")
-def apt_engine() -> Generator[Engine]:
-    """Parse the reference APT.txt into in-memory SQLite once for all snapshot tests."""
-    import aeroinfo.database as db
-    from aeroinfo.database.base import Base
-
-    engine = create_engine("sqlite:///:memory:")
-    original_inner = db.Engine._engine
-    db.Engine._engine = engine
-
-    Base.metadata.create_all(engine)
-
-    import aeroinfo.parsers.apt as apt_parser
-
-    importlib.reload(apt_parser)
-    apt_parser.parse(str(_APT_FILE))
-
-    yield engine
-
-    db.Engine._engine = original_inner
 
 
 @pytest.mark.parametrize("airport_id", CURATED_AIRPORTS)

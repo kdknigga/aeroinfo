@@ -267,6 +267,7 @@ _NESTED_FIELDS: frozenset[str] = frozenset(
 # Format: {(airport_faa_id, rwy_end_id): txt_approach_type}
 # ---------------------------------------------------------------------------
 _APPROACH_TYPE_CSV_DATA_GAPS: dict[tuple[str, str], str] = {
+    ("BLM", "14"): "LOC/DME",  # No ILS_BASE.csv entry for BLM 14
     ("ORD", "04L"): "LOCALIZER",  # No ILS_BASE.csv entry for ORD 04L
 }
 
@@ -287,6 +288,13 @@ _APPROACH_TYPE_CSV_DATA_GAPS: dict[tuple[str, str], str] = {
 # Identified: Phase 13 (107-airport expansion).
 # ---------------------------------------------------------------------------
 _TXT_ONLY_REMARK_ELEMENTS: dict[str, frozenset[str]] = {
+    "3A7": frozenset({"A110-3", "A110-4"}),  # STR-02: TXT A110-3/4 maps to CSV A110*P
+    "7M2": frozenset(
+        {"A110-6", "A110-7"}
+    ),  # STR-02: TXT A110-6/7 maps to CSV A110-RWY_*
+    "CMD": frozenset(
+        {"A17", "A17 1"}
+    ),  # STR-02: TXT has 2 A17 seq entries; CSV has 1 with different text
     "FRG": frozenset({"A110-28", "A110-29"}),
     "GFK": frozenset({"A110-21"}),
 }
@@ -304,6 +312,13 @@ _TXT_ONLY_REMARK_ELEMENTS: dict[str, frozenset[str]] = {
 # Identified: REF_COL_NAME dispatch expansion.
 # ---------------------------------------------------------------------------
 _CSV_ONLY_REMARK_ELEMENTS: dict[str, frozenset[str]] = {
+    "3A7": frozenset({"A110*P"}),  # STR-02: CSV A110*P maps to TXT A110-3/4
+    "7M2": frozenset(
+        {"A110-RWY_09", "A110-RWY_27"}
+    ),  # STR-02: CSV A110-RWY_* maps to TXT A110-6/7
+    "CMD": frozenset(
+        {"A17"}
+    ),  # STR-02: CSV A17 text differs from TXT A17 (missing seq entry)
     "FRG": frozenset({"A110-RWY_14", "A110-RWY_19"}),
 }
 
