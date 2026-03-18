@@ -1,0 +1,94 @@
+                                           FREQUENCY DATA
+
+                         COMMA-SEPARATED VALUES (CSV) RECORD LAYOUT
+
+                                               (FRQ-FILE)
+
+
+
+INFORMATION EFFECTIVE DATE: 11/30/2023
+
+       RECORD FORMAT: COMMA DELIMITED WITH ALL FIELDS ENCLOSED WITHIN DOUBLE-QUOTE
+       CHARACTERS
+
+       LOGICAL RECORD INTERVAL: ALL RECORDS HAVE THE SAME NUMBER OF FIELDS, IN THE SAME
+       ORDER AND RECORD ENDS AT A LINE TERMINATOR
+
+       DATA HEADERS: FIRST ROW CONTAINS FIELD NAMES
+
+       ORDERED BY: FACILITY, SERVICED_FACILITY, SERVICED_SITE_TYPE_CODE, SERVICED_STATE,
+       FREQ, FREQ_USE, SECTORIZATION
+
+GENERAL INFORMATION:
+
+   1. The FRQ.csv was designed as a comprehensive frequency data file.
+   2. The Ordered By listed above (FACILITY, SERVICED_FACILITY, SERVICED_SITE_TYPE_CODE,
+      SERVICED_STATE, FREQ, FREQ_USE, SECTORIZATION) is also the unique record key.
+   3. It is an alternative view of the frequency, use, and airport servicing that is currently reported in
+      the TWR.txt and AFF.txt subscriber files, specifically in the TWR3, TWR7, AFF3 and AFF4 records.
+      It also includes RCO from COM.txt, GCO/CTAF/UNICOM from RMK record type in the APT.txt,
+      ASOS/AWOS from AWOS.txt and FSS/RADIO from FSS.txt.
+   4. Please enter any feedback in the Aeronautical Information Portal.
+       https://nfdc.faa.gov/nfdcApps/controllers/PublicSecurity/nfdcLogin
+
+
+                                          FIELD DESCRIPTION
+
+
+
+EFF_DATE – The 28 Day NASR Subscription Effective Date in format ‘YYYY/MM/DD’.
+
+FACILITY – Contains FACILITY ID except for FACILITY TYPE AFIS, CTAF, GCO, UNICOM and RCAG which do
+not contain FACILITY IDs in NASR. The FACILITY NAME is used for RCAG sites. AFIS, CTAF, GCO and
+UNICOM are NULL since they do not contain either a FACILITY ID or FACILITY NAME in NASR.
+
+FAC_NAME – Official Facility Name. AFIS, CTAF, GCO and UNICOM FACILITY TYPEs are NULL since they
+do not contain either a FACILITY ID or FACILITY NAME in NASR. ASOS/AWOS FACILITY TYPEs are NULL
+since they do not contain a FACILITY NAME in NASR.
+
+FACILITY_TYPE – All records contain a FACILITY TYPE. Please note that RCO or RCO1 both are the same
+and serve the same function; a remote communication outlet. An RCO1 may exist if two separate sites
+share the same identifier, e.g. one is collocated with a NAVAID and the other is physically on airport
+property.
+
+ARTCC_OR_FSS_ID – FACILITY TYPE RCAG contain an identified ARTCC ID and FACILITY TYPE RCO/RCO1
+contain an identified FSS ID. The ARTCC ID for an RCAG and the FSS ID for an RCO/RCO1 is included for
+convenience since that is the resource in NASR you must open to view specific RCAG or RCO/RCO1
+information.
+
+CPDLC – A Controller Pilot Data Link Communications (CPDLC) remark associated with a FACILITY is listed
+here.
+
+TOWER_HRS – Only listed for ATCT FACILITY TYPEs where the FACILITY equals the SERVICED FACILITY.
+
+SERVICED_FACILITY – The FACILITY ID (or FACILITY NAME if FACILITY TYPE is RCAG) that is serviced by the
+frequencies listed. This is a NON-NULL field.
+
+SERVICED_FAC_NAME – The FACILITY NAME that is serviced by the frequencies listed.
+
+SERVICED_SITE_TYPE – Facility Type of SERVICED FACILITY.
+
+LAT_DECIMAL – Facility Reference Point Latitude in Decimal Format.
+
+LONG_DECIMAL – Facility Reference Point Longitude in Decimal Format.
+
+SERVICED_CITY – Serviced Facility Associated City Name.
+
+SERVICED_STATE – This is the two letter state ID of the SERVICED FACILITY.
+
+SERVICED_COUNTRY - Country Post Office Code Serviced Facility Located
+
+TOWER_OR_COMM_CALL – Radio call used by pilot to contact ATC or FSS facility.
+
+PRIMARY_APPROACH_RADIO_CALL – Radio call of facility that furnishes primary approach control.
+
+FREQ – Frequency for SERVICED FACILITY use. In the case of a NAVAID with DME/TACAN Channel, the
+Frequency is displayed with the Channel – FREQ/CHAN.
+
+SECTORIZATION – Sectorization based on SERVICED FACILITY or airway boundaries, or limitations based
+on runway usage. For ARTCC and RCAG, Sectorization identifies the Frequency Altitude as Low, High,
+Low/High or Ultra-High.
+
+FREQ_USE – SERVICED FACILITY frequency use description.
+
+REMARK – Remark Text (Free Form Text that further describes a specific Information Item.)

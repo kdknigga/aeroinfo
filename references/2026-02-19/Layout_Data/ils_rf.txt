@@ -1,0 +1,579 @@
+
+                                  ILS
+                       DATA BASE RECORD LAYOUT
+                             (ILS-FILE)
+
+INFORMATION EFFECTIVE DATE: 04/05/2012
+
+    RECORD FORMAT: FIXED
+    LOGICAL RECORD LENGTH: 378
+
+
+FILE STRUCTURE DESCRIPTION:
+---------------------------
+
+    THERE ARE A VARIABLE NUMBER OF FIXED-LENGTH RECORDS FOR
+    EACH INSTRUMENT LANDING SYSTEM (ILS).  THE NUMBER OF RECORDS
+    IS DETERMINED BY THE NUMBER OF REMARK FIELDS RELATED TO EACH
+    ILS.  THE RECORDS ARE IDENTIFIABLE BY A RECORD TYPE
+    INDICATOR (ILS1, ILS2, ILS3, ILS4, ILS5, AND ILS6), AIRPORT
+    SITE NUMBER, RUNWAY END, AND ILS SYSTEM TYPE.
+
+    EACH RECORD ENDS WITH A CARRIAGE RETURN CHARACTER AND LINE FEED
+    CHARACTER (CR/LF). THIS LINE TERMINATOR IS NOT INCLUDED IN THE
+    LOGICAL RECORD LENGTH.
+
+    THE FILE IS SORTED BY STATE, CITY, AIRPORT NAME, RUNWAY
+    END, SYSTEM TYPE, AND RECORD TYPE.
+
+
+DESCRIPTION OF THE RECORD TYPES:
+--------------------------------
+
+    AN 'ILS1' RECORD TYPE CONTAINS THE MAIN ILS DATA FOR
+    THE RESPECTIVE RUNWAY END'S SYSTEM. THERE IS ALWAYS AN ILS1 RECORD.
+
+    AN 'ILS2' RECORD TYPE CONTAINS THE DATA FOR THE ILS'S LOCALIZER
+    COMPONENT.  THERE IS ALWAYS ONE ILS2 RECORD FOR EACH ILS1 RECORD.
+
+    AN 'ILS3' RECORD TYPE CONTAINS THE DATA FOR THE ILS'S GLIDE
+    SLOPE COMPONENT.  THERE CAN BE ZERO OR ONE ILS3 RECORDS FOR
+    EACH ILS1 RECORD.
+
+    AN 'ILS4' RECORD TYPE CONTAINS THE DATA FOR THE ILS'S DME
+    COMPONENT.  THERE CAN BE ZERO OR ONE ILS4 RECORDS FOR EACH
+    ILS1 RECORD.
+
+    AN 'ILS5' RECORD TYPE CONTAINS THE DATA FOR ONE OF THE ILS'S
+    MARKER BEACON COMPONENTS.  THERE CAN BE ZERO, ONE, TWO, OR
+    THREE ILS5 RECORDS FOR EACH ILS1 RECORD.
+
+    AN 'ILS6' RECORD TYPE CONTAINS ONE 300 CHARACTER
+    REMARK PERTAINING TO THE PRECEDING ILS1 RECORD. THERE CAN BE
+    ZERO, ONE, oR MANY ILS6 RECORDS FOR EACH ILS1 RECORD.
+
+    EACH ILS2, ILS3, ILS4, ILS5, OR ILS6 RECORD CONTAINS THE BASIC
+    ILS IDENTIFYING   INFORMATION (AIRPORT SITE NUMBER, RUNWAY END,
+    AND ILS SYSTEM TYPE).
+
+
+GENERAL INFORMATION:
+--------------------
+     1.  LEFT JUSTIFIED FIELDS HAVE TRAILING BLANKS
+     2.  RIGHT JUSTIFIED FIELDS HAVE LEADING BLANKS
+     3.  ELEMENT NUMBER IS FOR INTERNAL REFERENCE ONLY
+         AND NOT IN THE RECORD.
+     4.  THE UNIQUE ILS IDENTIFIER IS MADE UP OF
+
+
+
+         THE AIRPORT SITE NUMBER, RUNWAY END, AND
+         ILS SYSTEM TYPE.
+     5.  LATITUDE AND LONGITUDE INFORMATION IS REPRESENTED IN
+         TWO WAYS:
+         A.  FORMATTED:
+            ------------
+            LATITUDE    DD-MM-SS.SSSH
+            LONGITUDE   DDD-MM-SS.SSSH
+
+            WHERE :     DD IS DEGREES
+                        MM IS MINUTES
+                        SS.SSS IS SECONDS
+                        H IS DECLINATION
+
+            EXAMPLE :   LAT-   39-06-51.070N
+                        LONG-  075-27-54.660W
+
+          B.  IN ALL SECONDS:
+             -----------------
+             LATITUDE AND LONGITUDE     SSSSSS.SSSH
+             WHERE :    SSSSSS.SSS IS THE DEG/MIN/SEC CONVERTED
+                                   TO ALL SECONDS
+                        H IS THE DECLINATION
+
+             EXAMPLE :  LAT-   140811.070N
+                        LONG-  271674.660W
+
+*********************************************************************
+
+            'ILS1' RECORD TYPE - BASE DATA
+
+*********************************************************************
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+
+L AN   04 00001  N/A     RECORD TYPE INDICATOR.
+                           ILS1:  ILS DATA FOR RESPECTIVE RUNWAY.
+
+                            ILS AIRPORT/RUNWAY INFORMATION
+                         -------------------------------------
+
+L AN 0011 00005  DLID    AIRPORT SITE NUMBER IDENTIFIER. (EX. 04508.*A)
+L AN 0003 00016  DLID    ILS RUNWAY END IDENTIFIER. (EX: 18,36L)
+                         NOTE:  RUNWAY END IDENTIFIERS 00 AND 22V
+                                ARE VALID AND ARE USED TO ACCOMODATE
+                                LIMITATIONS IN THE GIM-II DBMS.
+L AN 0010 00019  I22     ILS SYSTEM TYPE
+
+                           SYSTEM TYPE          DESCRIPTION
+                         ---------------      ---------------
+                         ILS            INSTRUMENT LANDING SYSTEM
+                         SDF            SIMPLIFIED DIRECTIONAL FACILITY
+                         LOCALIZER      LOCALIZER
+                         LDA            LOCALIZER-TYPE DIRECTIONAL AID
+                         ILS/DME        INSTRUMENT LANDING SYSTEM/
+                                        DISTANCE MEASURING EQUIPMENT
+                         SDF/DME        SIMPLIFIED DIRECTIONAL FACILITY/
+                                        DISTANCE MEASURING EQUIPMENT
+                         LOC/DME        LOCALIZER/DISTANCE MEASURING
+                                        EQUIPMENT
+                         LOC/GS         LOCALIZER/GLIDE SLOPE
+                         LDA/DME        LOCALIZER-TYPE DIRECTIONAL AID/
+                                        DISTANCE MEASURING EQUIPMENT
+
+L AN 0006 00029  I30     IDENTIFICATION CODE OF ILS.
+                         (IDENTIFIER IS PREFIXED BY I-).
+L AN 0010 00035  N/A     INFORMATION EFFECTIVE DATE (MM/DD/YYYY)
+                         THIS DATE COINCIDES WITH THE 56 DAY CHARTING
+                         AND PUBLICATION CYCLE EFFECTIVE DATE.
+L AN 0050 00045  A2      AIRPORT NAME.(EX: CHICAGO O'HARE INTL)
+L AN 0040 00095  A1      ASSOCIATED CITY.(EX:  CHICAGO)
+L AN 0002 00135  A4      TWO LETTER POST OFFICE CODE FOR THE STATE.
+                         (EX: IL)
+L AN 0020 00137  A4S     STATE NAME.(EX:  ILLINOIS)
+L AN 0003 00157  A6      FAA REGION CODE.(EXAMPLE, ACE = CENTRAL)
+L AN 0004 00160  E7      AIRPORT IDENTIFIER.
+                         (EX: ORD FOR CHICAGO O'HARE INTL)
+R  N 0005 00164  A31     ILS RUNWAY LENGTH IN WHOLE FEET. (EX:  4000)
+R  N 0004 00169  A32     ILS RUNWAY WIDTH IN WHOLE FEET. (EX:  100)
+
+                             ILS SYSTEM INFORMATION
+                         ------------------------------
+
+L AN 0009 00173  I20     CATEGORY OF THE ILS. (I,II,IIIA)
+L AN 0050 00182  I10     NAME OF OWNER OF THE FACILITY. (EX: U.S. NAVY)
+L AN 0050 00232  I12     NAME OF THE ILS FACILITY OPERATOR.
+                         (EX: U.S. ARMY)
+L AN 0006 00282  I23     ILS APPROACH BEARING IN DEGREES MAGNETIC.
+                         (EX: 233, 133.55)
+L AN 0003 00288  I24     THE MAGNETIC VARIATION AT THE ILS FACILITY.
+                         (EX: 09E)
+L AN 0088 00291  N/A     BLANK.
+
+*********************************************************************
+
+            'ILS2' RECORD TYPE - LOCALIZER DATA
+
+*********************************************************************
+
+
+L AN   04 00001  N/A     RECORD TYPE INDICATOR.
+                           ILS2:  LOCALIZER DATA FOR RESPECTIVE RUNWAY.
+L AN 0011 00005  DLID    AIRPORT SITE NUMBER IDENTIFIER. (EX. 04508.*A)
+L AN 0003 00016  DLID    ILS RUNWAY END IDENTIFIER. (EX: 18,36L)
+L AN 0010 00019  I22     ILS SYSTEM TYPE (SEE ILS1 RECORD TYPE FOR LIST)
+L AN 0022 00029          OPERATIONAL STATUS OF LOCALIZER (OPERATIONAL IFR,
+                         OPERATIONAL VFR ONLY, OPERATIONAL RESTRICTED,
+                         DECOMMISSIONED, OR SHUTDOWN)
+L AN 0010 00051          EFFECTIVE DATE OF LOCALIZER OPERATIONAL STATUS.
+L AN 0014 00061  I4      LATITUDE OF LOCALIZER ANTENNA.(FORMATTED)
+L AN 0011 00075  I4S     LATITUDE OF LOCALIZER ANTENNA.(ALL SECONDS)
+L AN 0014 00086  I5      LONGITUDE OF LOCALIZER ANTENNA.(FORMATTED)
+L AN 0011 00100  I5S     LONGITUDE OF LOCALIZER ANTENNA.(ALL SECONDS)
+L AN 0002 00111          CODE INDICATING SOURCE OF LATITUDE/LONGITUDE
+                         INFORMATION
+
+                         CODE    SOURCE
+                         ----    ------
+                         A       AIR FORCE
+                         C       COAST GUARD
+                         D       CANADIAN AIRAC
+                         F       FAA
+                         FS      TECH OPS (AFS-530)
+                         G       NOS (HISTORICAL)
+                         K       NGS
+                         M       DOD (NGA)
+                         N       US NAVY
+                         O       OWNER
+                         P       NOS PHOTO SURVEY (HISTORICAL)
+                         Q       QUAD PLOT (HISTORICAL)
+                         R       ARMY
+                         S       SIAP
+                         T       3RD PARTY SURVEY
+                         Z       SURVEYED
+
+R  N 0007 00113  I36     DISTANCE OF LOCALIZER ANTENNA
+                         FROM APPROACH END OF RUNWAY.(FEET)
+                         (IF NEGATIVE INDICATES PLACEMENT INBOARD FROM
+                         APPROCH END OF RUNWAY)
+                         (EX:  6000, -567)
+R  N 0004 00120          DISTANCE OF LOCALIZER ANTENNA FROM RUNWAY
+                         CENTERLINE (FEET).
+L AN 0001 00124          DIRECTION OF LOCALIZER ANTENNA FROM RUNWAY
+                         CENTERLINE (L - LEFT, R - RIGHT).
+L AN 0002 00125          CODE INDICATING SOURCE OF DISTANCE
+                         INFORMATION
+
+                         CODE    SOURCE
+                         ----    ------
+                         A       AIR FORCE
+                         C       COAST GUARD
+                         D       CANADIAN AIRAC
+                         F       FAA
+                         FS      TECH OPS (AFS-530)
+                         G       NOS (HISTORICAL)
+                         K       NGS
+                         M       DOD (NGA)
+                         N       US NAVY
+                         O       OWNER
+                         P       NOS PHOTO SURVEY (HISTORICAL)
+                         Q       QUAD PLOT (HISTORICAL)
+                         R       ARMY
+                         S       SIAP
+                         T       3RD PARTY SURVEY
+                         Z       SURVEYED
+
+R  N 0007 00127          SITE ELEVATION OF LOCALIZER ANTENNA
+				 IN TENTH OF A FOOT (MSL)
+L AN 0007 00134  I31     LOCALIZER FREQUENCY (MHZ). (EX: 108.10)
+L AN 0015 00141          LOCALIZER BAcK COURSE STATUS (RESTRICTED,
+                         NO RESTRICTIONS, USABLE, OR UNUSABLE).
+R AN 0005 00156  I28     LOCALIZER COURSE WIDTH.(DEGREES AND HUNDREDTHS)
+                         (EX: 3.00)
+R AN 0007 00161          LOCALIZER COURSE WIDTH AT THRESHOLD.
+R  N 0007 00168  I34     LOCALIZER DISTANCE FROM STOP END OF RWY. (FEET)
+                         (IF NEGATIVE INDICATES PLACEMENT INBOARD FROM
+                         STOP END OF RUNWAY)(EX: -170)
+L AN 0001 00175          LOCALIZER DIRECTION FROM STOP END OF RWY.
+                         (L - LEFT, R - RIGHT)
+L AN 0002 00176          LOCALIZER SERVICES CODE
+
+                         CODE    SERVICE
+                         ----    -------
+                         AP      APPROACH CONTROL
+                         AT      AUTOMATED TERMINAL INFORMATION SERVICES
+                         NV      NO VOICE
+
+L AN 0201 00178  N/A     BLANK.
+
+
+*********************************************************************
+
+            'ILS3' RECORD TYPE - GLIDE SLOPE DATA
+
+*********************************************************************
+
+
+L AN   04 00001  N/A     RECORD TYPE INDICATOR.
+                           ILS3:  GLIDE SLOPE DATA FOR RESPECTIVE RUNWAY.
+L AN 0011 00005  DLID    AIRPORT SITE NUMBER IDENTIFIER. (EX. 04508.*A)
+L AN 0003 00016  DLID    ILS RUNWAY END IDENTIFIER. (EX: 18,36L)
+L AN 0010 00019  I22     ILS SYSTEM TYPE (SEE ILS1 RECORD TYPE FOR LIST)
+L AN 0022 00029          OPERATIONAL STATUS OF GLIDE SLOPE (OPERATIONAL IFR,
+                         OPERATIONAL VFR ONLY, OPERATIONAL RESTRICTED,
+                         DECOMMISSIONED, OR SHUTDOWN)
+L AN 0010 00051          EFFECTIVE DATE OF GLIDE SLOPE OPERATIONAL STATUS.
+L AN 0014 00061  I4      LATITUDE OF GLIDE SLOPE TRANSMITTER ANTENNA.
+                         (FORMATTED)
+L AN 0011 00075  I4S     LATITUDE OF GLIDE SLOPE TRANSMITTER ANTENNA.
+                         (ALL SECONDS)
+L AN 0014 00086  I5      LONGITUDE OF GLIDE SLOPE TRANSMITTER ANTENNA.
+                         (FORMATTED)
+L AN 0011 00100  I5S     LONGITUDE OF GLIDE SLOPE TRANSMITTER ANTENNA.
+                         (ALL SECONDS)
+L AN 0002 00111          CODE INDICATING SOURCE OF LATITUDE/LONGITUDE
+                         INFORMATION
+
+                         CODE    SOURCE
+                         ----    ------
+                         A       AIR FORCE
+                         C       COAST GUARD
+                         D       CANADIAN AIRAC
+                         F       FAA
+                         FS      TECH OPS (AFS-530)
+                         G       NOS (HISTORICAL)
+                         K       NGS
+                         M       DOD (NGA)
+                         N       US NAVY
+                         O       OWNER
+                         P       NOS PHOTO SURVEY (HISTORICAL)
+                         Q       QUAD PLOT (HISTORICAL)
+                         R       ARMY
+                         S       SIAP
+                         T       3RD PARTY SURVEY
+                         Z       SURVEYED
+
+R  N 0007 00113  I36     DISTANCE OF GLIDE SLOPE TRANSMITTER ANTENNA
+                         FROM APPROACH END OF RUNWAY.(FEET)
+                         (IF NEGATIVE INDICATES PLACEMENT INBOARD FROM
+                         APPROCH END OF RUNWAY)
+                         (EX:  6000, -567)
+R  N 0004 00120          DISTANCE OF GLIDE SLOPE TRANSMITTER ANTENNA
+                         FROM RUNWAY CENTERLINE (FEET).
+L AN 0001 00124          DIRECTION OF GLIDE SLOPE TRANSMITTER ANTENNA
+                         FROM RUNWAY CENTERLINE (L - LEFT, R - RIGHT).
+L AN 0002 00125          CODE INDICATING SOURCE OF DISTANCE
+                         INFORMATION
+
+                         CODE    SOURCE
+                         ----    ------
+                         A       AIR FORCE
+                         C       COAST GUARD
+                         D       CANADIAN AIRAC
+                         F       FAA
+                         FS      TECH OPS (AFS-530)
+                         G       NOS (HISTORICAL)
+                         K       NGS
+                         M       DOD (NGA)
+                         N       US NAVY
+                         O       OWNER
+                         P       NOS PHOTO SURVEY (HISTORICAL)
+                         Q       QUAD PLOT (HISTORICAL)
+                         R       ARMY
+                         S       SIAP
+                         T       3RD PARTY SURVEY
+                         Z       SURVEYED
+
+R  N 0007 00127          SITE ELEVATION OF GLIDE SLOPE TRANSMITTER ANTENNA
+				 IN TENTH OF A FOOT (MSL)
+L AN 0015 00134  I43     GLIDE SLOPE CLASS/TYPE.
+
+                         TYPE                   DESCRIPTION
+                         ----                   -----------
+                         GLIDE SLOPE            STANDARD GLIDE SLOPE.
+                         GLIDE SLOPE/DME        GLIDE SLOPE WITH DISTANCE
+                                                MEASURING EQUIPMENT.
+
+L AN 0005 00149  I26     GLIDE SLOPE ANGLE IN DEGREES
+                         AND HUNDREDTHS OF DEGREE.(EX:  2.75)
+L AN 0007 00154  I42     GLIDE SLOPE TRANSMISSION FREQUENCY.
+                         (EX:  330.50)
+R  N 0008 00161  I108    ELEVATION OF RUNWAY AT POINT ADJACENT TO THE
+                         GLIDE SLOPE ANTENNA.(NEAREST TENTH OF A FOOT
+                         MSL) (EX:  210.5)
+L AN 0210 00169  N/A     BLANK.
+
+
+*********************************************************************
+
+     'ILS4' RECORD TYPE - DISTANCE MEASURING EQUIPMENT (DME) DATA
+
+*********************************************************************
+
+
+L AN   04 00001  N/A     RECORD TYPE INDICATOR.
+                           ILS4:  DME DATA FOR RESPECTIVE RUNWAY.
+L AN 0011 00005  DLID    AIRPORT SITE NUMBER IDENTIFIER. (EX. 04508.*A)
+L AN 0003 00016  DLID    ILS RUNWAY END IDENTIFIER. (EX: 18,36L)
+L AN 0010 00019  I22     ILS SYSTEM TYPE (SEE ILS1 RECORD TYPE FOR LIST)
+L AN 0022 00029          OPERATIONAL STATUS OF DME (OPERATIONAL IFR,
+                         OPERATIONAL VFR ONLY, OPERATIONAL RESTRICTED,
+                         DECOMMISSIONED, OR SHUTDOWN)
+L AN 0010 00051          EFFECTIVE DATE OF DME OPERATIONAL STATUS.
+L AN 0014 00061  I4      LATITUDE OF DME TRANSPONDER ANTENNA.
+                         (FORMATTED)
+L AN 0011 00075  I4S     LATITUDE OF DME TRANSPONDER ANTENNA.
+                         (ALL SECONDS)
+L AN 0014 00086  I5      LONGITUDE OF DME TRANSPONDER ANTENNA.
+                         (FORMATTED)
+L AN 0011 00100  I5S     LONGITUDE OF DME TRANSPONDER ANTENNA.
+                         (ALL SECONDS)
+L AN 0002 00111          CODE INDICATING SOURCE OF LATITUDE/LONGITUDE
+                         INFORMATION
+
+                         CODE    SOURCE
+                         ----    ------
+                         A       AIR FORCE
+                         C       COAST GUARD
+                         D       CANADIAN AIRAC
+                         F       FAA
+                         FS      TECH OPS (AFS-530)
+                         G       NOS (HISTORICAL)
+                         K       NGS
+                         M       DOD (NGA)
+                         N       US NAVY
+                         O       OWNER
+                         P       NOS PHOTO SURVEY (HISTORICAL)
+                         Q       QUAD PLOT (HISTORICAL)
+                         R       ARMY
+                         S       SIAP
+                         T       3RD PARTY SURVEY
+                         Z       SURVEYED
+
+R  N 0007 00113  I36     DISTANCE OF DME TRANSMITTER ANTENNA
+                         FROM APPROACH END OF RUNWAY.(FEET)
+                         (IF NEGATIVE INDICATES PLACEMENT INBOARD FROM
+                         APPROCH END OF RUNWAY)
+                         (EX:  6000, -567)
+R  N 0004 00120          DISTANCE OF DME TRANSPONDER ANTENNA
+                         FROM RUNWAY CENTERLINE (FEET).
+L AN 0001 00124          DIRECTION OF DME TRANSPONDER ANTENNA
+                         FROM RUNWAY CENTERLINE (L - LEFT, R - RIGHT).
+L AN 0002 00125          CODE INDICATING SOURCE OF DISTANCE
+                         INFORMATION
+
+                         CODE    SOURCE
+                         ----    ------
+                         A       AIR FORCE
+                         C       COAST GUARD
+                         D       CANADIAN AIRAC
+                         F       FAA
+                         FS      TECH OPS (AFS-530)
+                         G       NOS (HISTORICAL)
+                         K       NGS
+                         M       DOD (NGA)
+                         N       US NAVY
+                         O       OWNER
+                         P       NOS PHOTO SURVEY (HISTORICAL)
+                         Q       QUAD PLOT (HISTORICAL)
+                         R       ARMY
+                         S       SIAP
+                         T       3RD PARTY SURVEY
+                         Z       SURVEYED
+
+R  N 0007 00127          SITE ELEVATION OF DME TRANSPONDER ANTENNA
+				 IN TENTH OF A FOOT (MSL)
+L AN 0004 00134  I98     CHANNEL ON WHICH DISTANCE DATA IS TRANSMITTED.
+                         (EX:  032X, 038X)
+R  N 0007 00138  I104    DISTANCE OF DME
+                         ANTENNA FROM STOP END OF RUNWAY.
+                         (EX:  462, -585)
+L AN 0234 00145  N/A     BLANK.
+
+
+*********************************************************************
+
+            'ILS5' RECORD TYPE - MARKER BEACON DATA
+
+*********************************************************************
+
+
+L AN   04 00001  N/A     RECORD TYPE INDICATOR.
+                           ILS5:  MARKER BEACON DATA FOR RESPECTIVE RUNWAY.
+L AN 0011 00005  DLID    AIRPORT SITE NUMBER IDENTIFIER. (EX. 04508.*A)
+L AN 0003 00016  DLID    ILS RUNWAY END IDENTIFIER. (EX: 18,36L)
+L AN 0010 00019  I22     ILS SYSTEM TYPE (SEE ILS1 RECORD TYPE FOR LIST)
+L AN 0002 00029  N/A     MARKER TYPE (IM - INNER MARKER, MM - MIDDLE
+                         MARKER, OM - OUTER MARKER)
+L AN 0022 00031          OPERATIONAL STATUS OF MARKER BEACON (OPERATIONAL
+                         IFR, OPERATIONAL VFR ONLY, OPERATIONAL RESTRICTED,
+                         DECOMMISSIONED, OR SHUTDOWN)
+L AN 0010 00053          EFFECTIVE DATE OF MARKER BEACON OPERATIONAL STATUS.
+L AN 0014 00063  I4      LATITUDE OF MARKER BEACON. (FORMATTED)
+L AN 0011 00077  I4S     LATITUDE OF MARKER BEACON. (ALL SECONDS)
+L AN 0014 00088  I5      LONGITUDE OF MARKER BEACON. (FORMATTED)
+L AN 0011 00102  I5S     LONGITUDE OF MARKER BEACON. (ALL SECONDS)
+L AN 0002 00113          CODE INDICATING SOURCE OF LATITUDE/LONGITUDE
+                         INFORMATION
+
+                         CODE    SOURCE
+                         ----    ------
+                         A       AIR FORCE
+                         C       COAST GUARD
+                         D       CANADIAN AIRAC
+                         F       FAA
+                         FS      TECH OPS (AFS-530)
+                         G       NOS (HISTORICAL)
+                         K       NGS
+                         M       DOD (NGA)
+                         N       US NAVY
+                         O       OWNER
+                         P       NOS PHOTO SURVEY (HISTORICAL)
+                         Q       QUAD PLOT (HISTORICAL)
+                         R       ARMY
+                         S       SIAP
+                         T       3RD PARTY SURVEY
+                         Z       SURVEYED
+
+R  N 0007 00115  I36     DISTANCE OF MARKER BEACON
+                         FROM APPROACH END OF RUNWAY.(FEET)
+                         (IF NEGATIVE INDICATES PLACEMENT INBOARD FROM
+                         APPROCH END OF RUNWAY)
+                         (EX:  6000, -567)
+R  N 0004 00122          DISTANCE OF MARKER BEACON
+                         FROM RUNWAY CENTERLINE (FEET).
+L AN 0001 00126          DIRECTION OF MARKER BEACON
+                         FROM RUNWAY CENTERLINE (L - LEFT, R - RIGHT).
+L AN 0002 00127          CODE INDICATING SOURCE OF DISTANCE
+                         INFORMATION
+
+                         CODE    SOURCE
+                         ----    ------
+                         A       AIR FORCE
+                         C       COAST GUARD
+                         D       CANADIAN AIRAC
+                         F       FAA
+                         FS      TECH OPS (AFS-530)
+                         G       NOS (HISTORICAL)
+                         K       NGS
+                         M       DOD (NGA)
+                         N       US NAVY
+                         O       OWNER
+                         P       NOS PHOTO SURVEY (HISTORICAL)
+                         Q       QUAD PLOT (HISTORICAL)
+                         R       ARMY
+                         S       SIAP
+                         T       3RD PARTY SURVEY
+                         Z       SURVEYED
+
+R  N 0007 00129          SITE ELEVATION OF MARKER BEACON
+				 IN TENTH OF A FOOT (MSL)
+L AN 0015 00136  I70     FACILITY/TYPE OF MARKER/LOCATOR.
+
+                         TYPE          DESCRIPTION
+                         ----          -----------
+                         MARKER        MARKER BEACON ONLY
+                         COMLO         COMPASS LOCATOR
+                         NDB           NONDIRECTIONAL RADIO BEACON
+                         MARKER/COMLO  MARKER/ COMPASS LOCATOR
+                         MARKER/NDB    MARKER/ NONDIRECTIONAL
+                                       RADIO BEACON.
+
+L AN 0002 00151  I67     LOCATION IDENTIFIER OF BEACON AT MARKER.
+                         (EX:  LP)
+L AN 0030 00153  I81     NAME OF THE MARKER LOCATOR BEACON.
+                         (EX:HOGAF, VIOLE)
+R  N 0003 00183  I68     FREQUENCY OF LOCATOR BEACON AT MIDDLE MARKER
+                         IN KHZ.(EX: 190)
+L AN 0025 00186          LOCATION IDENTIFIER*NAVAID TYPE OF NAVIGATION
+                         AID COLOCATED WITH MARKER (BLANK INDICATES
+                         MARKER IS NOT COLOCATED WITH A NAVAID).
+L AN 0022 00211          LOW POWERED NDB STATUS OF MARKER BEACON
+                         (OPERATIONAL IFR, OPERATIONAL VFR ONLY,
+                         OPERATIONAL RESTRICTED, DECOMMISSIONED, OR
+                         SHUTDOWN).
+L AN 0030 00233          SERVICE PROVIDED BY MARKER.
+L AN 0116 00263  N/A     BLANK.
+
+
+********************************************************************
+
+     'ILS6' RECORD TYPE - INSTRUMENT LANDING SYSTEM REMARKS
+
+*******************************************************************
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+L AN   04 00001  N/A     RECORD TYPE INDICATOR.
+                           ILS6:  ILS REMARKS FOR RESPECTIVE RUNWAY END
+L AN 0011 00005  DLID    AIRPORT SITE NUMBER IDENTIFIER
+L AN 0003 00016  DLID    ILS RUNWAY END IDENTIFIER.
+L AN 0010 00019  I22     ILS SYSTEM TYPE (SEE ILS1 RECORD FOR DESCRIPTION)
+L AN 0350 00029  RMRKS   ILS REMARKS, FREE-FORM TEXT.
+                         FOR REMARKS REFERENCE A SPECIFIC ELEMENT, THE REMARK
+                         WILL BE PRECEDED BY THE DATA ELEMENT NAME.

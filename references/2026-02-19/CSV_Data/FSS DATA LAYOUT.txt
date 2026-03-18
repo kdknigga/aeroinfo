@@ -1,0 +1,111 @@
+                                         FLIGHT SERVICE STATIONS
+
+                           COMMA-SEPARATED VALUES (CSV) RECORD LAYOUT
+
+                                                 (FSS-FILES)
+
+
+
+INFORMATION EFFECTIVE DATE: 07/13/2023
+
+        RECORD FORMAT: COMMA DELIMITED WITH TEXT FIELDS ENCLOSED WITHIN DOUBLE-QUOTE
+        CHARACTERS
+
+        LOGICAL RECORD INTERVAL: ALL RECORDS WITHIN A SPECIFIC ILS FILE HAVE THE SAME
+        NUMBER OF FIELDS, IN THE SAME ORDER AND RECORD ENDS AT A LINE TERMINATOR
+
+        DATA HEADERS: FIRST ROWS CONTAIN FIELD NAMES
+
+        FSS FILES: FSS_BASE, FSS_RMK
+
+        COMMON TO ALL FSS FILES: EFF_DATE, FSS_ID, NAME, CITY, STATE_CODE, COUNTRY_CODE
+
+
+
+GENERAL INFORMATION:
+
+    1. The FSS_*.csv files were designed to replace the legacy FSS.txt Subscriber File. FSS Frequency
+       data moved to the FRQ.csv. Data that was redundant in FSS.txt because it is in other subscriber
+       file products removed for the purposes of the CSV. Owner and Operator information removed
+       as all US FSS are FAA owned and operated.
+    2. The Ordered By list for each FSS FILE documented below is also the Unique Record Key.
+    3. FSS_*.csv files contain the data found in the legacy FSS.txt Subscriber File. Data while
+       comparable to the legacy FSS.txt is in some cases organized and presented in a different way.
+    4. Please enter any feedback in the Aeronautical Information Portal.
+        https://nfdc.faa.gov/nfdcApps/controllers/PublicSecurity/nfdcLogin
+
+
+                                             FIELD DESCRIPTIONS
+
+COMMON TO ALL
+
+##############
+
+EFF_DATE – The 28 Day NASR Subscription Effective Date in format ‘YYYY/MM/DD’.
+
+FSS_ID – Flight Service Station Identifier
+
+NAME – Flight Service Station Name
+
+CITY – Associated City Name
+
+STATE_CODE – Associated State Post Office Code standard two letter abbreviation for US States and
+Territories.
+COUNTRY_CODE - Country Post Office Code
+
+
+FSS_BASE ordered by FSS_ID
+
+#########################
+
+UPDATE_DATE – Last Date on which the Record was updated.
+
+FSS_FAC_TYPE – Facility Type: Flight Service Station (FSS), FS21 HUB Station (HUB) or FS21 Radio Service
+Area (RADIO).
+
+VOICE_CALL – FSS Voice Call
+
+LAT_DEG – Flight Service Station Latitude Degrees
+
+LAT_MIN – Flight Service Station Latitude Minutes
+
+LAT_SEC – Flight Service Station Latitude Seconds
+
+LAT_HEMIS – Flight Service Station Latitude Hemisphere
+
+LAT_DECIMAL – Flight Service Station Latitude in Decimal Format
+
+LONG_DEG – Flight Service Station Longitude Degrees
+
+LONG_MIN – Flight Service Station Longitude Minutes
+
+LONG_SEC – Flight Service Station Longitude Seconds
+
+LONG_HEMIS – Flight Service Station Longitude Hemisphere
+
+LONG_DECIMAL – Flight Service Station Longitude in Decimal Format
+
+OPR_HOURS – FSS Hours of Operation
+
+FAC_STATUS – Status of Facility
+
+ALTERNATE_FSS – If the Record Facility does not have Circuit B Teletype Capable of
+Transmitting/Receiving Flight Plan Messages then Alternate FSS with this Capability listed.
+
+WEA_RADAR_FLAG – Availability of Weather Radar
+
+PHONE_NO – Telephone Number used to reach FSS.
+
+TOLL_FREE_NO – Toll Free Telephone Number used to reach FSS.
+
+
+
+FSS_RMK ordered by FSS_ID, REF_COL_NAME, REF_COL_SEQ_NO
+
+#################################################
+
+REF_COL_NAME - NASR Column name associated with Remark. Non-specific remarks identified as
+GENERAL_REMARK.
+REF_COL_SEQ_NO – Sequence number assigned to Reference Column Remark
+
+REMARK - Remark Text (Free Form Text that further describes a specific Information Item.)

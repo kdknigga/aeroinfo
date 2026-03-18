@@ -1,0 +1,144 @@
+                                 STANDARD TERMINAL ARRIVAL DATA
+
+                         COMMA-SEPARATED VALUES (CSV) RECORD LAYOUT
+
+                                             (STAR-FILES)
+
+
+
+INFORMATION EFFECTIVE DATE: 05/16/2024
+
+       RECORD FORMAT: COMMA DELIMITED WITH ALL TEXT FIELDS ENCLOSED WITHIN DOUBLE-
+       QUOTE CHARACTERS
+
+       LOGICAL RECORD INTERVAL: ALL RECORDS HAVE THE SAME NUMBER OF FIELDS, IN THE SAME
+       ORDER AND RECORD ENDS AT A LINE TERMINATOR
+
+       DATA HEADERS: FIRST ROW CONTAINS FIELD NAMES
+
+       STAR FILES: STAR_BASE, STAR_APT, STAR_RTE
+
+       COMMON TO ALL STAR FILES: EFF_DATE, STAR_COMPUTER_CODE, ARTCC
+
+
+
+GENERAL INFORMATION:
+
+   1. The STAR_*.csv files were designed to replace the STAR information found in the legacy
+      STARDP.txt Subscriber File.
+   2. The Ordered By list for each STAR FILE documented below is also the Unique Record Key.
+   3. STAR_*.csv file contains the STAR data found in the legacy STARDP.txt Subscriber File. Data,
+      while comparable to the legacy STARDP.txt, is in some cases organized and presented in a
+      different way.
+   4. Please enter any feedback in the Aeronautical Information Portal.
+       https://nfdc.faa.gov/nfdcApps/controllers/PublicSecurity/nfdcLogin
+
+
+                                          FIELD DESCRIPTION
+
+COMMON TO ALL
+
+##############
+
+EFF_DATE – The 28 Day NASR Subscription Effective Date in format ‘YYYY/MM/DD’.
+
+STAR_COMPUTER_CODE – FAA-Assigned Computer Identifier for the STAR. EX. GLAND.BLUMS5
+
+ARTCC – List of all Responsible ARTCCs based on Airports Served.
+
+
+
+STAR_BASE ordered by STAR_COMPUTER_CODE
+
+#########################
+ARRIVAL_NAME – STAR Name. Name Assigned to the Standard Terminal Arrival.
+
+AMENDMENT_NO – Amendment Number (spelled out) of the STAR that will be Active on the Effective
+Date.
+
+STAR_AMEND_EFF_DATE – The First Effective Date for which the STAR Amendment became Active.
+
+RNAV_FLAG – Y/N Flag determines whether a STAR is RNAV required.
+
+SERVED_ARPT – List of Airports Served by the STAR.
+
+
+
+STAR_APT ordered by STAR_COMPUTER_CODE, BODY_NAME, BODY_SEQ, ARPT_ID, RWY_END_ID
+
+#########################
+
+BODY_NAME – The Name of the Body for which the Airport/Runway End are associated. The Body
+Name is the first and last Fix of the Segment.
+
+BODY_SEQ – In the rare case that Body Name is not Unique for a given STAR, the BODY_SEQ will
+uniquely identify the Segment.
+
+ARPT_ID – The associated Airport Identifier.
+
+RWY_END_ID – The Runway End Identifier if applicable.
+
+
+
+STAR_RTE ordered by STAR_COMPUTER_CODE, ROUTE_PORTION_TYPE, ROUTE_NAME, BODY_SEQ,
+POINT_SEQ
+
+#########################
+
+ROUTE_PORTION_TYPE – The Segment is identified as either a Transition or Body.
+
+ROUTE_NAME – The Transition or Body Name.
+
+BODY_SEQ – In the rare case that Body Name is not Unique for a given STAR, the BODY_SEQ will
+uniquely identify the Segment.
+
+TRANSITION_COMPUTER_CODE – FAA-Assigned Computer Identifier for the TRANSITION.
+
+POINT_SEQ – Sequencing number in multiples of ten. Points are in order adapted for given Segment.
+
+POINT – The FIX or NAVAID adapted on the Segment.
+
+ICAO_REGION_CODE – This is the two letter ICAO Region Code for FIX Point Types only.
+
+POINT_TYPE – Specific FIX or NAVAID Type.
+
+        TYPE                    Description
+        ------                  ---------------
+        CN                      COMPUTER NAVIGATION FIX
+        MR                      MILITARY REPORTING POINT
+       MW                      MILITARY WAYPOINT
+       NRS                     NRS WAYPOINT
+       RADAR                   RADAR
+       RP                      REPORTING POINT
+       VFR                     VFR WAYPOINT
+       WP                      WAYPOINT
+
+       CONSOLAN                A Low Frequency, Long-Distance NAVAID Used Principally for
+                               Transoceanic navigation.
+       DME                     Distance Measuring Equipment only.
+       FAN MARKER              There are 3 types of EN ROUTE Market Beacons. FAN MARKER,
+                               Low powered FAN MARKERS and Z MARKERS. A FAN MARKER
+                               Is used to provide a positive identification of positions at
+                               Definite points along the airways.
+       MARINE NDB              A NON Directional Beacon used primarily for Marine (surface)
+                               Navigation.
+       MARINE NDB/DME          A NON Directional Beacon with associated Distance measuring
+                               Equipment; used primarily for Marine (surface) Navigation.
+       NDB                     A NON Directional Beacon
+       NDB/DME                 Non Directional Beacon with associated Distance Measuring
+                               Equipment.
+       TACAN                   A Tactical Air Navigation System providing Azimuth and Slant
+                               Range Distance.
+       UHF/NDB                 Ultra High Frequency/NON Directional Beacon.
+       VOR                     A VHF OMNI-Directional Range providing Azimuth only.
+       VORTAC                  A Facility consisting of two components, VOR and TACAN,
+                               Which provides three individual services: VOR AZIMITH,
+                               TACAN AZIMUTH and TACAN Distance (DME) at one site.
+       VOR/DME                 VHF OMNI-DIRECTIONAL Range with associated Distance
+                               Measuring equipment.
+       VOT                     A FAA VOR Test Facility.
+
+
+NEXT_POINT – The Point that directly follows the current Point on an individual segment.
+
+ARPT_RWY_ASSOC – The list of APT and/or APT/RWY associated with a given Segment.

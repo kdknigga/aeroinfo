@@ -1,0 +1,92 @@
+{
+  "airspace_fixes": [],
+  "automatic_voice_id": null,
+  "catch": {
+    "code": "N",
+    "description": "NO"
+  },
+  "city": "ADAK ISLAND",
+  "common_system_usage": "Y",
+  "coords_survey_accuracy": null,
+  "country": null,
+  "country_code": null,
+  "dme_service_volume": {
+    "code": "H",
+    "description": "HIGH ALTITUDE"
+  },
+  "effective_date": "2026-02-19",
+  "elevation": 408.0,
+  "facility_id": "BER",
+  "facility_type": "TACAN",
+  "fan_marker_true_bearing": null,
+  "fan_marker_type": null,
+  "fan_markers": [],
+  "frequency": "113.00",
+  "fss_hours_of_operation": "0800-1745; OT CTC KENAI FSS.",
+  "fss_id": "CDB",
+  "fss_name": "COLD BAY",
+  "high_altitude_artcc_id": "ZAN",
+  "high_altitude_artcc_name": "ANCHORAGE",
+  "hiwas": null,
+  "holding_patterns": [],
+  "hours_of_operation": "24",
+  "latitude_dms": "51-52-16.430N",
+  "latitude_secs": "186736.430N",
+  "longitude_dms": "176-40-26.800W",
+  "longitude_secs": "636026.800W",
+  "low_altitude_artcc_id": "ZAN",
+  "low_altitude_artcc_name": "ANCHORAGE",
+  "low_altitude_facility_used_in_high_structure": null,
+  "mag_variation": "07E",
+  "mag_variation_year": 2000,
+  "monitoring_category": {
+    "code": "ONE",
+    "description": "1 - INTERNAL MONITORING PLUS A STATUS INDICATOR INSTALLED AT CONTROL POINT. (REVERTS TO A TEMPORARY CATEGORY 3 STATUS WHEN THE CONTROL POINT IS NOT MANNED.)"
+  },
+  "name": "ADAK",
+  "navaid_class": "H-TACAN",
+  "navaid_restriction": null,
+  "navaid_status": "OPERATIONAL IFR",
+  "notam_accountability_code": "ADK",
+  "official_facility_id": "BER",
+  "operators_name": "U.S. AIR FORCE",
+  "owners_name": "U.S. AIR FORCE",
+  "pitch": {
+    "code": "N",
+    "description": "NO"
+  },
+  "power_output_watts": null,
+  "public_use": "Y",
+  "quadrant_id_and_range_leg_bearing": null,
+  "radio_voice_call_name": "NONE",
+  "region": {
+    "code": "AAL",
+    "description": "ALASKA"
+  },
+  "remarks": [
+    {
+      "facility_id": "BER",
+      "facility_type": "TACAN",
+      "remark": "INTERNAL MONITORING N/A."
+    }
+  ],
+  "simultaneous_voice": null,
+  "state_code": "AK",
+  "state_name": "ALASKA",
+  "sua_atcaa": {
+    "code": "N",
+    "description": "NO"
+  },
+  "tacan_channel": "77X",
+  "tacan_only_latitude_dms": "51-52-16.430N",
+  "tacan_only_latitude_secs": "186736.430N",
+  "tacan_only_longitude_dms": "176-40-26.800W",
+  "tacan_only_longitude_secs": "636026.800W",
+  "transmitted_id": null,
+  "tweb": null,
+  "tweb_hours": null,
+  "tweb_phone_number": null,
+  "vor_receiver_checkpoints": [],
+  "vor_service_volume": null,
+  "z_marker_available": null
+}

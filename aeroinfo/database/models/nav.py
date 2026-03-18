@@ -190,12 +190,14 @@ class Navaid(Base):
     # L AN 0001 00805  N/A    TRANSCRIBED WEATHER BROADCAST (TWEB) RESTRICTION (Y, N, OR NULL)
     tweb: Mapped[enums.YesNoNullEnum | None] = mapped_column(Enum(enums.YesNoNullEnum))
 
-    remarks = relationship("Remark", back_populates="navaid")
-    airspace_fixes = relationship("AirspaceFix", back_populates="navaid")
-    holding_patterns = relationship("HoldingPattern", back_populates="navaid")
-    fan_markers = relationship("FanMarker", back_populates="navaid")
-    vor_receiver_checkpoints = relationship(
-        "VORReceiverCheckpoint", back_populates="navaid"
+    remarks: Mapped[list["Remark"]] = relationship(back_populates="navaid")
+    airspace_fixes: Mapped[list["AirspaceFix"]] = relationship(back_populates="navaid")
+    holding_patterns: Mapped[list["HoldingPattern"]] = relationship(
+        back_populates="navaid"
+    )
+    fan_markers: Mapped[list["FanMarker"]] = relationship(back_populates="navaid")
+    vor_receiver_checkpoints: Mapped[list["VORReceiverCheckpoint"]] = relationship(
+        back_populates="navaid"
     )
 
     def __repr__(self) -> str:
@@ -227,7 +229,7 @@ class Remark(Base):
         {},
     )
 
-    navaid = relationship("Navaid", back_populates="remarks")
+    navaid: Mapped["Navaid"] = relationship(back_populates="remarks")
 
     def __repr__(self) -> str:
         """Return a short representation of the Remark."""
@@ -261,7 +263,7 @@ class AirspaceFix(Base):
         {},
     )
 
-    navaid = relationship("Navaid", back_populates="airspace_fixes")
+    navaid: Mapped["Navaid"] = relationship(back_populates="airspace_fixes")
 
     def __repr__(self) -> str:
         """Return a short representation of the AirspaceFix."""
@@ -297,7 +299,7 @@ class HoldingPattern(Base):
         {},
     )
 
-    navaid = relationship("Navaid", back_populates="holding_patterns")
+    navaid: Mapped["Navaid"] = relationship(back_populates="holding_patterns")
 
     def __repr__(self) -> str:
         """Return a short representation of the HoldingPattern."""
@@ -331,7 +333,7 @@ class FanMarker(Base):
         {},
     )
 
-    navaid = relationship("Navaid", back_populates="fan_markers")
+    navaid: Mapped["Navaid"] = relationship(back_populates="fan_markers")
 
     def __repr__(self) -> str:
         """Return a short representation of the FanMarker."""
@@ -376,7 +378,7 @@ class VORReceiverCheckpoint(Base):
         {},
     )
 
-    navaid = relationship("Navaid", back_populates="vor_receiver_checkpoints")
+    navaid: Mapped["Navaid"] = relationship(back_populates="vor_receiver_checkpoints")
 
     def __repr__(self) -> str:
         """Return a short representation of the VORReceiverCheckpoint."""

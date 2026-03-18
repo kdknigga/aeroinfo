@@ -1,0 +1,167 @@
+                                MILITARY TRAINING ROUTE (MTR) DATA
+
+                        COMMA-SEPARATED VALUES (CSV) RECORD LAYOUT
+
+                                            (MTR-FILES)
+
+
+
+INFORMATION EFFECTIVE DATE: 01/25/2024
+
+       RECORD FORMAT: COMMA DELIMITED WITH TEXT FIELDS ENCLOSED WITHIN DOUBLE-QUOTE
+       CHARACTERS
+
+       LOGICAL RECORD INTERVAL: ALL RECORDS WITHIN A SPECIFIC MTR FILE HAVE THE SAME
+       NUMBER OF FIELDS, IN THE SAME ORDER AND RECORD ENDS AT A LINE TERMINATOR
+
+       DATA HEADERS: FIRST ROWS CONTAIN FIELD NAMES
+
+       MTR FILES: MTR_BASE, MTR_AGY, MTR_PT, MTR_SOP, MTR_TERR, MTR_WDTH
+
+       COMMON TO ALL MTR FILES: EFF_DATE, ROUTE_TYPE_CODE, ROUTE_ID, ARTCC
+
+
+
+GENERAL INFORMATION:
+
+   1. The MTR_*.csv files were designed to replace the legacy MTR.txt Subscriber File.
+   2. The Ordered By list for each MTR FILE documented below is also the Unique Record Key. (One
+      exception being MTR_PT. See MTR_PT section for details.)
+   3. MTR_*.csv files contain the data found in the legacy MTR.txt Subscriber File. Data while
+      comparable to the legacy MTR.txt is in some cases organized and presented in a different way.
+   4. Please enter any feedback in the Aeronautical Information Portal.
+       https://nfdc.faa.gov/nfdcApps/controllers/PublicSecurity/nfdcLogin
+
+
+                                        FIELD DESCRIPTIONS
+
+COMMON TO ALL
+
+##############
+
+EFF_DATE – The 28 Day NASR Subscription Effective Date in format ‘YYYY/MM/DD’.
+
+ROUTE_TYPE_CODE – MTR Type Code.
+
+              CODE     TYPE
+              ----     ------
+               IR       IFR
+               VR      VFR
+
+ROUTE_ID – Route Identifier. Along with the ROUTE_TYPE_CODE creates a unique MTR identifier.
+ARTCC – List of ARTCC Idents that MTR traverses.
+
+
+
+MTR_BASE ordered by ROUTE_TYPE_CODE, ROUTE_ID
+
+#########################
+
+FSS – All Flight Service Station (FSS) Idents Within 150 Nautical Miles of The Route.
+
+TIMES_OF_USE – Times of Use Text Information.
+
+
+
+MTR_AGY ordered by ROUTE_TYPE_CODE, ROUTE_ID, AGENCY_TYPE
+
+#################################################
+
+AGENCY_TYPE – MTR Agency Type Code.
+
+               CODE     TYPE
+               ----      -----------
+                O       ORIGINATING
+                S1      SCHEDULING-1
+                S2      SCHEDULING-2
+                S3      SCHEDULING-3
+                S4      SCHEDULING-4
+
+AGENCY_NAME – Agency Organization Name
+
+STATION – Agency Station
+
+ADDRESS – Agency Address
+
+CITY – Agency City
+
+STATE_CODE – Agency State Post Office Code standard two letter abbreviation for US States and
+Territories.
+
+ZIP_CODE – Agency ZIP Code
+
+COMMERCIAL_NO– Agency Commercial Phone Number
+
+DSN_NO – Agency DSN Phone Number
+
+HOURS – Agency Hours
+
+
+
+MTR_PT ordered by ROUTE_TYPE_CODE, ROUTE_ID, ROUTE_PT_SEQ*
+
+(*For key, use ROUTE_PT_ID instead of ROUTE_PT_SEQ in the above list.)
+
+########################################
+ROUTE_PT_SEQ – Sequencing number in multiples of ten. Points are in order adapted for given MTR.
+
+ROUTE_PT_ID – Route Point Identifier.
+
+NEXT_ROUTE_PT_ID – The Next Sequential ROUTE_PT_ID.
+
+SEGMENT_TEXT – Concatenation of Segment Text preceded by the Segment Text Sequence Number.
+
+LAT_DEG – MTR Route Point Latitude Degrees
+
+LAT_MIN – MTR Route Point Latitude Minutes
+
+LAT_SEC – MTR Route Point Latitude Seconds
+
+LAT_HEMIS – MTR Route Point Latitude Hemisphere
+
+LAT_DECIMAL – MTR Route Point Latitude in Decimal Format
+
+LONG_DEG – MTR Route Point Longitude Degrees
+
+LONG_MIN – MTR Route Point Longitude Minutes
+
+LONG_SEC – MTR Route Point Longitude Seconds
+
+LONG_HEMIS – MTR Route Point Longitude Hemisphere
+
+LONG_DECIMAL – MTR Route Point Longitude in Decimal Format
+
+NAV_ID – Identifier of related NAVAID
+
+NAVAID_BEARING – Bearing of NAVAID from Point
+
+NAVAID_DIST – Distance of NAVAID from Point
+
+
+
+MTR_SOP ordered by ROUTE_TYPE_CODE, ROUTE_ID, SOP_SEQ_NO
+
+#########################
+
+SOP_SEQ_NO – SOP Text Computer assigned Sequence Number
+
+SOP_TEXT – Standard Operating Procedure Text
+
+
+
+MTR_TERR ordered by ROUTE_TYPE_CODE, ROUTE_ID, TERRAIN_SEQ_NO
+
+########################################
+
+TERRAIN_SEQ_NO – TERRAIN Text Computer assigned Sequence Number
+
+TERRAIN_TEXT – Terrain Following Operations Text
+
+
+
+MTR_WDTH ordered by ROUTE_TYPE_CODE, ROUTE_ID, WIDTH_SEQ_NO
+########################################
+
+WIDTH_SEQ_NO – WIDTH Text Computer assigned Sequence Number
+
+WIDTH_TEXT – Route Width Description Text

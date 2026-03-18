@@ -1,0 +1,107 @@
+                                   HOLDING PATTERN (HPF) DATA
+
+                         COMMA-SEPARATED VALUES (CSV) RECORD LAYOUT
+
+                                             (HPF-FILES)
+
+
+
+INFORMATION EFFECTIVE DATE: 12/28/2023
+
+       RECORD FORMAT: COMMA DELIMITED WITH TEXT FIELDS ENCLOSED WITHIN DOUBLE-QUOTE
+       CHARACTERS
+
+       LOGICAL RECORD INTERVAL: ALL RECORDS WITHIN A SPECIFIC ILS FILE HAVE THE SAME
+       NUMBER OF FIELDS, IN THE SAME ORDER AND RECORD ENDS AT A LINE TERMINATOR
+
+       DATA HEADERS: FIRST ROWS CONTAIN FIELD NAMES
+
+       HPF FILES: HPF_BASE, HPF_CHRT, HPF_RMK, HPF_SPD_ALT
+
+       COMMON TO ALL HPF FILES: EFF_DATE, HP_NAME, HP_NO, STATE_CODE, COUNTRY_CODE
+
+
+
+GENERAL INFORMATION:
+
+   1. The HPF_*.csv files were designed to replace the legacy HPF.txt Subscriber File.
+   2. The Ordered By list for each HPF FILE documented below is also the Unique Record Key.
+   3. HPF_*.csv files contain the data found in the legacy HPF.txt Subscriber File. Data while
+      comparable to the legacy HPF.txt is in some cases organized and presented in a different way.
+   4. Please enter any feedback in the Aeronautical Information Portal.
+       https://nfdc.faa.gov/nfdcApps/controllers/PublicSecurity/nfdcLogin
+
+
+                                        FIELD DESCRIPTIONS
+
+COMMON TO ALL
+
+##############
+
+EFF_DATE – The 28 Day NASR Subscription Effective Date in format ‘YYYY/MM/DD’.
+
+HP_NAME – Holding Pattern Identifier (NAVAID_NAME FACILITY_TYPE*STATE_CODE) OR (FIX_NAME
+FIX_TYPE*STATE_CODE*ICAO_REGION_CODE).
+
+HP_NO – Pattern Number to Uniquely Identify Holding Pattern
+
+STATE_CODE – Associated State Post Office Code standard two letter abbreviation for US States and
+Territories.
+
+COUNTRY_CODE - Country Post Office Code
+HPF_BASE ordered by HP_NAME, HP_NO
+
+#########################
+
+FIX_ID – Fix with which Holding is Associated.
+
+ICAO_REGION_CODE – ICAO Region Code of the Fix with which the Holding is Associated.
+
+NAV_ID – NAVAID with which Holding is Associated.
+
+NAV_TYPE – Facility Type of the NAVAID with which the Holding is Associated.
+
+HOLD_DIRECTION – Direction of Holding on the NAVAID or Fix
+
+HOLD_DEG_OR_CRS – Magnetic Bearing, Radial (Degrees) or Course Direction of Holding
+
+AZIMUTH - Azimuth (Degrees Shown Above is a Radial, Course, Bearing, or RNAV Track)
+
+COURSE_INBOUND_DEG – Inbound Course.
+
+TURN_DIRECTION – Turning Direction
+
+LEG_LENGTH_DIST –Leg Length Outbound DME (NM)
+
+
+
+HPF_CHRT ordered by HP_NAME, HP_NO, CHARTING_TYPE_DESC
+
+#################################################
+
+CHARTING_TYPE_DESC – Chart on Which Holding Pattern is To Be Depicted.
+
+
+
+HPF_RMK ordered by HP_NAME, HP_NO, TAB_NAME, REF_COL_NAME, REF_COL_SEQ_NO
+
+########################################
+
+TAB_NAME – NASR table associated with Remark.
+
+REF_COL_NAME – NASR Column name associated with Remark. Non-specific remarks are identified as
+GENERAL_REMARK.
+
+REF_COL_SEQ_NO – Sequence number assigned to Reference Column Remark.
+
+REMARK – Remark Text (Free Form Text that further describes a specific Information Item.)
+
+
+
+HPF_SPD_ALT ordered by HP_NAME, HP_NO, SPEED_RANGE, ALTITUDE
+
+########################################
+
+SPEED_RANGE– Speed Range for Holding Altitude of Record.
+
+ALTITUDE – Holding Altitude for Speed Range of Record.

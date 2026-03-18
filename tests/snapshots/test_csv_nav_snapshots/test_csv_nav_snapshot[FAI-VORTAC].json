@@ -1,0 +1,119 @@
+{
+  "airspace_fixes": [],
+  "automatic_voice_id": {
+    "code": "N",
+    "description": "NO"
+  },
+  "catch": {
+    "code": "N",
+    "description": "NO"
+  },
+  "city": "FAIRBANKS",
+  "common_system_usage": "Y",
+  "coords_survey_accuracy": {
+    "code": "SIX",
+    "description": "NOS"
+  },
+  "country": null,
+  "country_code": null,
+  "dme_service_volume": {
+    "code": "H",
+    "description": "HIGH ALTITUDE"
+  },
+  "effective_date": "2026-02-19",
+  "elevation": 1526.4,
+  "facility_id": "FAI",
+  "facility_type": "VORTAC",
+  "fan_marker_true_bearing": null,
+  "fan_marker_type": null,
+  "fan_markers": [],
+  "frequency": "108.60",
+  "fss_hours_of_operation": "24",
+  "fss_id": "FAI",
+  "fss_name": "FAIRBANKS",
+  "high_altitude_artcc_id": "ZAN",
+  "high_altitude_artcc_name": "ANCHORAGE",
+  "hiwas": null,
+  "holding_patterns": [],
+  "hours_of_operation": "24",
+  "latitude_dms": "64-48-00.254N",
+  "latitude_secs": "233280.254N",
+  "longitude_dms": "148-00-43.113W",
+  "longitude_secs": "532843.113W",
+  "low_altitude_artcc_id": "ZAN",
+  "low_altitude_artcc_name": "ANCHORAGE",
+  "low_altitude_facility_used_in_high_structure": null,
+  "mag_variation": "21E",
+  "mag_variation_year": 2010,
+  "monitoring_category": {
+    "code": "ONE",
+    "description": "1 - INTERNAL MONITORING PLUS A STATUS INDICATOR INSTALLED AT CONTROL POINT. (REVERTS TO A TEMPORARY CATEGORY 3 STATUS WHEN THE CONTROL POINT IS NOT MANNED.)"
+  },
+  "name": "FAIRBANKS",
+  "navaid_class": "H-VORTACW",
+  "navaid_restriction": null,
+  "navaid_status": "OPERATIONAL IFR",
+  "notam_accountability_code": "FAI",
+  "official_facility_id": "FAI",
+  "operators_name": "FEDERAL AVIATION ADMIN",
+  "owners_name": "FEDERAL AVIATION ADMIN",
+  "pitch": {
+    "code": "N",
+    "description": "NO"
+  },
+  "power_output_watts": null,
+  "public_use": "Y",
+  "quadrant_id_and_range_leg_bearing": null,
+  "radio_voice_call_name": "NONE",
+  "region": {
+    "code": "AAL",
+    "description": "ALASKA"
+  },
+  "remarks": [
+    {
+      "facility_id": "FAI",
+      "facility_type": "VORTAC",
+      "remark": "TACAN AZM UNUSBL 065-100 BYD 30 NM; 270-330 BYD 10 NM BLW 10000 FT; 270-330 BYD 30 NM."
+    }
+  ],
+  "simultaneous_voice": {
+    "code": "N",
+    "description": "NO"
+  },
+  "state_code": "AK",
+  "state_name": "ALASKA",
+  "sua_atcaa": {
+    "code": "N",
+    "description": "NO"
+  },
+  "tacan_channel": "23X",
+  "tacan_only_latitude_dms": "64-48-00.500N",
+  "tacan_only_latitude_secs": "233280.500N",
+  "tacan_only_longitude_dms": "148-00-48.849W",
+  "tacan_only_longitude_secs": "532848.849W",
+  "transmitted_id": null,
+  "tweb": null,
+  "tweb_hours": null,
+  "tweb_phone_number": null,
+  "vor_receiver_checkpoints": [
+    {
+      "air_ground": {
+        "code": "G",
+        "description": "GROUND"
+      },
+      "air_narrative": null,
+      "airport_id": "FBK",
+      "altitude": null,
+      "bearing": 58,
+      "facility_id": "FAI",
+      "facility_type": "VORTAC",
+      "ground_narrative": "10.8 NM - SOUTH RAMP ADJ TO RWY 25 TOUCHDOWN",
+      "state": "AK"
+    }
+  ],
+  "vor_service_volume": {
+    "code": "H",
+    "description": "HIGH ALTITUDE"
+  },
+  "z_marker_available": null
+}

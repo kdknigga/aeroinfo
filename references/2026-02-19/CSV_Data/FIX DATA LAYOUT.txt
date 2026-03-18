@@ -1,0 +1,128 @@
+                                       AIRSPACE FIXES (FIX) DATA
+
+                          COMMA-SEPARATED VALUES (CSV) RECORD LAYOUT
+
+                                                   (FIX-FILES)
+
+
+
+INFORMATION EFFECTIVE DATE: 11/30/2023
+
+        RECORD FORMAT: COMMA DELIMITED WITH TEXT FIELDS ENCLOSED WITHIN DOUBLE-QUOTE
+        CHARACTERS
+
+        LOGICAL RECORD INTERVAL: ALL RECORDS WITHIN A SPECIFIC ILS FILE HAVE THE SAME
+        NUMBER OF FIELDS, IN THE SAME ORDER AND RECORD ENDS AT A LINE TERMINATOR
+
+        DATA HEADERS: FIRST ROWS CONTAIN FIELD NAMES
+
+        FIX FILES: FIX_BASE, FIX_CHRT, FIX_NAV
+
+        COMMON TO ALL FIX FILES: EFF_DATE, FIX_ID, ICAO_REGION_CODE, STATE_CODE,
+        COUNTRY_CODE
+
+
+
+GENERAL INFORMATION:
+
+    1. The FIX_*.csv files were designed to replace the legacy FIX.txt Subscriber File.
+    2. The Ordered By list for each FIX FILE documented below is also the Unique Record Key.
+    3. FIX_*.csv files contain the data found in the legacy FIX.txt Subscriber File. Data while
+       comparable to the legacy FIX.txt is in some cases organized and presented in a different way.
+    4. Please enter any feedback in the Aeronautical Information Portal.
+        https://nfdc.faa.gov/nfdcApps/controllers/PublicSecurity/nfdcLogin
+
+
+                                           FIELD DESCRIPTIONS
+
+COMMON TO ALL
+
+##############
+
+EFF_DATE – The 28 Day NASR Subscription Effective Date in format ‘YYYY/MM/DD’.
+
+FIX_ID – Fixed Geographical Position Identifier.
+
+ICAO_REGION_CODE – International Civil Aviation Organization (ICAO) Code. In General, the First Letter
+of an ICAO Code refers to the Country. The Second Letter discerns the Region within the Country.
+
+STATE_CODE – Associated State Post Office Code standard two letter abbreviation for US States and
+Territories.
+
+COUNTRY_CODE - Country Post Office Code
+FIX_BASE ordered by FIX_ID, ICAO_REGION_CODE
+
+#########################
+
+LAT_DEG – FIX Latitude Degrees
+
+LAT_MIN – FIX Latitude Minutes
+
+LAT_SEC – FIX Latitude Seconds
+
+LAT_HEMIS – FIX Latitude Hemisphere
+
+LAT_DECIMAL – FIX Latitude in Decimal Format
+
+LONG_DEG – FIX Longitude Degrees
+
+LONG_MIN – FIX Longitude Minutes
+
+LONG_SEC – FIX Longitude Seconds
+
+LONG_HEMIS – FIX Longitude Hemisphere
+
+LONG_DECIMAL – FIX Longitude in Decimal Format
+
+FIX_ID_OLD – Previous Name(s) of the Fix before It was Renamed.
+
+CHARTING_REMARK – Charting Information.
+
+FIX_USE_CODE – FIX Type.
+
+               CN (COMPUTER NAVIGATION FIX)
+               MR (MILITARY REPORTING POINT)
+               MW (MILITARY WAYPOINT)
+               NRS (NRS WAYPOINT)
+               RADAR (RADAR)
+               RP (REPORTING POINT)
+               VFR (VFR WAYPOINT)
+               WP (WAYPOINT)
+
+ARTCC_ID_HIGH – Denotes High ARTCC Area Of Jurisdiction.
+
+ARTCC_ID_LOW – Denotes Low ARTCC Area Of Jurisdiction.
+
+PITCH_FLAG - Pitch (Y = YES or N = NO)
+
+CATCH_FLAG – Catch (Y = YES or N = NO)
+
+SUA_ATCAA_FLAG - SUA/ATCAA (Y = YES or N = NO)
+
+MIN_RECEP_ALT - Fix Minimum Reception Altitude (MRA)
+
+COMPULSORY – Compulsory FIX identified as HIGH or LOW or LOW/HIGH. Null in this field identifies
+Non-Compulsory FIX.
+CHARTS – Concatenated list of the information found in the FIX_CHRT file separated by a comma.
+
+
+
+FIX_CHRT ordered by FIX_ID, ICAO_REGION_CODE, CHARTING_TYPE_DESC
+
+#################################################
+
+CHARTING_TYPE_DESC – Chart on Which Fix Is To Be Depicted
+
+
+
+FIX_NAV ordered by FIX_ID, ICAO_REGION_CODE, NAV_ID, NAV_TYPE
+
+########################################
+
+NAV_ID – NAVAID Identifier.
+
+NAV_TYPE – Facility Type.
+
+BEARING – Bearing, Radial, Direction or Course depending on Facility Type.
+
+DISTANCE – DME Distance from Facility.

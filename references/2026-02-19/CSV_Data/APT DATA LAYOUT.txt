@@ -1,0 +1,998 @@
+                                       LANDING FACILITY DATA
+
+                         COMMA-SEPARATED VALUES (CSV) RECORD LAYOUT
+
+                                               (APT-FILES)
+
+
+
+INFORMATION EFFECTIVE DATE: 11/27/2025
+
+       RECORD FORMAT: COMMA DELIMITED WITH TEXT FIELDS ENCLOSED WITHIN DOUBLE-QUOTE
+       CHARACTERS
+
+       LOGICAL RECORD INTERVAL: ALL RECORDS WITHIN A SPECIFIC APT FILE HAVE THE SAME
+       NUMBER OF FIELDS, IN THE SAME ORDER AND RECORD ENDS AT A LINE TERMINATOR
+
+       DATA HEADERS: FIRST ROWS CONTAIN FIELD NAMES
+
+       APT FILES: APT_BASE, APT_ARS, APT_ATT, APT_CON, APT_RMK, APT_RWY, APT_RWY_END
+
+       COMMON TO ALL APT FILES: EFF_DATE, SITE_NO, SITE_TYPE_CODE, STATE_CODE, ARPT_ID,
+       CITY, COUNTRY_CODE
+
+
+
+GENERAL INFORMATION:
+
+   1. The APT_*.csv files were designed to replace the legacy APT.txt Subscriber File.
+   2. The Ordered By list for each APT FILE documented below is also the Unique Record Key.
+   3. APT_*.csv files contain the data found in the legacy APT.txt Subscriber File with the exception of
+      any frequency data which is now located in the FRQ.csv. Data while comparable to the legacy
+      APT.txt is in some cases organized and presented in a different way. The APT_*.csv files contain
+      data that was not previously included in APT.txt subscriber – e.g. all airport contact information
+      not just OWNER/MANAGER, all Fuel Types, etc.
+   4. Please enter any feedback in the Aeronautical Information Portal.
+       https://nfdc.faa.gov/nfdcApps/controllers/PublicSecurity/nfdcLogin
+
+
+                                         FIELD DESCRIPTIONS
+
+COMMON TO ALL
+
+##############
+
+EFF_DATE – The 28 Day NASR Subscription Effective Date in format ‘YYYY/MM/DD’.
+
+SITE_NO – Landing Facility Site Number. A unique identifying number.
+
+SITE_TYPE_CODE – Landing Facility Type Code.
+
+              CODE     FACILITY
+              ----     -----------
+                A        AIRPORT
+                B        BALLOONPORT
+                C        SEAPLANE BASE
+                G        GLIDERPORT
+                H        HELIPORT
+                U         ULTRALIGHT
+
+STATE_CODE – Associated State Post Office Code standard two letter abbreviation for US States and
+Territories.
+
+ARPT_ID – Location Identifier. Unique 3-4 character alphanumeric identifier assigned to the Landing
+Facility.
+
+CITY – Airport Associated City Name
+
+COUNTRY_CODE - Country Post Office Code Airport Located
+
+
+
+APT_BASE ordered by SITE_NO, SITE_TYPE_CODE
+
+#########################
+
+REGION_CODE – FAA Region Code
+
+               CODE     REGION NAME
+               ----     -----------
+               AAL        ALASKA
+               ACE        CENTRAL
+               AEA        EASTERN
+               AGL       GREAT LAKES
+               ANE        NEW ENGLAND
+               ANM        NORTHWEST MOUNTAIN
+               ASO        SOUTHERN
+               ASW        SOUTHWEST
+               AWP        WESTERN-PACIFIC
+
+ADO_CODE – FAA District or Field Office Code
+
+STATE_NAME – Associated State Name
+
+COUNTY_NAME – Associated County or Parish Name (For Non-Us Aerodromes This May Be Territory Or
+Province Name.)
+
+COUNTY_ASSOC_STATE – Associated County's State (Post Office Code) State where the Associated
+County is located; may not be the same as the Associated City's State Code. For non-US Aerodrome
+Facilities, these "State" Codes are internal to this system and may not correspond to standard State or
+Country Codes in use elsewhere.
+
+        Nonstandard "COUNTY_ASSOCIATED_STATE" and "COUNTY" names currently in use include:
+                COUNTY_ASSOC_STATE                COUNTY NAME
+                -------------------------------   ---------------------
+                AI                                ANGUILLA
+                AN                                NETHERLANDS ANTILLES
+                AS                                AMERICAN SAMOA
+                BL                                SAINT BARTHELEMY
+                BM                                BERMUDA
+                BS                                BAHAMAS
+                CN                                B.C., CANADA
+                CN                                QUEBEC, CANADA
+                CN                                P.E.I., CANADA
+                CN                                ALBERTA, CANADA
+                CN                                ONTARIO, CANADA
+                CN                                NUNAVUT, CANADA
+                CN                                MANITOBA, CANADA
+                CN                                YUKON TERR, CANADA
+                CN                                NOVA SCOTIA, CANADA
+                CN                                SASKATCHEWAN, CANADA
+                CN                                NEWFOUNDLAND, CANADA
+                CN                                NORTHWEST TERR, CANADA
+                CN                                NEW BRUNSWICK, CANADA
+                FM                                FED STS MICRONESIA
+                GL                                GREENLAND
+                GP                                GUADELOUPE
+                GU                                GUAM
+                IO                                BRITISH INDIAN OCEAN
+                IQ                                US MISC PACIFIC IS
+                MF                                SAINT MARTIN
+                MH                                MARSHALL ISLANDS
+                MP                                N MARIANA ISLANDS
+                PW                                PALAU
+                QM                                MIDWAY ISLAND
+                QW                                WAKE ISLAND
+                SH                                SAINT HELENA
+                TC                                TURKS AND CAICOS
+                TQ                                -TRUST TERR. OF PAC-
+                VG                                VIRGIN ISLANDS, BRIT
+                VI                                VIRGIN ISLANDS
+                XL                                PALMYRA ATOLL
+
+ARPT_NAME – Official Facility Name
+
+OWNERSHIP_TYPE_CODE – Airport Ownership Type
+
+              PU - PUBLICLY OWNED
+              PR - PRIVATELY OWNED
+               MA - AIR FORCE OWNED
+               MN - NAVY OWNED
+               MR - ARMY OWNED
+               CG - COAST GUARD OWNED
+
+FACILITY_USE_CODE – Facility Use
+
+               PU - OPEN TO THE PUBLIC
+               PR - PRIVATE
+
+LAT_DEG – Airport Reference Point Latitude Degrees
+
+LAT_MIN – Airport Reference Point Latitude Minutes
+
+LAT_SEC – Airport Reference Point Latitude Seconds
+
+LAT_HEMIS – Airport Reference Point Latitude Hemisphere
+
+LAT_DECIMAL – Airport Reference Point Latitude in Decimal Format
+
+LONG_DEG – Airport Reference Point Longitude Degrees
+
+LONG_MIN – Airport Reference Point Longitude Minutes
+
+LONG_SEC – Airport Reference Point Longitude Seconds
+
+LONG_HEMIS – Airport Reference Point Longitude Hemisphere
+
+LONG_DECIMAL – Airport Reference Point Longitude in Decimal Format
+
+SURVEY_METHOD_CODE – Airport Reference Point Determination Method
+
+               E - ESTIMATED
+               S - SURVEYED
+
+ELEV – Airport Elevation (Nearest Tenth of a Foot MSL) Elevation is measured at the highest point on the
+centerline of the usable landing surface.
+
+ELEV_METHOD_CODE – Airport Elevation Determination Method
+
+               E - ESTIMATED
+               S - SURVEYED
+
+MAG_VARN – Magnetic Variation
+
+MAG_HEMIS – Magnetic Variation Direction
+
+MAG_VARN_YEAR – Magnetic Variation Epoch Year
+
+TPA – Traffic Pattern Altitude (Whole Feet AGL)
+
+CHART_NAME – Aeronautical Sectional Chart on Which Facility Appears
+
+DIST_CITY_TO_AIRPORT - Distance from Central Business District of the Associated City to the Airport
+DIRECTION_CODE – Direction of Airport from Central Business District of Associated City (Nearest 1/8
+Compass Point)
+
+ACREAGE – Land Area Covered by Airport (Acres)
+
+RESP_ARTCC_ID – Responsible ARTCC Identifier (The Responsible ARTCC Is The FAA Air Route Traffic
+Control Center Who Has Control Over The Airport.)
+
+COMPUTER_ID – Responsible ARTCC (FAA) Computer Identifier
+
+ARTCC_NAME – Responsible ARTCC Name
+
+FSS_ON_ARPT_FLAG – Tie-In FSS Physically Located On Facility
+
+                Y - TIE-IN FSS IS ON THE AIRPORT
+                N - TIE-IN FSS IS NOT ON AIRPORT
+
+FSS_ID – Tie-In Flight Service Station (FSS) Identifier
+
+FSS_NAME – Tie-In FSS Name
+
+PHONE_NO – Local Phone Number from Airport to FSS for Administrative Services
+
+TOLL_FREE_NO - Toll Free Phone Number from Airport to FSS for Pilot Briefing Services
+
+ALT_FSS_ID – Alternate FSS Identifier provides the identifier of a full-time Flight Service Station that
+assumes responsibility for the Airport during the off hours of a part-time primary FSS.
+
+ALT_FSS_NAME – Alternate FSS Name
+
+ALT_TOLL_FREE_NO – Toll Free Phone Number from Airport to Alternate FSS for Pilot Briefing Services
+
+NOTAM_ID – Identifier of the Facility responsible for issuing Notices to Airmen (NOTAMS) and Weather
+information for the Airport
+
+NOTAM_FLAG – Availability of NOTAM 'D' Service at Airport
+
+                Y - YES
+                N - NO
+
+ACTIVATION_DATE – Airport Activation Date (YYYY/MM) provides the YEAR and MONTH that the Facility
+was added to the NFDC airport database. Note: this information is only available for those Facilities
+opened since 1981.
+
+ARPT_STATUS – Airport Status Code
+
+                CI - CLOSED INDEFINITELY
+                CP - CLOSED PERMANENTLY
+                O - OPERATIONAL
+
+FAR_139_TYPE_CODE – Airport ARFF Certification Type Code. Format is the class code ('I', 'II', 'III', or
+'IV') followed by a one character code A, B, C, D, E, or L. Codes A, B, C, D, E are for Airports having a full
+certificate under CFR PART 139, and identifies the Aircraft Rescue and Firefighting index for the Airport.
+Code L is for Airports having limited certification under CFR PART 139. Blank indicates the Facility is not
+certificated.
+
+FAR_139_CARRIER_SER_CODE – Airport ARFF Certification Carrier Service Code. Code S is for Airports
+receiving scheduled Air Carrier Service from carriers certificated by the Civil Aeronautics Board. Code U
+is for Airports not receiving this scheduled service.
+
+ARFF_CERT_TYPE_DATE - Airport ARFF Certification Date (YYYY/MM)
+
+NASP_CODE – NPIAS/Federal Agreements Code. A Combination of 1 to 7 Codes that Indicate the Type
+of Federal Agreements existing at the Airport.
+
+               N - NATIONAL PLAN OF INTEGRATED AIRPORT SYSTEMS (NPIAS)
+               B - INSTALLATION OF NAVIGATIONAL FACILITIES ON PRIVATELY OWNED AIRPORTS
+                   UNDER F&E PROGRAM
+               G - GRANT AGREEMENTS UNDER FAAP/ADAP/AIP
+               H - COMPLIANCE WITH ACCESSIBILITY TO THE HANDICAPPED
+               P - SURPLUS PROPERTY AGREEMENT UNDER PUBLIC LAW 289
+               R - SURPLUS PROPERTY AGREEMENT UNDER REGULATION 16-WAA
+               S - CONVEYANCE UNDER SECTION 16, FEDERAL AIRPORT ACT OF 1946 OR SECTION 23,
+                   AIRPORT AND AIRWAY DEVELOPMENT ACT OF 1970
+               V - ADVANCE PLANNING AGREEMENT UNDER FAAP
+               X - OBLIGATIONS ASSUMED BY TRANSFER
+               Y - ASSURANCES PURSUANT TO TITLE VI, CIVIL RIGHTS ACT OF 1964
+               Z - CONVEYANCE UNDER SECTION 303(C), FEDERAL AVIATION ACT OF 1958
+               1 - GRANT AGREEMENT HAS EXPIRED; HOWEVER, AGREEMENT REMAINS IN EFFECT FOR
+                   THIS FACILITY AS LONG AS IT IS PUBLIC USE.
+               2 - SECTION 303(C) AUTHORITY FROM FAA ACT OF 1958 HAS EXPIRED; HOWEVER,
+                   AGREEMENT REMAINS IN EFFECT FOR THIS FACILITY AS LONG AS IT IS PUBLIC USE.
+               3 - AP-4 AGREEMENT UNDER DLAND OR DCLA HAS EXPIRED
+              NONE - NO GRANT AGREEMENT EXISTS
+              BLANK- NO GRANT AGREEMENT EXISTS
+
+ASP_ANLYS_DTRM_CODE – Airport Airspace Analysis Determination
+
+                CONDL (CONDITIONAL)
+                NOT ANALYZED
+                NO OBJECTION
+                OBJECTIONABLE
+
+CUST_FLAG – Facility has been designated by the U.S. Department of Homeland Security as an
+International Airport of Entry for Customs
+
+                Y - YES
+                N - NO
+LNDG_RIGHTS_FLAG – Facility has been designated by the U.S. Department of Homeland Security as a
+Customs Landing Rights Airport. (Customs User Fee Airports will be designated with an E80, E80A, or
+E80C referenced remark "US CUSTOMS USER FEE ARPT.")
+
+JOINT_USE_FLAG – Facility has Military/Civil Joint Use Agreement that allows Civil Operations at a
+Military Airport.
+
+               Y - YES
+               N - NO
+
+MIL_LNDG_FLAG - Airport has entered into an Agreement that Grants Landing Rights to the Military
+
+               Y - YES
+               N - NO
+
+INSPECT_METHOD_CODE - Airport Inspection Method
+
+               F - FEDERAL
+               S - STATE
+               C - CONTRACTOR
+               1 - 5010-1 PUBLIC USE MAILOUT PROGRAM
+               2 - 5010-2 PRIVATE USE MAILOUT PROGRAM
+
+INSPECTOR_CODE - Agency/Group Performing Physical Inspection
+
+               F - FAA AIRPORTS FIELD PERSONNEL
+               S - STATE AERONAUTICAL PERSONNEL
+               C - PRIVATE CONTRACT PERSONNEL
+               N - OWNER
+
+LAST_INSPECTION - Last Physical Inspection Date (YYYY/MM/DD)
+
+LAST_INFO_RESPONSE - Last Date Information Request was completed by Facility Owner or Manager
+(YYYY/MM/DD)
+
+FUEL_TYPES - Fuel Types available for public use at the Airport.
+
+              100    Grade 100 gasoline (Green)
+              100LL 100LL gasoline (low lead) (Blue)
+              100R   Unleaded Grade 100 gasoline
+              A      Jet A, Kerosene, without FS–II*, FP** minus 40º C.
+              A+     Jet A, Kerosene, with FS–II*, FP** minus 40ºC.
+              A++    Jet A, Kerosene, with FS–II*, CI/LI#, SDA##, FP** minus 40ºC.
+              A++10 (A++100) Jet A, Kerosene, with FS–II*, CI/LI#, SDA##, FP** minus 40ºC, with +100
+                      fuel additive that improves thermal stability characteristics of kerosene jet fuels.
+              A1     Jet A–1, Kerosene, without FS–II*, FP** minus 47ºC.
+              A1+    Jet A–1, Kerosene with FS–II*, FP** minus 47º C.
+              G100UL Unleaded Grade 100 gasoline. (Note: G100 in the .txt subscriber file is the same
+                     as G100UL in the .csv subscriber file).
+              H      Hydrogen
+             J5     (JP5)(JP–5 military specification) Kerosene with FS–II, FP** minus 46ºC.
+             J8     (JP8)(JP–8 military specification) Jet A–1, Kerosene with FS–II*, CI/LI#, SDA##,
+                     FP** minus 47ºC.
+             J8+10 (J8+100) (JP–8 military specification) Jet A–1, Kerosene with FS–II*, CI/LI#, SDA##,
+                     FP** minus 47ºC, with +100 fuel additive that improves thermal stability
+                     characteristics of kerosene jet fuels.
+             J      (Jet Fuel Type Unknown)
+             MOGAS Automobile gasoline which is to be used as aircraft fuel.
+             UL91 Unleaded Grade 91 gasoline
+             UL94 Unleaded Grade 94 gasoline
+             UL100 Unleaded Grade 100 gasoline
+
+             *(Fuel System Icing Inhibitor)
+             **(Freeze Point)
+             # (Corrosion Inhibitors/Lubricity Improvers)
+             ## (Static Dissipator Additive)
+
+AIRFRAME_REPAIR_SER_CODE - Airframe Repair Service Availability/Type
+
+               MAJOR
+               MINOR
+               NONE
+
+PWR_PLANT_REPAIR_SER - Power Plant (Engine) Repair Availability/Type
+
+               MAJOR
+               MINOR
+               NONE
+
+BOTTLED_OXY_TYPE - Type of Bottled Oxygen Available (Value represents High and/or Low Pressure
+Replacement Bottle)
+
+               HIGH
+               LOW
+               HIGH/LOW
+               NONE
+
+BULK_OXY_TYPE - Type of Bulk Oxygen Available (Value represents High and/or Low Pressure Cylinders)
+
+               HIGH
+               LOW
+               HIGH/LOW
+               NONE
+
+LGT_SKED - Airport Lighting Schedule value is the beginning-ending times (local time) that the Standard
+Airport Lights are operated. Value can be "SS-SR" (indicating sunset-sunrise), blank, or "SEE RMK",
+indicating that the details are in a facility remark data entry.
+BCN_LGT_SKED - Beacon Lighting Schedule value is the beginning-ending times (local time) that the
+Rotating Airport Beacon Light is operated. Value can be "SS-SR" (indicating sunset-sunrise), blank, or
+"SEE RMK", indicating that the details are in a facility remark data entry.
+
+TWR_TYPE_CODE - Air Traffic Control Tower Facility Type (ATCT, NON-ATCT, ATCT-A/C, ATCT-RAPCON,
+ATCT-RATCF, ATCT-TRACON, TRACON). NON-ATCT is equivalent to “N” ATC TOWER at Airport. All Other
+are equivalent to “Y” ATC TOWER at AIRPORT.
+
+
+                TYPE CODE               DESCRIPTION
+                ---------               -----------
+                ATCT                    Air Traffic Control Tower.
+                NON-ATCT                No Air Traffic Control Tower on airport.
+                ATCT-A/C                 Air Traffic Control Tower plus Approach Control.
+                ATCT-RAPCON             Air Traffic Control Tower plus Radar Approach Control (Air Force
+                                        Operates ATCT/FAA Operates Approach Control)
+                ATCT-RATCF              Air Traffic Control Tower plus Radar Approach Control. (Navy
+                                        Operates ATCT/ FAA Operates Approach Control)
+                ATCT-TRACON             Air Traffic Control Tower plus Terminal Radar Approach Control.
+
+SEG_CIRCLE_MKR_FLAG - Segmented Circle Airport Marker System on the Airport
+
+               Y - YES
+               N - NO
+               NONE
+               Y-L - YES, LIGHTED
+
+BCN_LENS_COLOR - Lens Color of Operable Beacon located on the Airport
+
+                WG       WHITE-GREEN (LIGHTED LAND AIRPORT)
+                WY       WHITE-YELLOW (LIGHTED SEAPLANE BASE)
+                WGY      WHITE-GREEN-YELLOW (HELIPORT)
+                SWG      SPLIT-WHITE-GREEN (LIGHTED MILITARY AIRPORT)
+                W        WHITE (UNLIGHTED LAND AIRPORT)
+                Y        YELLOW (UNLIGHTED SEAPLANE BASE)
+                G        GREEN (LIGHTED LAND AIRPORT)
+                N        NONE
+
+LNDG_FEE_FLAG - Landing Fee charged to Non-Commercial Users of Airport
+
+               Y - YES
+               N - NO
+
+MEDICAL_USE_FLAG - A "Y" in this field indicates that the Landing Facility Is used for Medical Purposes
+
+BASED_SINGLE_ENG - Single Engine General Aviation Aircraft
+
+BASED_MULTI_ENG - Multi Engine General Aviation Aircraft
+BASED_JET_ENG - Jet Engine General Aviation Aircraft
+
+BASED_HEL - General Aviation Helicopter
+
+BASED_ GLIDERS - Operational Gliders
+
+BASED_ MIL_ACFT - Operational Military Aircraft (Including Helicopters)
+
+BASED_ULTRALGT_ACFT - Ultralight Aircraft
+
+COMMERCIAL_OPS - Commercial Services (Scheduled Operations by CAB-Certificated Carriers or
+Intrastate Carriers)
+
+COMMUTER_OPS - Commuter Services Operations (Scheduled Commuter/Cargo Carriers)
+
+AIR_TAXI_OPS - Air Taxi Operations (Air Taxi Operators Carrying Passengers, Mail, or Mail for Revenue)
+
+LOCAL_OPS - General Aviation Local Operations (Those Operating in the Local Traffic Pattern or Within a
+20-Mile Radius of the Airport)
+
+ITNRNT_OPS - General Aviation Itinerant Operations (Those General Aviation Operations Excluding
+Commuter or Air Taxi Not qualifying as Local)
+
+MIL_ACFT_OPS - Military Aircraft Operations
+
+ANNUAL_OPS_DATE - 12-Month Ending Date on which Annual Operations data in above six fields is
+based (YYYY/MM/DD)
+
+ARPT_PSN_SOURCE - Airport Position Source
+
+POSITION_SRC_DATE - Airport Position Source Date (YYYY/MM/DD)
+
+ARPT_ELEV_SOURCE - Airport Elevation Source
+
+ELEVATION_SRC_DATE - Airport Elevation Source Date (YYYY/MM/DD)
+
+CONTR_FUEL_AVBL - Contract Fuel Available
+
+               Y - YES
+               N - NO
+
+TRNS_STRG_BUOY_FLAG - Buoy Transient Storage Facilities
+
+               Y - YES
+               N - NO
+
+TRNS_STRG_HGR_FLAG - Hangar Transient Storage Facilities
+
+               Y - YES
+               N - NO
+
+TRNS_STRG_TIE_FLAG - Tie-Down Transient Storage Facilities
+
+               Y - YES
+               N - NO
+OTHER_SERVICES - Other Airport Services Available. A Comma-Separated List of Other Airport Services
+Available at the Airport, which include:
+
+               AFRT - AIR FREIGHT SERVICES
+               AGRI - CROP DUSTING SERVICES
+               AMB - AIR AMBULANCE SERVICES
+               AVNCS - AVIONICS
+               BCHGR - BEACHING GEAR
+               CARGO - CARGO HANDLING SERVICES
+               CHTR - CHARTER SERVICE
+               GLD - GLIDER SERVICE
+               INSTR - PILOT INSTRUCTION
+               PAJA - PARACHUTE JUMP ACTIVITY
+               RNTL - AIRCRAFT RENTAL
+               SALES - AIRCRAFT SALES
+               SURV - ANNUAL SURVEYING
+               TOW - GLIDER TOWING SERVICES
+
+WIND_INDCR_FLAG - Wind Indicator shows whether a Wind Indicator exists at the Airport
+
+               N - NO WIND INDICATOR
+               Y - UNLIGHTED WIND INDICATOR EXISTS
+               Y-L - LIGHTED WIND INDICATOR EXISTS
+
+ICAO_ID - ICAO Identifier
+
+MIN_OP_NETWORK - Minimum Operational Network (MON)
+
+USER_FEE_FLAG – If Flag is checked in NASR, User Fee Airports Will Be Designated With Text "US
+CUSTOMS USER FEE ARPT."
+
+CTA – Cold Temperature Airport. Altitude Correction Required At or Below Temperature Given in
+Celsius.
+
+
+
+APT_ARS ordered by SITE_NO, SITE_TYPE_CODE, RWY_ID, RWY_END_ID, ARREST_DEVICE_CODE
+
+################################################################
+
+RWY_ID – Runway Identification
+
+RWY_END_ID – Runway End Identifier (The Runway End described by the Arresting System Information.)
+
+ARREST_DEVICE_CODE – Type of Aircraft Arresting Device (Indicates Type of Jet Arresting Barrier
+installed at the Far End.) Possible Values:
+
+               BAK-6
+               BAK-9
+               BAK-12
+               BAK-12B
+               BAK-13
+               BAK-14
+               E5
+               E5-1
+               E27
+               E27B
+               E28
+               E28B
+               EMAS
+               M21
+               MA-1
+               MA-1A
+               MA-1A MOD
+
+
+
+APT_ATT ordered by SITE_NO, SITE_TYPE_CODE, SKED_SEQ_NO
+
+#####################################
+
+SKED_SEQ_NO – Attendance Schedule Sequence Number (A Number which, together with the Site
+Number, uniquely identifies the Attendance Schedule Component.)
+
+MONTH – Describes the Months that the Facility is Attended. This field may also contain 'UNATNDD' for
+unattended Facilities.
+
+DAY – Describes the Days of the Week that the Facility is Open
+
+HOUR – Describes the Hours within the Day that the Facility is Attended
+
+
+
+APT_CON ordered by SITE_NO, SITE_TYPE_CODE, TITLE
+
+##############################
+
+TITLE – Title of Contact (MANAGER, OWNER, ASST-MGR, etc.)
+
+NAME –Facility Contact Name for Title
+
+ADDRESS1 – Title Address1
+
+ADDRESS2 – Title Address2
+
+TITLE_CITY – Title City
+
+STATE – Title State
+
+ZIP_CODE – Title Zip Code
+
+ZIP_PLUS_FOUR – Title Zip Plus Four
+
+PHONE_NO – Title Phone Number
+APT_RMK ordered by SITE_NO, SITE_TYPE_CODE, TAB_NAME, REF_COL_NAME, ELEMENT,
+REF_COL_SEQ_NO
+
+########################################
+
+LEGACY_ELEMENT_NUMBER – Legacy Remark Element Number. The Legacy element number field is
+equivalent to the LEGACY_ELEMENT_NAME field referenced in the TXT APT.txt NASR Subscriber File.
+
+TAB_NAME – NASR Table name associated with Remark.
+
+REF_COL_NAME – NASR Column name associated with Remark. Non-specific remarks are identified as
+GENERAL_REMARK.
+
+ELEMENT – Specific Element that Remark Text Pertains to. Not all Tables require Element to be Unique.
+
+       TABLE                           ELEMENT
+       AIRPORT ATTEND SCHED            SKED SEQ NO
+       AIRPORT CONTACT                 TITLE
+       AIRPORT SERVICE                 SERVICE TYPE CODE
+       ARRESTING DEVICE                RWY END ID _ ARREST DEVICE CODE
+       FUEL TYPE                       FUEL TYPE
+       RUNWAY                          RWY ID
+       RUNWAY END                      RWY END ID
+       RUNWAY END OBSTN                RWY END ID
+       RUNWAY SURFACE TYPE             RWY ID
+
+REF_COL_SEQ_NO - Sequence number assigned to Reference Column Remark.
+
+REMARK – Remark Text (Free Form Text that further describes a specific Information Item.)
+
+
+
+APT_RWY ordered by SITE_NO, SITE_TYPE_CODE, RWY_ID
+
+#################################
+
+RWY_ID - Runway Identification
+
+RWY_LEN - Physical Runway Length (Nearest Foot)
+
+RWY_WIDTH - Physical Runway Width (Nearest Foot)
+
+SURFACE_TYPE_CODE - Runway Surface Type (The value will usually be one of those described below or
+a combination of two types when the runway is composed of distinct sections.)
+
+              CONC      - PORTLAND CEMENT CONCRETE
+              ASPH      - ASPHALT OR BITUMINOUS CONCRETE
+              SNOW      - SNOW
+              ICE       - ICE
+              MATS      - PIERCED STEEL PLANKING (PSP); LANDING MATS; MEMBRANES
+              TREATED - OILED; SOIL CEMENT OR LIME STABILIZED
+              GRAVEL - GRAVEL; CINDERS; CRUSHED ROCK; CORAL OR SHELLS; SLAG
+              TURF    - GRASS; SOD
+              DIRT    - NATURAL SOIL
+              PEM     - PARTIALLY CONCRETE, ASPHALT OR BITUMEN-BOUND MACADAM
+              ROOF-TOP – MATERIAL NOT SPECIFIED
+              WATER - WATER
+
+       Less common:
+
+               ALUMINUM, BRICK, CALICHE, CORAL, DECK, GRASS, MATS, METAL, NSTD, OIL&CHIP,
+               PSP, SAND, SOD, STEEL, TRTD, WOOD
+
+COND - Runway Surface Condition
+
+             EXCELLENT
+             GOOD
+             FAIR
+             POOR
+             FAILED
+
+TREATMENT_CODE - Runway Surface Treatment
+
+              GRVD - SAW-CUT OR PLASTIC GROOVED
+              PFC - POROUS FRICTION COURSE
+              AFSC - AGGREGATE FRICTION SEAL COAT
+              RFSC - RUBBERIZED FRICTION SEAL COAT
+              WC - WIRE COMB OR WIRE TINE
+              NONE - NO SPECIAL SURFACE TREATMENT
+
+PCN – Pavement Classification Number (PCN) See FAA Advisory Circular 150/5335-5 for Code Definitions
+and PCN Determination Formula.
+
+PAVEMENT_TYPE_CODE – Pavement Type
+
+              R - RIGID
+              F - FLEXIBLE
+
+SUBGRADE_STRENGTH_CODE – Subgrade Strength (Letters A-F)
+
+TIRE_PRES_CODE – Tire Pressure Code (Letters W-Z)
+
+DTRM_METHOD_CODE – Determination Method
+
+              T - TECHNICAL
+              U - USING AIRCRAFT
+
+RWY_LGT_CODE - Runway Lights Edge Intensity
+
+              HIGH - HIGH
+              MED - MEDIUM
+              LOW - LOW
+              FLD - FLOOD
+              NSTD - NON-STANDARD LIGHTING SYSTEM
+              PERI - PERIMETER
+              STRB - STROBE
+              NONE - NO EDGE LIGHTING SYSTEM
+
+RWY_LEN_SOURCE - Runway Length Source
+
+LENGTH_SOURCE_DATE - Runway Length Source Date (YYYY/MM/DD)
+
+GROSS_WT_SW - Runway Weight-Bearing Capacity for Single Wheel type Landing Gear
+
+GROSS_WT_DW - Runway Weight-Bearing Capacity for Dual Wheel type Landing Gear
+
+GROSS_WT_DTW - Runway Weight-Bearing Capacity for Two Dual Wheels in tandem type Landing Gear
+
+GROSS_WT_DDTW - Runway Weight-Bearing Capacity for Two Dual Wheels in tandem/two dual wheels
+in double tandem body gear type Landing Gear
+
+
+
+APT_RWY_END ordered by SITE_NO, SITE_TYPE_CODE, RWY_ID, RWY_END_ID
+
+#################################################
+
+RWY_ID - Runway Identification
+
+RWY_END_ID - Runway End Identifier
+
+TRUE_ALIGNMENT - Runway End True Alignment (True Heading of the Runway – to the nearest Degree.)
+
+ILS_TYPE - Instrument Landing System (ILS) Type
+
+              ILS         - INSTRUMENT LANDING SYSTEM
+              MLS         - MICROWAVE LANDING SYSTEM
+              SDF         - SIMPLIFIED DIRECTIONAL FACILITY
+              LOCALIZER   - LOCALIZER
+              LDA         - LOCALIZER-TYPE DIRECTIONAL AID
+              ISMLS        - INTERIM STANDARD MICROWAVE LANDING SYSTEM
+              ILS/DME     - INSTRUMENT LANDING SYSTEM/DISTANCE MEASURING EQUIPMENT
+              SDF/DME     - SIMPLIFIED DIRECTIONAL FACILITY DISTANCE MEASURING EQUIPMENT
+              LOC/DME      - LOCALIZER/DISTANCE MEASURING EQUIPMENT
+              LOC/GS       - LOCALIZER/GLIDE SLOPE
+              LDA/DME      - LOCALIZER-TYPE DIRECTIONAL AID DISTANCE MEASURING EQUIPMENT
+
+RIGHT_HAND_TRAFFIC_PAT_FLAG - Right Hand Traffic Pattern for Landing Aircraft
+
+              Y - YES
+              N - NO
+RWY_MARKING_TYPE_CODE - Runway Markings (Type)
+
+              PIR - PRECISION INSTRUMENT
+              NPI - NONPRECISION INSTRUMENT
+              BSC - BASIC
+              NRS - NUMBERS ONLY
+              NSTD - NONSTANDARD (OTHER THAN NUMBERS ONLY)
+              BUOY - BUOYS (SEAPLANE BASE)
+              STOL - SHORT TAKEOFF AND LANDING
+              NONE - NONE
+
+RWY_MARKING_COND - Runway Markings (Condition)
+
+              G - GOOD
+              F - FAIR
+              P - POOR
+
+RWY_END_LAT_DEG - Latitude Degrees of Physical Runway End
+
+RWY_END_LAT_MIN –Latitude Minutes of Physical Runway End
+
+RWY_END_LAT_SEC –Latitude Seconds of Physical Runway End
+
+RWY_END_LAT_HEMIS – Latitude Hemisphere of Physical Runway End
+
+LAT_DECIMAL – Latitude of Physical Runway End in Decimal Format
+
+RWY_END_LONG_DEG – Longitude Degrees of Physical Runway End
+
+RWY_END_LONG_MIN - Longitude Minutes of Physical Runway End
+
+RWY_END_LONG_SEC - Longitude Seconds of Physical Runway End
+
+RWY_END_LONG_HEMIS - Longitude Hemisphere of Physical Runway End
+
+LONG_DECIMAL – Longitude of Physical Runway End in Decimal Format
+
+RWY_END_ELEV - Elevation (Feet MSL) at Physical Runway End
+
+THR_CROSSING_HGT - Threshold Crossing Height (Feet AGL) Height that the Effective Visual Glide Path
+Crosses Above the Runway Threshold.
+
+VISUAL_GLIDE_PATH_ANGLE - Visual Glide Path Angle (Hundredths of Degrees)
+
+DISPLACED_THR_LAT_DEG - Latitude Degrees at Displace Threshold
+
+DISPLACED_THR_LAT_MIN - Latitude Minutes at Displace Threshold
+
+DISPLACED_THR_LAT_SEC - Latitude Seconds at Displace Threshold
+
+DISPLACED_THR_LAT_HEMIS - Latitude Hemisphere at Displace Threshold
+
+LAT_DISPLACED_THR_DECIMAL – Latitude at Displace Threshold in Decimal Format
+DISPLACED_THR_LONG_DEG - Longitude Degrees at Displace Threshold
+
+DISPLACED_THR_LONG_MIN - Longitude Minutes at Displace Threshold
+
+DISPLACED_THR_LONG_SEC - Longitude Seconds at Displace Threshold
+
+DISPLACED_THR_LONG_HEMIS - Longitude Hemisphere at Displace Threshold
+
+LONG_DISPLACED_THR_DECIMAL – Longitude at Displace Threshold in Decimal Format
+
+DISPLACED_THR_ELEV - Elevation at Displaced Threshold (Feet MSL)
+
+DISPLACED_THR_LEN - Displaced Threshold - Length in Feet from Runway End
+
+TDZ_ELEV - Elevation at Touchdown Zone (Feet MSL)
+
+VGSI_CODE - Visual Glide Slope Indicators
+
+     ACRONYMS: SAVASI - SIMPLIFIED ABBREVIATED VISUAL APPROACH SLOPE INDICATOR
+               VASI - VISUAL APPROACH SLOPE INDICATOR
+               PAPI - PRECISION APPROACH PATH INDICATOR
+               TRI - TRI-COLOR VISUAL APPROACH SLOPE INDICATOR
+               PSI - PULSATING/STEADY BURNING VISUAL APPROACH SLOPE INDICATOR
+               PNI - A SYSTEM OF PANELS USED FOR ALIGNMENT OF APPROACH SLOPE INDICATOR
+           S2L 2-BOX SAVASI ON LEFT SIDE OF RUNWAY
+           S2R 2-BOX SAVASI ON RIGHT SIDE OF RUNWAY
+           V2L 2-BOX VASI ON LEFT SIDE OF RUNWAY
+           V2R 2-BOX VASI ON RIGHT SIDE OF RUNWAY
+           V4L 4-BOX VASI ON LEFT SIDE OF RUNWAY
+           V4R 4-BOX VASI ON RIGHT SIDE OF RUNWAY
+           V6L 6-BOX VASI ON LEFT SIDE OF RUNWAY
+           V6R 6-BOX VASI ON RIGHT SIDE OF RUNWAY
+           V12 12-BOX VASI ON BOTH SIDES OF RUNWAY
+           V16 16-BOX VASI ON BOTH SIDES OF RUNWAY
+           P2L 2-LGT PAPI ON LEFT SIDE OF RUNWAY
+           P2R 2-LGT PAPI ON RIGHT SIDE OF RUNWAY
+           P4L 4-LGT PAPI ON LEFT SIDE OF RUNWAY
+           P4R 4-LGT PAPI ON RIGHT SIDE OF RUNWAY
+           NSTD NONSTANDARD VASI SYSTEM
+           PVT PRIVATELY OWNED APPROACH SLOPE INDICATOR LIGHT SYSTEM ON A PUBLIC USE
+                 AIRPORT THAT IS INTENDED FOR PRIVATE USE ONLY
+           VAS NON-SPECIFIC VASI SYSTEM
+           NONE NO APPROACH SLOPE LIGHT SYSTEM
+           N NO APPROACH SLOPE LIGHT SYSTEM
+           TRIL TRI-COLOR VASI ON LEFT SIDE OF RUNWAY
+           TRIR TRI-COLOR VASI ON RIGHT SIDE OF RUNWAY
+           PSIL PULSATING/STEADY BURNING VASI ON LEFT SIDE OF RUNWAY
+           PSIR PULSATING/STEADY BURNING VASI ON RIGHT SIDE OF RUNWAY
+             PNIL SYSTEM OF PANELS ON LEFT SIDE OF RUNWAY THAT MAY OR MAY NOT BE LIGHTED
+             PNIR SYSTEM OF PANELS ON RIGHT SIDE OF RUNWAY THAT MAY OR MAY NOT BE
+                  LIGHTED
+RWY_VISUAL_RANGE_EQUIP_CODE - Runway Visual Range Equipment (RVR) indicates location(s) at
+which RVR equipment is installed. Can be any one or a combination of the following three one letter
+codes:
+
+               T - TOUCHDOWN
+               M - MIDFIELD
+               R - ROLLOUT
+               N - NO RVR AVAILABLE
+              POSSIBLE VALUES: T,M,R,N,TM,TR,MR,TMR
+
+RWY_VSBY_VALUE_EQUIP_FLAG - Runway Visibility Value Equipment (RVV) indicates presence of RVV
+equipment
+
+               Y - YES
+               N - NO
+
+APCH_LGT_SYSTEM_CODE - Approach Light System
+
+             AFOVRN – AIR FORCE OVERRUN 1000-FOOT STANDARD APPROACH LIGHTING SYSTEM
+             ALSAF - 3,000 FOOT HIGH INTENSITY APPROACH LIGHTING SYSTEM WITH CENTERLINE
+                 SEQUENCE FLASHERS.
+             ALSF1 - STANDARD 2,400 FOOT HIGH INTENSITY APPROACH LIGHTING SYSTEM WITH
+                 SEQUENCED FLASHERS, CATEGORY I CONFIG.
+             ALSF2 - STANDARD 2,400 FOOT HIGH INTENSITY APPROACH LIGHTING SYSTEM WITH
+                 SEQUENCED FLASHERS, CATEGORY II OR III CONFIGURATION
+             MALS - 1,400 FOOT MEDIUM INTENSITY APPROACH LIGHTING SYSTEM
+             MALSF - 1,400 FOOT MEDIUM INTENSITY APPROACH LIGHTING SYSTEM WITH SEQUENCED
+                 FLASHERS
+             MALSR - 1,400 FOOT MEDIUM INTENSITY APPROACH LIGHTING SYSTEM WITH RUNWAY
+                 ALIGNMENT INDICATOR LIGHTS
+             RAIL - RUNWAY ALIGNMENT INDICATOR LIGHTS
+             SALS - SHORT APPROACH LIGHTING SYSTEM
+             SALSF – SHORT APPROACH LIGHTING SYSTEM WITH SEQUENCE FLASHING LIGHTS
+             SSALS - SIMPLIFIED SHORT APPROACH LIGHTING SYSTEM
+             SSALF - SIMPLIFIED SHORT APPROACH LIGHTING SYSTEM WITH SEQUENCED FLASHERS
+             SSALR - SIMPLIFIED SHORT APPROACH LIGHTING SYSTEM WITH RUWNAY ALIGNMENT
+                 INDICATOR LIGHTS
+             ODALS - OMNIDIRECTIONAL APPROACH LIGHTING SYSTEM
+             RLLS - RUNWAY LEAD-IN LIGHT SYSTEM
+             MIL OVRN - MILITARY OVERRUN
+             NSTD - ALL OTHERS
+             NONE - NO APPROACH LIGHTING IS AVAILABLE
+
+RWY_END_LGTS_FLAG - Runway End Identifier Lights (REIL) Availability
+               Y - YES
+               N - NO
+
+CNTRLN_LGTS_AVBL_FLAG - Runway Centerline Lights Availability
+
+               Y - YES
+               N - NO
+
+TDZ_LGT_AVBL_FLAG - Runway End Touchdown Lights Availability
+
+               Y - YES
+               N - NO
+
+OBSTN_TYPE - Controlling Object Description
+
+OBSTN_MRKD_CODE - Controlling Object Marked/Lighted
+
+               M - MARKED
+               L - LIGHTED
+               ML - MARKED AND LIGHTED
+               NONE
+
+FAR_PART_77_CODE - FAA CFR Part 77 (Objects Affecting Navigable Airspace) Runway Category
+
+               A(V) - UTILITY RUNWAY WITH A VISUAL APPROACH
+               B(V) - OTHER THAN UTILITY RUNWAY WITH A VISUAL APPROACH
+               A(NP) - UTILITY RUNWAY WITH A NONPRECISION APPROACH
+               C - OTHER THAN UTILITY RUNWAY WITH A NONPRECISION APPROACH HAVING
+                    VISIBILITY MINIMUMS GREATER THAN 3/4 MILE
+               D - OTHER THAN UTILITY RUNWAY WITH A NONPRECISION APPROACH HAVING
+                    VISIBILITY MINIMUMS AS LOW AS 3/4 MILE
+               PIR - PRECISION INSTRUMENT RUNWAY
+
+OBSTN_CLNC_SLOPE - Controlling Object Clearance Slope value, expressed as a ratio of N:1, of the
+Clearance that is available to approaching aircraft. If the Clearance Slope is greater than 50:1, then 50 or
+will be entered.
+
+OBSTN_HGT - Controlling Object Height Above Runway (In Feet AGL) The Object Is Above The Physical
+Runway End.
+
+DIST_FROM_THR - Controlling Object Distance from Runway End Distance, in feet, from the Physical
+Runway End to the Controlling Object. This is measured using the extended runway centerline to a point
+abeam the object.
+
+CNTRLN_OFFSET - Controlling Object Centerline Offset Distance, in feet, that the Controlling Object is
+located away from the extended Runway Centerline as measured horizontally on a line perpendicular to
+the extended Runway Centerline.
+
+CNTRLN_DIR_CODE – Controlling Object Centerline Offset Direction indicates the direction (left or right)
+to the object from the centerline as seen by an approaching pilot.
+RWY_GRAD - Runway End Gradient
+
+RWY_GRAD_DIRECTION - Runway End Gradient Direction (Up Or Down)
+
+RWY_END_PSN_SOURCE - Runway End Position Source
+
+RWY_END_PSN_DATE - Runway End Position Source Date (YYYY/MM/DD)
+
+RWY_END_ELEV_SOURCE - Runway End Elevation Source
+
+RWY_END_ELEV_DATE - Runway End Elevation Source Date (YYYY/MM/DD)
+
+DSPL_THR_PSN_SOURCE - Displaced Threshold Position Source
+
+RWY_END_DSPL_THR_PSN_DATE - Displaced Threshold Position Source Date (YYYY/MM/DD)
+
+DSPL_THR_ELEV_SOURCE - Displaced Threshold Elevation Source
+
+RWY_END_DSPL_THR_ELEV_DATE - Displaced Threshold Elevation Source Date (YYYY/MM/DD)
+
+TKOF_RUN_AVBL - Takeoff Run Available (TORA), In Feet
+
+TKOF_DIST_AVBL - Takeoff Distance Available (TODA), In Feet
+
+ACLT_STOP_DIST_AVBL - Aclt Stop Distance Available (ASDA), In Feet
+
+LNDG_DIST_AVBL - Landing Distance Available (LDA), In Feet
+
+LAHSO_ALD - Available Landing Distance for Land and Hold Short Operations (LAHSO)
+
+RWY_ID AS RWY_END_INTERSECT_LAHSO - ID of Intersecting Runway Defining Hold Short Point
+
+LAHSO_DESC - Description of Entity Defining Hold Short Point If Not an Intersecting Runway
+
+LAHSO_LAT - Latitude of LAHSO Hold Short Point (Formatted)
+
+LAT_LAHSO_DECIMAL – Latitude of LAHSO Hold Short Point in Decimal Format
+
+LAHSO_LONG - Longitude of LAHSO Hold Short Point (Formatted)
+
+LONG_LAHSO_DECIMAL – Longitude of LAHSO Hold Short Point in Decimal Format
+
+LAHSO_PSN_SOURCE - LAHSO Hold Short Point Lat/Long Source
+
+RWY_END_LAHSO_PSN_DATE - Hold Short Point Lat/Long Source Date (YYYY/MM/DD)

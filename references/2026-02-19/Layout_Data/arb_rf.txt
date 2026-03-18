@@ -1,0 +1,51 @@
+
+                    ARTCC BOUNDARY SEGMENTS DESCRIPTIONS
+                          DATA BASE RECORD LAYOUT
+                                (ARB-FILE)
+
+
+INFORMATION EFFECTIVE DATE: 04/05/2012
+
+    RECORD FORMAT: FIXED
+    LOGICAL RECORD LENGTH: 397
+
+    EACH RECORD ENDS WITH A CARRIAGE RETURN CHARACTER AND LINE FEED
+    CHARACTER (CR/LF). THIS LINE TERMINATOR IS NOT INCLUDED IN THE
+    LOGICAL RECORD LENGTH.
+
+    GENERAL INFORMATION:
+    1.  LEFT JUSTIFIED FIELDS HAVE TRAILING BLANKS
+    2.  RIGHT JUSTIFIED FIELDS HAVE LEADING BLANKS
+    3.  ELEMENT NUMBER IS FOR INTERNAL REFERENCE ONLY
+          AND NOT IN RECORD
+
+    Some of the ARTCC boundaries defined by the ARTCC facility are composed of
+    more than a single closed shape. Due to the format constraints and naming
+    conventions of the legacy ARB file it is not possible to publish each
+    shape separately. In these cases it is necessary to read the point
+    description text for the key phrase "TO POINT OF BEGINNING" to identify
+    where the shape returns to the beginning and forms a closed shape.
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+L  AN  12 00001  NONE    RECORD IDENTIFIER
+                         ARTCC IDENTIFIER + ALTITUDE STRUCTURE CODE +
+                         FIVE CHARACTER ARTCC BOUNDARY POINT DESIGNATOR
+L  AN0040 00013  NONE    CENTER NAME
+L  AN0010 00053  NONE    ALTITUDE STRUCTURE DECODE NAME
+L  AN0014 00063  ARP4    LATITUDE OF THE BOUNDARY POINT
+L  AN0014 00077  ARP5    LONGITUDE OF THE BOUNDARY POINT
+L  AN0300 00091  ARB21   DESCRIPTION OF BOUNDARY LINE CONNECTING POINTS
+                         ON THE BOUNDARY
+L  AN0006 00391  ARB28   SIX DIGIT NUMBER USED TO MAINTAIN PROPER SEQUENCE
+                         OF BOUNDARY SEGMENTS FOR REPORT PURPOSES
+L  AN0001 00397  ARP25   AN 'X' IN THIS FIELD INDICATES THIS POINT IS USED
+                         ONLY IN THE NAS DESCRIPTION AND NOT THE LEGAL
+                         DESCRIPTION

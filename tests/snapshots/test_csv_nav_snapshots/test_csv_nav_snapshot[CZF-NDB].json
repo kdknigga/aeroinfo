@@ -1,0 +1,101 @@
+{
+  "airspace_fixes": [],
+  "automatic_voice_id": {
+    "code": "N",
+    "description": "NO"
+  },
+  "catch": {
+    "code": "N",
+    "description": "NO"
+  },
+  "city": "CAPE ROMANZOF",
+  "common_system_usage": "Y",
+  "coords_survey_accuracy": {
+    "code": "FOUR",
+    "description": "10 SECONDS"
+  },
+  "country": null,
+  "country_code": null,
+  "dme_service_volume": null,
+  "effective_date": "2026-02-19",
+  "elevation": 1434.3,
+  "facility_id": "CZF",
+  "facility_type": "NDB",
+  "fan_marker_true_bearing": null,
+  "fan_marker_type": null,
+  "fan_markers": [],
+  "frequency": "275",
+  "fss_hours_of_operation": "24",
+  "fss_id": "ENA",
+  "fss_name": "KENAI",
+  "high_altitude_artcc_id": "ZAN",
+  "high_altitude_artcc_name": "ANCHORAGE",
+  "hiwas": null,
+  "holding_patterns": [],
+  "hours_of_operation": "24",
+  "latitude_dms": "61-47-25.362N",
+  "latitude_secs": "222445.362N",
+  "longitude_dms": "165-58-12.217W",
+  "longitude_secs": "597492.217W",
+  "low_altitude_artcc_id": "ZAN",
+  "low_altitude_artcc_name": "ANCHORAGE",
+  "low_altitude_facility_used_in_high_structure": null,
+  "mag_variation": "08E",
+  "mag_variation_year": 2025,
+  "monitoring_category": {
+    "code": "FOUR",
+    "description": "4 - INTERNAL MONITOR NOT INSTALLED. REMOTE STATUS INDICATOR PROVIDED AT CONTROL POINT.  THIS CATEGORY IS APPLICABLE ONLY TO NON-DIRECTIONAL BEACONS."
+  },
+  "name": "CAPE ROMANZOF",
+  "navaid_class": "HW",
+  "navaid_restriction": null,
+  "navaid_status": "OPERATIONAL RESTRICTED",
+  "notam_accountability_code": "CZF",
+  "official_facility_id": "CZF",
+  "operators_name": "US AIR FORCE",
+  "owners_name": "US AIR FORCE",
+  "pitch": {
+    "code": "N",
+    "description": "NO"
+  },
+  "power_output_watts": null,
+  "public_use": "Y",
+  "quadrant_id_and_range_leg_bearing": null,
+  "radio_voice_call_name": "NONE",
+  "region": {
+    "code": "AAL",
+    "description": "ALASKA"
+  },
+  "remarks": [
+    {
+      "facility_id": "CZF",
+      "facility_type": "NDB",
+      "remark": "NDB UNUSBL 065-095 BYD 35 NM BLW 4000 FT."
+    }
+  ],
+  "simultaneous_voice": {
+    "code": "N",
+    "description": "NO"
+  },
+  "state_code": "AK",
+  "state_name": "ALASKA",
+  "sua_atcaa": {
+    "code": "N",
+    "description": "NO"
+  },
+  "tacan_channel": null,
+  "tacan_only_latitude_dms": null,
+  "tacan_only_latitude_secs": null,
+  "tacan_only_longitude_dms": null,
+  "tacan_only_longitude_secs": null,
+  "transmitted_id": null,
+  "tweb": null,
+  "tweb_hours": null,
+  "tweb_phone_number": null,
+  "vor_receiver_checkpoints": [],
+  "vor_service_volume": null,
+  "z_marker_available": {
+    "code": "N",
+    "description": "NO"
+  }
+}

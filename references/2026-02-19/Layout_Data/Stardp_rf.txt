@@ -1,0 +1,457 @@
+
+                    STANDARD TERMINAL ARRIVAL FILE
+                  STANDARD DEPARTURE PROCEDURE FILE
+                          COMPLETE LISTING
+                              (STAR/DP)
+                        DATA BASE RECORD LAYOUT
+
+INFORMATION EFFECTIVE DATE: 02/06/2014
+RECORD FORMAT: FIXED
+LOGICAL RECORD LENGTH: 223
+
+  GENERAL INFORMATION:
+  ===================
+
+    THIS FILE CONTAINS BOTH STANDARD TERMINAL ARRIVAL (STAR) AND
+    STANDARD DEPARTURE PROCEDURE (DP) DATA. ALL STARS ARE
+    PRESENTED FIRST, FOLLOWED BY DP DATA. USERS MUST DETECT A
+    CHANGE IN THE FIRST CHARACTER OF A RECORD FROM 'S' TO 'D'
+    TO KNOW WHEN TO BEGIN DP RECORD FORMAT PROCESSING.
+
+    THIS FILE IS DIFFERENT FROM THE SSD SUBSCRIBER FILE IN THAT
+    IT CONTAINS A COMPLETE COMPREHENSIVE SET OF STAR AND DP
+    PROCEDURES, INCLUDING MULTIPLE MAIN BODY AND PROCEDURES WITHOUT
+    COMPUTER IDS.
+
+
+-----------------------------------------------------------------
+                     STANDARD TERMINAL ARRIVAL FILE
+                     ==============================
+
+FILE STRUCTURE DESCRIPTION:
+---------------------------
+
+    THERE ARE A VARIABLE NUMBER OF FIXED-LENGTH RECORDS FOR EACH
+    STANDARD TERMINAL ARRIVAL (STAR). EACH GROUP OF RECORDS FOR
+    A STAR IS ASSIGNED A 5 CHARACTER INTERNAL SEQUENCE NUMBER.
+    A STAR RECORD GROUP BEGINS WITH A POINT-TO-POINT DESCRIPTION
+    OF THE BASIC STAR BODIES FOLLOWED BY INDIVIDUAL RECORDS FOR EACH
+    AIRPORT ADAPTED FOR USE OF THE STAR. ADAPTED AIRPORTS ARE
+    FOLLOWED BY GROUPS OF RECORDS REPRESENTING
+    A POINT-TO-POINT DESCRIPTION OF EACH TRANSITION FROM THE
+    ENROUTE AIRSPACE SYSTEM TO THE BASIC STAR.
+
+    THE FILE IS SORTED BY STAR NAME. THIS FILE INCLUDES STARS THAT
+    DO NOT HAVE AN ASSIGNED COMPUTER CODE. MULTIPLE MAIN BODY STARS
+    ARE INCLUDED IN THE FILE.
+
+    THE SEQUENCE OF RECORDS TO DESCRIBE A STAR ARE SUMMARIZED
+    AS FOLLOWS:
+
+      - FIRST RECORD OF THE BASIC STAR: IDENTIFIED BY A CHANGE
+        IN THE INTERNAL SEQUENCE NUMBER (E.G. S0010). IF THE ARRIVAL
+        IS DIRECT FROM THE ENROUTE AIRSPACE SYSTEM TO THE
+        TRANSITION FIX/NAVAID, THE FIRST RECORD SHALL CONTAIN THE
+        INITIAL FIX/NAVAID ON A PATH FROM THE ENROUTE SYSTEM TO
+        THE TRANSITION FIX/NAVAID.  OTHERWISE, (I.E. THERE ARE
+        MULTIPLE PATHS FROM THE ENROUTE SYSTEM TO THE TRANSITION
+        FIX/NAVAID), THE FIRST RECORD SHALL CONTAIN THE TRANSITION
+        FIX/NAVAID IDENTIFIER AND ITS POSITIONAL INFORMATION.  IN
+        EITHER CASE, THE FIRST RECORD WILL CONTAIN THE COMPUTER CODE
+        AND NAME OF THE BASIC STAR.
+
+      - THE FIRST RECORD OF THE BASIC STAR IS FOLLOWED BY A
+        VARIABLE NUMBER OF RECORDS THAT DESCRIBE A PATH,
+        IN POINT-TO-POINT ORDER, FROM THE ENROUTE AIRSPACE SYSTEM
+        TO THE TRANSITION FIX/NAVAID. FOR STARS WITH A SINGLE
+        TRANSITION PATH, THE FINAL RECORD OF THE BASIC STAR
+        WILL CONTAIN THE TRANSITION FIX/NAVAID IDENTIFIER.
+
+      - FOLLOWING THE DESCRIPTION OF THE BASIC STAR ARE
+        ONE OR MORE RECORDS DESCRIBING ALL AIRPORTS USING
+        THIS STAR. THE FIX/FACILITY TYPE CODE FIELD WILL CONTAIN
+        AN 'AA'.
+
+      - FOR STARS WITH MULTIPLE MAIN BODIES, THE ABOVE SEQUENCE
+        WILL BE REPEATED FOR EACH BODY. I.E., THE FIRST RECORD OF THE
+        STAR (CONTAINING THE STAR COMPUTER CODE AND STAR NAME) WILL
+        BE FOLLOWED BY A VARIABLE NUMBER OF RECORDS THAT
+        DESCRIBE A PATH IN POINT-TO-POINT ORDER. FOLLOWING THE
+        DESCRIPTION OF EACH BASIC STAR BODY ARE ONE OR MORE
+        RECORDS DESCRIBING ALL AIRPORTS USING THIS STAR. THE
+        FIX/FACILITY TYPE CODE FIELD WILL CONTAIN AN 'AA'.
+
+      - NEXT ARE RECORD GROUPS DESCRIBING ANY TRANSITIONS FROM
+        THE ENROUTE AIRSPACE SYSTEM TO THE TRANSITION FIX/NAVAID.
+        THE RECORD GROUP BEGINS WITH A RECORD FOR THE TRANSITION
+        FIX/NAVAID THAT WILL INCLUDE THE COMPUTER CODE AND
+        NAME OF THE TRANSITION.
+
+      - SUBSEQUENT RECORDS WITHIN A GROUP FOR A TRANSITION PROVIDE
+        A POINT-TO-POINT DESCRIPTION FROM THE ENROUTE AIRSPACE
+        SYSTEM TO THE TRANSITION FIX/NAVAID.
+
+      - THERE MAY BE MULTIPLE TRANSITION GROUPS FOR A STAR. THEY
+        WILL MAINTAIN THE SAME INTERNAL SEQUENCE NUMBER. PRESENCE
+        OF DATA IN THE COMPUTER CODE FIELD SIGNALS THE BEGINNING OF
+        A TRANSITION RECORD GROUP.
+
+      - DESCRIPTION OF A STAR IS COMPLETE WHEN A RECORD IS READ
+        THAT CONTAINS A DIFFERENT INTERNAL SEQUENCE NUMBER (I.E.
+        THE FIRST RECORD OF THE NEXT STAR).
+
+
+GENERAL INFORMATION:
+--------------------
+
+     1.  LEFT JUSTIFIED FIELDS HAVE TRAILING BLANKS
+     2.  RIGHT JUSTIFIED FIELDS HAVE LEADING BLANKS
+
+*********************************************************************
+
+            STANDARD TERMINAL ARRIVAL (STAR) DATA
+
+********************************************************************
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+L AN 0005 00001          INTERNAL SEQUENCE NUMBER
+                           A RANDOMLY ASSIGNED SEQUENCE NUMBER
+                           USED TO GROUP A SET OF RECORDS FOR A
+                           SPECIFIC STAR. THIS IS SUBJECT TO CHANGE.
+                             EX. S0010, S2070
+
+L AN 0005 00006          NOT USED
+
+L AN 0002 00011          FIX/FACILITY TYPE CODE
+                           THIS CODE REPRESENTS THE TYPE OF FIX OR
+                           FACILITY DESCRIBED IN THE LATITUDE,
+                           LONGITUDE, AND IDENTIFIER FIELDS OF
+                           THIS RECORD.
+
+                          CODE     DESCRIPTION
+                          ----     -----------
+                           AA      ADAPTED AIRPORT
+                           B       BREAK IN ROUTE
+                           C       COORDINATED FIX
+                           CN      COMPUTER NAVIGATION FIX
+                           D       DISTANCE MEASURING EQUIPMENT (DME)
+                           E       ENTRY (ARTCC)
+                           I       BEARING INTERSECTION
+                           IB      AIR ROUTES BEARING INTERSECTION
+                           IS      SEGMENT BEARING INTERSECTION
+                           NA      NAVAID - AIRPORT
+                           ND      NAVAID - VOR WITH DME
+			   NO      NAVAID - DME ONLY
+                           NV      NAVAID - VOR
+                           NW      NAVAID - VORTAC
+                           NX      NAVAID - RBN
+                           NT      NAVAID - TACAN
+                           NZ      NAVAID - ILS
+                           N7      NAVAID - LFR
+                           N8      NAVAID - VHFRBN
+                           N9      NAVAID - VHFRBN
+                           P       WAYPOINT
+                           R       REPORTING POINT
+                           SS      START STARS DEPARTING
+                           ST      START STARS TRANSITION
+                           T       TURNING POINT
+                           TA      TURNING POINT
+                           TP      TURNING POINT
+                           TT      TRAINING POINT
+                           U       ARTCC BOUNDARY POINT
+                           XA      AIRWAY CROSSING
+                           XT      TRANSITION CROSSING
+                           Z       ARTCC BOUNDARY CROSSING
+
+L AN 0001 00013          NOT USED
+
+L AN 0008 00014          FIX/NAVAID/AIRPORT LATITUDE
+                           FORMAT: XDDMMSST
+                           WHERE X IS THE DECLINATION (N OR S)
+                                 DD - DEGREES
+                                 MM - MINUTES
+                                 SS - SECONDS
+                                 T  - TENTHS OF SECONDS
+                                      (DECIMAL POINT IS IMPLIED)
+                           EX. N3353229
+
+L AN 0009 00022          FIX/NAVAID/AIRPORT LONGITUDE
+                           FORMAT: XDDDMMSST
+                           WHERE X IS THE DECLINATION (E OR W)
+                                DDD - DEGREES
+                                 MM - MINUTES
+                                 SS - SECONDS
+                                 T  - TENTHS OF SECONDS
+                                      (DECIMAL POINT IS IMPLIED)
+                           EX. W11651012
+
+L AN 0006 00031          FIX/NAVAID/AIRPORT IDENTIFIER
+                           THIS FIELD PROVIDES THE IDENTIFIER OF THE
+                           ADAPTED AIRPORT, FIX, OR NAVAID
+                           (FOR BASIC STAR AND TRANSITION
+                           POINT-TO-POINT DATA). THIS FIELD RELATES
+                           TO THE FIX TYPE CODE AND LATITUDE AND
+                           LONGITUDE VALUES PROVIDED EARLIER IN
+                           THE RECORD.
+                           EX. PSP  GARNE  21525
+
+L AN 0002 00037          ICAO REGION CODE - FIX ONLY
+
+L AN 0013 00039          STAR COMPUTER CODE
+                           FAA-ASSIGNED COMPUTER IDENTIFIER FOR THE
+                           STAR/TRANSITION. DATA WILL BE PRESENT IN
+                           THE FIRST RECORD OF EACH BASIC STAR BODY
+                           AND THE FIRST RECORD OF EACH TRANSITION.
+                             EX. GLAND.BLUMS5 (BASIC STAR)
+                                 AUS.BLUMS5   (TRANSITION)
+                                 ELA.BLUMS5   (TRANSITION)
+                                 SAT.BLUMS5   (TRANSITION)
+
+                           STARS WITHOUT AN ASSIGNED COMPUTER CODE
+                           ARE INDICATED WITH THE TEXT "NOT ASSIGNED"
+
+L AN 0110 00052          STAR/TRANSITION NAME
+                           REPRESENTS THE NAME ASSIGNED TO THE
+                           STAR OR TRANSITION BEING DESCRIBED.
+                           DATA WILL BE PRESENT IN THE FIRST
+                           RECORD OF EACH BASIC STAR BODY AND THE
+                           FIRST RECORD OF EACH TRANSITION.
+                             EX. BLUMS FIVE       (BASIC STAR)
+                                 AUSTIN           (TRANSITION)
+                                 EAGLE LAKE       (TRANSITION)
+                                 SAN ANTONIO      (TRANSITION)
+
+L AN 0062 00162          AIRWAYS/NAVAIDS USING NUMBERED FIX
+                           FOR SOME NUMBERED FIXES, THIS FIELD WILL
+                           CONTAIN IDENTIFIERS OF NAVAIDS OR
+                           JET/VICTOR AIRWAYS THAT USE THE NUMBERED
+                           FIX. THERE MAY BE MULTIPLE AIRWAYS OR
+                           NAVAIDS ENTERED.
+                             EX.: J27
+                                  V407 V070
+                                  GMN PMD
+
+                   STANDARD INSTRUMENT DEPARTURE PROCEDURE FILE
+                   ============================================
+
+FILE STRUCTURE DESCRIPTION:
+---------------------------
+
+    THERE ARE A VARIABLE NUMBER OF FIXED-LENGTH RECORDS FOR EACH
+    STANDARD INSTRUMENT DEPARTURE PROCEDURE (DP). EACH GROUP OF
+    RECORDS FOR A DP IS ASSIGNED A 5 CHARACTER INTERNAL SEQUENCE
+    NUMBER. A DP RECORD GROUP BEGINS WITH A POINT-TO-POINT
+    DESCRIPTION OF THE BASIC DP FOLLOWED BY INDIVIDUAL RECORDS FOR
+    EACH AIRPORT ADAPTED FOR USE OF THE DP. ADAPTED AIRPORTS ARE
+    FOLLOWED BY GROUPS OF RECORDS REPRESENTING
+    A POINT-TO-POINT DESCRIPTION OF EACH TRANSITION
+    FROM THE BASIC DP TO THE ENROUTE AIRSPACE SYSTEM.
+
+    THE FILE IS SORTED BY DP NAME THEN TRANSITION NAMES
+    WITHIN THE DP RECORD GROUP. THIS FILE INCLUDES DPS THAT DO NOT
+    HAVE AN ASSIGNED COMPUTER CODE. MULTIPLE MAIN
+    BODY DPS ARE INCLUDED IN THE FILE.
+
+    THE SEQUENCE OF RECORDS TO DESCRIBE A DP ARE SUMMARIZED
+    AS FOLLOWS:
+
+      - FIRST RECORD OF THE BASIC DP: IDENTIFIED BY A CHANGE
+        IN THE INTERNAL SEQUENCE NUMBER (E.G. D0040). IF THE
+        DEPARTURE IS DIRECTLY TO THE TRANSITION FIX, THE FIX/NAVAID
+        IDENTIFIER FIELD WILL BE THE TRANSITION FIX; OTHERWISE,
+        THE FIX/NAVAID WILL BE THE FIRST POINT ON A PATH TO
+        THE TRANSITION FIX/NAVAID.  THIS RECORD WILL CONTAIN
+        THE COMPUTER CODE AND NAME OF THE BASIC DP.
+
+      - IF THE DEPARTURE IS NOT DIRECTLY TO THE TRANSITION FIX,
+        THERE WILL BE A VARIABLE NUMBER OF RECORDS THAT DESCRIBE
+        A PATH, IN POINT-TO-POINT ORDER, FROM THE DEPARTURE
+        FACILITY TO THE TRANSITION FIX. THE FINAL RECORD IN THIS
+        GROUP WILL BE THE TRANSITION FIX.
+
+      - FOLLOWING THE DESCRIPTION OF THE BASIC DP ARE
+        ONE OR MORE RECORDS DESCRIBING ALL AIRPORTS USING
+        THIS DP. THE FIX/FACILITY TYPE CODE FIELD WILL
+        CONTAIN AN 'AA'.
+
+      - IF THERE ARE MULTIPLE MAIN BODIES TO THE BASIC DP, EACH
+        PATH WILL BE DESCRIBED FOLLOWING THE ABOVE AIRPORTS RECORDS.
+        EACH PATH WILL CONTAIN A VARIABLE NUMBER OR RECORDS, IN
+        POINT TO POINT ORDER, FROM THE DEPARTURE FACILITY TO THE
+        TRANSITION FIX. THE FINAL RECORD IN EACH PATH WILL BE THE
+        TRANSITION FIX.  FOLLOWING THE DESCRIPTION OF EACH BODY ARE
+	ONE OR MORE RECORDS DESCRIBING ALL AIRPORTS SERVED BY THE
+	BODY.
+
+      - IF THERE ARE AIRPORTS SERVED BY THE DP THAT ARE NOT SERVED
+	BY ANY BODY, THERE WILL BE ONE ONE OR MORE RECORDS DESCRIBING
+	THESE AIRPORTS, WITH THE FIX/FACILITY TYPE CODE FIELD
+	CONTAINING AN 'NA'. THE FIRST OF THESE RECORDS WILL CONTAIN
+	THE COMPUTER CODE AND NAME OF THE BASIC DP.  THESE RECORDS
+	WILL BE THE FIRST RECORDS FOR THE DP IF THERE ARE NO BODIES
+	FOR THE DP, AND WILL FOLLOW THE LAST BODY DESCRIPTION IF
+	THERE ARE ANY BODIES.
+
+      - NEXT ARE RECORD GROUPS DESCRIBING ANY TRANSITIONS FROM
+        THE TRANSITION FIX TO THE ENROUTE AIRSPACE SYSTEM.
+        THE RECORD GROUP BEGINS WITH A RECORD FOR THE TRANSITION
+        FIX THAT WILL INCLUDE THE COMPUTER CODE AND NAME OF THE
+        TRANSITION.
+
+      - SUBSEQUENT RECORDS WITHIN A GROUP FOR A TRANSITION PROVIDE
+        A POINT TO POINT DESCRIPTION FROM THE TRANSITION FIX
+        TO THE ENROUTE AIRSPACE SYSTEM.
+
+      - THERE MAY BE MULTIPLE TRANSITION GROUPS FOR A DP. THEY
+        WILL MAINTAIN THE SAME INTERNAL SEQUENCE NUMBER. PRESENCE
+        OF DATA IN THE COMPUTER CODE FIELD SIGNALS THE BEGINNING OF
+        A TRANSITION RECORD GROUP.
+
+      - DESCRIPTION OF A DP IS COMPLETE WHEN A RECORD IS READ
+        THAT CONTAINS A DIFFERENT INTERNAL SEQUENCE NUMBER (I.E.
+        THE FIRST RECORD OF THE NEXT DP).
+
+GENERAL INFORMATION:
+--------------------
+     1.  LEFT JUSTIFIED FIELDS HAVE TRAILING BLANKS
+     2.  RIGHT JUSTIFIED FIELDS HAVE LEADING BLANKS
+
+*********************************************************************
+
+            STANDARD INSTRUMENT DEPARTURE PROCEDURE (DP) DATA
+********************************************************************
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+L AN 0005 00001          INTERNAL SEQUENCE NUMBER
+                           A RANDOMLY ASSIGNED SEQUENCE NUMBER
+                           USED TO GROUP A SET OF RECORDS FOR A
+                           SPECIFIC DP. THIS IS SUBJECT TO CHANGE.
+                             EX. D0430, D2320
+L AN 0005 00006          NOT USED
+L AN 0002 00011          FIX/FACILITY TYPE CODE
+                           THIS CODE REPRESENTS THE TYPE OF FIX OR
+                           FACILITY DESCRIBED IN THE LATITUDE,
+                           LONGITUDE, AND IDENTIFIER FIELDS OF
+                           THIS RECORD.
+
+                          CODE     DESCRIPTION
+                          ----     -----------
+                           AA      ADAPTED AIRPORT
+                           B       BREAK IN ROUTE
+                           C       COORDINATED FIX
+                           CN      COMPUTER NAVIGATION FIX
+                           D       DISTANCE MEASURING EQUIPMENT (DME)
+                           E       ENTRY (ARTCC)
+                           I       BEARING INTERSECTION
+                           IB      AIR ROUTES BEARING INTERSECTION
+                           IS      SEGMENT BEARING INTERSECTION
+                           NA      NAVAID - AIRPORT (INDICATES AIRPORT
+				   SERVED BY DP BUT NOT SERVED BY ANY BODY)
+                           ND      NAVAID - VOR WITH DME
+			   NO      NAVAID - DME ONLY
+                           NV      NAVAID - VOR
+                           NW      NAVAID - VORTAC
+                           NX      NAVAID - RBN
+                           NT      NAVAID - TACAN
+                           NZ      NAVAID - ILS
+                           N7      NAVAID - LFR
+                           N8      NAVAID - VHFRBN
+                           N9      NAVAID - VHFRBN
+                           P       WAYPOINT
+                           R       REPORTING POINT
+                           SS      START DPS DEPARTING
+                           ST      START DPS TRANSITION
+                           T       TURNING POINT
+                           TA      TURNING POINT
+                           TP      TURNING POINT
+                           TT      TRAINING POINT
+                           U       ARTCC BOUNDARY POINT
+                           XA      AIRWAY CROSSING
+                           XT      TRANSITION CROSSING
+                           Z       ARTCC BOUNDARY CROSSING
+
+
+L AN 0001 00013          NOT USED
+
+L AN 0008 00014          FIX/NAVAID/AIRPORT LATITUDE
+                           FORMAT: XDDMMSST
+                           WHERE X IS THE DECLINATION (N OR S)
+                                 DD - DEGREES
+                                 MM - MINUTES
+                                 SS - SECONDS
+                                 T  - TENTHS OF SECONDS
+                                      (DECIMAL POINT IS IMPLIED)
+                           EX. N3353229
+
+L AN 0009 00022          FIX/NAVAID/AIRPORT LONGITUDE
+                           FORMAT: XDDDMMSST
+                           WHERE X IS THE DECLINATION (E OR W)
+                                DDD - DEGREES
+                                 MM - MINUTES
+                                 SS - SECONDS
+                                 T  - TENTHS OF SECONDS
+                                      (DECIMAL POINT IS IMPLIED)
+                           EX. W11651012
+
+L AN 0006 00031          FIX/NAVAID/AIRPORT IDENTIFIER
+                           THIS FIELD PROVIDES THE IDENTIFIER OF THE
+                           ADAPTED AIRPORT, FIX, OR NAVAID
+                           (FOR BASIC DP AND TRANSITION
+                           POINT-TO-POINT DATA). THIS FIELD RELATES
+                           TO THE FIX TYPE CODE AND LATITUDE AND
+                           LONGITUDE VALUES PROVIDED EARLIER IN
+                           THE RECORD.
+                           EX. PSP  GARNE  21525
+
+L AN 0002 00037          ICAO REGION CODE - FIX ONLY
+
+L AN 0013 00039          DP COMPUTER CODE
+                           FAA-ASSIGNED COMPUTER IDENTIFIER FOR THE
+                           DP/TRANSITION. DATA WILL ONLY BE PRESENT
+                           IN THE FIRST RECORD OF THE BASIC DP AND
+                           THE FIRST RECORD OF EACH TRANSITION.
+                             EX. CATH4.PSP (BASIC DP)
+                                 CATH4.PDZ (TRANSITION)
+                                 CATH4.BLH (TRANSITION)
+                                 CATH4.TNP (TRANSITION)
+
+                           DPS WITHOUT AN ASSIGNED COMPUTER CODE
+                           ARE INDICATED WITH THE TEXT "NOT ASSIGNED"
+
+L AN 0110 00052          DP/TRANSITION/BODY NAME
+                           REPRESENTS THE NAME ASSIGNED TO THE
+                           DP, TRANSITION, OR BODY BEING DESCRIBED.
+                           DATA WILL ONLY BE PRESENT IN THE FIRST
+                           RECORD OF THE BASIC DP, THE FIRST RECORD
+                           OF EACH BASIC BODY, AND THE FIRST
+                           RECORD OF EACH TRANSITION.
+                             EX. CATHEDRAL FOUR   (BASIC DP)
+                                 PARADISE         (TRANSITION)
+                                 BLYTHE           (TRANSITION)
+                                 TWENTYNINE PALMS (TRANSITION)
+
+L AN 0062 00162          AIRWAYS/NAVAIDS USING NUMBERED FIX
+                           FOR SOME NUMBERED FIXES, THIS FIELD WILL
+                           CONTAIN IDENTIFIERS OF NAVAIDS OR
+                           JET/VICTOR AIRWAYS THAT USE THE NUMBERED
+                           FIX. THERE MAY BE MULTIPLE AIRWAYS OR
+                           NAVAIDS ENTERED.
+                             EX.: J014
+                                  V407 V070
+                                  GMN PMD

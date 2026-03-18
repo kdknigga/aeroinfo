@@ -1,0 +1,141 @@
+                                   LOCATION IDENTIFIER (LID) DATA
+
+                          COMMA-SEPARATED VALUES (CSV) RECORD LAYOUT
+
+                                               (LID-FILE)
+
+
+
+INFORMATION EFFECTIVE DATE: 10/05/2023
+
+        RECORD FORMAT: COMMA DELIMITED WITH ALL TEXT FIELDS ENCLOSED WITHIN DOUBLE-
+        QUOTE CHARACTERS
+        LOGICAL RECORD INTERVAL: ALL RECORDS HAVE THE SAME NUMBER OF FIELDS, IN THE SAME
+        ORDER AND RECORD ENDS AT A LINE TERMINATOR
+
+        DATA HEADERS: FIRST ROW CONTAINS FIELD NAMES
+        ORDERED BY: LOC_ID, CITY, FAC_TYPE
+
+
+
+GENERAL INFORMATION:
+
+    1. The LID.csv was designed to replace the legacy LID.txt Subscriber File.
+    2. The Ordered By listed above (LOC_ID, CITY, FAC_TYPE) is also the unique record key.
+    3. Data while comparable to the legacy information is in some cases organized and presented in a
+       different way.
+    4. Please enter any feedback in the Aeronautical Information Portal.
+        https://nfdc.faa.gov/nfdcApps/controllers/PublicSecurity/nfdcLogin
+
+
+                                          FIELD DESCRIPTION
+
+
+
+EFF_DATE – The 28 Day NASR Subscription Effective Date in format ‘YYYY/MM/DD’.
+
+COUNTRY_CODE - Country Code Associated with The Location Identifier.
+
+LOC_ID – Location Identifier. 3-4 character alphanumeric identifier.
+
+REGION_CODE – FAA Region Code Associated with The Location Identifier
+
+               CODE     REGION NAME
+               ----     -----------
+               AAL        ALASKA
+               ACE        CENTRAL
+               AEA        EASTERN
+               AGL       GREAT LAKES
+               ANE        NEW ENGLAND
+               ANM        NORTHWEST MOUNTAIN
+               ASO        SOUTHERN
+               ASW        SOUTHWEST
+               AWP        WESTERN-PACIFIC
+
+STATE_CODE – Associated State Code standard two letter abbreviation for US States and Territories.
+CITY – City Name Associated with The Location Identifier.
+
+LID_GROUP – Logical grouping of LID entries.
+                CONTROL FACILITY
+                FLIGHT SERVICE STATION
+                INSTRUMENT LANDING FACILITY
+                LANDING FACILITY
+                NAVIGATION AID
+                REMOTE COMMINICATION OUTLET
+                SPECIAL USE RESOURCE
+                WEATHER REPORTING STATION
+                WEATHER SENSOR
+
+FAC_TYPE – Facility Type of Location Identifier Record
+
+                CONTROL FACILITY
+                ARTCC
+                BASE OPS
+                CERAP
+                TRACON
+                FLIGHT SERVICE STATION
+                FSS
+                HUB
+                RADIO
+                INSTRUMENT LANDING SYSTEM
+                DD – LDS/DME
+                LA – LDA
+                LC – LOC
+                LD – ILS/DME
+                LE – LOC/DME
+                LG – LOC/GS
+                LS – ILS
+                SD – SDF/DME
+                SF – SDF
+                LANDING FACILITY
+                A – AIRPORT
+                B – BALLOONPORT
+                C – SEAPLANE BASE
+                G – GLIDERPORT
+                H – HELIPORT
+               U – ULTRALIGHT
+               V – VERTIPORT
+               NAVIGATION AID
+               DME
+               FAN MARKER
+               MARINE NDB
+               NDB
+               NDB/DME
+               TACAN
+               VOR
+               VOR/DME
+               VORTAC
+               VOT
+               REMOTE COMMUNICATION OUTLET
+               RCO
+               RCO1 – Used if two separate RCOs share the same identifier.
+               SPECIAL USE RESOURCE
+               ADMINISTRATIVE SERVICES
+               GEOGRAPHIC REFERENCE POINT
+               SPECIAL USAGE
+               WEATHER SERVICE OFFICE
+               WEATHER STATION
+               WEATHER REPORTING STATION
+               WXL
+               WEATHER SENSOR
+               ASOS
+               AWOS-1
+               AWOS-2
+               AWOS-3
+               AWOS-3P
+               AWOS-3PT
+               AWOS-3T
+               AWOS-4
+               AWOS-A
+               AWOS-AV
+
+               * NOTE: (#) – Appended to Special Use Resource Fac Type when more than one exists
+               for a loc_id/City pair. i.e. ADMINISTRATIVE SERVICES(2)
+
+
+FAC_NAME – Official Facility Name. Instrument Landing System Facility Name is a concatenation of the
+Associated Landing Facility Name, ID and Runway End ID (e.g. ATLANTIC CITY INTL(ACY) ILS RWY 31) LID
+
+RESP_ARTCC_ID – Responsible FAA Air Route Traffic Control Center (ARTCC) Identifier
+ARTCC_COMPUTER_ID – Responsible ARTCC Computer Identifier
+FSS_ID – Tie-In Flight Service Station (FSS) Identifier

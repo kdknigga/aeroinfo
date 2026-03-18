@@ -1,0 +1,226 @@
+                            HOLDING PATTERN
+                       DATA BASE RECORD LAYOUT
+                              (HPF-FILE)
+
+
+
+INFORMATION EFFECTIVE DATE: 07/19/2018
+
+    RECORD FORMAT: FIXED
+    LOGICAL RECORD LENGTH: 487
+
+FILE STRUCTURE DESCRIPTION:
+---------------------------
+
+    THERE CAN BE A VARIABLE NUMBER OF FIXED-LENGTH RECORDS FOR
+    EACH HOLDING PATTERN. THE NUMBER OF RECORDS IS DETERMINED
+    BY THE AMOUNT OF TEXTUAL INFORMATION USED TO DESCRIBE THE
+    HP, GENERAL AND REFERENCED REMARKS FOR THE HP.
+    EACH OF THE FOUR RECORD TYPES WILL BE IDENTIFIABLE
+    BY A RECORD TYPE INDICATOR (HP1, HP2, HP3, and, HP4)
+    AND THE HP IDENTIFIER.  THE RECORDS ARE IN SEQUENCE, i.e.,
+    ALL TEXT RECORDS FOLLOW THEIR READABLE ORDER AS SHOWN
+    IN DESCRIPTION OF RECORD TYPES BELOW.
+
+    THE FILE IS SORTED BY RECORD TYPE INDICATOR, HP NAME
+    AND PATTERN NUMBER (THIS ENSURES THAT MULTIPLE RECORDS
+    OF A SPECIFIC HP ARE ALL TOGETHER).
+
+    EACH RECORD ENDS WITH A CARRIAGE RETURN CHARACTER AND
+    LINE FEED CHARACTER (CR/LF). THIS LINE TERMINATOR IS
+    NOT INCLUDED IN THE LOGICAL RECORD LENGTH.
+
+DESCRIPTION OF THE RECORD TYPES:
+--------------------------------
+
+    'HP1' RECORD TYPE CONTAINS THE BASE HOLDING PATTERN DATA.
+    THERE IS ONE HP1 RECORD FOR EACH HOLDING PATTERN
+
+
+    'HP2' RECORD TYPE CONTAINS CHARTING INFORMATION.
+    THERE CAN BE NONE, ONE OR MORE HP2 RECORDS.
+
+    'HP3' RECORD TYPE CONTAINS TEXTUAL INFORMATION
+    FOR 'OTHER' SPEED INFORMATION. THERE CAN BE NONE,
+    ONE OR MORE HP3 RECORDS.
+
+    'HP4' RECORD TYPE CONTAINS GENERAL REMARK AND ANY
+    REFERENCED REMARK. THERE CAN BE NONE, ONE OR MORE HP4
+    RECORDS.
+
+GENERAL INFORMATION:
+
+    1.  LEFT JUSTIFIED FIELDS HAVE TRAILING BLANKS
+    2.  RIGHT JUSTIFIED FIELD HAVE LEADING BLANKS
+    3.  ELEMENT NUMBER IS FOR INTERNAL REFERENCE ONLY
+          AND NOT IN RECORD
+    4.  EACH RECORD ENDS WITH A CARRIAGE RETURN CHARACTER AND LINE FEED
+        CHARACTER (CR/LF). THIS LINE TERMINATOR IS NOT INCLUDED IN THE
+        LOGICAL RECORD LENGTH.
+    5.  RECORD IDENTIFIER IS NO LONGER JUST THE FIRST FIELD. THE FIRST 2
+        FIELDS HOLDING PATTERN NAME AND HOLDING PATTERN NUMBER WILL NOW
+	UNIQUELY IDENTIFY EACH RECORD.
+
+
+*********************************************************************
+
+            'HP1' RECORD TYPE - BASE HOLDING PATTERN DATA
+
+*********************************************************************
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+L  AN  04 00001  NONE    RECORD TYPE INDICATOR.
+                           HP1: BASE HP DATA
+L  AN0080 00005  NONE    HOLDING PATTERN NAME (NAVAID NAME FACILITY TYPE*ST
+                         CODE) OR (FIX NAME FIX TYPE*STATE CODE*ICAO REGION CODE)
+R  AN0003 00085  NONE    PATTERN NUMBER TO UNIQUELY IDENTIFY HOLDING PATTERN
+L  AN0011 00088  NONE    HOLDING PATTERN EFFECTIVE DATE
+L  AN0003 00099  HP22    DIRECTION OF HOLDING ON THE NAVAID OR FIX
+R  AN0003 00102  HP23    MAGNETIC BEARING OR RADIAL (DEGREES) OF HOLDING
+L  AN0005 00105  HP24    AZIMUTH (DEGREES SHOWN ABOVE IS A RADIAL, COURSE,
+                         BEARING, OR RNAV TRACK
+L  AN0007 00110  HP25    IDENTIFIER OF ILS FACILITY USED TO PROVIDE COURSE
+                         FOR HOLDING
+
+NOTE*                     ILS/MLS_FACILITY_TYPE     ILS/MLS_TYPE_CODE
+                          ------------------------- -------------
+                          LDA/DME                   DD
+                          LDA                       LA
+                          LOCALIZER                 LC
+                          ILS/DME                   LD
+                          LOC/DME                   LE
+                          LOC/GS                    LG
+                          ILS                       LS
+                          MLS                       ML
+                          SDF/DME                   SD
+                          SDF                       SF
+
+L  AN0007 00117  HP26    IDENTIFIER OF NAVAID FACILITY USED TO PROVIDE
+                         RADIAL OR BEARING FOR HOLDING
+
+NOTE*                     NAV_FACILITY_TYPE         NAV_TYPE_CODE
+                          ------------------------- -------------
+                          VORTAC                    C
+                          TACAN                     T
+                          VOR/DME                   D
+                          FAN MARKER                F
+                          CONSOLAN                  K
+                          LOW FREQUENCY RANGE       L
+                          MARINE NDB                M
+                          MARINE NDB/DME            MD
+                          VOT                       O
+                          DME                       OD
+                          NDB                       R
+                          NDB/DME                   RD
+                          UHF/NDB                   U
+                          VOR                       V
+
+L  AN0012 00124  HP27    ADDITIONAL FACILITY USED IN HOLDING PATTERN MAKE-UP
+R  AN0003 00136  HP28    INBOUND COURSE
+L  AN0003 00139  HP29    TURNING DIRECTION
+L  AN0007 00142  HP31    HOLDING ALTITUDES FOR ALL AIRCRAFT
+L  AN0007 00149  HP32    HOLDING ALT 170-175 KT
+L  AN0007 00156  HP33    HOLDING ALT 200-230 KT
+L  AN0007 00163  HP34    HOLDING ALT 265 KT
+L  AN0007 00170  HP35    HOLDING ALT 280 KT
+L  AN0007 00177  HP36    HOLDING ALT 310 KT
+L  AN0036 00184  HP38    FIX WITH WHICH HOLDING IS ASSOCIATED
+                         (FIX ID*STATE CODE*ICAO REGION CODE)
+L  AN0003 00220  FX91    ARTCC ASSOCIATED WITH FIX
+L  AN0014 00223  FX4     LATITUDE OF THE ASSOCIATED FIX
+                          (DD-MM-SS.SSSN )
+L  AN0014 00237  FX5     LONGITUDE OF THE ASSOCIATED FIX
+                          (DDD-MM-SS.SSSW)
+L  AN0003 00251  N91     HIGH ROUTE ARTCC ASSOCIATED WITH NAVAID
+L  AN0003 00254  N94     LOW ROUTE ARTCC ASSOCIATED WITH NAVAID
+L  AN0014 00257  N4      LATITUDE OF THE ASSOCIATED NAVAID
+                          (DD-MM-SS.SSSN )
+L  AN0014 00271  N5      LONGITUDE OF THE ASSOCIATED NAVAID
+                          (DDD-MM-SS.SSSW)
+L  AN0008 00285          LEG LENGTH OUTBOUND (TWO SUBFIELDS – SEPARATED BY A SLASH
+                          TIME(MINS) 5 CHARACTERS /
+                          DME(NM) 2 CHARACTERS)
+L  AN0195 00293  NONE    BLANKS
+
+*********************************************************************
+
+            'HP2' RECORD TYPE - HOLDING PATTERN CHARTING DATA
+
+*********************************************************************
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+L  AN  04 00001  NONE    RECORD TYPE INDICATOR.
+                           HP2: CHART TYPES
+L  AN0080 00005  NONE    HOLDING PATTERN NAME (NAVAID NAME FACILITY TYPE*ST
+                         CODE) OR (FIX NAME FIX TYPE*STATE CODE*ICAO REGION CODE)
+R  AN0003 00085  NONE    PATTERN NUMBER TO UNIQUELY IDENTIFY HOLDING PATTERN
+L  AN0022 00088  HP30    CHARTING DESCRIPTION
+
+L  AN0378 00110  NONE    BLANKS
+
+*********************************************************************
+
+            'HP3' RECORD TYPE - HOLDING PATTERN 'OTHER ALT' SPEED INFO.
+
+*********************************************************************
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+L  AN  04 00001  NONE    RECORD TYPE INDICATOR.
+                           HP3: OTHER ALTIDUDE SPEED INFORMATION
+L  AN0080 00005  NONE    HOLDING PATTERN NAME (NAVAID NAME FACILITY TYPE*ST
+                         CODE) OR (FIX NAME FIX TYPE*STATE CODE*ICAO REGION CODE)
+R  AN0003 00085  NONE    PATTERN NUMBER TO UNIQUELY IDENTIFY HOLDING PATTERN
+L  AN0015 00088  HP37    HOLDING ALTITUDES  *  SPEEDS OTHER THAN ONES
+                         SHOWN IN HP1 RECORD
+L  AN0385 00103  NONE    BLANKS
+
+
+
+*********************************************************************
+
+            'HP4' RECORD TYPE - REMARKS TEXT
+
+*********************************************************************
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+L  AN  04 00001  NONE    RECORD TYPE INDICATOR.
+                           HP4: REMARKS TEXT
+L  AN0080 00005  NONE    HOLDING PATTERN NAME (NAVAID NAME FACILITY TYPE*ST
+                         CODE) OR (FIX NAME FIX TYPE*STATE CODE*ICAO REGION CODE)
+R  AN0003 00085  NONE    PATTERN NUMBER TO UNIQUELY IDENTIFY HOLDING PATTERN
+L  AN0100 00088  NONE    FIELD LABEL
+                   NOTE: "GENERAL" FOR GENERAL REMARK,
+                         <FIELD LABEL> FOR HP FIELD
+L  AN0300 00188  RMKS    DESCRIPTIVE REMARKS

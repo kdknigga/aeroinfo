@@ -1,0 +1,176 @@
+                            MISCELLANEOUS ACTIVITY AREA (MAA) DATA
+
+                         COMMA-SEPARATED VALUES (CSV) RECORD LAYOUT
+
+                                             (MAA-FILES)
+
+
+
+INFORMATION EFFECTIVE DATE: 11/30/2023
+
+       RECORD FORMAT: COMMA DELIMITED WITH TEXT FIELDS ENCLOSED WITHIN DOUBLE-QUOTE
+       CHARACTERS
+
+       LOGICAL RECORD INTERVAL: ALL RECORDS WITHIN A SPECIFIC ILS FILE HAVE THE SAME
+       NUMBER OF FIELDS, IN THE SAME ORDER AND RECORD ENDS AT A LINE TERMINATOR
+
+       DATA HEADERS: FIRST ROWS CONTAIN FIELD NAMES
+
+       MAA FILES: MAA_BASE, MAA_CON, MAA_RMK, MAA_SHP
+
+       COMMON TO ALL MAA FILES: EFF_DATE, MAA_ID
+
+
+
+GENERAL INFORMATION:
+
+   1. The MAA_*.csv files were designed to replace the legacy MAA.txt Subscriber File.
+   2. The Ordered By list for each MAA FILE documented below is also the Unique Record Key.
+   3. MAA_*.csv files contain the data found in the legacy MAA.txt Subscriber File. Data while
+      comparable to the legacy MAA.txt is in some cases organized and presented in a different way.
+   4. Please enter any feedback in the Aeronautical Information Portal.
+       https://nfdc.faa.gov/nfdcApps/controllers/PublicSecurity/nfdcLogin
+
+
+                                         FIELD DESCRIPTIONS
+
+COMMON TO ALL
+
+##############
+
+EFF_DATE – The 28 Day NASR Subscription Effective Date in format ‘YYYY/MM/DD’.
+
+MAA_ID – MAA ID that uniquely identifies a Miscellaneous Activity Area.
+
+
+
+MAA_BASE ordered by MAA_ID
+
+#########################
+
+MAA_TYPE_NAME – Type of Miscellaneous Activity Area
+
+               AEROBATIC PRACTICE
+               GLIDER
+               HANG GLIDER
+               SPACE LAUNCH
+               ULTRALIGHT
+               UNMANNED AIRCRAFT
+               OTHER
+
+NAV_ID – NAVAID Facility Identifier with which MAA is Associated.
+
+NAV_TYPE – NAVAID Facility Type with which the MAA is Associated.
+
+       TYPE                    Description
+       ------                  ---------------
+       CONSOLAN                A Low Frequency, Long-Distance NAVAID Used Principally for
+                               Transoceanic navigation.
+       DME                     Distance Measuring Equipment only.
+
+       FAN MARKER              There are 3 types of EN ROUTE Market Beacons. FAN MARKER,
+                               Low powered FAN MARKERS and Z MARKERS. A FAN MARKER
+                               Is used to provide a positive identification of positions at
+                               Definite points along the airways.
+       MARINE NDB              A NON Directional Beacon used primarily for Marine (surface)
+                               Navigation.
+       MARINE NDB/DME          A NON Directional Beacon with associated Distance measuring
+                               Equipment; used primarily for Marine (surface) Navigation.
+       NDB                     A NON Directional Beacon
+       NDB/DME                 Non Directional Beacon with associated Distance Measuring
+                               Equipment.
+       TACAN                   A Tactical Air Navigation System providing Azimuth and Slant
+                               Range Distance.
+       UHF/NDB                 Ultra High Frequency/NON Directional Beacon.
+       VOR                     A VHF OMNI-Directional Range providing Azimuth only.
+       VORTAC                  A Facility consisting of two components, VOR and TACAN,
+                               Which provides three individual services: VOR AZIMITH,
+                               TACAN AZIMUTH and TACAN Distance (DME) at one site.
+       VOR/DME                 VHF OMNI-DIRECTIONAL Range with associated Distance
+                               Measuring equipment.
+       VOT                     A FAA VOR Test Facility.
+
+
+NAV_RADIAL – Azimuth (Degrees) From NAVAID (0-359.99)
+
+NAV_DISTANCE – Distance, In Nautical Miles, From NAVAID
+
+STATE_CODE – MAA State Abbreviation (Two-Letter Post Office)
+
+CITY – MAA Associated City Name
+
+LATITUDE – MAA Latitude (Formatted)
+LONGITUDE – MAA Longitude (Formatted)
+
+ARPT_IDS – LIST of Landing Facility Identifiers with which MAA is Associated.
+
+NEAREST_ARPT – Nearest Airport ID Only Applies to Space Launch Activity Areas
+
+NEAREST_ARPT_DIST – Nearest Airport Distance in Nautical Miles Only Applies to Space Launch Activity
+Areas
+
+NEAREST_ARPT_DIR – Nearest Airport Direction Only Applies to Space Launch Activity Areas
+
+MAA_NAME – MAA Area Name
+
+MAX_ALT – MAA Maximum Altitude Allowed
+
+MIN_ALT – MAA Minimum Altitude Allowed
+
+MAA_RADIUS – MAA Area Radius, in Nautical Miles from Center Point
+
+DESCRIPTION – Additional Descriptive Text for MAA Area
+
+MAA_USE – MAA Use Description
+
+CHECK_NOTAMS – Check for NOTAMs Only Applies to Space Launch Activity Areas
+
+TIME_OF_USE – Times of Use Description
+
+USER_GROUP_NAME – MAA User Group Name and Description
+
+
+
+MAA_CON ordered by MAA_ID, FREQ_SEQ
+
+#################################################
+
+FREQ_SEQ – Unique Sequence number for Frequency Contact entries
+
+FAC_ID – Contact Facility Identifier
+
+FAC_NAME – Contact Facility Name
+
+COMMERCIAL_FREQ – Commercial Frequency
+
+COMMERCIAL_CHART_FLAG – Commercial Chart Flag
+
+MIL_FREQ– Military Frequency
+
+MIL_CHART_FLAG – Military Chart Flag
+
+
+
+MAA_ RMK ordered by MAA_ID, TAB_NAME, REF_COL_NAME, REF_COL_SEQ_NO
+
+##################################################################
+
+TAB_NAME – NASR table associated with Remark.
+REF_COL_NAME – NASR Column name associated with Remark. Non-specific remarks are identified as
+GENERAL_REMARK.
+
+REF_COL_SEQ_NO – Sequence number assigned to Reference Column Remark.
+
+REMARK – Remark Text (Free Form Text that further describes a specific Information Item.)
+
+
+
+MAA_SHP ordered by MAA_ID, POINT_SEQ
+
+#################################################
+
+POINT_SEQ – Unique Sequence number for MAA Polygon Coordinates.
+
+LATITUDE – MAA Polygon Coordinate Latitude (Formatted)
+
+LONGITUDE – MAA Polygon Coordinate Longitude (Formatted)

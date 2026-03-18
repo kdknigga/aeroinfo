@@ -1,0 +1,225 @@
+                                           AIRWAY DATA
+
+                         COMMA-SEPARATED VALUES (CSV) RECORD LAYOUT
+
+                                            (AWY-FILES)
+
+
+
+INFORMATION EFFECTIVE DATE: 01/22/2026
+
+       RECORD FORMAT: COMMA DELIMITED WITH ALL TEXT FIELDS ENCLOSED WITHIN DOUBLE-
+       QUOTE CHARACTERS
+
+       LOGICAL RECORD INTERVAL: ALL RECORDS HAVE THE SAME NUMBER OF FIELDS, IN THE SAME
+       ORDER AND RECORD ENDS AT A LINE TERMINATOR
+
+       DATA HEADERS: FIRST ROW CONTAINS FIELD NAMES
+
+       AWY FILES: AWY_BASE, AWY_SEG_ALT
+
+       COMMON TO ALL FIX FILES: EFF_DATE, REGULATORY, AWY_LOCATION, AWY_ID
+
+
+
+GENERAL INFORMATION:
+
+   1. The AWY_*.csv files were designed to replace the legacy ATS.txt and AWY.txt Subscriber Files.
+   2. AWY_*.csv files contain the applicable data found in the legacy ATS.txt and AWY.txt Subscriber
+      Files. Data, while comparable to the legacy Subscriber files, is in some cases organized and
+      presented in a different way.
+   3. Please enter any feedback in the Aeronautical Information Portal.
+       https://nfdc.faa.gov/nfdcApps/controllers/PublicSecurity/nfdcLogin
+
+
+                                         FIELD DESCRIPTION
+
+COMMON TO ALL
+
+##############
+
+EFF_DATE – The 28 Day NASR Subscription Effective Date in format ‘YYYY/MM/DD’.
+
+REGULATORY – Identifies Airways published under 14 CFR (Code of Federal Regulation) Part-71 and Part-
+95 – Y/N.
+
+AWY_LOCATION – Airway Type which identifies the General Location of the Airway.
+
+               ENCODE          DECODE
+               ------          ------------------
+               A               ALASKA AIRWAY
+               H               HAWAII AIRWAY
+               C               U.S. CONTIGUOUS AIRWAY
+AWY_ID – Airway Identifier.
+
+
+
+AWY_BASE ordered by and unique key: AWY_ID, AWY_LOCATION
+
+#########################
+
+AWY_DESIGNATION – Airway Designation.
+
+                ENCODE         DECODE
+                ------         ------------------
+                A              AMBER COLORED AIRWAY
+                AT             ATLANTIC AIRWAY
+                B              BLUE COLORED AIRWAY
+                BF             BAHAMA AIRWAY
+                G              GREEN COLORED AIRWAY
+                J              JET AIRWAY
+                PA             PACIFIC AIRWAY
+                PR             PUERTO RICO AIRWAY
+                R              RED COLORED AIRWAY
+                RN             GPS RNAV AIRWAY
+                V              VOR AIRWAY
+
+UPDATE_DATE – The Last Date for which the AIRWAY Data amended.
+
+REMARK – Remark Text (Free Form Text that further describes a specific Information Item.)
+
+AIRWAY_STRING – List of FIX and NAVAID that make up the AIRWAY in order adapted.
+
+
+
+AWY_SEG_ALT ordered by AWY_ID, AWY_LOCATION, POINT_SEQ; unique key: AWY_ID,
+AWY_LOCATION, FROM_POINT
+
+#########################
+
+POINT_SEQ – Sequencing number in multiples of ten. Points are in order adapted for given Airway.
+
+FROM_POINT – NAVAID Facility Identifier, FIX Name or Border crossing. A Unique system generated
+number is added to each Border crossing Segment Value. This number while unique is not necessarily
+sequential.
+
+FROM_PT_TYPE – NAVAID Facility or FIX Type.
+
+       TYPE                    Description
+       ------                  ---------------
+       CN                      COMPUTER NAVIGATION FIX
+       MR                      MILITARY REPORTING POINT
+       MW                      MILITARY WAYPOINT
+       NRS                     NRS WAYPOINT
+        RADAR                   RADAR
+        RP                      REPORTING POINT
+        VFR                     VFR WAYPOINT
+        WP                      WAYPOINT
+
+        CONSOLAN                A Low Frequency, Long-Distance NAVAID Used Principally for
+                                Transoceanic navigation.
+        DME                     Distance Measuring Equipment only.
+        FAN MARKER              There are 3 types of EN ROUTE Market Beacons. FAN MARKER,
+                                Low powered FAN MARKERS and Z MARKERS. A FAN MARKER
+                                Is used to provide a positive identification of positions at
+                                Definite points along the airways.
+        MARINE NDB              A NON Directional Beacon used primarily for Marine (surface)
+                                Navigation.
+        MARINE NDB/DME          A NON Directional Beacon with associated Distance measuring
+                                Equipment; used primarily for Marine (surface) Navigation.
+        NDB                     A NON Directional Beacon
+        NDB/DME                 Non Directional Beacon with associated Distance Measuring
+                                Equipment.
+        TACAN                   A Tactical Air Navigation System providing Azimuth and Slant
+                                Range Distance.
+        UHF/NDB                 Ultra High Frequency/NON Directional Beacon.
+        VOR                     A VHF OMNI-Directional Range providing Azimuth only.
+        VORTAC                  A Facility consisting of two components, VOR and TACAN,
+                                Which provides three individual services: VOR AZIMITH,
+                                TACAN AZIMUTH and TACAN Distance (DME) at one site.
+        VOR/DME                 VHF OMNI-DIRECTIONAL Range with associated Distance
+                                Measuring equipment.
+        VOT                     A FAA VOR Test Facility.
+
+
+NAV_NAME – NAVAID Facility Name
+
+NAV_CITY – The NAVIAD Facility City which is part of the key for all NAV_*.csv files.
+
+ARTCC – Identifier of Low ARTCC Altitude Boundary That the FROM_POINT FIX/NAVAID Falls Within.
+
+ICAO_REGION_CODE – This is the two letter ICAO Region Code for FIX Point Types only.
+
+STATE_CODE – Associated State Post Office Code standard two letter abbreviation for US States and
+Territories.
+
+COUNTRY_CODE – Country Post Office Code
+
+TO_POINT – The To Point that directly follows the current From Point on an individual segment.
+
+MAG_COURSE – Segment Magnetic Course
+
+OPP_MAG_COURSE – Segment Magnetic Course - Opposite Direction
+MAG_COURSE_DIST – Distance to Next Point in Segment in Nautical Miles.
+
+CHGOVR_PT – NAVAID Changeover Point Facility Identifier
+
+CHGOVR_PT_NAME – NAVAID Changeover Point Facility Name
+
+CHGOVR_PT_DIST – This Field Contains The Distance In Nautical Miles Of The Changeover Point
+Between This NAVAID Facility And The Next NAVAID Facility When The Changeover Point Is More Than
+One Mile From Half-Way Point.
+
+AWY_SEG_GAP_FLAG – Airway Gap Flag Indicator for when Airway Discontinued – Y/N.
+
+SIGNAL_GAP_FLAG – Gap in Signal Coverage Indicator for when Mea established With a Gap in
+Navigation Signal Coverage - Y/N.
+
+DOGLEG – A Turn Point Not At A NAVAID – Y/N. Note: GPS RNAV Routes [Q, T, TK] will have Dogleg=Y at
+First Point, End Point, And All Turn Points in between.
+
+NEXT_MEA_PT – The To MEA_PT that directly follows the From MEA_PT for an individual Altitude
+record.
+
+MIN_ENROUTE_ALT – Point To Point Minimum Enroute Altitude (MEA)
+
+MIN_ENROUTE_ALT_DIR – Point To Point Minimum Enroute Direction (MEA)
+
+MIN_ENROUTE_ALT_OPPOSITE – Point To Point Minimum Enroute Altitude (MEA-Opposite Direction)
+
+MIN_ENROUTE_ALT_OPPOSITE_DIR – Point To Point Minimum Enroute Direction (MEA-Opposite
+Direction)
+
+GPS_MIN_ENROUTE_ALT – Point To Point GNSS Minimum Enroute Altitude (Global Navigation Satellite
+System MEA)
+
+GPS_MIN_ENROUTE_ALT_DIR – Point To Point GNSS Minimum Enroute Direction (Global Navigation
+Satellite System MEA)
+
+GPS_MIN_ENROUTE_ALT_OPPOSITE – Point To Point GNSS Minimum Enroute Altitude (Global
+Navigation Satellite System MEA-Opposite Direction)
+
+GPS_MEA_OPPOSITE_DIR – Point To Point GNSS Minimum Enroute Direction (Global Navigation Satellite
+System MEA-Opposite Direction)
+
+DD_IRU_MEA – Point To Point DME/DME/IRU Minimum Enroute Altitude (MEA)
+
+DD_IRU_MEA_DIR – Point To Point DME/DME/IRU Minimum Enroute Direction (MEA)
+
+DD_I_MEA_OPPOSITE – Point To Point DME/DME/IRU Minimum Enroute Altitude (MEA- Opposite
+Direction)
+
+DD_I_MEA_OPPOSITE_DIR – Point To Point DME/DME/IRU Minimum Enroute Direction (MEA- Opposite
+Direction)
+
+MIN_OBSTN_CLNC_ALT – Point To Point Minimum Obstruction Clearance Altitude (MOCA)
+MIN_CROSS_ALT – Minimum Crossing Altitude (MCA)
+
+MIN_CROSS_ALT_DIR – Minimum Crossing Direction (MCA)
+
+MIN_CROSS_ALT_NAV_PT – Minimum Crossing Altitude (MCA) Point
+
+MIN_CROSS_ALT_OPPOSITE – Minimum Crossing Altitude (MCA- Opposite Direction)
+
+MIN_CROSS_ALT_OPPOSITE_DIR – Minimum Crossing Direction (MCA- Opposite Direction)
+
+MIN_RECEP_ALT – FIX Minimum Reception Altitude (MRA)
+
+MAX_AUTH_ALT – Point To Point Maximum Authorized Altitude (MAA)
+
+MEA_GAP – Identifies whether a given Airway Segment is Unusable – “U” or contains No MEA
+information – “N”.
+
+REQD_NAV_PERFORMANCE – Required Navigation Performance (RNP) value.
+
+REMARK – Remark Text (Free Form Text that further describes a specific Information Item.)

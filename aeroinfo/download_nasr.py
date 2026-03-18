@@ -77,6 +77,17 @@ def extract_nasr_zip(zip_path: str) -> str:
     with zipfile.ZipFile(zip_path, "r") as f:
         f.extractall(path=extract_dir)
 
+    csv_zip_dir = Path(extract_dir) / "CSV_Data/"
+    csv_zip_list: list = list(csv_zip_dir.glob("*_CSV.zip"))
+    if len(csv_zip_list) != 1:
+        msg = f"Expected exactly one CSV zip file in {csv_zip_dir}, found {len(csv_zip_list)}"
+        raise RuntimeError(msg)
+
+    csv_zip_file: Path = csv_zip_list[0]
+    logger.info("Extracting CSV zip file %s", csv_zip_file)
+    with zipfile.ZipFile(csv_zip_file, "r") as f:
+        f.extractall(path=csv_zip_dir)
+
     logger.info("Extraction complete")
     return extract_dir
 

@@ -1,0 +1,138 @@
+                                ASOS/AWOS
+                         DATA BASE RECORD LAYOUT
+                               (AWOS-FILE)
+
+
+
+INFORMATION EFFECTIVE DATE: 04/05/2012 CHARTING CYCLE
+
+    RECORD FORMAT: FIXED
+    LOGICAL RECORD LENGTH: 255
+
+FILE STRUCTURE DESCRIPTION:
+---------------------------
+
+    THER ARE A VARIABLE NUMBER OF FIXED-LENGTH RECORDS FOR
+    EACH ASOS/AWOS.  THE NUMBER OF RECORDS IS DETERMINED BY
+    THE NUMBER OF REMARK FIELDS RELATED TO EACH ASOS/AWOS.
+    THE RECORDS ARE IDENTIFIABLE BY A RECORD TYPE
+    INDICATOR (AWOS1, AWOS2), WX SENSOR INDENT AND
+    WX SENSOR TYPE.
+
+    EACH RECORD ENDS WITH A CARRIAGE RETURN CHARACTER AND LINE FEED
+    CHARACTER (CR/LF). THIS LINE TERMINATOR IS NOT INCLUDED IN THE
+    LOGICAL RECORD LENGTH.
+
+
+DESCRIPTION OF THE RECORD TYPES:
+--------------------------------
+
+    AN 'AWOS1' RECORD TYPE CONTAINS THE MAIN ASOS/AWOS DATA FOR
+    THE RESPECTIVE WX SENSOR INDENT AND SENSOR TYPE. THERE IS ALWAYS AN
+    AWOS1 RECORD.
+
+    AN 'AWOS2' RECORD TYPE CONTAINS ONE 200 CHARACTER
+    REMARK PERTAINING TO THE PRECEDING AWOS1 RECORD. THERE CAN BE
+    ZERO, ONE, OR MANY AWOS2 RECORDS FOR EACH AWOS1 RECORD.
+
+    EACH AWOS2 RECORD CONTAINS THE BASIC ASOS/AWOS IDENTIFYING
+    INFORMATION (WX SENSOR INDENT AND WX SENSOR TYPE).
+
+
+    GENERAL INFORMATION:
+    1.  LEFT JUSTIFIED FIELDS HAVE TRAILING BLANKS
+    2.  RIGHT JUSTIFIED FIELDS HAVE LEADING BLANKS
+    3.  ELEMENT NUMBER IS FOR INTERNAL REFERENCE ONLY
+           AND NOT IN RECORD
+    4.  THE UNIQUE AWOS IDENTIFIER IS MADE UP OF
+           WX SENSOR INDENT AND WX SENSOR TYPE
+
+
+*********************************************************************
+
+            'AWOS1' RECORD TYPE - BASE DATA
+
+*********************************************************************
+
+
+J  T   L    S L    E N
+U  Y   E    T O    L U
+S  P   N    A C    E M
+T  E   G    R A    M B
+       T    T T    E E
+       H      I    N R
+              O    T
+              N            FIELD DESCRIPTION
+L  AN  0005 00001  N/A     RECORD TYPE INDICATOR.
+                             AWOS1:  ASOS/AWOS FOR RESPECTIVE
+                             WX SENSOR INDENT AND WX SENSOR TYPE
+L  AN  0004 00006  N/A     WX SENSOR IDENT
+L  AN  0010 00010  N/A     WX SENSOR TYPE
+                             ASOS
+                             AWOS-1
+                             AWOS-2
+                             AWOS-3
+                             AWOS-4
+                             AWOS-A
+                             ASOS-A
+                             ASOS-B
+                             ASOS-C
+                             ASOS-D
+                             AWSS
+                             AWOS-3T
+                             AWOS-3P
+                             AWOS-3PT
+                             AWOS-AV
+                             WEF
+                             SAWS
+L  AN  0001 00020  N/A     COMMISSIONING STATUS
+                             Y - YES
+                             N - NO
+L  AN  0010 00021  N/A     COMMISSIONING/DECOMMISSIONING DATE (MM/DD/YYYY)
+L  AN  0001 00031  N/A     NAVAID FLAG - WX SENSOR ASSOCIATED WITH NAVAID
+                             Y - YES
+                             N - NO
+L  AN  0014 00032  N/A     STATION LATITUDE
+                             DD-MM-SS.SSSSH
+L  AN  0015 00046  N/A     STATION LONGITUDE
+                             DDD-MM-SS.SSSSH
+L  AN  0007 00061  N/A     ELEVATION
+                             (EX. 12345.6)
+L  AN  0001 00068  N/A     SURVEY METHOD CODE
+                             E - ESTIMATED
+                             S - SURVEYED
+L  AN  0007 00069  N/A     STATION FREQUENCY
+L  AN  0007 00076  N/A     SECOND STATION FREQUENCY
+L  AN  0014 00083  N/A     STATION TELEPHONE NUMBER
+L  AN  0014 00097  N/A     SECOND STATION TELEPHONE NUMBER
+L  AN  0011 00111  A0      LANDING FACILITY SITE NUMBER WHEN STATION LOCATED
+                             AT AIRPORT (EX. 04508.*A)
+L  AN  0040 00122  N/A     STATION CITY
+L  AN  0002 00162  N/A     STATION STATE POST OFFICE CODE (EX. IL)
+L  AN  0010 00164  N/A     INFORMATION EFFECTIVE DATE (MM/DD/YYYY)
+                             THIS DATE COINCIDES WITH THE 56-DAY CHARTING AND
+                             PUBLICATION CYCLE DATE
+       0082 00174  N/A     BLANKS: FILLER
+
+*********************************************************************
+
+            'AWOS2' RECORD TYPE - ASOS/AWOS REMARKS
+
+*********************************************************************
+
+J  T  L    S L    E N
+U  Y  E    T O    L U
+S  P  N    A C    E M
+T  E  G    R A    M B
+      T    T T    E E
+      H      I    N R
+             O    T
+             N             FIELD DESCRIPTION
+L AN  0005 00001  N/A      RECORD TYPE INDICATOR.
+                             AWOS2:  ASOS/AWOS REMARKS FOR RESPECTIVE
+                             WX SENSOR INDENT AND SENSOR TYPE
+L AN  0004 00006  N/A      WX SENSOR IDENT
+L AN  0010 00010  N/A      WX SENSOR TYPE
+L AN  0236 00020  RMRKS    ASOS/AWOS REMARKS, FREE-FORM TEXT.
+                           FOR REMARKS REFERENCE A SPECIFIC ELEMENT, THE REMARK
+                           WILL BE PRECEDED BY THE DATA ELEMENT NAME.

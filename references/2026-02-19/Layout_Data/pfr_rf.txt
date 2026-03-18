@@ -1,0 +1,194 @@
+`
+                            PREFERRED ROUTE
+                        DATA BASE RECORD LAYOUT
+                              (PFR-FILE)
+
+INFORMATION EFFECTIVE DATE: 07/19/2018
+
+    RECORD FORMAT: FIXED
+    LOGICAL RECORD LENGTH: 344
+
+
+
+FILE STRUCTURE DESCRIPTION:
+---------------------------
+
+    THERE ARE A VARIABLE NUMBER OF FIXED-LENGTH RECORDS FOR
+    EACH PREFERRED ROUTE (PFR).  THE NUMBER OF RECORDS IS
+    DETERMINED BY THE NUMBER OF SEGMENTS USED TO DESCRIBE THE
+    ROUTE. THE DIFFERENT RECORD TYPES WILL BE IDENTIFIABLE BY A
+    RECORD TYPE INDICATOR (PFR1 OR PFR2) AND THE ROUTE IDENTIFIER
+    (ORIGIN IDENT, DESTINATION IDENT, AND ROUTE TYPE CODE). BECAUSE
+    THERE CAN BE MORE THAN ONE PREFERRED ROUTE BETWEEN TWO LOCATIONS,
+    A SEQUENCE NUMBER IS INCLUDED IN THE ROUTE IDENTIFIER TO INSURE
+    THAT A UNIQUE ROUTE IDENTIFIER IS PRESENT. THE ROUTE SEGMENT
+    RECORDS ARE ALSO ORDERED BY A SEQUENCE NUMBER. THE FILE IS
+    SORTED BY ROUTE ID, RECORD TYPE, AND SEGMENT SEQUENCE NUMBER.
+
+    EACH RECORD ENDS WITH A CARRIAGE RETURN CHARACTER AND LINE FEED
+    CHARACTER (CR/LF). THIS LINE TERMINATOR IS NOT INCLUDED IN THE
+    LOGICAL RECORD LENGTH.
+
+DESCRIPTION OF THE RECORD TYPES:
+--------------------------------
+
+    'PFR1' RECORD TYPE CONTAINS THE BASE PREFERRED ROUTE DATA.
+    IT CONTAINS DESCRIPTIVE INFORMATION THAT IS APPLICABLE TO THE
+    ENTIRE ROUTE. THERE IS ALWAYS A PFR1 RECORD.
+
+    'PFR2' RECORD TYPE CONTAINS DATA TO DESCRIBE ONE SEGMENT ALONG
+    THE ROUTE. IT IDENTIFIES THE SEGMENT TYPE (AIRWAY, NAVAID,
+    FIX, ETC.) AND PROVIDES ADDITIONAL INFORMATION TO DESCRIBE
+    THE SEGMENT, DEPENDING ON THE TYPE OF SEGMENT. THERE CAN BE
+    ANY NUMBER OF PFR2 RECORDS (INCLUDING NONE AT ALL).
+
+
+GENERAL INFORMATION:
+--------------------
+     1.  LEFT JUSTIFIED FIELDS HAVE TRAILING BLANKS
+     2.  RIGHT JUSTIFIED FIELDS HAVE LEADING BLANKS
+     3.  ELEMENT NUMBER IS FOR INTERNAL REFERENCE ONLY
+         AND NOT IN RECORD
+     4.  THE PFR ROUTE ID (ELEMENT NUMBER:DLID) IS MADE UP OF THE ORIGIN IDENT,
+         DESTINATION IDENT, ROUTE TYPE, AND A SEQUENCE NUMBER TO DISTINGUISH
+         MULTIPLE ROUTES BETWEEN TWO POINTS.
+
+         Note: For Tower Enroute Control (TEC) routes in the Northern
+         California TRACON (NORCAL), the "Aircraft Allowed/Limitations
+         Description" column is also used to include a local "Route ID", e.g.
+         HWD01, SJC73, OAK10.  The "Route Direction Limitations Description"
+         may contain a code that indicates this route is used when SFO is in
+         either "East" or "West" traffic configuration, e.g. SFOE, SFOW.
+
+         For TEC routes in the Southern California TRACON (SOCAL), the "Route
+         Direction Limitations Description" column will contain this local
+         "Route ID", e.g. CSTP54, BURP16, ONTP12.
+
+         These "Route IDs" are local conventions of the respective TRACONs.
+
+
+*********************************************************************
+
+            'PFR1' RECORD TYPE - BASE ROUTE DATA
+
+********************************************************************
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+
+L AN   04 00001  N/A     RECORD TYPE INDICATOR.
+                           PFR1:  BASE ROUTE DATA
+L AN 0005 00005  DLID    ORIGIN FACILITY LOCATION IDENTIFIER
+                         (DEPENDING ON NAR TYPE AND DIRECTION,
+                         ORIGIN FACILITY IS EITHER COASTAL FIX
+                         OR INLAND NAV FACILITY OR FIX*)
+L AN 0005 00010  DLID    DESTINATION FACILITY LOCATION IDENTIFIER
+                         (DEPENDING ON NAR TYPE AND DIRECTION,
+                         DESTINATION FACILITY IS EITHER AIRPORT,
+                         COASTAL FIX OR INLAND NAV FACILITY OR FIX*)
+L AN 0003 00015  DLID    TYPE OF PREFERRED ROUTE (CODE)
+                           L, H, LSD, HSD, SLD, SHD, TEC, NAR
+                             (FULLY DESCRIBED BELOW)
+R  N 0002 00018  DLID    ROUTE IDENTIFIER SEQUENCE NUMBER (1-99)
+L AN 0030 00020  N/A     TYPE OF PREFERRED ROUTE (DESCRIPTION)
+
+                         CODE   DESCRIPTION
+                         ----   -------------------------------
+
+                         L      LOW ALTITUDE
+                         H      HIGH ALTITUDE
+                         LSD    LOW ALT SINGLE DIR
+                         HSD    HIGH ALT SINGLE DIR
+                         SLD    SPECIAL LOW ALT DIRECTIONAL
+                         SHD    SPECIAL HIGH ALT DIRECTIONAL
+                         TEC    TOWER ENROUTE CONTROL
+                         NAR    NORTH AMERICAN ROUTE
+
+L AN 0075 00050  PR20    PREFERRED ROUTE AREA DESCRIPTION
+L AN 0040 00125  PR21    PREFERRED ROUTE ALTITUDE DESCRIPTION
+L AN 0050 00165  PR22    AIRCRAFT ALLOWED/LIMITATIONS DESCRIPTION
+L AN 0015 00215  PR25    EFFECTIVE HOURS (GMT) DESCRIPTION (1)
+                         *  ALL PREFERRED IFR ROUTES ARE IN EFFECT
+                            CONTINUOUSLY UNLESS OTHERWISE NOTED.
+L AN 0015 00230  PR25    EFFECTIVE HOURS (GMT) DESCRIPTION (2)
+L AN 0015 00245  PR25    EFFECTIVE HOURS (GMT) DESCRIPTION (3)
+L AN 0020 00260  PR26    ROUTE DIRECTION LIMITATIONS DESCRIPTION
+L AN 0020 00280  N/A     NAR TYPE (COMMON,NON-COMMON)
+L AN 0005 00300  N/A     DESIGNATOR
+L AN 0040 00305  N/A     DESTINATION CITY
+
+                         *FOR NAR TYPE ROUTES
+                         COMMON EASTBOUND
+                         INLAND NAV FAC OR FIX > COASTAL FIX
+                         COMMON WESTBOUND
+                         COASTAL FIX > INLAND NAV FAC OR FIX
+                         NON-COMMON (EITHER DIRECTION)
+                         INLAND NAV FAC OR FIX > DESTINATION
+
+
+********************************************************************
+
+     'PFR2' RECORD TYPE - PREFERRED ROUTE SEGMENT DESCRIPTION
+
+*******************************************************************
+
+J  T   L   S L   E N
+U  Y   E   T O   L U
+S  P   N   A C   E M
+T  E   G   R A   M B
+       T   T T   E E
+       H     I   N R
+             O   T
+             N           FIELD DESCRIPTION
+
+L AN   04 00001  N/A     RECORD TYPE INDICATOR.
+                           PFR2:  PREFERRED ROUTE SEGMENT DATA
+L AN 0005 00005  DLID    ORIGIN FACILITY LOCATION IDENTIFIER
+L AN 0005 00010  DLID    DESTINATION FACILITY LOCATION IDENTIFIER
+L AN 0003 00015  DLID    TYPE OF PREFERRED ROUTE (CODE)
+                           L, H ,LSD, HSD, SLD, SHD, TEC, NAR
+                             (FULLY DESCRIBED BELOW)
+R  N 0002 00018  DLID    ROUTE IDENTIFIER SEQUENCE NUMBER (1-99)
+L AN 0003 00020  PR23/4  SEGMENT SEQUENCE NUMBER WITHIN THE ROUTE
+L AN 0048 00023  PR23/4  SEGMENT IDENTIFIER (NAVAID IDENT, AWY NUMBER
+                           FIX NAME, DP NAME, STAR NAME)
+L AN 0007 00071  GEN     SEGMENT TYPE (DESCRIBED)
+                           AIRWAY,FIX,DP,STAR,NAVAID,UNKNOWN
+L AN 0002 00078  PR23    FIX STATE CODE - POST OFFICE ALPHA CODE
+                           BLANK IF NOT A FIX SEGMENT
+L AN 0002 00080  N/A     ICAO REGION CODE
+L AN 0002 00082  PR23    NAVAID FACILITY TYPE (CODE)
+                           C,D,F,L,M,MD,O,OD,R,RD,T,U,V
+                           CODES ARE DESCRIBED BELOW
+                           BLANK IF NOT A NAVAID SEGMENT
+L AN 0020 00084  PR23    NAVAID FACILITY TYPE (DESCRIBED)
+                           BLANK IF NOT A NAVAID SEGMENT
+
+                           CODE   DESCRIPTION
+                           ----   ------------------------
+                             C    VORTAC
+                             D    VOR-DME
+                             F    FAN MARKER
+                             L    LFR
+                             M    MARINE NDB
+                             MD   MARINE NDB/DME
+                             O    VOT
+                             OD   DME
+                             R    NDB
+                             RD   NDB/DME
+                             T    TACAN
+                             U    UHF NDB
+                             V    VOR
+
+L AN 0007 00104  PR23    RADIAL AND DISTANCE FROM NAVAID
+                           RRR OR RRR/DDD
+                           BLANK IF NOT A NAVAID SEGMENT
+                           BLANK IF SEGMENT IS DIRECTLY TO THE NAVAID
+L AN 0234 00111  N/A       BLANK
